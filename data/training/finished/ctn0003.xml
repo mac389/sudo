@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project>
+<<<<<<< HEAD
+  <ProjectTitle>Buprenorphine Tapering Schedule and Illicit Opioid Use</ProjectTitle>
+=======
   <ProjectTitle>CTN Dissemination Library [no.323]: Buprenorphine Tapering Schedule and Illicit Opioid Use.
   </ProjectTitle>
+>>>>>>> c3097cb46d441f4f9e3ebce888570c29d03497ab
   <CitationSet>
     <Citation>
       <CitationType>Current</CitationType>

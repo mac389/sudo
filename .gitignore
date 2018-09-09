@@ -1,2 +1,8 @@
 data/Area 51/
 ./idea
+.DS_Store
+data/.DS_Store
+data/training/.DS_Store
+src/external ontologies/
+src/.DS_store
+src/external ontologies/chebi_lite.owl

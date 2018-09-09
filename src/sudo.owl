@@ -9,16 +9,26 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:doid="http://purl.obolibrary.org/obo/doid#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:eco="http://purl.obolibrary.org/obo/eco#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-     xmlns:terms="http://purl.org/dc/terms/"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:iao="http://purl.obolibrary.org/obo/iao/"
      xmlns:ace_lexicon="http://attempto.ifi.uzh.ch/ace_lexicon#"
+     xmlns:uo="http://purl.obolibrary.org/obo/uo#"
+     xmlns:eco="http://purl.obolibrary.org/obo/eco#"
+     xmlns:terms="http://purl.org/dc/terms/"
      xmlns:obo="http://purl.obolibrary.org/obo/"
      xmlns:ontology="http://purl.url/sudo/ontology#"
      xmlns:foaf="http://xmlns.com/foaf/0.1/"
      xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12">
+        <owl:imports rdf:resource="http://purl.obolibrary.org/obo/cmo/2.42/cmo.owl"/>
+        <owl:imports rdf:resource="http://purl.obolibrary.org/obo/MF.owl"/>
+        <owl:imports rdf:resource="http://purl.obolibrary.org/obo/uo/releases/2018-01-07/uo.owl"/>
+        <owl:imports rdf:resource="http://purl.obolibrary.org/obo/iao/2017-03-24/iao.owl"/>
+        <owl:imports rdf:resource="http://purl.obolibrary.org/obo/ro/core.owl"/>
+        <rdfs:label xml:lang="en">Sudo: Substance Use Disorders Ontology</rdfs:label>
+        <dc:title xml:lang="en">Sudo: Substance Use Disorders Ontology</dc:title>
+    </owl:Ontology>
     <owl:Ontology rdf:about="http://purl.org/sudo/ontology/sudo.owl">
         <owl:imports rdf:resource="http://purl.obolibrary.org/obo/MFOMD.owl"/>
         <owl:imports rdf:resource="http://purl.obolibrary.org/obo/eco/releases/2018-01-09/eco.owl"/>
@@ -453,6 +463,8 @@
     
 
 
+
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#Organization -->
     <!-- http://purl.url/sudo/ontology#CTN-032 -->
 
     <owl:Class rdf:about="http://purl.url/sudo/ontology#CTN-032">
@@ -493,6 +505,7 @@
     
 
 
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#Study -->
     <!-- http://purl.url/sudo/ontology#Cocaine -->
 
     <owl:Class rdf:about="http://purl.url/sudo/ontology#Cocaine">
@@ -502,6 +515,7 @@
 
 
     <!-- http://purl.url/sudo/ontology#Community_health_services -->
+
 
     <owl:Class rdf:about="http://purl.url/sudo/ontology#Community_health_services">
         <rdfs:subClassOf rdf:resource="http://purl.url/sudo/ontology#Keyword"/>
@@ -615,33 +629,69 @@
     
 
 
-    <!-- http://purl.url/sudo/ontology#DSM-IV_Diagnosis_of_ADHD -->
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#Buprenorphine_Tapering_Schedule_and_Illicit_Opioid_Use -->
 
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#Buprenorphine_Tapering_Schedule_and_Illicit_Opioid_Use">
+        <rdfs:label xml:lang="en">Buprenorphine Tapering Schedule and Illicit Opioid Use</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#CTN-0001 -->
+    <!-- http://purl.url/sudo/ontology#DSM-IV_Diagnosis_of_ADHD -->
     <owl:Class rdf:about="http://purl.url/sudo/ontology#DSM-IV_Diagnosis_of_ADHD">
         <rdfs:subClassOf rdf:resource="http://purl.url/sudo/ontology#Enrollment_Population"/>
         <rdfs:label>DSM-IV Diagnosis of ADHD</rdfs:label>
     </owl:Class>
     
-
-
     <!-- http://purl.url/sudo/ontology#DSM-IV_Diagnosis_of_Opioid_Dependence -->
 
     <owl:Class rdf:about="http://purl.url/sudo/ontology#DSM-IV_Diagnosis_of_Opioid_Dependence">
         <rdfs:subClassOf rdf:resource="http://purl.url/sudo/ontology#Enrollment_Population"/>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DSM-IV Diagnosis of Opioid Dependence</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- http://purl.url/sudo/ontology#DSM-IV_Diagnosis_of_SUD -->
+</owl:Class>
 
     <owl:Class rdf:about="http://purl.url/sudo/ontology#DSM-IV_Diagnosis_of_SUD">
         <rdfs:subClassOf rdf:resource="http://purl.url/sudo/ontology#Enrollment_Population"/>
         <rdfs:label>DSM-IV Diagnosis of SUD</rdfs:label>
     </owl:Class>
     
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#NIDA_Dissemination_Artifact_323 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#NIDA_Dissemination_Artifact_323">
+        <has_title rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#Buprenorphine_Tapering_Schedule_and_Illicit_Opioid_Use"/>
+        <rdfs:label xml:lang="en">NIDA Dissemination Artifact 323</rdfs:label>
+    </owl:NamedIndividual>
+    
 
 
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#Suboxone -->
+
+    <!-- http://purl.url/sudo/ontology#Dependence_on_Opioids -->
+
+    <owl:Class rdf:about="http://purl.url/sudo/ontology#Dependence_on_Opioids">
+        <rdfs:subClassOf rdf:resource="http://purl.url/sudo/ontology#Keyword"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Dependence on Opioids</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.url/sudo/ontology#Description -->
+
+    <owl:Class rdf:about="http://purl.url/sudo/ontology#Description"/>
+    
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#looking_for_treatment_for_opioid_misuse_disorder -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#looking_for_treatment_for_opioid_misuse_disorder">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#&apos;population_specification&apos;"/>
+        <rdfs:label xml:lang="en">looking for treatment for opioid misuse disorder</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#naltrexone -->
+    <!-- http://purl.url/sudo/ontology#Effectiveness_Trial -->
     <!-- http://purl.url/sudo/ontology#Dependence_on_Opioids -->
 
     <owl:Class rdf:about="http://purl.url/sudo/ontology#Dependence_on_Opioids">
@@ -658,6 +708,8 @@
 
 
     <!-- http://purl.url/sudo/ontology#Effectiveness_Trial -->
+    <!-- http://purl.url/sudo/ontology#Effectiveness_Trial -->
+
 
     <owl:Class rdf:about="http://purl.url/sudo/ontology#Effectiveness_Trial">
         <rdfs:subClassOf rdf:resource="http://purl.url/sudo/ontology#Keyword"/>
@@ -673,8 +725,44 @@
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Enrollment Population</rdfs:label>
     </owl:Class>
     
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#suffers_from_opioid_misuse_disorder -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#suffers_from_opioid_misuse_disorder">
+        <rdf:type rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#&apos;population_specification&apos;"/>
+        <rdfs:label xml:lang="en">suffers from opioid misuse disorder</rdfs:label>
+    </owl:NamedIndividual>
+    
 
 
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#A_Multi-Center_Randomized_Trial_of_Buprenorphine-Naloxone_Versus_Clonidine_for_Opioid_Detoxification:_Findings_from_the_National_Institute_on_Drug_Abuse_Clinical_Trials_Network -->
+    <!-- http://purl.url/sudo/ontology#Enrollment_in_a_training_program -->
+
+    <owl:Class rdf:about="http://purl.url/sudo/ontology#Enrollment_in_a_training_program">
+        <rdfs:subClassOf rdf:resource="http://purl.url/sudo/ontology#Comparison"/>
+        <rdfs:subClassOf rdf:resource="http://purl.url/sudo/ontology#Measurement"/>
+        <rdfs:label>Enrollment in a training program</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.url/sudo/ontology#Enrollment_in_new_taxed_job -->
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#A_Multi-Center_Randomized_Trial_of_Buprenorphine-Naloxone_Versus_Clonidine_for_Opioid_Detoxification:NIDA_Dissemination_Artifact:NIDA_Dissemination_Artifact_87">
+        <rdf:type rdf:resource="http://purl.obolibrary.org/obo/IAO_0000013"/>
+        <obo:IAO_0000136 rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#CTN-0001"/>
+        <obo:IAO_0000136 rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#CTN-0002"/>
+        <hasKeyword rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#Suboxone"/>
+        <hasKeyword rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#clonidine_hydrochloride"/>
+        <hasKeyword rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#naltrexone"/>
+        <hasKeyword rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#opiate"/>
+        <hasPopulationSpecification rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#looking_for_treatment_for_opioid_misuse_disorder"/>
+        <hasPopulationSpecification rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#suffers_from_opioid_misuse_disorder"/>
+        <has_objective_specificatiokn rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#compare_suboxone_to_clonidine"/>
+        <has_title rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-12#A_Multi-Center_Randomized_Trial_of_Buprenorphine-Naloxone_Versus_Clonidine_for_Opioid_Detoxification:_Findings_from_the_National_Institute_on_Drug_Abuse_Clinical_Trials_Network"/>
+        <hasDOI xml:lang="en">10.1111/j.1360-0443.2005.01154.x</hasDOI>
+        <hasPMCID xml:lang="en">PMC1480367</hasPMCID>
+        <hasPMID rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">16042639</hasPMID>
+        <rdfs:label xml:lang="en">NIDA Dissemination Artifact 87</rdfs:label>
+    </owl:NamedIndividual>
     <!-- http://purl.url/sudo/ontology#Enrollment_in_a_training_program -->
 
     <owl:Class rdf:about="http://purl.url/sudo/ontology#Enrollment_in_a_training_program">
@@ -3885,8 +3973,6 @@ Results determined that changes in transaminase levels did not differ by medicat
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">has measurement</rdfs:label>
     </rdf:Description>
 </rdf:RDF>
-
-
 
 <!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
 
