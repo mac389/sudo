@@ -1,0 +1,16 @@
+//CTN-0049
+
+substance_user(person)
+has_HIV(person)
+poor_HIV_care_outcomes(person)
+patient_navigation(person)
+engage_with_substance_abuse_care(person)
+provide_financial_incentives(person)
+
+//Background
+
+log(0.8) !substance_user(person) v !has_HIV(person) v poor_HIV_care_outcomes(person)
+log(0.8) !patient_navigation(person) v engage_with_substance_abuse_care(person)
+log(0.8) !provide_financial_incentives(person) v engage_with_substance_abuse_care(person)
+
+//Results

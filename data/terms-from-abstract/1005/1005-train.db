@@ -1,0 +1,17 @@
+illicit_drug_user(Anna)
+illicit_drug_user(Bob)
+illicit_drug_user(Charlie)
+
+//Great impetus for testing how to generate synthetic data in Python
+
+
+racial_minority(Anna)
+racial_minority(Bob)
+
+chronically_infected_with_HCV(Bob)
+chronically_infected_with_HCV(Charlie)
+
+ethnic_minority(Bob)
+
+die_from_HCV(Bob)
+

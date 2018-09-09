@@ -1,0 +1,11 @@
+// domain declarations
+
+// predicate declarations
+poor_HIV_care_outcomes(person)
+has_HIV(person)
+patient_navigation(person)
+substance_user(person)
+
+// formulas
+12.691931   !substance_user(person) v !has_HIV(person) v poor_HIV_care_outcomes(person)
+0.000000    patient_navigation(person)

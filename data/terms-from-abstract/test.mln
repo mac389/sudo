@@ -1,0 +1,26 @@
+illicit_drug_user(person)
+newly_infected_with_HCV(person)
+evaluated_for_HCV(person)
+racial_minority(person)
+ethnic_minority(person)
+chronically_infected_with_HCV(person)
+die_from_HCV(person)
+
+//Converted to CNF
+log(0.8) !newly_infected_with_HCV(x) v illicit_drug_user(x)
+
+//Original form
+// (newly_infected_with_HCV(x) ^ evaluated_for_HCV(x)) => illicit_drug_user(x)
+log(0.8) !newly_infected_with_HCV(x) v evaluated_for_HCV(x) v illicit_drug_user(x) 
+
+log(0.8) !newly_infected_with_HCV(x) v racial_minority(x)
+log(0.8) !chronically_infected_with_HCV(x) v racial_minority(x)
+
+log(0.8) !die_from_HCV(x) v racial_minority(x)
+log(0.8) !newly_infected_with_HCV(x) v ethnic_minority(x)
+
+log(0.8) !chronically_infected_with_HCV(x) v ethnic_minority(x)
+log(0.8) !die_from_HCV(x) v ethnic_minority(x)
+
+
+

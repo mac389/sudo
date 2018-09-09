@@ -1,0 +1,20 @@
+// domain declarations
+
+// predicate declarations
+racial_minority(person)
+evaluated_for_HCV(person)
+illicit_drug_user(person)
+chronically_infected_with_HCV(person)
+ethnic_minority(person)
+die_from_HCV(person)
+newly_infected_with_HCV(person)
+
+// formulas
+0.000000    !newly_infected_with_HCV(x) v illicit_drug_user(x)
+0.000000    !newly_infected_with_HCV(x) v evaluated_for_HCV(x) v illicit_drug_user(x)
+5.970774    !newly_infected_with_HCV(x) v racial_minority(x)
+5.970774    !chronically_infected_with_HCV(x) v racial_minority(x)
+5.970774    !die_from_HCV(x) v racial_minority(x)
+5.970774    !newly_infected_with_HCV(x) v ethnic_minority(x)
+5.970774    !chronically_infected_with_HCV(x) v ethnic_minority(x)
+5.970774    !die_from_HCV(x) v ethnic_minority(x)

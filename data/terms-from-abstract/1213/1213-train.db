@@ -1,0 +1,10 @@
+substance_user(Bob)
+substance_user(Alice)
+
+patient_navigation(Alice)
+
+provide_financial_incentives(Alice)
+provide_financial_incentives(Bob)
+
+patient_navigation(Alice)
+
