@@ -1,0 +1,11 @@
+substance_user(Dan)
+!substance_user(Eric)
+
+
+/*
+become_ill(Dan)
+become_ill(Eric)
+
+die(Eric)
+die(Dan)
+*/

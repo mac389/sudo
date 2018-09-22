@@ -1,0 +1,9 @@
+substance_user(Alice)
+substance_user(Bob)
+
+
+become_ill(Alice)
+become_ill(Bob)
+
+die(Alice)
+die(Charlie)
