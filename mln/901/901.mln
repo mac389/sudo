@@ -1,0 +1,12 @@
+//CTN-0027
+
+treatment_for_opioid_dependence(drug)
+
+treatment_for_opioid_dependence(buprenorphine&naloxone)
+treatment_for_opioid_dependence(methadone)
+
+takes(drug,person)
+develops_drug_induced_hepatitis(x)
+
+log(0.01) takes(buprenorphine&naloxone,x) => develops_drug_induced_hepatitis(x)
+log(0.01) takes(methadone,x) => develops_drug_induced_hepatitis(x)
