@@ -1,0 +1,12 @@
+// domain declarations
+
+// predicate declarations
+drug_dependence(person)
+nicotine_dependence(person)
+alcohol_dependence(person)
+
+// formulas
+6.434134    drug_dependence(x) => nicotine_dependence(x)
+6.434134    alcohol_dependence(x) => nicotine_dependence(x)
+0.000000    !drug_dependence(x) => !nicotine_dependence(x)
+0.000000    !alcohol_dependence(x) => !nicotine_dependence(x)

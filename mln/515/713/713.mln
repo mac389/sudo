@@ -1,0 +1,14 @@
+//CTN-0020
+
+unemployed(person)
+negative_outcome_during_drug_abuse_treatment(person)
+negative_outcome_after_drug_abuse_treatment(person)
+
+log(0.8) !employed(x) => negative_outcome_during_drug_abuse_treatment(x)
+log(0.2) employed(x) => negative_outcome_during_drug_abuse_treatment(x)
+
+log(0.8) !employed(x) => negative_outcome_after_drug_abuse_treatment(x)
+log(0.2) employed(x) => negative_outcome_after_drug_abuse_treatment(x)
+
+log(0.8) increase_opportunities_for_employment(x) => employed(x)
+log(0.2) increase_opportunities_for_employment(x) => !employed(x)

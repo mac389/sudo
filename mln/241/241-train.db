@@ -1,0 +1,14 @@
+
+
+nicotine_dependence(Alice)
+drug_dependence(Alice)
+alcohol_dependence(Alice)
+
+nicotine_dependence(Bob)
+drug_dependence(Bob)
+alcohol_dependence(Bob)
+
+!drug_dependence(Charlie)
+!alcohol_dependence(Charlie)
+nicotine_dependence(Charlie)
+

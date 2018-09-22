@@ -1,0 +1,12 @@
+//CTN-0003
+
+//closure axioms
+short_buprenorphine_taper(person)
+long_buprenorphine_taper(person)
+opioid_free_urine_specimen(person)
+
+
+//Results
+
+log(0.5) short_buprenorphine_taper(x) => opioid_free_urine_specimen(x)
+log(0.5) long_buprenorphine_taper(x) => opioid_free_urine_specimen(x)

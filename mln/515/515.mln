@@ -1,0 +1,24 @@
+//CTN-0017
+
+drug_user(person)
+recieved_hiv_and_hcv_counseling(person)
+risky_sexual_behavior(person)
+risky_drug_behavior(person)
+
+log(0.8) (drug_user(x) & recieved_hiv_and_hcv_counseling(x)) => !risky_sexual_behavior(x)
+log(0.8) (drug_user(x) & recieved_hiv_and_hcv_counseling(x)) => !risky_drug_behavior(x)
+
+log(0.2) (drug_user(x) & recieved_hiv_and_hcv_counseling(x)) => risky_sexual_behavior(x)
+log(0.2) (drug_user(x) & recieved_hiv_and_hcv_counseling(x)) => risky_drug_behavior(x)
+
+log(0.8) (drug_user(x) & recieved_one_session_therapeutic_alliance(x)) => !risky_sexual_behavior(x)
+log(0.8) (drug_user(x) & recieved_one_session_therapeutic_alliance(x)) => !risky_drug_behavior(x)
+
+log(0.2) (drug_user(x) & recieved_one_session_therapeutic_alliance(x)) => risky_sexual_behavior(x)
+log(0.2) (drug_user(x) & recieved_one_session_therapeutic_alliance(x)) => risky_drug_behavior(x)
+
+log(0.8) (drug_user(x) & recieved_general_counseling(x)) => !risky_sexual_behavior(x)
+log(0.8) (drug_user(x) & recieved_general_counseling(x)) => !risky_drug_behavior(x)
+
+log(0.2) (drug_user(x) & recieved_general_counseling(x)) => risky_sexual_behavior(x)
+log(0.2) (drug_user(x) & recieved_general_counseling(x)) => risky_drug_behavior(x)

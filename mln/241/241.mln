@@ -1,0 +1,12 @@
+//CTN-0059
+
+nicotine_dependence(person)
+drug_dependence(person)
+alcohol_dependence(person)
+
+
+log(0.8) drug_dependence(x) => nicotine_dependence(x)
+log(0.8) alcohol_dependence(x) => nicotine_dependence(x)
+
+log(0.5) !drug_dependence(x) => !nicotine_dependence(x)
+log(0.5) !alcohol_dependence(x) => !nicotine_dependence(x)
