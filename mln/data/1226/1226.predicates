@@ -1,0 +1,3 @@
+substance_user(person)
+become_ill(person)
+die(person)

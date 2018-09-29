@@ -1,0 +1,8 @@
+log(0.8) substance_user(x) => become_ill(x)
+log(0.2) !substance_user(x) => become_ill(x)
+log(0.2) become_ill(x)
+
+//from part (2)
+log(0.8) substance_user(x) => die(x)
+log(0.2) !substance_user(x) => die(x)
+
