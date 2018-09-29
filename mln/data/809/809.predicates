@@ -1,0 +1,4 @@
+tested_for_hiv_at(site, person)
+receive_drug_abuse_treatment_at(site, person)
+
+receive_hiv_test_results(person)

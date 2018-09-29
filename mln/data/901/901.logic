@@ -1,0 +1,2 @@
+log(0.01) takes(buprenorphine&naloxone,x) => develops_drug_induced_hepatitis(x)
+log(0.01) takes(methadone,x) => develops_drug_induced_hepatitis(x)
