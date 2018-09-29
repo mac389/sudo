@@ -1,3 +1,26 @@
+//Logic Rules
+
+
+log(0.8) opioid_misuser(x) => newly_infected_with_HCV(x)
+log(0.2) opioid_misuser(x) => !newly_infected_with_HCV(x)
+log(0.2) !opioid_misuser(x) => newly_infected_with_HCV(x)
+log(0.8) !opioid_misuser(x) => !newly_infected_with_HCV(x)
+
+log(0.8) newly_infected_with_HCV(x) => opioid_misuser(x)
+log(0.8) (newly_infected_with_HCV(x) ^ evaluated_for_HCV(x)) => opioid_misuser(x)
+
+log(0.8) newly_infected_with_HCV(x) => racial_minority(x)
+log(0.8) racial_minority => newly_infected_with_HCV(x)
+log(0.8) racial_minority => chronically_infected_with_HCV(x)
+log(0.8) !chronically_infected_with_HCV(x) => !racial_minority(x)
+
+STOPPED HERE
+log(0.8) !die_from_HCV(x) v racial_minority(x)
+log(0.8) !newly_infected_with_HCV(x) v ethnic_minority(x)
+
+log(0.8) !chronically_infected_with_HCV(x) v ethnic_minority(x)
+log(0.8) !die_from_HCV(x) v ethnic_minority(x)
+
 /*
   Unification of user terms
     To describe users, studies used
@@ -22,23 +45,8 @@ ethnic_minority(person)
 chronically_infected_with_HCV(person)
 die_from_HCV(person)
 
-log(0.8) opioid_misuser(x) => newly_infected_with_HCV(x)
-log(0.2) opioid_misuser(x) => !newly_infected_with_HCV(x)
-log(0.2) !opioid_misuser(x) => newly_infected_with_HCV(x)
-log(0.8) !opioid_misuser(x) => !newly_infected_with_HCV(x)
 
-log(0.8) !newly_infected_with_HCV(x) v opioid_misuser(x)
-// (newly_infected_with_HCV(x) ^ evaluated_for_HCV(x)) => opioid_misuser(x)
-log(0.8) !newly_infected_with_HCV(x) v evaluated_for_HCV(x) v opioid_misuser(x) 
 
-log(0.8) !newly_infected_with_HCV(x) v racial_minority(x)
-log(0.8) !chronically_infected_with_HCV(x) v racial_minority(x)
-
-log(0.8) !die_from_HCV(x) v racial_minority(x)
-log(0.8) !newly_infected_with_HCV(x) v ethnic_minority(x)
-
-log(0.8) !chronically_infected_with_HCV(x) v ethnic_minority(x)
-log(0.8) !die_from_HCV(x) v ethnic_minority(x)
 
 
 /* Original terms before mapping to opioid_misuser
