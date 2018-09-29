@@ -1,19 +1,5 @@
-/*
-  Unification of user terms
-    To describe users, studies used
-    1. Illicit drug user (Study 1005)
-    2. Substance user (Study 1213)
-    3. Drug user (Study 89, 515)
-    4. Opioid addictd (424)
-    5. Drug dependence (241)
-
-
-For this study can map all to misuses opioids, 
-then discuss the semantics later. 
-*/
-
-
 //Study No. 1005
+
 illicit_drug_user(person)
 newly_infected_with_HCV(person)
 evaluated_for_HCV(person)
@@ -22,32 +8,10 @@ ethnic_minority(person)
 chronically_infected_with_HCV(person)
 die_from_HCV(person)
 
-log(0.8) opioid_misuser(x) => newly_infected_with_HCV(x)
-log(0.2) opioid_misuser(x) => !newly_infected_with_HCV(x)
-log(0.2) !opioid_misuser(x) => newly_infected_with_HCV(x)
-log(0.8) !opioid_misuser(x) => !newly_infected_with_HCV(x)
-
-log(0.8) !newly_infected_with_HCV(x) v opioid_misuser(x)
-// (newly_infected_with_HCV(x) ^ evaluated_for_HCV(x)) => opioid_misuser(x)
-log(0.8) !newly_infected_with_HCV(x) v evaluated_for_HCV(x) v opioid_misuser(x) 
-
-log(0.8) !newly_infected_with_HCV(x) v racial_minority(x)
-log(0.8) !chronically_infected_with_HCV(x) v racial_minority(x)
-
-log(0.8) !die_from_HCV(x) v racial_minority(x)
-log(0.8) !newly_infected_with_HCV(x) v ethnic_minority(x)
-
-log(0.8) !chronically_infected_with_HCV(x) v ethnic_minority(x)
-log(0.8) !die_from_HCV(x) v ethnic_minority(x)
-
-
-/* Original terms before mapping to opioid_misuser
-log(0.8) illicit_drug_user(x) => newly_infected_with_HCV(x)
-log(0.2) illicit_drug_user(x) => !newly_infected_with_HCV(x)
-log(0.2) !illicit_drug_user(x) => newly_infected_with_HCV(x)
-log(0.8) !illicit_drug_user(x) => !newly_infected_with_HCV(x)
-
+//Converted to CNF
 log(0.8) !newly_infected_with_HCV(x) v illicit_drug_user(x)
+
+//Original form
 // (newly_infected_with_HCV(x) ^ evaluated_for_HCV(x)) => illicit_drug_user(x)
 log(0.8) !newly_infected_with_HCV(x) v evaluated_for_HCV(x) v illicit_drug_user(x) 
 
@@ -59,8 +23,6 @@ log(0.8) !newly_infected_with_HCV(x) v ethnic_minority(x)
 
 log(0.8) !chronically_infected_with_HCV(x) v ethnic_minority(x)
 log(0.8) !die_from_HCV(x) v ethnic_minority(x)
-*/
-
 
 /*
 //Findings
@@ -74,6 +36,7 @@ log(0.8) illicit_drug_user(x) => soutce_of_information_about_HCV(social_ineracti
 
 
 //Study No. 901
+
 //CTN-0027
 
 treatment_for_opioid_dependence(drug)
@@ -82,13 +45,14 @@ treatment_for_opioid_dependence(buprenorphine&naloxone)
 treatment_for_opioid_dependence(methadone)
 
 takes(drug,person)
-develops_drug_induced_hepatitis(person)
+develops_drug_induced_hepatitis(x)
 
 log(0.01) takes(buprenorphine&naloxone,x) => develops_drug_induced_hepatitis(x)
 log(0.01) takes(methadone,x) => develops_drug_induced_hepatitis(x)
 
 
 //Study No. 1213
+
 //CTN-0049
 
 substance_user(person)
@@ -108,6 +72,7 @@ log(0.8) !provide_financial_incentives(person) v engage_with_substance_abuse_car
 
 
 //Study No. 89
+
 //CTN-0006
 
 drug_user(person)
@@ -137,6 +102,7 @@ log(0.2) (drug_user(x) ^ receives_contingency_management_intervention(x)) => !st
 
 
 //Study No. 323
+
 //CTN-0003
 
 //closure axioms
@@ -152,6 +118,7 @@ log(0.5) long_buprenorphine_taper(x) => opioid_free_urine_specimen(x)
 
 
 //Study No. 87
+
 //CTN-0002
 
 drug_user(person)
@@ -177,6 +144,7 @@ log(0.05) (drug_user(x) & treated_with_buprenorphine&naloxone(x) & treated_in(ou
 
 
 //Study No. 359
+
 //CTN-0021
 
 hispanic(person)
@@ -197,12 +165,14 @@ log(0.8) !hispanic(x) => !excluded_from(x, clinical_trial)
 
 
 //Study No. 90
+
 //CTN-0005
 
 receive_motivational_interviewing(person)
 
 
 //Study No. 241
+
 //CTN-0059
 
 nicotine_dependence(person)
@@ -218,6 +188,7 @@ log(0.5) !alcohol_dependence(x) => !nicotine_dependence(x)
 
 
 //Study No. 809
+
 //CTN-0032
 
 tested_for_hiv_at(site, person)
@@ -236,6 +207,7 @@ log(0.5) (tested_for_hiv(x,y) & !receive_drug_abuse-treatment_at(x,y)) => have_u
 
 
 //Study No. 254
+
 //CTN-0011
 
 received_phone_call(person)
@@ -246,6 +218,7 @@ recieves_phone_call(x) => compliant_with_abuse_treatment_protocol(x)
 
 
 //Study No. 1226
+
 //CTN-0059
 
 /* 
@@ -276,6 +249,7 @@ log(0.2) !substance_user(x) => die(x)
 
 
 //Study No. 328
+
 //CTN-0010
 
 opioid_addicted(person)
@@ -293,6 +267,7 @@ log(0.5) (treated_with_detoxification(x) ^ treated_with_counseling(x) ^ treated_
 
 
 //Study No. 515
+
 //CTN-0017
 
 drug_user(person)
