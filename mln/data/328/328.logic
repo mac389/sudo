@@ -1,0 +1,5 @@
+log(0.5) (opioid_addicted(x) ^ youth(x)) => (treated_with_detoxification(x) ^ treated_with_counseling(x))
+log(0.5) (opioid_addicted(x) ^ youth(x)) => (treated_with_detoxification(x) ^ treated_with_counseling(x) ^ treated_with_buprenorphine(x))
+
+log(0.5) (treated_with_detoxification(x) ^ treated_with_counseling(x)) => opioid_free_urine(x)
+log(0.5) (treated_with_detoxification(x) ^ treated_with_counseling(x) ^ treated_with_buprenorphine(x)) => opioid_free_urine(x)
