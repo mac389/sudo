@@ -1,3 +1,0 @@
-0.994000  newly_infected_with_HCV(patient_2)  
-1.000000  newly_infected_with_HCV(patient_3)  
-1.000000  newly_infected_with_HCV(patient_4)  

@@ -5,47 +5,31 @@
 
 import os, json  
 
+from tqdm import tqdm 
 from MLN import *
-from mlnQueryTool import MLNInfer
 from pprint import pprint 
 
 folder =  os.path.relpath('.','..')
 
-mln = 'wts.%s.mln'%folder
-mrf = "test.db"
+mln_filename = 'wts.%s.mln'%folder
+mrf_filename = "test.db"
 
 patient_labels = json.load(open('./test_labels.json','r'))
 
-
-for patient_label,patient_axioms in patient_labels.iteritems():
-	query  = patient_axioms.replace('(',' ').replace(')',' ').split()[0] #Cheap way to get signature of function
-
-#inference
-inf = MLNInfer()
-mlnFiles = mln
-output_filename = "./results.txt"
-
+mln = MLN(mln_filename)
+mrf = mln.groundMRF(mrf_filename)
 results = {}
 
 tasks = [("MC-SAT","PyMLNs")]
 
-for method,engine in tasks:
-	for patient_label,patient_axioms in patient_labels.iteritems():
-		
-		query, patient  = patient_axioms.replace('(',' ').replace(')',' ').split() #Cheap way to get signature of functions
+queries = [str(query+"("+patient+")") for patient, query in patient_labels.iteritems()]
 
-		unformatted_results = inf.run(mln,mrf,method,str(query),engine,
-			output_filename, saveResults=True, maxSteps=500, verbose=False)	
+probabilities = mrf.inferMCSAT(queries, verbose=False)
 
-		for predicate_patient,probability in unformatted_results.iteritems():
-			predicate, patient = predicate_patient.replace("("," ").replace(")"," ").split()
+for (patient, query), probability in zip(patient_labels.iteritems(),probabilities):
+		if patient not in results:
+			results[patient] = {}
 
-			if patient not in results:
-				results[patient] = {}
+		results[patient][query] = float(probability)
 
-			if predicate not in results[patient]:
-				results[patient][predicate] = None
-
-			results[patient][predicate] = float(probability)
-
-json.dump(results,open("test_made_with_answer_key.json",'wb'))
+json.dump(results,open("predicted_labels.json",'wb'))

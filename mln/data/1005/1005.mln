@@ -19,7 +19,6 @@ log(0.2) !illicit_drug_user(x) => newly_infected_with_HCV(x)
 
 log(0.8) (newly_infected_with_HCV(x) ^ evaluated_for_HCV(x)) => illicit_drug_user(x)
 
-
 log(0.8) racial_minority(x) => newly_infected_with_HCV(x)
 log(0.8) newly_infected_with_HCV(x) => racial_minority(x)
 
@@ -33,7 +32,7 @@ log(0.8) ethnic_minority(x) => newly_infected_with_HCV(x)
 log(0.8) newly_infected_with_HCV(x) => ethnic_minority(x)
 
 log(0.8) ethnic_minority(x) => chronically_infected_with_HCV(x)
-log(0.8) chronically_infected_with_HCV(x) => ethnic_minority(X)
+log(0.8) chronically_infected_with_HCV(x) => ethnic_minority(x)
 
 log(0.8) ethnic_minority(x) => die_from_HCV(x)
 log(0.8) die_from_HCV(x) => ethnic_minority(x)
@@ -44,5 +43,4 @@ log(0.8) (!evaluated_for_HCV(x) ^ illicit_drug_user(x)) => unaware_of_voluntary_
 log(0.8) (tested_positive_for_HCV(x) ^ unsure_of_meaning_of_testing_positive_for_HCV(x)) => illicit_drug_user(x)
 log(0.8) illicit_drug_user(x) => (mistrust_healthcare_provider_motivations(x) ^ do_not_pursue_HCV_treatment(x))
 log(0.8) illicit_drug_user(x) => source_of_information_about_HCV(social_networks)
-log(0.8) illicit_drug_user(x) => soutce_of_information_about_HCV(social_ineractions)
-
+log(0.8) illicit_drug_user(x) => source_of_information_about_HCV(social_interactions)
