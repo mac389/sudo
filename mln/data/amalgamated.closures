@@ -1,0 +1,19 @@
+/* 
+  This file contains logic needed to unify the predicates from different studies. 
+*/
+
+0 illicit_drug_user(x) => drug_user(x)
+
+0 drug_user(x) => substance_user(x)
+
+0 opioid_addicted(x) => takes(opioid,x) 
+0 opioid_addicted(x) => substance_user(x)
+0 opioid-addicted(x) => drug_user(x)
+// Can takes apply to a cateogry? 
+// Check this. 
+
+takes(drug,person)
+substance_user(person)
+drug_user(person)
+
+opioid_addicted(person)
