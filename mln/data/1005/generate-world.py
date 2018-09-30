@@ -12,42 +12,33 @@ for i in xrange(n_patients):
 	tmp = [random.sample(axioms,n_axioms_per_patient)]
 	#Assume default argument is "person" in all predicates. 
 	#I should eventually remove this harcoded solution.
-	tmp = [axiom.replace('person','')]
-	pprint(tmp)
+	tmp = [axiom.replace('person','patient_%d'%i) for axiom in axioms]
 
 
-'''
-illicit_drug_user(person)
-newly_infected_with_HCV(person)
-evaluated_for_HCV(person)
-racial_minority(person)
-ethnic_minority(person)
-chronically_infected_with_HCV(person)
-die_from_HCV(person)
+	#10% of the time randomly negate something
+	if random.random() < 0.10:
+		idx = random.choice(xrange(n_axioms_per_patient))
+		tmp[i] = '!' + tmp[i]
+	
+	#Logic clean-up
+	#Don't think it's needed for these axioms
 
-//Converted to CNF
-log(0.8) !newly_infected_with_HCV(x) v illicit_drug_user(x)
+	tmp  = {'payload':tmp,'random_number':random.random()}
 
-//Original form
-// (newly_infected_with_HCV(x) ^ evaluated_for_HCV(x)) => illicit_drug_user(x)
-log(0.8) !newly_infected_with_HCV(x) v evaluated_for_HCV(x) v illicit_drug_user(x) 
+test = []
+train = []
 
-log(0.8) !newly_infected_with_HCV(x) v racial_minority(x)
-log(0.8) !chronically_infected_with_HCV(x) v racial_minority(x)
+for item in db:
+	if random.random() >= 0.5:
+		test += item
+	else:
+		train += item
 
-log(0.8) !die_from_HCV(x) v racial_minority(x)
-log(0.8) !newly_infected_with_HCV(x) v ethnic_minority(x)
+random.shuffle(db)
 
-log(0.8) !chronically_infected_with_HCV(x) v ethnic_minority(x)
-log(0.8) !die_from_HCV(x) v ethnic_minority(x)
-
-/*
-//Findings
-log(0.8) (tested_for_HCV(x) ^ illicit_drug_user(x)) => tested_for_HCV_where_receiving_drug_abuse_treatment(x)
-log(0.8) (!tested_for_HCV(x) ^ illicit_drug_user(x)) => unaware_of_voluntary_test_sites(x)
-log(0.8) (tested_positive_for_HCV(x) ^ unsure_of_meaning_of_testing_positive_for_HCV(x)) => illicit_drug_user(x)
-log(0.8) illicit_drug_user(x) => (mistrust_healthcare_provider_motivations(x) ^ do_not_pursue_HCV_treatment(x))
-log(0.8) illicit_drug_user(x) => source_of_information_about_HCV(social_networks)
-log(0.8) illicit_drug_user(x) => soutce_of_information_about_HCV(social_ineractions)
-*/
-'''
+for key,value in [{"test":test},{"train":train}]:
+	with open('%s.db'%key,'w') as fout:
+		for item in value:
+			for predicate in item:
+				print>>fout,predicate
+			print>>fout,'\n'
