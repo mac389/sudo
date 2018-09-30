@@ -35,9 +35,27 @@ for item in db:
 		train += [item['payload']]
 random.shuffle(db)
 
-for key,value in [["test",test],["train",train]]:
-	with open('%s.db'%key,'w') as fout:
-		for patient in value:
-			for predicate in patient:
-				print>>fout,predicate
-			print>>fout,'\n'
+with open('train.db','w') as fout:
+	for patient in train:
+		for predicate in patient:
+			print>>fout,predicate
+		print>>fout,'\n'
+
+#Prepare test db by leaving one out
+#And then can ask about other inferences, capture all data
+
+test_labels = {}
+with open('test.db','w') as fout:
+	for patient in test:
+
+		idx_to_leave_out = random.choice(xrange(len(patient)))
+		patient_no = patient[idx_to_leave_out].replace(')',' ').replace('(',' ').split()[-1]
+
+		test_labels[patient_no] = patient[idx_to_leave_out]
+		patient[idx_to_leave_out] = '//'+ patient[idx_to_leave_out]
+
+		for predicate in patient:
+			print>>fout,predicate
+		print>>fout,'\n'
+
+json.dump(test_labels,open('./test_labels.json','w'))

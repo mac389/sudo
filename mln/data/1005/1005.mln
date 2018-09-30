@@ -21,13 +21,22 @@ log(0.8) (newly_infected_with_HCV(x) ^ evaluated_for_HCV(x)) => illicit_drug_use
 
 
 log(0.8) racial_minority(x) => newly_infected_with_HCV(x)
+log(0.8) newly_infected_with_HCV(x) => racial_minority(x)
+
 log(0.8) racial_minority(x) => chronically_infected_with_HCV(x)
+log(0.8) chronically_infected_with_HCV(x) =>  racial_minority(x)
 
 log(0.8) racial_minority(x) => die_from_HCV(x)
+log(0.8) die_from_HCV(x) => racial_minority(x)
+
 log(0.8) ethnic_minority(x) => newly_infected_with_HCV(x)
+log(0.8) newly_infected_with_HCV(x) => ethnic_minority(x)
 
 log(0.8) ethnic_minority(x) => chronically_infected_with_HCV(x)
+log(0.8) chronically_infected_with_HCV(x) => ethnic_minority(X)
+
 log(0.8) ethnic_minority(x) => die_from_HCV(x)
+log(0.8) die_from_HCV(x) => ethnic_minority(x)
 
 //Findings
 log(0.8) (evaluated_for_HCV(x) ^ illicit_drug_user(x)) => tested_for_HCV_where_receiving_drug_abuse_treatment(x)

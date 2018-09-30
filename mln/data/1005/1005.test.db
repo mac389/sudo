@@ -3,7 +3,8 @@ newly_infected_with_HCV(person)
 evaluated_for_HCV(person)
 racial_minority(person)
 ethnic_minority(person)
-chronically_infected_with_HCV(person)
+chronicall
+y_infected_with_HCV(person)
 die_from_HCV(person)
 
 //Converted to CNF
