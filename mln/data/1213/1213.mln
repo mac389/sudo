@@ -10,13 +10,15 @@ provide_financial_incentives(person)
 //Background
 
 log(0.8) substance_user(x) => have_HIV(x)
-log(0.01) substance_user(x) => have_HIV(x)
+log(0.01) !substance_user(x) => have_HIV(x)
 //prevalence divded by US population rounded to 2 significant figures 
 
-log(0.8) (substance_user(x) & have_HIV(x)) => have_poor_HIV_care_outcomes(x)
-log(0.2) (substance_user(x) & !have_HIV(x)) => have_poor_HIV_care_outcomes(x)
+log(0.8) (substance_user(x) ^ have_HIV(x)) => have_poor_HIV_care_outcomes(x)
+log(0.2) (substance_user(x) ^ !have_HIV(x)) => have_poor_HIV_care_outcomes(x)
 
 log(0.8) patient_navigation(x) => engage_with_substance_abuse_care(x)
-log(0.8) (provide_financial_incentives(x) & patient_navigation(x)) => engage_with_substance_abuse_care(x)
+log(0.8) (provide_financial_incentives(x) ^ patient_navigation(x)) => engage_with_substance_abuse_care(x)
 
 //Results
+log(0.5) engage_with_substance_abuse_care(x) => have_poor_HIV_care_outcomes(x)
+

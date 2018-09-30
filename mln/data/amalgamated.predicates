@@ -6,108 +6,19 @@ racial_minority(person)
 ethnic_minority(person)
 chronically_infected_with_HCV(person)
 die_from_HCV(person)
+tested_for_HCV_where_receiving_drug_abuse_treatment(person)
+unaware_of_voluntary_test_sites(person)
+unsure_of_meaning_of_testing_positive_for_HCV(person)
+mistrust_healthcare_provider_motivations(person)
+do_not_pursue_HCV_treatment(person)
+source_of_information_about_HCV(person)
+soutce_of_information_about_HCV(person)
+tested_positive_for_HCV(person)
 
-
-//Study No. 901
-treatment_for_opioid_dependence(drug)
-
-treatment_for_opioid_dependence(buprenorphine&naloxone)
-treatment_for_opioid_dependence(methadone)
-
-takes(drug,person)
-develops_drug_induced_hepatitis(x)
-
-
-//Study No. 713
-unemployed(person)
-negative_outcome_during_drug_abuse_treatment(person)
-negative_outcome_after_drug_abuse_treatment(person)
-
-
-//Study No. 1213
-//CTN-0049
-
+//Study No. 1215
 substance_user(person)
-has_HIV(person)
-poor_HIV_care_outcomes(person)
+have_HIV(person)
+have_poor_HIV_care_outcomes(person)
 patient_navigation(person)
 engage_with_substance_abuse_care(person)
-
-
-//Study No. 89
-drug_user(person)
-receives_contingency_management_intervention(person)
-improved_outcome(person)
-receives_contingency_management_intervention_at(site)
-receive_abstinence_based_treatment(person)
-remain_in_treatment(x)
-opioid_free_urine(x)
-stimulant_free_urine(x)
-
-
-//Study No. 323
-//closure axioms
-short_buprenorphine_taper(person)
-long_buprenorphine_taper(person)
-opioid_free_urine_specimen(person)
-
-
-//Study No. 87
-drug_user(person)
-treated_in(hospital,person)
-treated_in(outpatient,person)
-treated_with_buprenorphine&naloxone(person)
-treated_with_clonidine(person)
-has_opioid_free_urine(person)
-
-
-//Study No. 359
-hispanic(person)
-
-part_of(person,clinical_population)
-part_of(person,research_population)
-
-excluded_from(person,clinical_trial)
-
-
-//Study No. 90
-receive_motivational_interviewing(person)
-
-
-//Study No. 241
-nicotine_dependence(person)
-drug_dependence(person)
-alcohol_dependence(person)
-
-
-//Study No. 809
-tested_for_hiv_at(site, person)
-receive_drug_abuse_treatment_at(site, person)
-
-receive_hiv_test_results(person)
-
-
-//Study No. 254
-received_phone_call(person)
-compliant_with_abuse_treatment_protocol(person)
-
-
-//Study No. 1226
-substance_user(person)
-become_ill(person)
-die(person)
-
-
-//Study No. 328
-opioid_addicted(person)
-opioid_free_urine(person)
-treated_with_detoxification(person)
-treated_with_counseling(person)
-youth(person)
-
-
-//Study No. 515
-drug_user(person)
-recieved_hiv_and_hcv_counseling(person)
-risky_sexual_behavior(person)
-risky_drug_behavior(person)
+provide_financial_incentives(person)

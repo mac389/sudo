@@ -1,0 +1,6 @@
+substance_user(Alice)
+substance_user(Bob)
+!substance_user(Charlie)
+
+have_HIV(Alice)
+have_HIV(Charlie)
