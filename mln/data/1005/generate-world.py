@@ -2,7 +2,7 @@ import os, json, math, random
 
 from pprint import pprint 
 
-n_patients = 3 
+n_patients = 10 
 
 axioms = [x.strip() for x in open('1005.predicates','r').read().splitlines() if x]
 n_axioms_per_patient = int(math.floor(0.6*len(axioms)))
@@ -23,22 +23,21 @@ for i in xrange(n_patients):
 	#Logic clean-up
 	#Don't think it's needed for these axioms
 
-	tmp  = {'payload':tmp,'random_number':random.random()}
+	db += [{'payload':tmp,'random_number':random.random()}]
 
 test = []
 train = []
 
 for item in db:
 	if random.random() >= 0.5:
-		test += item
+		test += [item['payload']]
 	else:
-		train += item
-
+		train += [item['payload']]
 random.shuffle(db)
 
-for key,value in [{"test":test},{"train":train}]:
+for key,value in [["test",test],["train",train]]:
 	with open('%s.db'%key,'w') as fout:
-		for item in value:
-			for predicate in item:
+		for patient in value:
+			for predicate in patient:
 				print>>fout,predicate
 			print>>fout,'\n'
