@@ -1,0 +1,11 @@
+log(3.3) (drug_user(x) & treated_with_buprenorphine&naloxone(x) & treated_in(hospital,x)) => has_opioid_free_urine(x)
+// 77% of this group met treatment success criterion, .77/(1-.77) gives log odds of 3.34
+
+log(0.28) (drug_user(x) & treated_with_buprenorphine&naloxone(x) & treated_in(hospital,x)) => has_opioid_free_urine(x)
+// 22% of this group met treatment success criterion, .22/(1-.22) gives log odds of 0.28
+
+log(0.40) (drug_user(x) & treated_with_buprenorphine&naloxone(x) & treated_in(outpatient,x)) => has_opioid_free_urine(x)
+// 77% of this group met treatment success criterion, .29/(1-.29) gives log odds of 0.4
+
+log(0.05) (drug_user(x) & treated_with_buprenorphine&naloxone(x) & treated_in(outpatient,x)) => has_opioid_free_urine(x)
+// 5% of this group met treatment success criterion, .05/(1-.05) gives log odds of 0.05

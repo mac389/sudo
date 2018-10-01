@@ -1,0 +1,4 @@
+drug_user(person)
+recieved_hiv_and_hcv_counseling(person)
+risky_sexual_behavior(person)
+risky_drug_behavior(person)

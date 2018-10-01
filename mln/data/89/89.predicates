@@ -1,0 +1,8 @@
+drug_user(person)
+receives_contingency_management_intervention(person)
+improved_outcome(person)
+receives_contingency_management_intervention_at(site)
+receive_abstinence_based_treatment(person)
+remain_in_treatment(x)
+opioid_free_urine(x)
+stimulant_free_urine(x)

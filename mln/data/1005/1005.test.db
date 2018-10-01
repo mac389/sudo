@@ -1,0 +1,9 @@
+newly_infected_with_HCV(bob)
+newly_infected_with_HCV(ed)
+
+!die_from_HCV(ed)
+die_from_HCV(bob)
+
+
+
+

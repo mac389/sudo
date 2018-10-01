@@ -1,0 +1,7 @@
+//CTN-0049
+
+substance_user(person)
+has_HIV(person)
+poor_HIV_care_outcomes(person)
+patient_navigation(person)
+engage_with_substance_abuse_care(person)

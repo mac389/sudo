@@ -6,276 +6,72 @@ racial_minority(person)
 ethnic_minority(person)
 chronically_infected_with_HCV(person)
 die_from_HCV(person)
+tested_for_HCV_where_receiving_drug_abuse_treatment(person)
+unaware_of_voluntary_test_sites(person)
+unsure_of_meaning_of_testing_positive_for_HCV(person)
+mistrust_healthcare_provider_motivations(person)
+do_not_pursue_HCV_treatment(person)
+source_of_information_about_HCV(person)
+soutce_of_information_about_HCV(person)
+tested_positive_for_HCV(person)
 
-log(0.8) !newly_infected_with_HCV(x) v illicit_drug_user(x)
-
-//Original form
-// (newly_infected_with_HCV(x) ^ evaluated_for_HCV(x)) => illicit_drug_user(x)
-log(0.8) !newly_infected_with_HCV(x) v evaluated_for_HCV(x) v illicit_drug_user(x) 
-
-log(0.8) !newly_infected_with_HCV(x) v racial_minority(x)
-log(0.8) !chronically_infected_with_HCV(x) v racial_minority(x)
-
-log(0.8) !die_from_HCV(x) v racial_minority(x)
-log(0.8) !newly_infected_with_HCV(x) v ethnic_minority(x)
-
-log(0.8) !chronically_infected_with_HCV(x) v ethnic_minority(x)
-log(0.8) !die_from_HCV(x) v ethnic_minority(x)
-
-/*
-//Findings
-log(0.8) (tested_for_HCV(x) ^ illicit_drug_user(x)) => tested_for_HCV_where_receiving_drug_abuse_treatment(x)
-log(0.8) (!tested_for_HCV(x) ^ illicit_drug_user(x)) => unaware_of_voluntary_test_sites(x)
-log(0.8) (tested_positive_for_HCV(x) ^ unsure_of_meaning_of_testing_positive_for_HCV(x)) => illicit_drug_user(x)
-log(0.8) illicit_drug_user(x) => (mistrust_healthcare_provider_motivations(x) ^ do_not_pursue_HCV_treatment(x))
-log(0.8) illicit_drug_user(x) => source_of_information_about_HCV(social_networks)
-log(0.8) illicit_drug_user(x) => soutce_of_information_about_HCV(social_ineractions)
-*/
-
-
-//Study No. 901
-//CTN-0027
-
-treatment_for_opioid_dependence(drug)
-
-treatment_for_opioid_dependence(buprenorphine&naloxone)
-treatment_for_opioid_dependence(methadone)
-
-takes(drug,person)
-develops_drug_induced_hepatitis(x)
-
-log(0.01) takes(buprenorphine&naloxone,x) => develops_drug_induced_hepatitis(x)
-log(0.01) takes(methadone,x) => develops_drug_induced_hepatitis(x)
-
-
-//Study No. 1213
-//CTN-0049
-
+//Study No. 1215
 substance_user(person)
-has_HIV(person)
-poor_HIV_care_outcomes(person)
+have_HIV(person)
+have_poor_HIV_care_outcomes(person)
 patient_navigation(person)
 engage_with_substance_abuse_care(person)
 provide_financial_incentives(person)
 
-//Background
 
-log(0.8) !substance_user(person) v !has_HIV(person) v poor_HIV_care_outcomes(person)
-log(0.8) !patient_navigation(person) v engage_with_substance_abuse_care(person)
-log(0.8) !provide_financial_incentives(person) v engage_with_substance_abuse_care(person)
 
-//Results
 
+//CTN-0035
+log(0.8) illicit_drug_user(x) => newly_infected_with_HCV(x)
+log(0.2) !illicit_drug_user(x) => newly_infected_with_HCV(x)
 
-//Study No. 89
-//CTN-0006
+log(0.8) (newly_infected_with_HCV(x) ^ evaluated_for_HCV(x)) => illicit_drug_user(x)
 
-drug_user(person)
-receives_contingency_management_intervention(person)
-improved_outcome(person)
-receives_contingency_management_intervention_at(site)
-receive_abstinence_based_treatment(person)
-remain_in_treatment(x)
-opioid_free_urine(x)
-stimulant_free_urine(x)
+log(0.8) racial_minority(x) => newly_infected_with_HCV(x)
+log(0.8) newly_infected_with_HCV(x) => racial_minority(x)
 
-log(0.8) (drug_user(x) ^ receives_contingency_management_intervention(person) ^ receives_contingency_management_intervention_at(inpatient)) => improved(outcomes(x))
+log(0.8) racial_minority(x) => chronically_infected_with_HCV(x)
+log(0.8) chronically_infected_with_HCV(x) =>  racial_minority(x)
 
-log(0.2) (drug_user(x) ^ !receives_contingency_management_intervention(person) ^ !receives_contingency_management_intervention_at(inpatient)) => improved(outcomes(x))
+log(0.8) racial_minority(x) => die_from_HCV(x)
+log(0.8) die_from_HCV(x) => racial_minority(x)
 
+log(0.8) ethnic_minority(x) => newly_infected_with_HCV(x)
+log(0.8) newly_infected_with_HCV(x) => ethnic_minority(x)
 
-log(0.5) (drug_user(x) ^ receives_contingency_management_intervention(x)) => remain_in_treatment(x)
-log(0.2) (drug_user(x) ^ receives_contingency_management_intervention(x)) => !remain_in_treatment(x)
+log(0.8) ethnic_minority(x) => chronically_infected_with_HCV(x)
+log(0.8) chronically_infected_with_HCV(x) => ethnic_minority(x)
 
-log(0.5) (drug_user(x) ^ receives_contingency_management_intervention(x)) => opioid_free_urine(x)
-log(0.2) (drug_user(x) ^ receives_contingency_management_intervention(x)) => !opioid_free_urine(x)
+log(0.8) ethnic_minority(x) => die_from_HCV(x)
+log(0.8) die_from_HCV(x) => ethnic_minority(x)
 
+//Findings
+log(0.8) (evaluated_for_HCV(x) ^ illicit_drug_user(x)) => tested_for_HCV_where_receiving_drug_abuse_treatment(x)
+log(0.8) (!evaluated_for_HCV(x) ^ illicit_drug_user(x)) => unaware_of_voluntary_test_sites(x)
+log(0.8) (tested_positive_for_HCV(x) ^ unsure_of_meaning_of_testing_positive_for_HCV(x)) => illicit_drug_user(x)
+log(0.8) illicit_drug_user(x) => (mistrust_healthcare_provider_motivations(x) ^ do_not_pursue_HCV_treatment(x))
+log(0.8) illicit_drug_user(x) => source_of_information_about_HCV(social_networks)
+log(0.8) illicit_drug_user(x) => source_of_information_about_HCV(social_interactions)
 
-log(0.5) (drug_user(x) ^ receives_contingency_management_intervention(x)) => stimulant_free_urine(x)
-log(0.2) (drug_user(x) ^ receives_contingency_management_intervention(x)) => !stimulant_free_urine(x)
+//CTN-0049
 
+log(0.8) substance_user(x) => have_HIV(x)
+log(0.01) !substance_user(x) => have_HIV(x)
+//prevalence divded by US population rounded to 2 significant figures 
 
+log(0.8) (substance_user(x) ^ have_HIV(x)) => have_poor_HIV_care_outcomes(x)
+log(0.2) (substance_user(x) ^ !have_HIV(x)) => have_poor_HIV_care_outcomes(x)
 
-//Study No. 323
-//CTN-0003
+log(0.8) patient_navigation(x) => engage_with_substance_abuse_care(x)
+log(0.8) (provide_financial_incentives(x) ^ patient_navigation(x)) => engage_with_substance_abuse_care(x)
 
-//closure axioms
-short_buprenorphine_taper(person)
-long_buprenorphine_taper(person)
-opioid_free_urine_specimen(person)
+log(0.5) engage_with_substance_abuse_care(x) => have_poor_HIV_care_outcomes(x)
 
-
-//Results
-
-log(0.5) short_buprenorphine_taper(x) => opioid_free_urine_specimen(x)
-log(0.5) long_buprenorphine_taper(x) => opioid_free_urine_specimen(x)
-
-
-//Study No. 87
-//CTN-0002
-
-drug_user(person)
-treated_in(hospital,person)
-treated_in(outpatient,person)
-treated_with_buprenorphine&naloxone(person)
-treated_with_clonidine(person)
-has_opioid_free_urine(person)
-
-
-log(3.3) (drug_user(x) & treated_with_buprenorphine&naloxone(x) & treated_in(hospital,x)) => has_opioid_free_urine(x)
-// 77% of this group met treatment success criterion, .77/(1-.77) gives log odds of 3.34
-
-log(0.28) (drug_user(x) & treated_with_buprenorphine&naloxone(x) & treated_in(hospital,x)) => has_opioid_free_urine(x)
-// 22% of this group met treatment success criterion, .22/(1-.22) gives log odds of 0.28
-
-log(0.40) (drug_user(x) & treated_with_buprenorphine&naloxone(x) & treated_in(outpatient,x)) => has_opioid_free_urine(x)
-// 77% of this group met treatment success criterion, .29/(1-.29) gives log odds of 0.4
-
-log(0.05) (drug_user(x) & treated_with_buprenorphine&naloxone(x) & treated_in(outpatient,x)) => has_opioid_free_urine(x)
-// 5% of this group met treatment success criterion, .05/(1-.05) gives log odds of 0.05
-
-
-
-//Study No. 359
-//CTN-0021
-
-hispanic(person)
-
-part_of(person,clinical_population)
-part_of(person,research_population)
-
-excluded_from(person,clinical_trial)
-
-log(0.8) hispanic(x) => !part_of(x,clinical_population)
-log(0.8) hispanic(x) => !part_of(x, research_population)
-log(0.8) hispanic(x) => excluded_from(x, clinical_trial)
-
-log(0.8) !hispanic(x) => part_of(x,clinical_population)
-log(0.8) !hispanic(x) => part_of(x, research_population)
-log(0.8) !hispanic(x) => !excluded_from(x, clinical_trial)
-
-
-
-//Study No. 90
-//CTN-0005
-
-receive_motivational_interviewing(person)
-
-
-//Study No. 241
-//CTN-0059
-
-nicotine_dependence(person)
-drug_dependence(person)
-alcohol_dependence(person)
-
-
-log(0.8) drug_dependence(x) => nicotine_dependence(x)
-log(0.8) alcohol_dependence(x) => nicotine_dependence(x)
-
-log(0.5) !drug_dependence(x) => !nicotine_dependence(x)
-log(0.5) !alcohol_dependence(x) => !nicotine_dependence(x)
-
-
-//Study No. 809
-//CTN-0032
-
-tested_for_hiv_at(site, person)
-receive_drug_abuse_treatment_at(site, person)
-
-receive_hiv_test_results(person)
-
-log(0.8) (tested_for_hiv(x,y) & receive_drug_abuse-treatment_at(x,y)) => receive_hiv_test_results(y)
-log(0.2) (tested_for_hiv(x,y) & !receive_drug_abuse-treatment_at(x,y)) => receive_hiv_test_results(y)
-
-log(0.5) (tested_for_hiv(x,y) & receive_drug_abuse-treatment_at(x,y)) =>  have_unprotected_intercourse(y)
-log(0.5) (tested_for_hiv(x,y) & !receive_drug_abuse-treatment_at(x,y)) => have_unprotected_intercourse(y)
-
-log(0.5) (tested_for_hiv(x,y) & receive_drug_abuse-treatment_at(x,y)) => have_unprotected_intercourse(y)
-log(0.5) (tested_for_hiv(x,y) & !receive_drug_abuse-treatment_at(x,y)) => have_unprotected_intercourse(y)
-
-
-//Study No. 254
-//CTN-0011
-
-received_phone_call(person)
-compliant_with_abuse_treatment_protocol(person)
-
-recieves_phone_call(x) => compliant_with_abuse_treatment_protocol(x)
-!recieves_phone_call(x) => compliant_with_abuse_treatment_protocol(x)
-
-
-//Study No. 1226
-//CTN-0059
-
-/* 
-Substance use is a leading cause of illness and death
-1. Substance use is a leading cause of illness
-	A who person misuses a substance is more likely to become ill of all-causes than a person who does not misuse a substance. 
-	N.B. Deliberately replacing use with misuse. 
-
-2. Substance use is a leading cause of death
-
-*/
-
-//from part (1)
-
-substance_user(person)
-become_ill(person)
-die(person)
-
-
-log(0.8) substance_user(x) => become_ill(x)
-log(0.2) !substance_user(x) => become_ill(x)
-log(0.2) become_ill(x)
-
-//from part (2)
-log(0.8) substance_user(x) => die(x)
-log(0.2) !substance_user(x) => die(x)
-
-
-
-//Study No. 328
-//CTN-0010
-
-opioid_addicted(person)
-opioid_free_urine(person)
-treated_with_detoxification(person)
-treated_with_counseling(person)
-youth(person)
-
-
-log(0.5) (opioid_addicted(x) ^ youth(x)) => (treated_with_detoxification(x) ^ treated_with_counseling(x))
-log(0.5) (opioid_addicted(x) ^ youth(x)) => (treated_with_detoxification(x) ^ treated_with_counseling(x) ^ treated_with_buprenorphine(x))
-
-log(0.5) (treated_with_detoxification(x) ^ treated_with_counseling(x)) => opioid_free_urine(x)
-log(0.5) (treated_with_detoxification(x) ^ treated_with_counseling(x) ^ treated_with_buprenorphine(x)) => opioid_free_urine(x)
-
-
-//Study No. 515
-//CTN-0017
-
-drug_user(person)
-recieved_hiv_and_hcv_counseling(person)
-risky_sexual_behavior(person)
-risky_drug_behavior(person)
-
-log(0.8) (drug_user(x) & recieved_hiv_and_hcv_counseling(x)) => !risky_sexual_behavior(x)
-log(0.8) (drug_user(x) & recieved_hiv_and_hcv_counseling(x)) => !risky_drug_behavior(x)
-
-log(0.2) (drug_user(x) & recieved_hiv_and_hcv_counseling(x)) => risky_sexual_behavior(x)
-log(0.2) (drug_user(x) & recieved_hiv_and_hcv_counseling(x)) => risky_drug_behavior(x)
-
-log(0.8) (drug_user(x) & recieved_one_session_therapeutic_alliance(x)) => !risky_sexual_behavior(x)
-log(0.8) (drug_user(x) & recieved_one_session_therapeutic_alliance(x)) => !risky_drug_behavior(x)
-
-log(0.2) (drug_user(x) & recieved_one_session_therapeutic_alliance(x)) => risky_sexual_behavior(x)
-log(0.2) (drug_user(x) & recieved_one_session_therapeutic_alliance(x)) => risky_drug_behavior(x)
-
-log(0.8) (drug_user(x) & recieved_general_counseling(x)) => !risky_sexual_behavior(x)
-log(0.8) (drug_user(x) & recieved_general_counseling(x)) => !risky_drug_behavior(x)
-
-log(0.2) (drug_user(x) & recieved_general_counseling(x)) => risky_sexual_behavior(x)
-log(0.2) (drug_user(x) & recieved_general_counseling(x)) => risky_drug_behavior(x)
-
-
+//closures
+0 drug_user(x) => substance_user(x)
+0 substance_user(x) => drug_user(x)

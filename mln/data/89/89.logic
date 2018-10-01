@@ -1,0 +1,14 @@
+log(0.8) (drug_user(x) ^ receives_contingency_management_intervention(person) ^ receives_contingency_management_intervention_at(inpatient)) => improved(outcomes(x))
+
+log(0.2) (drug_user(x) ^ !receives_contingency_management_intervention(person) ^ !receives_contingency_management_intervention_at(inpatient)) => improved(outcomes(x))
+
+
+log(0.5) (drug_user(x) ^ receives_contingency_management_intervention(x)) => remain_in_treatment(x)
+log(0.2) (drug_user(x) ^ receives_contingency_management_intervention(x)) => !remain_in_treatment(x)
+
+log(0.5) (drug_user(x) ^ receives_contingency_management_intervention(x)) => opioid_free_urine(x)
+log(0.2) (drug_user(x) ^ receives_contingency_management_intervention(x)) => !opioid_free_urine(x)
+
+
+log(0.5) (drug_user(x) ^ receives_contingency_management_intervention(x)) => stimulant_free_urine(x)
+log(0.2) (drug_user(x) ^ receives_contingency_management_intervention(x)) => !stimulant_free_urine(x)

@@ -1,0 +1,8 @@
+log(0.8) (tested_for_hiv(x,y) & receive_drug_abuse-treatment_at(x,y)) => receive_hiv_test_results(y)
+log(0.2) (tested_for_hiv(x,y) & !receive_drug_abuse-treatment_at(x,y)) => receive_hiv_test_results(y)
+
+log(0.5) (tested_for_hiv(x,y) & receive_drug_abuse-treatment_at(x,y)) =>  have_unprotected_intercourse(y)
+log(0.5) (tested_for_hiv(x,y) & !receive_drug_abuse-treatment_at(x,y)) => have_unprotected_intercourse(y)
+
+log(0.5) (tested_for_hiv(x,y) & receive_drug_abuse-treatment_at(x,y)) => have_unprotected_intercourse(y)
+log(0.5) (tested_for_hiv(x,y) & !receive_drug_abuse-treatment_at(x,y)) => have_unprotected_intercourse(y)

@@ -1,0 +1,6 @@
+drug_user(person)
+treated_in(hospital,person)
+treated_in(outpatient,person)
+treated_with_buprenorphine&naloxone(person)
+treated_with_clonidine(person)
+has_opioid_free_urine(person)
