@@ -5,7 +5,7 @@ racial_minority(person)
 ethnic_minority(person)
 chronically_infected_with_HCV(person)
 die_from_HCV(person)
-
+ 
 //Converted to CNF
 log(0.8) !newly_infected_with_HCV(x) v illicit_drug_user(x)
 
