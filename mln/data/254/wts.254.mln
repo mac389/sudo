@@ -1,0 +1,9 @@
+// domain declarations
+
+// predicate declarations
+drug_user(person)
+compliant_with_abuse_treatment_protocol(person)
+receives_phone_call(person)
+
+// formulas
+11.649141   receives_phone_call(x) => compliant_with_abuse_treatment_protocol(x)

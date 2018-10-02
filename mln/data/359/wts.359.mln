@@ -1,0 +1,15 @@
+// domain declarations
+
+// predicate declarations
+part_of_research_population(person)
+hispanic(person)
+excluded_from_clinical_trial(person)
+part_of_clinical_population(person)
+
+// formulas
+11.649141   hispanic(x) => part_of_clinical_population(x)
+11.649141   hispanic(x) => part_of_research_population(x)
+11.649141   hispanic(x) => excluded_from_clinical_trial(x)
+0.000000    !hispanic(x) => part_of_research_population(x)
+0.000000    !hispanic(x) => part_of_clinical_population(x)
+11.649141   !hispanic(x) => !excluded_from_clinical_trial(x)

@@ -1,0 +1,18 @@
+// domain declarations
+
+// predicate declarations
+provide_financial_incentives(person)
+patient_navigation(person)
+have_poor_HIV_care_outcomes(person)
+have_HIV(person)
+engage_with_substance_abuse_care(person)
+substance_user(person)
+
+// formulas
+11.551543   substance_user(x) => have_HIV(x)
+0.000000    !substance_user(x) => have_HIV(x)
+6.852745    (substance_user(x) ^ have_HIV(x)) => have_poor_HIV_care_outcomes(x)
+0.000000    (substance_user(x) ^ !have_HIV(x)) => have_poor_HIV_care_outcomes(x)
+6.852745    patient_navigation(x) => engage_with_substance_abuse_care(x)
+6.852745    (provide_financial_incentives(x) ^ patient_navigation(x)) => engage_with_substance_abuse_care(x)
+6.852745    engage_with_substance_abuse_care(x) => have_poor_HIV_care_outcomes(x)

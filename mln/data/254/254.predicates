@@ -1,2 +1,3 @@
-received_phone_call(person)
+drug_user(person)
+receives_phone_call(person)
 compliant_with_abuse_treatment_protocol(person)

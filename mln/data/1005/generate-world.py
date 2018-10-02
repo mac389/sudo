@@ -2,17 +2,17 @@ import os, json, math, random
 
 from pprint import pprint 
 
-n_patients = 20
+n_patients = 100
 
 axioms = [x.strip() for x in open('1005.predicates','r').read().splitlines() if x]
 n_axioms_per_patient = int(math.floor(0.6*len(axioms)))
 db = []
 
 for i in xrange(n_patients):
-	tmp = [random.sample(axioms,n_axioms_per_patient)]
+	tmp = random.sample(axioms,n_axioms_per_patient)
 	#Assume default argument is "person" in all predicates. 
 	#I should eventually remove this harcoded solution.
-	tmp = [axiom.replace('person','patient_%d'%i) for axiom in axioms]
+	tmp = [axiom.replace('person','patient_%d'%i) for axiom in tmp]
 
 
 	#10% of the time randomly negate something

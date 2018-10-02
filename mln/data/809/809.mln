@@ -1,15 +1,14 @@
 //CTN-0032
+//Really need to allow 2 arguments into functions
 
-tested_for_hiv_at(site, person)
-receive_drug_abuse_treatment_at(site, person)
 
+tested_for_hiv_at_drug_abuse_treatment_center(person)
+receive_drug_abuse_treatment(person)
 receive_hiv_test_results(person)
+have_unprotected_intercourse(person)
 
-log(0.8) (tested_for_hiv(x,y) & receive_drug_abuse-treatment_at(x,y)) => receive_hiv_test_results(y)
-log(0.2) (tested_for_hiv(x,y) & !receive_drug_abuse-treatment_at(x,y)) => receive_hiv_test_results(y)
+log(0.8) (receive_drug_abuse_treatment(x) ^ receive_hiv_test_results(x)) => tested_for_hiv_at_drug_abuse_treatment_center(x) 
 
-log(0.5) (tested_for_hiv(x,y) & receive_drug_abuse-treatment_at(x,y)) =>  have_unprotected_intercourse(y)
-log(0.5) (tested_for_hiv(x,y) & !receive_drug_abuse-treatment_at(x,y)) => have_unprotected_intercourse(y)
+log(0.8) (!receive_hiv_test_results(x) ^ receive_drug_abuse_treatment(x)) =>!tested_for_hiv_at_drug_abuse_treatment_center(x) 
 
-log(0.5) (tested_for_hiv(x,y) & receive_drug_abuse-treatment_at(x,y)) => have_unprotected_intercourse(y)
-log(0.5) (tested_for_hiv(x,y) & !receive_drug_abuse-treatment_at(x,y)) => have_unprotected_intercourse(y)
+log(0.5) have_unprotected_intercourse(x) => receive_hiv_test_results(x)

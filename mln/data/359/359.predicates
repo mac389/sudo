@@ -1,6 +1,4 @@
 hispanic(person)
-
-part_of(person,clinical_population)
-part_of(person,research_population)
-
-excluded_from(person,clinical_trial)
+part_of_clinical_population(person)
+part_of_research_population(person)
+excluded_from_clinical_trial(person)

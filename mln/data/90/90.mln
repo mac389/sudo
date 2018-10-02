@@ -1,3 +1,9 @@
 //CTN-0005
 
+substance_user(person)
 receive_motivational_interviewing(person)
+remain_in_outpatient_treatment_program(person)
+decrease_substance_use(person)
+
+log(0.5) (substance_user(x) ^ receive_motivational_interviewing(x)) =>  decrease_substance_use(x)
+log(0.9) (substance_user(x) ^ receive_motivational_interviewing(x)) => remain_in_outpatient_treatment_program(x)

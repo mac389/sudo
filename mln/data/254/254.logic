@@ -1,2 +1,1 @@
-recieves_phone_call(x) => compliant_with_abuse_treatment_protocol(x)
-!recieves_phone_call(x) => compliant_with_abuse_treatment_protocol(x)
+log(0.5) receives_phone_call(x) => compliant_with_abuse_treatment_protocol(x)
