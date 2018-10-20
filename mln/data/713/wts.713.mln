@@ -1,0 +1,15 @@
+// domain declarations
+
+// predicate declarations
+employed(person)
+increase_opportunities_for_employment(person)
+negative_outcome_during_drug_abuse_treatment(person)
+negative_outcome_after_drug_abuse_treatment(person)
+
+// formulas
+0.000000    !employed(x) => negative_outcome_during_drug_abuse_treatment(x)
+12.658864   employed(x) => negative_outcome_during_drug_abuse_treatment(x)
+1.080204    !employed(x) => negative_outcome_after_drug_abuse_treatment(x)
+-11.536913  employed(x) => negative_outcome_after_drug_abuse_treatment(x)
+1.080204    increase_opportunities_for_employment(x) => employed(x)
+-11.536913  increase_opportunities_for_employment(x) => !employed(x)

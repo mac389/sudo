@@ -1,0 +1,12 @@
+// domain declarations
+
+// predicate declarations
+tested_for_hiv_at_drug_abuse_treatment_center(person)
+receive_drug_abuse_treatment(person)
+have_unprotected_intercourse(person)
+receive_hiv_test_results(person)
+
+// formulas
+0.000000    (receive_drug_abuse_treatment(x) ^ receive_hiv_test_results(x)) => tested_for_hiv_at_drug_abuse_treatment_center(x)
+0.000000    (!receive_hiv_test_results(x) ^ receive_drug_abuse_treatment(x)) => !tested_for_hiv_at_drug_abuse_treatment_center(x)
+11.649141   have_unprotected_intercourse(x) => receive_hiv_test_results(x)

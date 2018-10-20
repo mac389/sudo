@@ -1,0 +1,14 @@
+// domain declarations
+
+// predicate declarations
+drug_user(person)
+has_opioid_free_urine(person)
+treated_with_clonidine(person)
+treated_in(location, person)
+treated_with_suboxone(person)
+
+// formulas
+2.948118    (drug_user(x) ^ treated_with_suboxone(x) ^ treated_in(hospital, x)) => has_opioid_free_urine(x)
+2.948118    (drug_user(x) ^ treated_with_suboxone(x) ^ treated_in(hospital, x)) => has_opioid_free_urine(x)
+2.948118    (drug_user(x) ^ treated_with_suboxone(x) ^ treated_in(outpatient, x)) => has_opioid_free_urine(x)
+2.948118    (drug_user(x) ^ treated_with_suboxone(x) ^ treated_in(outpatient, x)) => has_opioid_free_urine(x)

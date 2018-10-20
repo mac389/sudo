@@ -1,0 +1,49 @@
+[ {
+  "@id" : "http://www.semanticweb.org/mac389/ontologies/2018/8/untitled-ontology-21",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "Underlying JSON-LD for automated inference about toxicology"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/mac389/ontologies/2018/8/untitled-ontology-21#anticholinergic",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/mac389/ontologies/2018/8/untitled-ontology-21#toxidrome"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/mac389/ontologies/2018/8/untitled-ontology-21#cholinergic",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/mac389/ontologies/2018/8/untitled-ontology-21#toxidrome"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/mac389/ontologies/2018/8/untitled-ontology-21#opioid",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/mac389/ontologies/2018/8/untitled-ontology-21#toxidrome"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/mac389/ontologies/2018/8/untitled-ontology-21#sedative_hypnotic",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/mac389/ontologies/2018/8/untitled-ontology-21#toxidrome"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/mac389/ontologies/2018/8/untitled-ontology-21#serotonin_syndrome",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/mac389/ontologies/2018/8/untitled-ontology-21#toxidrome"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/mac389/ontologies/2018/8/untitled-ontology-21#sympathomimetic",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/mac389/ontologies/2018/8/untitled-ontology-21#toxidrome"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/mac389/ontologies/2018/8/untitled-ontology-21#toxidrome",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@value" : "A toxidrome is an aggregate of signs, the presence of any of which implies ingestion of a toxic amount of substance and the abseence of any of which implies implies that a toxic amount of a certain substance was not ingested."
+  } ]
+} ]

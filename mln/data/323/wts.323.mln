@@ -1,0 +1,10 @@
+// domain declarations
+
+// predicate declarations
+opioid_free_urine_specimen(person)
+long_buprenorphine_taper(person)
+short_buprenorphine_taper(person)
+
+// formulas
+5.999389    short_buprenorphine_taper(x) => opioid_free_urine_specimen(x)
+5.999389    long_buprenorphine_taper(x) => opioid_free_urine_specimen(x)

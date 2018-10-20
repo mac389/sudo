@@ -1,17 +1,14 @@
 //CTN-0021
 
 hispanic(person)
+part_of_clinical_population(person)
+part_of_research_population(person)
+excluded_from_clinical_trial(person)
 
-part_of(person,clinical_population)
-part_of(person,research_population)
+-log(0.8) hispanic(x) => part_of_clinical_population(x)
+-log(0.8) hispanic(x) => part_of_research_population(x)
+log(0.8) hispanic(x) => excluded_from_clinical_trial(x)
 
-excluded_from(person,clinical_trial)
-
-log(0.8) hispanic(x) => !part_of(x,clinical_population)
-log(0.8) hispanic(x) => !part_of(x, research_population)
-log(0.8) hispanic(x) => excluded_from(x, clinical_trial)
-
-log(0.8) !hispanic(x) => part_of(x,clinical_population)
-log(0.8) !hispanic(x) => part_of(x, research_population)
-log(0.8) !hispanic(x) => !excluded_from(x, clinical_trial)
-
+log(0.8) !hispanic(x) => part_of_research_population(x)
+log(0.8) !hispanic(x) => part_of_clinical_population(x)
+log(0.8) !hispanic(x) => !excluded_from_clinical_trial(x)

@@ -1,4 +1,4 @@
-tested_for_hiv_at(site, person)
-receive_drug_abuse_treatment_at(site, person)
-
+tested_for_hiv_at_drug_abuse_treatment_center(person)
+receive_drug_abuse_treatment(person)
 receive_hiv_test_results(person)
+have_unprotected_intercourse(person)

@@ -1,3 +1,4 @@
-unemployed(person)
+employed(person)
 negative_outcome_during_drug_abuse_treatment(person)
 negative_outcome_after_drug_abuse_treatment(person)
+increase_opportunities_for_employment(person)

@@ -1,0 +1,15 @@
+// domain declarations
+
+// predicate declarations
+opioid_addicted(person)
+treated_with_buprenorphine(person)
+opioid_free_urine(person)
+youth(person)
+treated_with_detoxification(person)
+treated_with_counseling(person)
+
+// formulas
+-0.051316   (opioid_addicted(x) ^ youth(x)) => (treated_with_detoxification(x) ^ treated_with_counseling(x))
+4.220463    (opioid_addicted(x) ^ youth(x)) => (treated_with_detoxification(x) ^ treated_with_counseling(x) ^ treated_with_buprenorphine(x))
+-4.220463   (treated_with_detoxification(x) ^ treated_with_counseling(x)) => opioid_free_urine(x)
+-8.492242   (treated_with_detoxification(x) ^ treated_with_counseling(x) ^ treated_with_buprenorphine(x)) => opioid_free_urine(x)

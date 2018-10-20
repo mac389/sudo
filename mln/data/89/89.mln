@@ -5,13 +5,13 @@ receives_contingency_management_intervention(person)
 improved_outcome(person)
 receives_contingency_management_intervention_at(site)
 receive_abstinence_based_treatment(person)
-remain_in_treatment(x)
-opioid_free_urine(x)
-stimulant_free_urine(x)
+remain_in_treatment(person)
+opioid_free_urine(person)
+stimulant_free_urine(person)
 
-log(0.8) (drug_user(x) ^ receives_contingency_management_intervention(person) ^ receives_contingency_management_intervention_at(inpatient)) => improved(outcomes(x))
+log(0.8) (drug_user(x) ^ receives_contingency_management_intervention(person) ^ receives_contingency_management_intervention_at(inpatient)) => improved_outcome(x)
 
-log(0.2) (drug_user(x) ^ !receives_contingency_management_intervention(person) ^ !receives_contingency_management_intervention_at(inpatient)) => improved(outcomes(x))
+log(0.2) (drug_user(x) ^ !receives_contingency_management_intervention(person) ^ !receives_contingency_management_intervention_at(inpatient)) => improved_outcome(x)
 
 
 log(0.5) (drug_user(x) ^ receives_contingency_management_intervention(x)) => remain_in_treatment(x)

@@ -1,1 +1,4 @@
+substance_user(person)
 receive_motivational_interviewing(person)
+remain_in_outpatient_treatment_program(person)
+decrease_substance_use(person)

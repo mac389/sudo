@@ -1,0 +1,21 @@
+// domain declarations
+
+// predicate declarations
+remain_in_treatment(person)
+receive_abstinence_based_treatment(person)
+receives_contingency_management_intervention(person)
+stimulant_free_urine(person)
+improved_outcome(person)
+opioid_free_urine(person)
+receives_contingency_management_intervention_at(site)
+drug_user(person)
+
+// formulas
+13.288473   (drug_user(x) ^ receives_contingency_management_intervention(person) ^ receives_contingency_management_intervention_at(inpatient)) => improved_outcome(x)
+0.000000    (drug_user(x) ^ !receives_contingency_management_intervention(person) ^ !receives_contingency_management_intervention_at(inpatient)) => improved_outcome(x)
+-5.685505   (drug_user(x) ^ receives_contingency_management_intervention(x)) => remain_in_treatment(x)
+5.874730    (drug_user(x) ^ receives_contingency_management_intervention(x)) => !remain_in_treatment(x)
+-5.685505   (drug_user(x) ^ receives_contingency_management_intervention(x)) => opioid_free_urine(x)
+5.874730    (drug_user(x) ^ receives_contingency_management_intervention(x)) => !opioid_free_urine(x)
+-5.685505   (drug_user(x) ^ receives_contingency_management_intervention(x)) => stimulant_free_urine(x)
+5.874730    (drug_user(x) ^ receives_contingency_management_intervention(x)) => !stimulant_free_urine(x)

@@ -1,0 +1,23 @@
+// domain declarations
+
+// predicate declarations
+risky_sexual_behavior(person)
+recieved_general_counseling(person)
+risky_drug_behavior(person)
+drug_user(person)
+recieved_hiv_and_hcv_counseling(person)
+recieved_one_session_therapeutic_alliance(person)
+
+// formulas
+0.215062    (drug_user(x) ^ recieved_hiv_and_hcv_counseling(x)) => !risky_sexual_behavior(x)
+-6.096280   (drug_user(x) ^ recieved_hiv_and_hcv_counseling(x)) => !risky_drug_behavior(x)
+-6.096280   (drug_user(x) ^ recieved_hiv_and_hcv_counseling(x)) => risky_sexual_behavior(x)
+0.215062    (drug_user(x) ^ recieved_hiv_and_hcv_counseling(x)) => risky_drug_behavior(x)
+0.215062    (drug_user(x) ^ recieved_one_session_therapeutic_alliance(x)) => !risky_sexual_behavior(x)
+-6.096280   (drug_user(x) ^ recieved_one_session_therapeutic_alliance(x)) => !risky_drug_behavior(x)
+-6.096280   (drug_user(x) ^ recieved_one_session_therapeutic_alliance(x)) => risky_sexual_behavior(x)
+0.215062    (drug_user(x) ^ recieved_one_session_therapeutic_alliance(x)) => risky_drug_behavior(x)
+0.215062    (drug_user(x) ^ recieved_general_counseling(x)) => !risky_sexual_behavior(x)
+-6.096280   (drug_user(x) ^ recieved_general_counseling(x)) => !risky_drug_behavior(x)
+-6.096280   (drug_user(x) ^ recieved_general_counseling(x)) => risky_sexual_behavior(x)
+0.215062    (drug_user(x) ^ recieved_general_counseling(x)) => risky_drug_behavior(x)

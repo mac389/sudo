@@ -16,11 +16,11 @@ S'pseudo-log-likelihood'
 p7
 sS'geometry'
 p8
-V779x903+47+60
+V779x658+47+23
 p9
 sS'db'
 p10
-S'1213-train.db'
+S'train.db'
 p11
 sS'priorStdDev'
 p12
@@ -32,7 +32,7 @@ S'1213.mln'
 p15
 sS'output_filename'
 p16
-S'wts.pypll.1213-train-1213.mln'
+S'wts.1213.mln'
 p17
 sS'pattern'
 p18

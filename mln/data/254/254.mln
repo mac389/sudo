@@ -1,7 +1,7 @@
 //CTN-0011
 
-received_phone_call(person)
+drug_user(person)
+receives_phone_call(person)
 compliant_with_abuse_treatment_protocol(person)
 
-recieves_phone_call(x) => compliant_with_abuse_treatment_protocol(x)
-!recieves_phone_call(x) => compliant_with_abuse_treatment_protocol(x)
+log(0.5) receives_phone_call(x) => compliant_with_abuse_treatment_protocol(x)

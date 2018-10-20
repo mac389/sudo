@@ -24,9 +24,6 @@ patient_navigation(person)
 engage_with_substance_abuse_care(person)
 provide_financial_incentives(person)
 
-
-
-
 //CTN-0035
 log(0.8) illicit_drug_user(x) => newly_infected_with_HCV(x)
 log(0.2) !illicit_drug_user(x) => newly_infected_with_HCV(x)

@@ -1,0 +1,13 @@
+// domain declarations
+
+// predicate declarations
+die(person)
+become_ill(person)
+substance_user(person)
+
+// formulas
+7.153471    substance_user(x) => become_ill(x)
+0.000000    !substance_user(x) => become_ill(x)
+7.153471    become_ill(x)
+11.804338   substance_user(x) => die(x)
+0.000000    !substance_user(x) => die(x)

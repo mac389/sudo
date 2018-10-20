@@ -1,0 +1,11 @@
+// domain declarations
+
+// predicate declarations
+takes_suboxone(person)
+develops_drug_induced_hepatitis(person)
+treatment_for_opioid_dependence(drug)
+takes_methadone(person)
+
+// formulas
+0.000000    takes_suboxone(x) => develops_drug_induced_hepatitis(x)
+11.649141   takes_methadone(x) => develops_drug_induced_hepatitis(x)
