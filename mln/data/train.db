@@ -1,9 +1,6 @@
 substance_user(Alice)
 substance_user(Bob)
 !substance_user(Charlie)
-drug_user(Doug)
 
 have_HIV(Alice)
 have_HIV(Charlie)
-
-

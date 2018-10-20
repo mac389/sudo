@@ -1,4 +1,5 @@
 //Study No. 1005
+drug_user(person)
 illicit_drug_user(person)
 newly_infected_with_HCV(person)
 evaluated_for_HCV(person)
@@ -75,3 +76,4 @@ log(0.5) engage_with_substance_abuse_care(x) => have_poor_HIV_care_outcomes(x)
 //closures
 0 drug_user(x) => substance_user(x)
 0 substance_user(x) => drug_user(x)
+0 illicit_drug_user(x) => drug_user(x)

@@ -1,4 +1,5 @@
 //Study No. 1005
+drug_user(person)
 illicit_drug_user(person)
 newly_infected_with_HCV(person)
 evaluated_for_HCV(person)
@@ -22,3 +23,8 @@ have_poor_HIV_care_outcomes(person)
 patient_navigation(person)
 engage_with_substance_abuse_care(person)
 provide_financial_incentives(person)
+
+//Study 1226
+substance_user(person)
+become_ill(person)
+die(person)

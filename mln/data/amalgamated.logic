@@ -31,7 +31,6 @@ log(0.8) illicit_drug_user(x) => source_of_information_about_HCV(social_networks
 log(0.8) illicit_drug_user(x) => source_of_information_about_HCV(social_interactions)
 
 //CTN-0049
-
 log(0.8) substance_user(x) => have_HIV(x)
 log(0.01) !substance_user(x) => have_HIV(x)
 //prevalence divded by US population rounded to 2 significant figures 
@@ -44,6 +43,15 @@ log(0.8) (provide_financial_incentives(x) ^ patient_navigation(x)) => engage_wit
 
 log(0.5) engage_with_substance_abuse_care(x) => have_poor_HIV_care_outcomes(x)
 
+//CTN-1226
+log(0.8) substance_user(x) => become_ill(x)
+log(0.2) !substance_user(x) => become_ill(x)
+
+//from part (2)
+log(0.8) substance_user(x) => die(x)
+log(0.2) !substance_user(x) => die(x)
+
 //closures
-0 drug_user(x) => substance_user(x)
-0 substance_user(x) => drug_user(x)
+drug_user(x) => substance_user(x).
+substance_user(x) => drug_user(x).
+illicit_drug_user(x) => drug_user(x).
