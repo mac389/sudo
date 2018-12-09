@@ -21,6 +21,15 @@
     
 
 
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#biologically_active_substance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#biologically_active_substance">
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A biologically active substance is a physicial material that when introduced into an organism (for example by eating, inhaling, or injecting it) helps the organism realize at least one disposition (for example increased heart rate or euphoria)</rdfs:isDefinedBy>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">biologically active substance</rdfs:label>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#drug_user -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#drug_user">
@@ -31,12 +40,44 @@
     
 
 
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#heroin -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#heroin">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#opiate"/>
+    </owl:Class>
+    
+
+
     <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#illicit_drug_user -->
 
     <owl:Class rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#illicit_drug_user">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#drug_user"/>
         <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An illicit drug user is a drug user who self-administers drugs that a political body with legal force has prohibited from administration.</rdfs:isDefinedBy>
         <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">illicit drug user</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#opiate -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#opiate">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#biologically_active_substance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#opioid -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#opioid">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#biologically_active_substance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#oxycodone -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#oxycodone">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#opioid"/>
     </owl:Class>
     
 
