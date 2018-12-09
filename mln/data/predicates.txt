@@ -1,0 +1,123 @@
+substance_user
+	drug_user
+	illicit_drug_user
+
+takes_substance
+	takes_methadone
+	takes_suboxone
+
+pattern_of_substance_use
+	disordered_pattern_of_substance_use
+		disordered_pattern_of_opioid_use
+	ordered_pattern_of_substance_use
+	increased_substance_use
+	decreased_substance_use
+
+substance_dependence 
+	drug_dependence
+		alcohol_dependence
+		nicotine_dependence
+
+#I think this combines the concepts of having a substance free urine 
+#and possessing a substane free urine
+#Also, urine is a mass noun. Use specimen, a count noun, instead.
+
+has_substance_free_urine 
+	has_opioid_free_urine
+	has_stimulant_free_urine
+	opioid_free_urine_specimen
+
+person
+	youth
+	hispanic
+	minority 
+		racial_minority
+		ethnic_minority
+
+treament_with
+	treatment_with_substance
+		treated_with_suboxone
+		treated_with_clonidine
+		treated_with_buprenorphine
+		treated_with_detoxification
+		treated_with_buprenorphine_taper
+		treated_with_short_buprenorphine_taper
+		treated_with_long_buprenorphine_taper
+	treament_with_psychotherapy
+		treated_with_counseling
+
+	receive_motivational_interviewing
+	recieved_hiv_and_hcv_counseling
+	recieved_one_session_therapeutic_alliance
+	recieved_general_counseling
+	receives_contingency_management_intervention
+	receive_drug_abuse_treatment
+
+behavior
+	risky_behavior
+	risky_sexual_behavior
+		have_unprotected_intercourse
+	risky_drug_behavior
+
+treatment_for_substance_dependence
+	treatment_for_opioid_dependence
+
+
+evaluated_for_disease
+	evaluated_for_infection
+		evaluated_for_HCV_infection
+		tested_for_infection
+	 		tested_for_HCV_infection
+			tested_for_HIV_infection
+	
+tested_for_hiv_at_drug_abuse_treatment_center
+
+infected_with_disease
+	infected_with_HIV
+	infected_with_HCV
+
+complications_from_infection
+	die_from_infection
+		die_from_HCV
+
+tested_for_HCV_where_receiving_drug_abuse_treatment
+tested_positive_for_HCV_infection
+chronically_infected_with_HCV
+unaware_of_voluntary_test_sites
+unsure_of_meaning_of_testing_positive_for_HCV
+mistrust_healthcare_provider_motivations
+do_not_pursue_HCV_treatment
+source_of_information_about_HCV
+newly_infected_with_HCV
+develops_drug_induced_hepatitis
+employed
+negative_outcome_during_drug_abuse_treatment
+negative_outcome_after_drug_abuse_treatment
+increase_opportunities_for_employment
+have_HIV
+have_poor_HIV_care_outcomes
+patient_navigation
+engage_with_substance_abuse_care
+provide_financial_incentives
+
+receives_contingency_management_intervention
+improved_outcome
+receives_contingency_management_intervention_atsite
+receive_abstinence_based_treatment
+remain_in_treatment
+
+
+treated_inlocation
+
+part_of_clinical_population
+part_of_research_population
+excluded_from_clinical_trial
+remain_in_outpatient_treatment_program
+
+
+receive_hiv_test_results
+receives_phone_call
+compliant_with_abuse_treatment_protocol
+become_ill
+
+
