@@ -1,6 +1,7 @@
-substance_user
-	drug_user
-	illicit_drug_user
+~~substance user~~
+	~~drug user~~
+    
+    ~~illicit drug user~~
 
 takes_substance
 	takes_methadone

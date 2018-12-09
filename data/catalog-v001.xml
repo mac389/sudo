@@ -9,6 +9,7 @@
     <uri id="Imports Wizard Entry" name="http://purl.obolibrary.org/obo/ro/releases/2018-10-19/ro.owl" uri="https://raw.githubusercontent.com/oborel/obo-relations/master/ro.owl"/>
     <uri id="Imports Wizard Entry" name="http://purl.obolibrary.org/obo/bfo/2.0/bfo.owl" uri="https://raw.githubusercontent.com/BFO-ontology/BFO/master/releases/2.0/bfo.owl"/>
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1544368649600" name="http://purl.obolibrary.org/obo/ro.owl" uri="ground-up-ontology.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1544374450277" name="http://purl.obolibrary.org/obo/ro.owl" uri="ground-up-ontology.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1544374450277" name="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40" uri="smaller-ground-up-ontology.owl"/>
     </group>
 </catalog>
