@@ -13,6 +13,7 @@ pattern_of_substance_use
 	increased_substance_use
 	decreased_substance_use
 
+### Already expressed in MFOMD (Hastings)
 substance_dependence 
 	drug_dependence
 		alcohol_dependence

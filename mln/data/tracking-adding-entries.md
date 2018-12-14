@@ -1,23 +1,32 @@
-~~substance user~~
-	~~drug user~~
-    
-    ~~illicit drug user~~
+
+#### Substance user
+
+A substance user is a person who self-administers a [biologically active substance](#biologically-active-substance) _S_ in order to realize at least one disposition that inheres in _S_ 
+#### Drug user
+
+A drug user is a substance user who self-administers a deliberately manufactured substance (as opposed to a pharmacologically active component of a plant or another organism) so as to bring about at least one certain biological effect.
+
+#### Illicit drug user 
+
+An illicit drug user is a drug user who self-administers drugs that a political body with legal force has prohibited from administration.
+
+
+#### Biologically active substance
+
+A biologically active substance is a material entity that when introduced into an organism (for example by eating, inhaling, or injecting it) helps the organism realize at least one disposition (for example increased heart rate or euphoria)
+
 
 takes_substance
 	takes_methadone
 	takes_suboxone
 
+
 pattern_of_substance_use
 	disordered_pattern_of_substance_use
 		disordered_pattern_of_opioid_use
-	ordered_pattern_of_substance_use
 	increased_substance_use
 	decreased_substance_use
 
-substance_dependence 
-	drug_dependence
-		alcohol_dependence
-		nicotine_dependence
 
 has_substance_free_urine 
 	has_opioid_free_urine
