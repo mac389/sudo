@@ -1,5 +1,6 @@
-
-#### Substance user
+## Entities 
+---
+### Substance user
 
 A substance user is a person who self-administers a [biologically active substance](#biologically-active-substance) _S_ in order to realize at least one disposition that inheres in _S_.  
 
@@ -11,11 +12,20 @@ A drug user is a substance user who self-administers a deliberately manufactured
 
 An illicit drug user is a drug user who self-administers drugs that a political body with legal force has prohibited that user from self-administering. The prohibition arises because the drug user is an instance of group for whom self-administration is prohibited ( _e.g._ teens to young to drink alcohol, any citizen of a certain country)
 
+---
 
-#### Biologically active substance
+### Biologically active substance
 
-A biologically active substance is a material entity that when introduced into an organism (for example by eating, inhaling, or injecting it) helps the organism realize at least one disposition (for example increased heart rate or euphoria)
+A biologically active substance is a material entity that has the disposition to change the physical configuration of part of an organism. That disposition is realized in the process of ADME (accumulation, distribution, metabolism, excretion). 
 
+---
+
+
+## Relationships 
+
+### _uses or takes_
+
+A person  
 
 takes_substance
 	takes_methadone
@@ -131,5 +141,4 @@ receive_hiv_test_results
 receives_phone_call
 compliant_with_abuse_treatment_protocol
 become_ill
-
 
