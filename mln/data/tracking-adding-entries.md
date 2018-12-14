@@ -1,14 +1,15 @@
 
 #### Substance user
 
-A substance user is a person who self-administers a [biologically active substance](#biologically-active-substance) _S_ in order to realize at least one disposition that inheres in _S_ 
+A substance user is a person who self-administers a [biologically active substance](#biologically-active-substance) _S_ in order to realize at least one disposition that inheres in _S_.  
+
 #### Drug user
 
-A drug user is a substance user who self-administers a deliberately manufactured substance (as opposed to a pharmacologically active component of a plant or another organism) so as to bring about at least one certain biological effect.
+A drug user is a substance user who self-administers a deliberately manufactured [biologically active substance](#biologically-active-substance) so as to realize a function of that deliberately manufactured [biologically active substance](#biologically-active-substance).
 
 #### Illicit drug user 
 
-An illicit drug user is a drug user who self-administers drugs that a political body with legal force has prohibited from administration.
+An illicit drug user is a drug user who self-administers drugs that a political body with legal force has prohibited that user from self-administering. The prohibition arises because the drug user is an instance of group for whom self-administration is prohibited ( _e.g._ teens to young to drink alcohol, any citizen of a certain country)
 
 
 #### Biologically active substance
