@@ -14,15 +14,39 @@ It distinguishes substance use disorders, from substance-induces disorders, whic
 The term _substance use_ is preferred over _substance abuse_ or _substance misuse_, especially in materials that guide how healthcare providers interact with patients who may have an unproductive reaction to terms like _abuse_ or _misuse_. 
 
 #### Current Ontological Representation
-The Ontology of Mental Disease represents addiction as an occurent [(Hastings et al., 2010)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3017014/). An occurent is an entity that has temporal parts, whose existence happens, unfolds, or develops through time [(citation)](http://purl.obolibrary.org/obo/bfo.owl). OMD does not use the term _substance use disorder_. It, instead, uses the term _substance dependence_. This is in keeping with the DSM-IV-TR, which was the current termionological standard when OMD was published. 
+The Ontology of Mental Disease represents addiction and substance-related disorder as occurents [(Hastings et al., 2010)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3017014/). An occurent is an entity that has temporal parts, whose existence happens, unfolds, or develops through time [(citation)](http://purl.obolibrary.org/obo/bfo.owl). Figure X shows a selected view of the hierarchy. 
+
+    occurent
+    |---process
+        |----disease course
+            |---mental disease course
+                |---mental disorder
+                    |--- addiction disorder
+     
+    Figure 1. View of OMD Hierarchy that includes addiction disorder as a subtype of occurrent. 
+    
+
+OMD does not use the term _substance use disorder_. It, instead, uses the term _substance-related disorder_. This is in keeping with the DSM-IV-TR, which was the current termionological standard when OMD was published. 
+
+**Proposed Changes** 
+
+We propose to unify the terms _substance dependence_ and _substance-related disorder_ under the term _substance use disorder_. We propose the following definition of a _substance use disorder_. 
+
+(Could unify _substance dependence_ and _process addiction_ under 
+
+> A substance use disorder is a mental disorder that involves 
 
 We propose to replace the term _addiction disorder_ with 
 
-We propose to replace _substance dependence_ with _substance use disorder_, defined as follows.
+We propose to replace _substance related disorder_ with _substance use disorder_. OMD defines _substance-related disorder_ as follows.
 
+>A disease of mental health involving the abuse or dependence on a substance that is ingested in order to produce a high, alter one's senses, or otherwise affect functioning.
 
- 
+**A normative theory of substance use** We wish to represent that the pathological component of a substance user disorder arises from the pattern of use. 
 
-## Methods
+---
 
-## Results 
+[Draft Notes]
+
+[link to ontology](./mln/data/tracking-adding-entries.md) 
+Need to answer how these relate to addiction 
