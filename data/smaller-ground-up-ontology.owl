@@ -1,0 +1,241 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#"
+     xml:base="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:doid="http://purl.obolibrary.org/obo/doid#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:cito="http://purl.org/spar/cito/"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:iao="http://purl.obolibrary.org/obo/iao/"
+     xmlns:oboInOwl1="ttp://www.geneontology.org/formats/oboInOwl#"
+     xmlns:ace_lexicon="http://attempto.ifi.uzh.ch/ace_lexicon#"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:subsets="http://purl.obolibrary.org/obo/ro/subsets#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40">
+        <owl:imports rdf:resource="http://purl.obolibrary.org/obo/MFOMD.owl"/>
+        <owl:imports rdf:resource="http://purl.obolibrary.org/obo/ro/releases/2018-10-19/ro.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#consumes -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#consumes">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#person"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An person consumes a material entity by ingesting, inhaling, injecting, or otherwise absorbing the material entity into the person&apos;s bloodstream or alimentary canal so that the material entity can interact with the organism on a cellular level.</rdfs:isDefinedBy>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#acute -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#acute">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/ogms.owl#disease_stage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#biologically_active_substance -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#biologically_active_substance">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000040"/>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A biologically active substance is a physicial material that when introduced into an organism (for example by eating, inhaling, or injecting it) helps the organism realize at least one disposition (for example increased heart rate or euphoria)</rdfs:isDefinedBy>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">biologically active substance</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#chronic -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#chronic">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/ogms.owl#disease_stage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#course_of_acute_infection_with_HCV -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#course_of_acute_infection_with_HCV">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OGMS_0000094"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">acute disease course of hepatitis C virus</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#course_of_acute_infection_with_HIV -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#course_of_acute_infection_with_HIV">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OGMS_0000094"/>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">acute disease course of HIV</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#disordered_substance_use -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#disordered_substance_use">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OGMS_0000031"/>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An organism has the disposition to consume substances in a temporal pattern that is destructive to that organism. The desctrutive may be in immediate physicial damage or may help create a disposition for physical damage at a later point. 
+
+Disordered alcohol use, for example, creates (increases the chance of?) a disposition for cirrhosis.</rdfs:isDefinedBy>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">disordered substance use</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#drug_use -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#drug_use">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0007610"/>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Drug use refers to the behavior realized by an organism to obtain and consume a substance with biological effects.</rdfs:isDefinedBy>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">drug use</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#drug_user -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#drug_user">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#substance_user"/>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A drug user is a substance user who self-administers a deliberately manufactured substance (as opposed to a pharmacologically active component of a plant or another organism) so as to bring about at least one certain biological effect.</rdfs:isDefinedBy>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">drug user</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#heroin -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#heroin">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#opiate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#illicit_drug_user -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#illicit_drug_user">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#drug_user"/>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An illicit drug user is a drug user who self-administers drugs that a political body with legal force has prohibited from administration.</rdfs:isDefinedBy>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">illicit drug user</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#increasingly_disordered_substance_use -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#increasingly_disordered_substance_use">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OGMS_0000065"/>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">progression of substance-related disorder</rdfs:isDefinedBy>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">increasingly disordered substance use</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#methadone -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#methadone">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#opioid"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#opiate -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#opiate">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#biologically_active_substance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#opioid -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#opioid">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#biologically_active_substance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#oxycodone -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#oxycodone">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#opioid"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#person -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#person">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/CARO_0030000"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#substance_user -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#substance_user">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#person"/>
+        <rdfs:isDefinedBy rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A substance user is a person who self-administers a substance with biological activity in order to bring about at least one biological effect.</rdfs:isDefinedBy>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">substance user</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#treatment_for_disease -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#treatment_for_disease">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Are all treatments materiak entities?
+
+I agree with distinguishing treatment from treatment plan. 
+Therapy and medications are both therapies. In a broad sense, both create the disposition for healing. 
+
+My view is that:
+1. therapy aims to change behavior
+2. medication aims to increase (something biological) that helps therapy work</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A treatment for a disease is a material entity</rdfs:label>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">treatment for disease</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#buprenorphine/naltrexone -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#buprenorphine/naltrexone">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40#opioid"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

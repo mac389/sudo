@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://www.w3.org/2001/sw/hcls/ns/transmed/tmo" uri="https://raw.githubusercontent.com/micheldumontier/translationalmedicineontology/master/ontology/tmo.owl"/>
+    <uri id="Imports Wizard Entry" name="http://purl.obolibrary.org/obo/ro/releases/2018-10-19/ro.owl" uri="https://raw.githubusercontent.com/oborel/obo-relations/master/ro.owl"/>
+    <uri id="Imports Wizard Entry" name="http://purl.obolibrary.org/obo/MF/internal/MFMD-bridge.owl" uri="https://raw.githubusercontent.com/jannahastings/mental-functioning-ontology/master/ontology/internal/MFMD-bridge.owl"/>
+    <uri id="Imports Wizard Entry" name="http://purl.obolibrary.org/obo/MF/internal/MF-core.owl" uri="https://raw.githubusercontent.com/jannahastings/mental-functioning-ontology/master/ontology/internal/MF-core.owl"/>
+    <uri id="Imports Wizard Entry" name="http://purl.obolibrary.org/obo/MF/internal/MD-core.owl" uri="https://raw.githubusercontent.com/jannahastings/mental-functioning-ontology/master/ontology/internal/MD-core.owl"/>
+    <uri id="Imports Wizard Entry" name="http://purl.obolibrary.org/obo/MFOMD.owl" uri="https://raw.githubusercontent.com/jannahastings/mental-functioning-ontology/master/ontology/MFOMD.owl"/>
+    <uri id="Imports Wizard Entry" name="http://purl.obolibrary.org/obo/MF.owl" uri="https://raw.githubusercontent.com/jannahastings/mental-functioning-ontology/master/ontology/MF.owl"/>
+    <uri id="Imports Wizard Entry" name="http://purl.obolibrary.org/obo/MFOMD.owl" uri="https://raw.githubusercontent.com/jannahastings/mental-functioning-ontology/master/ontology/MD.owl"/>
+    <uri id="Imports Wizard Entry" name="http://purl.obolibrary.org/obo/ro/releases/2018-10-19/ro.owl" uri="https://raw.githubusercontent.com/oborel/obo-relations/master/ro.owl"/>
+    <uri id="Imports Wizard Entry" name="http://purl.obolibrary.org/obo/bfo/2.0/bfo.owl" uri="https://raw.githubusercontent.com/BFO-ontology/BFO/master/releases/2.0/bfo.owl"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1544788051234" name="http://purl.obolibrary.org/obo/ro.owl" uri="ground-up-ontology.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1544788051234" name="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40" uri="smaller-ground-up-ontology.owl"/>
+    </group>
+</catalog>
