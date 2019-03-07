@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1551918886774" name="http://purl.org/sudo/ontology/sudo.owl" uri="src/without-bfo.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1551918886774" name="http://purl.org/sudo/ontology/sudo.owl#" uri="src/sudo.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1551918886774" name="http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-17" uri="src/sudo1.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1551918886774" name="http://www.semanticweb.org/mac389/ontologies/2018/0/untitled-ontology-19" uri="src/sudo2.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1551918886774" name="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-39" uri="data/ground-up-ontology.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1551918886774" name="http://www.semanticweb.org/mac389/ontologies/2018/11/untitled-ontology-40" uri="data/smaller-ground-up-ontology.owl"/>
+    </group>
+</catalog>
