@@ -1,6 +1,6 @@
 ## Abstract
 
-   Biomedical ontologies are useful for the organization of information and specification of how to integrate data from various sources. Substance use disorders, in particular opioid use disorders, are a growing public health problem. The impact of opioid use disorders on public health is so profound that mortality from opioid use disorders contributed to a decline in the average US life expectancy last year. The diagnosis and treatment of opioid use disorders is multidisciplinary. Biomedical ontologies could improve the diagnosis and treatment of opioid use disorders by assessing the evidence base for treatment modalities and identifying conflicting results. Here we provide an logically consistent representation of the terms _substance use_, _substance misuse_, and _substance abuse_. This representation is compatible with Basic Formal Ontology, the Ontology of Mental Function, and the Ontology of Mental Disease. 
+   Biomedical ontologies help specify how to integrate data from various sources and organize data and information in a way that computers can use for large-scale analysis. Opioid use disorder is a growing public health problem. Its impact on public health is so profound that mortality from opioid use disorder drove a decline in the average US life expectancy last year. Treatment for opioid use disorder involves therapy, medication, and social support. An ontology that organizes the opioid use disorder research could improve the treatment of patients suffering from opioid use disorder by identifying the evidence for certain treatments in specific patients. Here, building towards an ontology of the research on opioid use disorder treatment, we provide an logically consistent representation of the terms _substance use_, _substance misuse_, and _substance abuse_. This representation is compatible with Basic Formal Ontology, the Ontology of Mental Function, and the Ontology of Mental Disease. 
 
 ## Background
 
@@ -9,12 +9,12 @@ The Diagnostic and Statistical Manual of Mental Disorders, Fifth Edition defines
 
  > Patterns of symptoms resulting from the use of a substance that you continue to take, despite experiencing problems as a result.
  
-It distinguishes substance use disorders, from substance-induces disorders, which are direct physical manifestations of substance use, for example intoxication, withdrawal, or temporary psychosis. 
+ The DSM-V distinguishes substance use disorders, from substance-induced disorders, which are direct physical manifestations of substance use, for example intoxication, withdrawal, or temporary psychosis. 
 
 The term _substance use_ is preferred over _substance abuse_ or _substance misuse_, especially in materials that guide how healthcare providers interact with patients who may have an unproductive reaction to terms like _abuse_ or _misuse_. 
 
 #### Current Ontological Representation
-The Ontology of Mental Disease represents addiction and substance-related disorder as occurents [(Hastings et al., 2010)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3017014/). An occurent is an entity that has temporal parts, whose existence happens, unfolds, or develops through time [(citation)](http://purl.obolibrary.org/obo/bfo.owl). Figure X shows a selected view of the hierarchy. 
+The Ontology of Mental Disease represents addiction and substance-related disorder as occurents [(Hastings et al., 2010)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3017014/). An occurent is an entity that has temporal parts, whose existence happens, unfolds, or develops through time [(citation)](http://purl.obolibrary.org/obo/bfo.owl). Figure 1 shows a selected view of the hierarchy. 
 
     occurent
     |---process
@@ -25,8 +25,7 @@ The Ontology of Mental Disease represents addiction and substance-related disord
      
     Figure 1. View of OMD Hierarchy that includes addiction disorder as a subtype of occurrent. 
     
-
-OMD does not use the term _substance use disorder_. It, instead, uses the term _substance-related disorder_. This is in keeping with the DSM-IV-TR, which was the current termionological standard when OMD was published. 
+OMD does not use the term _substance use disorder_. It, instead, uses the term _substance-related disorder_. This is in keeping with the DSM-IV-TR, which was the current terminological standard when OMD was published. 
 
 **Proposed Changes** 
 
