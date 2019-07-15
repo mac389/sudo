@@ -6,3 +6,5 @@ data/training/.DS_Store
 src/external ontologies/
 src/.DS_store
 src/external ontologies/chebi_lite.owl
+.DS_Store
+data/.DS_Store
