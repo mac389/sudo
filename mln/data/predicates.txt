@@ -50,6 +50,7 @@ treament_with
 	treament_with_psychotherapy
 		treated_with_counseling
 
+recieve
 	receive_motivational_interviewing
 	recieved_hiv_and_hcv_counseling
 	recieved_one_session_therapeutic_alliance

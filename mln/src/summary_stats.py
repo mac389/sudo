@@ -23,7 +23,8 @@ for directory in os.listdir(MLN_PATH):
 				parsed = parse(os.path.join(MLN_PATH,directory,file))
 				axioms[file.split('.')[0]] = count_axioms(parsed)
 
-'''
+
+print sum(axioms.values())
 print sum(axioms.values())/float(len(axioms))
 print np.median(axioms.values())
 print np.std(axioms.values())
@@ -32,7 +33,7 @@ print np.percentile(axioms.values(),25)
 print np.percentile(axioms.values(),75)
 
 print 0.5*(np.percentile(axioms.values(),75)-np.percentile(axioms.values(),25))
-'''
+
 
 json.dump(axioms,open(os.path.join('..','data','axiom_count.json'),'w'))
 
