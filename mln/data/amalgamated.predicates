@@ -119,5 +119,3 @@ recieved_one_session_therapeutic_alliance(person)
 risky_sexual_behavior(person)
 risky_drug_behavior(person)
 recieved_general_counseling(person)
-
-

@@ -1,0 +1,28 @@
+
+P::urine(X,opioid_free,initial);(1-P)::urine(X,contains_opioids, initial) :-
+    P is 0.5.
+
+0.18::urine(X,opioid_free) :-
+	taper(X,buprenorphine,28_days),
+	attend_follow_up(X,1_month).
+
+0.18::urine(X,opioid_free) :-
+	taper(X,buprenorphine,28_days),
+    attend_follow_up(X,3_month).
+
+0.12::urine(X,opioid_free) :-
+	taper(X,buprenorphine,7_days),
+	attend_follow_up(X,1_month).
+
+0.13::urine(X,opioid_free) :-
+	taper(X,buprenorphine,7_days),
+	attend_follow_up(X,3_month).
+
+0.30::urine(X,opioid_free, initial) :-
+	taper(X,buprenorphine,28_days),
+	provide_initial_sample(X).
+
+0.44::urine(X,opioid_free, initial) :-
+	taper(X,buprenorphine,7_days),
+	provide_initial_sample(X).
+	

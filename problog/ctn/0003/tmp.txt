@@ -1,0 +1,38 @@
+% Your model here
+P::urine(X,opioid_free,initial);(1-P)::urine(X,contains_opioids, initial) :-
+    P is 0.5.
+
+taper(X,buprenorphine):-
+    patient(X).
+
+P::taper_duration(X,n28_days);(1-P)::taper_duration(X,n7_days).
+
+0.18::urine(X,opioid_free,n1_month_followup) :-
+	taper(X,buprenorphine),
+	taper_duration(X,n28_days).
+
+0.18::urine(X,opioid_free, n3_month_followup) :-
+	taper(X,buprenorphine),
+	taper_duration(X,n28_days).
+
+0.12::urine(X,opioid_free, n1_month_followup) :-
+	taper(X,buprenorphine),
+	taper_duration(X,n7_days).
+
+0.13::urine(X,opioid_free, n3_month_followup) :-
+	taper(X,buprenorphine),
+	taper_duration(X,n7_days).
+
+0.30::urine(X,opioid_free, initial) :-
+	taper(X,buprenorphine),
+	taper_duration(X,n28_days).
+
+0.44::urine(X,opioid_free, initial) :-
+	taper(X,buprenorphine),
+	taper_duration(n7_days).
+
+patient(1).
+evidence(patient(1),true).	
+evidence(taper(1,buprenorphine),true).
+query(urine(1,_,_)).
+query(taper_duration(X,_)).

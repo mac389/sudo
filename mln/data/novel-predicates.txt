@@ -1,15 +1,3 @@
-pattern_of_substance_use
-	disordered_pattern_of_substance_use
-		disordered_pattern_of_opioid_use
-	ordered_pattern_of_substance_use
-	increased_substance_use
-	decreased_substance_use
-
-has_substance_free_urine 
-	has_opioid_free_urine
-	has_stimulant_free_urine
-	opioid_free_urine_specimen
-
 group (object aggregate)
 	part_of_clinical_population
 	part_of_research_population
