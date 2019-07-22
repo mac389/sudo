@@ -1,28 +1,26 @@
-
 P::urine(X,opioid_free,initial);(1-P)::urine(X,contains_opioids, initial) :-
     P is 0.5.
 
-0.18::urine(X,opioid_free) :-
-	taper(X,buprenorphine,28_days),
-	attend_follow_up(X,1_month).
+P::urine(X,opioid_free,n1_month);(1-P)::urine(X,contains_opioids,n1_month) :-
+	taper(X,buprenorphine,n28_days),
+	P is 0.18.
 
-0.18::urine(X,opioid_free) :-
-	taper(X,buprenorphine,28_days),
-    attend_follow_up(X,3_month).
+P::urine(X,opioid_free,n3_month);(1-P)::urine(X,contains_opioids,n3_month) :-
+	taper(X,buprenorphine,n28_days),
+	P is 0.18.
 
-0.12::urine(X,opioid_free) :-
-	taper(X,buprenorphine,7_days),
-	attend_follow_up(X,1_month).
+P::urine(X,opioid_free,n1_month);(1-P)::urine(X,contains_opioids,n1_month) :-
+	taper(X,buprenorphine,n7_days),
+	P is 0.12.
 
-0.13::urine(X,opioid_free) :-
-	taper(X,buprenorphine,7_days),
-	attend_follow_up(X,3_month).
+P::urine(X,opioid_free,n3_month);(1-P)::urine(X,contains_opioids,n3_month) :-
+	taper(X,buprenorphine,n7_days),
+	P is 0.13.
 
-0.30::urine(X,opioid_free, initial) :-
-	taper(X,buprenorphine,28_days),
-	provide_initial_sample(X).
+P::urine(X,opioid_free, initial);(1-P)::urine(X,contains_opioids,initial) :-
+	taper(X,buprenorphine,n28_days),
+	P is 0.30.
 
-0.44::urine(X,opioid_free, initial) :-
-	taper(X,buprenorphine,7_days),
-	provide_initial_sample(X).
-	
+P::urine(X,opioid_free, initial);(1-P)::urine(X,contains_opioids,initial) :-
+	taper(X,buprenorphine,n7_days),
+	P is 0.44.
