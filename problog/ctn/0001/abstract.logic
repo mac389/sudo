@@ -1,21 +1,27 @@
+urine(X,opioid_free, initial) :- 
+	person(X), 
+	detoxification(X, opioid, success).
 
-urine(X,opioid_free, initial) 
-	:- detoxification(X, opioid, success).
-
-5*P::detoxification(X,opioid,success),P::detoxification(X,opioid,failure) :- P is 0.2.
+4*P::detoxification(X,opioid,success);P::detoxification(X,opioid,failure) :- P is 0.2.
 
 0.77::detoxification(X,opioid,success) :-
+   person(X),
    inpatient(X),
    recieved(X,bupnx).
 
 0.29::detoxification(X,opioid, success) :-
+	person(X),
 	outpatient(X),
 	recieved(X,bupnx).
 
 0.05::detoxification(X,opioid, success) :-
+	person(X),
 	outpatient(X),
 	recieved(X,clonidine).  
 
 0.22::detoxification(X,opioid, success) :-
-	inpatient(X)
+	person(X),
+	inpatient(X),
 	recieved(X,clonidine).
+
+inpatient(X) :- \+outpatient(X).
