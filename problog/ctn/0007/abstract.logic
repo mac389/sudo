@@ -1,0 +1,7 @@
+P::sample(X,stimulant_free,n12_weeks);P::sample(X,alcohol_free,n12_weeks) :-
+    recieved_therapy(X,contingency_management),
+    P is 0.66.
+
+P::sample(X,stimulant_free,n12_weeks);P::sample(X,alcohol_free,n12_weeks) :-
+    recieved_therapy(X,care_as_usual),
+    P is 0.33.
