@@ -1,0 +1,39 @@
+stimulant_or_alcohol_user(X) :-
+	user(X,cocaine);
+	user(X,stimulant);
+	user(X,alcohol).
+
+efficacious_for_drug_abstinence(X) :-
+	contingency_management_intervention(X),
+	stimulant_or_alcohol_user(X),
+	provide_tangible_incentives(X).
+
+P::remain_in_treatment(X,n4_weeks) :-
+	recieve_counseling_only(X),
+	stimulant_or_alcohol_user(X),
+	P is 0.25.
+
+P::remain_in_treatment(X,n4_weeks) :-
+	recieve_abstinence_based_incentives(X),
+	stimulant_or_alcohol_user(X),
+	P is 0.75.
+
+P::remain_in_treatment(X,n8_weeks) :-
+	recieve_counseling_only(X),
+	stimulant_or_alcohol_user(X),
+	P is 0.1.
+
+P::remain_in_treatment(X,n8_weeks) :-
+	recieve_abstinence_based_incentives(X),
+	stimulant_or_alcohol_user(X),
+	P is 0.9.
+
+P::remain_in_treatment(X,n12_weeks) :-
+	recieve_counseling_only(X),
+	stimulant_or_alcohol_user(X),
+	P is 0.1.
+
+P::remain_in_treatment(X,n12_weeks) :-
+	recieve_abstinence_based_incentives(X),
+	stimulant_or_alcohol_user(X),
+	P is 0.9.
