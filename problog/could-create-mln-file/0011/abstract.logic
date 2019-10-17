@@ -1,0 +1,3 @@
+P::continued_attendance_in_treatment(X,recieved_discharge_phone_call);P::continued_attendance_in_treatment(X,not_Recieved_discharge_phone_call) :-
+	recieving_residential_treatment(X),
+	P is 0.5.
