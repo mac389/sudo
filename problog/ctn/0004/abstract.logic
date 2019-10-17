@@ -1,0 +1,15 @@
+P::stay_in_therapy(X);(1-P)::not_stay_in_therapy(X) :-
+    receive_therapy(X,care_as_usual),
+    P is 0.5.
+
+P:urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative) :-
+    receive_therapy(X,care_as_usual),
+    P is 0.5.
+
+P::stay_in_therapy(X);(1-P)::not_stay_in_therapy(X) :-
+    receive_therapy(X,motivational_enhancement),
+    P is 0.5.
+    
+P::urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative) :-
+    receive_therapy(X,motivational_enhancement),
+    P is 0.5.
