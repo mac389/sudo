@@ -1,0 +1,10 @@
+difficult_to_retain_in_treatment(X) :-
+	substance_user(X),
+	pregnant(X).
+
+pregnant_substance_user(X) :-
+	pregnant(X),
+	substance_user(X).
+
+P::retain_in_treatment(X,motivational_enhancement_therapy);P::retain_in_treatment(X,treatment_as_usual) :-
+	pregnant_substance_user(X). 	

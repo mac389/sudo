@@ -1,0 +1,9 @@
+P::obtaining_new_taxed_job(X);2*P::not_obtaining_new_taxed_job(X) :-
+	substance_user(X),
+	recieved_counseling(X,standard_care),
+	P is 0.3.
+
+P::obtaining_new_taxed_job(X);2*P::not_obtaining_new_taxed_job(X) :-
+	substance_user(X),
+	recieved_counseling(X,job_seekers_workshop),
+	P is 0.3.
