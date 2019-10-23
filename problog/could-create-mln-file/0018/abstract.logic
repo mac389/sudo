@@ -1,0 +1,21 @@
+methadone_maintenance_or_outpatient_psychosocial_treatment(X) :-
+	person(X),
+	methadone_maintenance(X),
+	outpatient_psychosocial_treatment(X).
+
+person(X) :-
+	male(X).
+
+4*P::decrease_unprotected_sexual_encounters(X);P::increase_unprotected_sexual_encounters(X) :-
+	male(X),
+	substane_user(X),
+	methadone_maintenance_or_outpatient_psychosocial_treatment(X),
+	receive_therapy(X,REMAS),
+	P is 0.2.
+
+P::decrease_unprotected_sexual_encounters(X);P::increase_unprotected_sexual_encounters(X) :-
+	male(X),
+	substane_user(X),
+	methadone_maintenance_or_outpatient_psychosocial_treatment(X),
+	receive_therapy(X,HIV_ED),
+	P is 0.5.

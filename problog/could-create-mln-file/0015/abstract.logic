@@ -1,0 +1,11 @@
+P::substance_use(X) :-
+	female(X),
+	substance_user(X),
+	recieve_therapy(X,womens_health_education),
+	P is 0.5.
+
+P::substance_use(X) :-
+	female(X),
+	substance_user(X),
+	recieve_therapy(X,seeking_safety),
+	P is 0.5.

@@ -1,0 +1,11 @@
+P::recieve_therapy(X,counseling_and_education);P::recieve_therapy(X,therapeutic_alliance);P::recieve_therapy(X,treatment_as_usual) :-
+	inject_substance(X),
+	engage_in_risky_behavior(X,drug),
+	P is 0.3.
+
+% this ignores temporal relationships. 
+
+2*P::recieve_therapy(X,counseling_and_education);P::recieve_therapy(X,therapeutic_alliance);P::recieve_therapy(X,treatment_as_usual) :-
+	inject_substance(X),
+	attend_HIV_testing_appointment(X),
+	P is 0.25.
