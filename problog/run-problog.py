@@ -5,36 +5,27 @@ from problog import get_evaluatable
 
 p = PrologString("""
 
-P::urine(X,opioid_free,initial);(1-P)::urine(X,contains_opioids, initial) :-
+2*P::stay_in_therapy(X, n28_day);(1-2*P)::not_stay_in_therapy(X,n_28_day) :-
+    receive_initial_therapy(X,motivational_interviewing),
+    P is 0.33.
+
+P:urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative) :-
+    receive_initial_therapy(X,motiavtional_interviewing),
     P is 0.5.
 
-P::urine(X,opioid_free,n1_month);(1-P)::urine(X,contains_opioids,n1_month) :-
-	taper(X,buprenorphine,n28_days),
-	P is 0.18.
+P::stay_in_therapy(X, n84_day);(1-P)::not_stay_in_therapy(X,n84_day) :-
+    receive_initial_therapy(X,standard_intake_evaluation),
+    P is 0.5.
+    
+P::urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative) :-
+    receive_initial_therapy(X,standard_intake_evaluation),
+    P is 0.5.
 
-P::urine(X,opioid_free,n3_month);(1-P)::urine(X,contains_opioids,n3_month) :-
-	taper(X,buprenorphine,n28_days),
-	P is 0.18.
 
-P::urine(X,opioid_free,n1_month);(1-P)::urine(X,contains_opioids,n1_month) :-
-	taper(X,buprenorphine,n7_days),
-	P is 0.12.
-
-P::urine(X,opioid_free,n3_month);(1-P)::urine(X,contains_opioids,n3_month) :-
-	taper(X,buprenorphine,n7_days),
-	P is 0.13.
-
-P::urine(X,opioid_free, initial);(1-P)::urine(X,contains_opioids,initial) :-
-	taper(X,buprenorphine,n28_days),
-	P is 0.30.
-
-P::urine(X,opioid_free, initial);(1-P)::urine(X,contains_opioids,initial) :-
-	taper(X,buprenorphine,n7_days),
-	P is 0.44.
 	
 person(1).
-taper(1,buprenorphine,n7_days).
-query(urine(1,_,_)).
+receive_initial_therapy(1,standard_intake_evaluation).
+query(stay_in_therapy(1,n84_day)).
 """)
 
 print get_evaluatable().create_from(p).evaluate()
