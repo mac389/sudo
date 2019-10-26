@@ -1,0 +1,14 @@
+P::decrease_days_smoking_use(X) :-
+ diagnosed_with_adhd(X),
+ smoker(X),
+ interested_in_quitting_smoking(X),
+ recieved(X,methylphenidate),
+ recieved(X,individual_smoking_cessation),
+ P is 0.5.
+
+P::decrease_days_smoking_use(X) :-
+ diagnosed_with_adhd(X),
+ smoker(X),
+ interested_in_quitting_smoking(X),
+ recieved(X,individual_smoking_cessation),
+ P is 0.5.

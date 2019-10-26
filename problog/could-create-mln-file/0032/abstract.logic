@@ -1,0 +1,12 @@
+P::decreased_frequency_of_unprotected_intercourse_episodes(X);P::recieve_test_results(X) :-
+	off_site_HIV_testing(X),
+	P is 0.5.
+
+P::decreased_frequency_of_unprotected_intercourse_episodes(X);1.5*P::recieve_test_results(X) :-
+	on_site_HIV_testing(X),
+	recieve_counseling(X,HIV_risk_reduction_counseling),
+	P is 0.5.
+
+P::decreased_frequency_of_unprotected_intercourse_episodes(X);1.5*P::recieve_test_results(X) :-
+	on_site_HIV_testing(X),
+	P is 0.5.

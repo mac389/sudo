@@ -1,0 +1,14 @@
+P::infected(X, HCV);P::infected(newly,X,HCV) :-
+	illicit_drug_user(X),
+	P is 0.8.
+
+P::perceive(HCV_testing,unimportant) :-
+	lack_symptoms(X),
+	illicit_drug_user(X),
+	did_not_recieve_recommendation_for_treatment(X),
+	P is 0.8. 
+
+P::decide_to_not_pursue_HCV_treatment(X) :-
+	test_positive_for_HCV(X),
+	mistrust_health_care_providers(X),
+	P is 0.6.
