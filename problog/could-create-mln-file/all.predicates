@@ -1,473 +1,458 @@
-urine(X,opioid_free, initial) :- 
+urine(X,opioid_free, initial)     
 	person(X), 
 	detoxification(X, opioid, success).
 
-4*P::detoxification(X,opioid,success);P::detoxification(X,opioid,failure) :- P is 0.2.
+detoxification(X,opioid,success); detoxification(X,opioid,failure)      
 
-0.77::detoxification(X,opioid,success) :-
+detoxification(X,opioid,success)    
    person(X),
    inpatient(X),
    recieved(X,bupnx).
 
-0.29::detoxification(X,opioid, success) :-
+  detoxification(X,opioid, success)    
 	person(X),
 	outpatient(X),
 	recieved(X,bupnx).
 
-0.05::detoxification(X,opioid, success) :-
+  detoxification(X,opioid, success)    
 	person(X),
 	outpatient(X),
 	recieved(X,clonidine).  
 
-0.22::detoxification(X,opioid, success) :-
+  detoxification(X,opioid, success)    
 	person(X),
 	inpatient(X),
 	recieved(X,clonidine).
 
-inpatient(X) :- \+outpatient(X).P::urine(X,opioid_free,initial);(1-P)::urine(X,contains_opioids, initial) :-
-    P is 0.5.
+inpatient(X)     
+\+outpatient(X). urine(X,opioid_free,initial);(1-P)::urine(X,contains_opioids, initial)    
+     
 
-P::urine(X,opioid_free,n1_month);(1-P)::urine(X,contains_opioids,n1_month) :-
+ urine(X,opioid_free,n1_month);(1-P)::urine(X,contains_opioids,n1_month)    
 	taper(X,buprenorphine,n28_days),
-	P is 0.18.
+	 
 
-P::urine(X,opioid_free,n3_month);(1-P)::urine(X,contains_opioids,n3_month) :-
+ urine(X,opioid_free,n3_month);(1-P)::urine(X,contains_opioids,n3_month)    
 	taper(X,buprenorphine,n28_days),
-	P is 0.18.
+	 
 
-P::urine(X,opioid_free,n1_month);(1-P)::urine(X,contains_opioids,n1_month) :-
+ urine(X,opioid_free,n1_month);(1-P)::urine(X,contains_opioids,n1_month)    
 	taper(X,buprenorphine,n7_days),
-	P is 0.12.
+	 
 
-P::urine(X,opioid_free,n3_month);(1-P)::urine(X,contains_opioids,n3_month) :-
+ urine(X,opioid_free,n3_month);(1-P)::urine(X,contains_opioids,n3_month)    
 	taper(X,buprenorphine,n7_days),
-	P is 0.13.
+	
 
-P::urine(X,opioid_free, initial);(1-P)::urine(X,contains_opioids,initial) :-
+ urine(X,opioid_free, initial);(1-P)::urine(X,contains_opioids,initial)    
 	taper(X,buprenorphine,n28_days),
-	P is 0.30.
+	 
 
-P::urine(X,opioid_free, initial);(1-P)::urine(X,contains_opioids,initial) :-
+ urine(X,opioid_free, initial);(1-P)::urine(X,contains_opioids,initial)    
 	taper(X,buprenorphine,n7_days),
-	P is 0.44.P::stay_in_therapy(X);(1-P)::not_stay_in_therapy(X) :-
+	  stay_in_therapy(X);(1-P)::not_stay_in_therapy(X)    
     receive_therapy(X,care_as_usual),
-    P is 0.5.
+     
 
-P:urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative) :-
+ urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative)    
     receive_therapy(X,care_as_usual),
-    P is 0.5.
+     
 
-P::stay_in_therapy(X);(1-P)::not_stay_in_therapy(X) :-
+ stay_in_therapy(X);(1-P)::not_stay_in_therapy(X)    
     receive_therapy(X,motivational_enhancement),
-    P is 0.5.
+     
     
-P::urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative) :-
+ urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative)    
     receive_therapy(X,motivational_enhancement),
-    P is 0.5.2*P::stay_in_therapy(X, n28_day);(1-2*P)::not_stay_in_therapy(X,n_28_day) :-
+     stay_in_therapy(X, n28_day);(1-2*P)::not_stay_in_therapy(X,n_28_day)    
     receive_initial_therapy(X,motivational_interviewing),
-    P is 0.33.
+     
 
-P:urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative) :-
+ urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative)    
     receive_initial_therapy(X,motiavtional_interviewing),
-    P is 0.5.
+     
 
-P::stay_in_therapy(X, n84_day);(1-P)::not_stay_in_therapy(X,n84_day) :-
+ stay_in_therapy(X, n84_day);(1-P)::not_stay_in_therapy(X,n84_day)    
     receive_initial_therapy(X,standard_intake_evaluation),
-    P is 0.5.
+     
     
-P::urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative) :-
+ urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative)    
     receive_initial_therapy(X,standard_intake_evaluation),
-    P is 0.5.
-cocaine_or_methamphetmine_user(X) :-
+     
+cocaine_or_methamphetmine_user(X)    
 	user(X,cocaine);
 	user(X,methamphetamine).
 
-efficacious_for_drug_abstinence(X) :-
+efficacious_for_drug_abstinence(X)    
 	contingency_management_intervention(X),
 	cocaine_or_methamphetmine_user(X),
 	provide_tangible_incentives(X).
 
-P::remain_in_treatment(X,n4_weeks) :-
+ remain_in_treatment(X,n4_weeks)    
 	recieve_counseling_only(X),
 	cocaine_or_methamphetmine_user(X),
-	P is 0.25.
+	 
 
-P::remain_in_treatment(X,n4_weeks) :-
+ remain_in_treatment(X,n4_weeks)    
 	recieve_abstinence_based_incentives(X),
 	cocaine_or_methamphetmine_user(X),
-	P is 0.75.
+	 
 
-P::remain_in_treatment(X,n8_weeks) :-
+ remain_in_treatment(X,n8_weeks)    
 	recieve_counseling_only(X),
 	cocaine_or_methamphetmine_user(X),
-	P is 0.25.
+	 
 
-P::remain_in_treatment(X,n8_weeks) :-
+ remain_in_treatment(X,n8_weeks)    
 	recieve_abstinence_based_incentives(X),
 	cocaine_or_methamphetmine_user(X),
-	P is 0.75.
+	 
 
-P::remain_in_treatment(X,n12_weeks) :-
+ remain_in_treatment(X,n12_weeks)    
 	recieve_counseling_only(X),
 	cocaine_or_methamphetmine_user(X),
-	P is 0.2.
+	 
 
-P::remain_in_treatment(X,n12_weeks) :-
+ remain_in_treatment(X,n12_weeks)    
 	recieve_abstinence_based_incentives(X),
 	cocaine_or_methamphetmine_user(X),
-	P is 0.8.stimulant_or_alcohol_user(X) :-
+	 stimulant_or_alcohol_user(X)    
 	user(X,cocaine);
 	user(X,stimulant);
 	user(X,alcohol).
 
-efficacious_for_drug_abstinence(X) :-
+efficacious_for_drug_abstinence(X)    
 	contingency_management_intervention(X),
 	stimulant_or_alcohol_user(X),
 	provide_tangible_incentives(X).
 
-P::remain_in_treatment(X,n4_weeks) :-
+ remain_in_treatment(X,n4_weeks)    
 	recieve_counseling_only(X),
 	stimulant_or_alcohol_user(X),
-	P is 0.25.
+	 
 
-P::remain_in_treatment(X,n4_weeks) :-
+ remain_in_treatment(X,n4_weeks)    
 	recieve_abstinence_based_incentives(X),
 	stimulant_or_alcohol_user(X),
-	P is 0.75.
+	 
 
-P::remain_in_treatment(X,n8_weeks) :-
+ remain_in_treatment(X,n8_weeks)    
 	recieve_counseling_only(X),
 	stimulant_or_alcohol_user(X),
-	P is 0.1.
+	 
 
-P::remain_in_treatment(X,n8_weeks) :-
+ remain_in_treatment(X,n8_weeks)    
 	recieve_abstinence_based_incentives(X),
 	stimulant_or_alcohol_user(X),
-	P is 0.9.
+	 
 
-P::remain_in_treatment(X,n12_weeks) :-
+ remain_in_treatment(X,n12_weeks)    
 	recieve_counseling_only(X),
 	stimulant_or_alcohol_user(X),
-	P is 0.1.
+	 
 
-P::remain_in_treatment(X,n12_weeks) :-
+ remain_in_treatment(X,n12_weeks)    
 	recieve_abstinence_based_incentives(X),
 	stimulant_or_alcohol_user(X),
-	P is 0.9.
+	 
 
-P::sample(X,stimulant_free,n12_weeks);P::sample(X,alcohol_free,n12_weeks) :-
+ sample(X,stimulant_free,n12_weeks); sample(X,alcohol_free,n12_weeks)    
     recieved_therapy(X,contingency_management),
-    P is 0.66.
+     
 
-P::sample(X,stimulant_free,n12_weeks);P::sample(X,alcohol_free,n12_weeks) :-
+ sample(X,stimulant_free,n12_weeks); sample(X,alcohol_free,n12_weeks)    
     recieved_therapy(X,care_as_usual),
-    P is 0.33.% P of 0.80 expresses the term "highly prevalent"
-P::dependent(X, nicotine) :-
+     % P of 0.80 expresses the term "highly prevalent"
+ dependent(X, nicotine)    
     person(X),
-    P is 0.80,
+     
     dependent(X, drug); dependent(X,alcohol).
 
-P::abstinent(X, nicotine, during_treamtent);(0.5*P)::abstinent(X,nicotine,n13_weeks);(0.5*P)::abstinent(X,nicotine,n26_weeks) :-
+ abstinent(X, nicotine, during_treamtent);(0.5*P)::abstinent(X,nicotine,n13_weeks);(0.5*P)::abstinent(X,nicotine,n26_weeks)    
     person(X),
-    P is 0.10,
+     
     recieve_therapy(X, nicotine).
 
 % Did not say what care as usual P was, only that it was lower
-P::abstinent(X, nicotine, during_treamtent);(0.5*P)::abstinent(X,nicotine,n13_weeks);(0.5*P)::abstinent(X,nicotine,n26_weeks) :-
+ abstinent(X, nicotine, during_treamtent);(0.5*P)::abstinent(X,nicotine,n13_weeks);(0.5*P)::abstinent(X,nicotine,n26_weeks)    
     person(X),
-    P is 0.05,
+     
     recieve_therapy(X, care_as_usual).
 
     
-uses(X,drug) :- 
+uses(X,drug)     
     person(X),
     uses(X,methadone).
-usual_treatment(X,detoxification_and_counseling) :-
+usual_treatment(X,detoxification_and_counseling)    
 	opioid_addicted_youth(X).
 
 
-P::urine_positive_opioid(X,n4_weeks,buprenorphine_naloxone);P::urine_positive_opioids(X,n4_weeks,detox) :-
+ urine_positive_opioid(X,n4_weeks,buprenorphine_naloxone); urine_positive_opioids(X,n4_weeks,detox)    
 	opioid_addicted(X),
-	P is 0.5.
+	 
 
-P::urine_positive_opioid(X,n8_weeks,buprenorphine_naloxone);P::urine_positive_opioids(X,n8_weeks,detox) :-
+ urine_positive_opioid(X,n8_weeks,buprenorphine_naloxone); urine_positive_opioids(X,n8_weeks,detox)    
 	opioid_addicted(X),
-	P is 0.5.
+	 
 
-P::urine_positive_opioid(X,n8_weeks,buprenorphine_naloxone);P::urine_positive_opioids(X,n8_weeks,detox) :-
+ urine_positive_opioid(X,n8_weeks,buprenorphine_naloxone); urine_positive_opioids(X,n8_weeks,detox)    
 	opioid_addicted(X),
-	P is 0.5.
+	 
 
-P::urine_positive_opioid(X,n12_weeks,buprenorphine_naloxone);P::urine_positive_opioids(X,n12_weeks,detox) :-
+ urine_positive_opioid(X,n12_weeks,buprenorphine_naloxone); urine_positive_opioids(X,n12_weeks,detox)    
 	opioid_addicted(X),
-	P is 0.5.
+	 
 
-P::urine_positive_opioid(X,n12_weeks,buprenorphine_naloxone);P::urine_positive_opioids(X,n12_weeks,detox) :-
+ urine_positive_opioid(X,n12_weeks,buprenorphine_naloxone); urine_positive_opioids(X,n12_weeks,detox)    
 	opioid_addicted(X),
-	P is 0.5.
+	 
 
-(3*P)::remain_in_treatment(X,n12_weeks,buprnorphine_naloxone);P::remain_in_treatment(X,n12_Weeks,detox):-
+remain_in_treatment(X,n12_weeks,buprnorphine_naloxone); remain_in_treatment(X,n12_Weeks,detox)   
 	opioid_addicted(X),
-	P is 0.25.P::continued_attendance_in_treatment(X,recieved_discharge_phone_call);P::continued_attendance_in_treatment(X,not_Recieved_discharge_phone_call) :-
+	  continued_attendance_in_treatment(X,recieved_discharge_phone_call); continued_attendance_in_treatment(X,not_Recieved_discharge_phone_call)    
 	recieving_residential_treatment(X),
-	P is 0.5.difficult_to_retain_in_treatment(X) :-
+	 difficult_to_retain_in_treatment(X)    
 	substance_user(X),
 	pregnant(X).
 
-pregnant_substance_user(X) :-
+pregnant_substance_user(X)    
 	pregnant(X),
 	substance_user(X).
 
-P::retain_in_treatment(X,motivational_enhancement_therapy);P::retain_in_treatment(X,treatment_as_usual) :-
-	pregnant_substance_user(X). 	P::substance_use(X,brief_strategic_family_therapy);P::substance_use(X,treatment_as_usual) :-
+ retain_in_treatment(X,motivational_enhancement_therapy); retain_in_treatment(X,treatment_as_usual)    
+	pregnant_substance_user(X). 	 substance_use(X,brief_strategic_family_therapy); substance_use(X,treatment_as_usual)    
 	adolescent(X),
 	uses_substances(X),
-	P is 0.5.P::substance_use(X) :-
+	  substance_use(X)    
 	female(X),
 	substance_user(X),
 	recieve_therapy(X,womens_health_education),
-	P is 0.5.
+	 
 
-P::substance_use(X) :-
+ substance_use(X)    
 	female(X),
 	substance_user(X),
 	recieve_therapy(X,seeking_safety),
-	P is 0.5.P::recieve_therapy(X,counseling_and_education);P::recieve_therapy(X,therapeutic_alliance);P::recieve_therapy(X,treatment_as_usual) :-
+	  recieve_therapy(X,counseling_and_education); recieve_therapy(X,therapeutic_alliance); recieve_therapy(X,treatment_as_usual)    
 	inject_substance(X),
 	engage_in_risky_behavior(X,drug),
-	P is 0.3.
-
-% this ignores temporal relationships. 
-
-2*P::recieve_therapy(X,counseling_and_education);P::recieve_therapy(X,therapeutic_alliance);P::recieve_therapy(X,treatment_as_usual) :-
+	 
+recieve_therapy(X,counseling_and_education); recieve_therapy(X,therapeutic_alliance); recieve_therapy(X,treatment_as_usual)    
 	inject_substance(X),
 	attend_HIV_testing_appointment(X),
-	P is 0.25.methadone_maintenance_or_outpatient_psychosocial_treatment(X) :-
+	 methadone_maintenance_or_outpatient_psychosocial_treatment(X)    
 	person(X),
 	methadone_maintenance(X),
 	outpatient_psychosocial_treatment(X).
 
-person(X) :-
+person(X)    
 	male(X).
 
-4*P::decrease_unprotected_sexual_encounters(X);P::increase_unprotected_sexual_encounters(X) :-
+decrease_unprotected_sexual_encounters(X); increase_unprotected_sexual_encounters(X)    
 	male(X),
 	substane_user(X),
 	methadone_maintenance_or_outpatient_psychosocial_treatment(X),
 	receive_therapy(X,REMAS),
-	P is 0.2.
+	 
 
-P::decrease_unprotected_sexual_encounters(X);P::increase_unprotected_sexual_encounters(X) :-
+ decrease_unprotected_sexual_encounters(X); increase_unprotected_sexual_encounters(X)    
 	male(X),
 	substane_user(X),
 	methadone_maintenance_or_outpatient_psychosocial_treatment(X),
 	receive_therapy(X,HIV_ED),
-	P is 0.5.
-2*P::decrease_unprotected_sexual_encounters(X,n3_months);P::inrease_unprotected_sexual_encounters(X,n3_months) :-
+	 
+decrease_unprotected_sexual_encounters(X,n3_months); inrease_unprotected_sexual_encounters(X,n3_months)    
 	woman(X),
 	substance_user(X),
 	recieve_therapy(X, safer_skills_building),
-	P is 0.3.
+	 
 
-2*P::decrease_unprotected_sexual_encounters(X,n3_months);P::inrease_unprotected_sexual_encounters(X,n3_months) :-
+decrease_unprotected_sexual_encounters(X,n3_months); inrease_unprotected_sexual_encounters(X,n3_months)    
 	woman(X),
 	substance_user(X),
 	recieve_therapy(X, HIV_ED),
-	P is 0.3.
+	 
 
 
-2*P::decrease_unprotected_sexual_encounters(X,n6_months);P::inrease_unprotected_sexual_encounters(X,n6_months) :-
+decrease_unprotected_sexual_encounters(X,n6_months); inrease_unprotected_sexual_encounters(X,n6_months)    
 	woman(X),
 	substance_user(X),
 	recieve_therapy(X, safer_skills_building),
-	P is 0.3.
+	 
 
-P::decrease_unprotected_sexual_encounters(X,n6_months);P::inrease_unprotected_sexual_encounters(X,n6_months) :-
+ decrease_unprotected_sexual_encounters(X,n6_months); inrease_unprotected_sexual_encounters(X,n6_months)    
 	woman(X),
 	substance_user(X),
 	recieve_therapy(X, HIV_ED),
-	P is 0.3.P::obtaining_new_taxed_job(X);2*P::not_obtaining_new_taxed_job(X) :-
+	  obtaining_new_taxed_job(X);2* not_obtaining_new_taxed_job(X)    
 	substance_user(X),
 	recieved_counseling(X,standard_care),
-	P is 0.3.
+	 
 
-P::obtaining_new_taxed_job(X);2*P::not_obtaining_new_taxed_job(X) :-
+ obtaining_new_taxed_job(X);2* not_obtaining_new_taxed_job(X)    
 	substance_user(X),
 	recieved_counseling(X,job_seekers_workshop),
-	P is 0.3.4*P::use_substance(X);5*P::not_use_substance(X) :-
+	 4* use_substance(X);5* not_use_substance(X)    
 	hispanic(X),
 	substance_user(X),
 	recieve_therapy(X,motivational_enhancement_therapy),
-	P is 0.1.
+	 
 
-4*P::use_substance(X);5*P::not_use_substance(X) :-
+4* use_substance(X);5* not_use_substance(X)    
 	hispanic(X),
 	substance_user(X),
 	recieve_therapy(X,counseling_as_usual),
-	P is 0.1.P::drug_induced_hepatitis(X) :-
+	  drug_induced_hepatitis(X)    
 	taking_drug(X,buprenorphine_naloxone),
-	P is 0.5.
+	 
 
-P::drug_induced_hepatitis(X) :-
+ drug_induced_hepatitis(X)    
 	taking_drug(X,methadone),
-	P is 0.5.
-P::reduce_days_of_use_substance(X) :-
+	 
+ reduce_days_of_use_substance(X)    
 	diagnosed_with_adhd(X),
 	diagnosed_with_sud(X),
 	adolescent(X),
 	recieve_therapy(X,methylphenidate),
 	recieve_therapy(X,cognitive_behaviora_therapy),
-	P is 0.5,
+	 
 
-P::reduce_days_of_use_substance(X) :-
+ reduce_days_of_use_substance(X)    
 	diagnosed_with_adhd(X),
 	diagnosed_with_sud(X),
 	adolescent(X),
 	recieve_therapy(X,methylphenidate),
 	recieve_therapy(X,cognitive_behaviora_therapy),
-	P is 0.5.P::decrease_days_smoking_use(X) :-
+	  decrease_days_smoking_use(X)    
  diagnosed_with_adhd(X),
  smoker(X),
  interested_in_quitting_smoking(X),
  recieved(X,methylphenidate),
  recieved(X,individual_smoking_cessation),
- P is 0.5.
+  
 
-P::decrease_days_smoking_use(X) :-
+ decrease_days_smoking_use(X)    
  diagnosed_with_adhd(X),
  smoker(X),
  interested_in_quitting_smoking(X),
  recieved(X,individual_smoking_cessation),
- P is 0.5.P::stop_using_prescription_opioids(X) :-
+   stop_using_prescription_opioids(X)    
 	dependent_on_prescription_opioids(X),
 	complete_naloxone_stabilization(X),
 	recieve_counseling(X),
 	\+complete_taper(X),
 	\+complete_post_medication_follow_up(X),
-	P is 0.06.
+	 
 
-P::stop_using_prescription_opioids(X) :-
+ stop_using_prescription_opioids(X)    
 	dependent_on_prescription_opioids(X),
 	complete_naloxone_stabilization(X),
 	recieve_counseling(X),
 	complete_taper(X),
 	\+complete_post_medication_follow_up(X),
-	P is 0.492.
+	 
 
-P::stop_using_prescription_opioids(X) :-
+ stop_using_prescription_opioids(X)    
 	dependent_on_prescription_opioids(X),
 	complete_naloxone_stabilization(X),
 	recieve_counseling(X),
 	complete_taper(X),
 	complete_post_medication_follow_up(X),
-	P is 0.086.
-P::decreased_frequency_of_unprotected_intercourse_episodes(X);P::recieve_test_results(X) :-
+	 
+ decreased_frequency_of_unprotected_intercourse_episodes(X); recieve_test_results(X)    
 	off_site_HIV_testing(X),
-	P is 0.5.
+	 
 
-P::decreased_frequency_of_unprotected_intercourse_episodes(X);1.5*P::recieve_test_results(X) :-
+ decreased_frequency_of_unprotected_intercourse_episodes(X);1.5* recieve_test_results(X)    
 	on_site_HIV_testing(X),
 	recieve_counseling(X,HIV_risk_reduction_counseling),
-	P is 0.5.
+	 
 
-P::decreased_frequency_of_unprotected_intercourse_episodes(X);1.5*P::recieve_test_results(X) :-
+ decreased_frequency_of_unprotected_intercourse_episodes(X);1.5* recieve_test_results(X)    
 	on_site_HIV_testing(X),
-	P is 0.5.P::infected(X, HCV);P::infected(newly,X,HCV) :-
+	  infected(X, HCV); infected(newly,X,HCV)    
 	illicit_drug_user(X),
-	P is 0.8.
+	 
 
-P::perceive(HCV_testing,unimportant) :-
+ perceive(HCV_testing,unimportant)    
 	lack_symptoms(X),
 	illicit_drug_user(X),
 	did_not_recieve_recommendation_for_treatment(X),
-	P is 0.8. 
-
-P::decide_to_not_pursue_HCV_treatment(X) :-
+	  
+ decide_to_not_pursue_HCV_treatment(X)    
 	test_positive_for_HCV(X),
 	mistrust_health_care_providers(X),
-	P is 0.6.
-P::abstinence(any_drug,X,during_treatment);P::abstinence(heavy_drinking,X,during_treatment) :-
+	 
+ abstinence(any_drug,X,during_treatment); abstinence(heavy_drinking,X,during_treatment)    
 	in_outpatient_addiction_treatment(X),
 	recieve(X,computer_modules),
 	recieve(x,motivational_incentives),
-	P is 0.7.
 
-
-P::abstinence(any_drug,X,after_treatment);P::abstinence(heavy_drinking,X,after_treatment) :-
+ abstinence(any_drug,X,after_treatment); abstinence(heavy_drinking,X,after_treatment)    
 	in_outpatient_addiction_treatment(X),
 	recieve(X,computer_modules),
 	recieve(x,motivational_incentives),
-	P is 0.5.
-P::abstinence(X,stimulants,week) :-
+	 
+ abstinence(X,stimulants,week)    
 	dependence(X,cocaine),
 	dependence(x,methamphetime),
 	interested_in(X,quitting_smoking),
 	received(X,treatment_as_usual),
 	received(X,bupropion),
-	Pis 0.77.
 
-P::abstinence(X,stimulants,week) :-
+ abstinence(X,stimulants,week)    
 	dependence(X,cocaine),
 	dependence(x,methamphetime),
 	interested_in(X,quitting_smoking),
 	received(X,treatment_as_usual),
-	P is 0.78.P::drug_free(X,hair_samples) :-
+	  drug_free(X,hair_samples)    
 	moderate_to_severe_problems_related_to_drug_use(X),
 	minimal_screening_only(X),
-	P is 0.5.
+	 
 
-P::drug_free(X,hair_samples) :-
+ drug_free(X,hair_samples)    
 	moderate_to_severe_problems_related_to_drug_use(X),
 	screening_with_telephone_boosters(X),
-	P is 0.5.
+	 
 
-P::drug_free(X,hair_samples) :-
+ drug_free(X,hair_samples)    
 	moderate_to_severe_problems_related_to_drug_use(X),
 	screening_assessment_referral_to_treatment(X),
-	P is 0.5.
-P::days_between_cocaine_use(X);;P::days_of_continuous_cocaine_use(X) :-
+	 
+ days_between_cocaine_use(X);; days_of_continuous_cocaine_use(X)    
 cocaine_dependent(X),
 previously_treated_as_inpatient(X),
 recieve(X,buspirone)
-P is 0.5.
+ 
 
-P::days_between_cocaine_use(X);;P::days_of_continuous_cocaine_use(X) :- 
+ days_between_cocaine_use(X);; days_of_continuous_cocaine_use(X)     
 cocaine_dependent(X),
 previously_treated_as_inpatient(X),
 recieve(X,placebo),
-P is 0.5.P::negative_urine_cannabinoid_test(X) :-
+  negative_urine_cannabinoid_test(X)    
 cannabis_use_disorder(X),
 contingency_management(X),
 medical_management(X),
-P is 0.25.
+ 
 
-P::negative_urine_cannabinoid_test(X) :-
+ negative_urine_cannabinoid_test(X)    
 cannabis_use_disorder(X),
 contingency_management(X),
 recieved(X,n_acetylcysteine),
 medical_management(X),
-P is 0.25.
-P::negative_urine_drug_scereen(X) :-
+ 
+ negative_urine_drug_scereen(X)    
 	methamphetamine_use_disorder(X)
 	injectable_naltrexone(X),
 	oral_bupropion(X),
 	medical_management(X),
-	P is 11/49.
-P::start_treatment(X);(0.88*P)::stay_in_treatment(X);P2::opioid_use(X);P3::heavy_drinking(X);P4::viral_suppression(X) :-
+
+ start_treatment(X);(0.88*P)::stay_in_treatment(X);P2::opioid_use(X);P3::heavy_drinking(X);P4::viral_suppression(X)    
 	substance_use_disorder(X),
 	infected_with_HIV(X),
 	recieved(X, buprenorphine),
-	P is 34/51,
-	P2 is 13/30,
-	P3 is 6/30,
-	P4 is 0.8.
 
-
-(0.96*P)::start_treatment(X);(0.5*P)::stay_in_treatment(X);P2::opioid_use(X);P2::opioid_use(X);P3::heavy_drinking(X);P4::viral_suppression(X) :-
+start_treatment(X);(0.5*P)::stay_in_treatment(X);P2::opioid_use(X);P2::opioid_use(X);P3::heavy_drinking(X);P4::viral_suppression(X)    
 	substance_use_disorder(X),
 	infected_with_HIV(X),
 	recieved(X,treatment_as_usual),
-	P is 1,
-	P2 is 10/30,
-	P3 is 7/30,
-	P4 is 0.75.
