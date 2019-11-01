@@ -1,0 +1,18 @@
+P::start_treatment(X);(0.88*P)::stay_in_treatment(X);P2::opioid_use(X);P3::heavy_drinking(X);P4::viral_suppression(X) :-
+	substance_use_disorder(X),
+	infected_with_HIV(X),
+	recieved(X, buprenorphine),
+	P is 34/51,
+	P2 is 13/30,
+	P3 is 6/30,
+	P4 is 0.8.
+
+
+(0.96*P)::start_treatment(X);(0.5*P)::stay_in_treatment(X);P2::opioid_use(X);P2::opioid_use(X);P3::heavy_drinking(X);P4::viral_suppression(X) :-
+	substance_use_disorder(X),
+	infected_with_HIV(X),
+	recieved(X,treatment_as_usual),
+	P is 1,
+	P2 is 10/30,
+	P3 is 7/30,
+	P4 is 0.75.

@@ -1,0 +1,6 @@
+P::negative_urine_drug_scereen(X) :-
+	methamphetamine_use_disorder(X)
+	injectable_naltrexone(X),
+	oral_bupropion(X),
+	medical_management(X),
+	P is 11/49.
