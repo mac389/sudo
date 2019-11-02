@@ -10,6 +10,11 @@ person(X)
 person(X)
 person(X)
 person(X)
+person(X)
+person(X)
+person(X)
+person(X)
+person(X)  
 
 urine(X,opioid_free, initial)     
 urine(X,opioid_free,initial)
@@ -79,11 +84,10 @@ receive_therapy(X,care_as_usual)
 receive_therapy(X,care_as_usual)
 receive_therapy(X,motivational_enhancement)
 receive_therapy(X,motivational_enhancement)
+
 receive_initial_therapy(X,motivational_interviewing)
 receive_initial_therapy(X,motiavtional_interviewing)   
 receive_initial_therapy(X,standard_intake_evaluation),
-
-
 receive_initial_therapy(X,standard_intake_evaluation),
 
 cocaine_or_methamphetmine_user(X) :-    
@@ -111,7 +115,6 @@ remain_in_treatment(X,n8_weeks)
 recieve_abstinence_based_incentives(X)
 cocaine_or_methamphetmine_user(X)
 
-
 remain_in_treatment(X,n12_weeks)  
 remain_in_treatment(X,n12_weeks)
 
@@ -124,7 +127,6 @@ stimulant_or_alcohol_user(X)
 user(X,cocaine)
 user(X,stimulant)
 user(X,alcohol)
-
 
 efficacious_for_drug_abstinence(X)    
 contingency_management_intervention(X)
@@ -157,69 +159,65 @@ remain_in_treatment(X,n12_weeks)
 recieve_abstinence_based_incentive
 
 
-sample(X,stimulant_free,n12_weeks); sample(X,alcohol_free,n12_weeks)    
+sample(X,stimulant_free,n12_weeks)
+sample(X,alcohol_free,n12_weeks) 
+sample(X,stimulant_free,n12_weeks)
+sample(X,alcohol_free,n12_weeks)  
+
 recieved_therapy(X,contingency_management)
+recieved_therapy(X,care_as_usual)
 
-
-sample(X,stimulant_free,n12_weeks); sample(X,alcohol_free,n12_weeks)    
-recieved_therapy(X,care_as_usual),
-% P of 0.80 expresses the term "highly prevalent"
 dependent(X, nicotine)    
-person(X),
+dependent(X, drug)
+dependent(X,alcohol)
 
-dependent(X, drug); dependent(X,alcohol).
+abstinent(X, nicotine, during_treamtent)
+abstinent(X,nicotine,n13_weeks)
+abstinent(X,nicotine,n26_weeks)    
 
-abstinent(X, nicotine, during_treamtent);(0.5*P)::abstinent(X,nicotine,n13_weeks);(0.5*P)::abstinent(X,nicotine,n26_weeks)    
-person(X),
+recieve_therapy(X, nicotine)
+abstinent(X, nicotine, during_treamtent)
+abstinent(X,nicotine,n13_weeks)
+abstinent(X,nicotine,n26_weeks)    
 
-recieve_therapy(X, nicotine).
-
-% Did not say what care as usual P was, only that it was lower
-abstinent(X, nicotine, during_treamtent);(0.5*P)::abstinent(X,nicotine,n13_weeks);(0.5*P)::abstinent(X,nicotine,n26_weeks)    
-person(X),
-
-recieve_therapy(X, care_as_usual).
-
+recieve_therapy(X, care_as_usual)
 
 uses(X,drug)     
-person(X),
-uses(X,methadone).
+uses(X,methadone)
 usual_treatment(X,detoxification_and_counseling)    
 opioid_addicted_youth(X).
 
-
-urine_positive_opioid(X,n4_weeks,buprenorphine_naloxone); urine_positive_opioids(X,n4_weeks,detox)    
-opioid_addicted(X),
-
-
-urine_positive_opioid(X,n8_weeks,buprenorphine_naloxone); urine_positive_opioids(X,n8_weeks,detox)    
-opioid_addicted(X),
-
-
-urine_positive_opioid(X,n8_weeks,buprenorphine_naloxone); urine_positive_opioids(X,n8_weeks,detox)    
-opioid_addicted(X),
-
-
-urine_positive_opioid(X,n12_weeks,buprenorphine_naloxone); urine_positive_opioids(X,n12_weeks,detox)    
+opioid_addicted(X)
+opioid_addicted(X)
+opioid_addicted(X)
+opioid_addicted(X)
+opioid_addicted(X)
 opioid_addicted(X)
 
+urine_positive_opioid(X,n4_weeks,buprenorphine_naloxone)
+urine_positive_opioids(X,n4_weeks,detox)    
+urine_positive_opioid(X,n8_weeks,buprenorphine_naloxone)
+urine_positive_opioids(X,n8_weeks,detox)    
+urine_positive_opioid(X,n8_weeks,buprenorphine_naloxone)
+urine_positive_opioids(X,n8_weeks,detox)    
 urine_positive_opioid(X,n12_weeks,buprenorphine_naloxone)
 urine_positive_opioids(X,n12_weeks,detox)    
-opioid_addicted(X)
+urine_positive_opioid(X,n12_weeks,buprenorphine_naloxone)
+urine_positive_opioids(X,n12_weeks,detox)    
 
 remain_in_treatment(X,n12_weeks,buprnorphine_naloxone) 
 remain_in_treatment(X,n12_Weeks,detox)   
-opioid_addicted(X)
+
 continued_attendance_in_treatment(X,recieved_discharge_phone_call) continued_attendance_in_treatment(X,not_Recieved_discharge_phone_call)    
 recieving_residential_treatment(X)
 difficult_to_retain_in_treatment(X)    
-substance_user(X)
+
 pregnant(X)
+pregnant(X)
+substance_user(X)
+substance_user(X)
 
 pregnant_substance_user(X)    
-pregnant(X)
-substance_user(X)
-
 
 retain_in_treatment(X,motivational_enhancement_therapy); retain_in_treatment(X,treatment_as_usual)    
 pregnant_substance_user(X)	 
@@ -237,20 +235,22 @@ recieve_therapy(X,womens_health_education)
 substance_use(X)    
 female(X)
 substance_user(X)
-recieve_therapy(X,seeking_safety),
-recieve_therapy(X,counseling_and_education); recieve_therapy(X,therapeutic_alliance); recieve_therapy(X,treatment_as_usual)    
-inject_substance(X),
-engage_in_risky_behavior(X,drug),
+recieve_therapy(X,seeking_safety)
+recieve_therapy(X,counseling_and_education)
+recieve_therapy(X,therapeutic_alliance)
+recieve_therapy(X,treatment_as_usual)    
+inject_substance(X)
+engage_in_risky_behavior(X,drug)
 
-recieve_therapy(X,counseling_and_education); recieve_therapy(X,therapeutic_alliance); recieve_therapy(X,treatment_as_usual)    
-inject_substance(X),
-attend_HIV_testing_appointment(X),
+recieve_therapy(X,counseling_and_education)
+recieve_therapy(X,therapeutic_alliance)
+recieve_therapy(X,treatment_as_usual)    
+inject_substance(X)
+attend_HIV_testing_appointment(X)
 methadone_maintenance_or_outpatient_psychosocial_treatment(X)    
-person(X),
-methadone_maintenance(X),
-outpatient_psychosocial_treatment(X).
-
-person(X)    
+person(X)
+methadone_maintenance(X)
+outpatient_psychosocial_treatment(X)  
 male(X).
 
 decrease_unprotected_sexual_encounters(X); increase_unprotected_sexual_encounters(X)    
