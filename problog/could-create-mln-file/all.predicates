@@ -31,7 +31,6 @@ urine(X,contains_opioids,n3_month)
 urine(X,opioid_free, initial)
 urine(X,contains_opioids,initial)     
 
-
 detoxification(X, opioid, success)
 detoxification(X,opioid,success)
 detoxification(X,opioid,failure)      
@@ -39,7 +38,6 @@ detoxification(X,opioid,success)
 detoxification(X,opioid, success)  
 detoxification(X,opioid, success)  
 detoxification(X,opioid, success)    
-
 
 inpatient(X)
 inpatient(X)
@@ -70,7 +68,6 @@ urine_drug_screen(X, positive)
 urine_drug_screen(X, negative) 
 urine_drug_screen(X, positive)
 urine_drug_screen(X, negative)    
-
 
 stay_in_therapy(X)
 stay_in_therapy(X)
@@ -228,6 +225,8 @@ substance_user(X)
 substance_user(X)
 substance_user(X)
 substance_user(X)
+substance_user(X)
+substance_user(X)
 
 pregnant_substance_user(X)    
 pregnant_substance_user(X)	 
@@ -289,22 +288,26 @@ recieve_therapy(X, HIV_ED)
 recieve_therapy(X, safer_skills_building)
 recieve_therapy(X, HIV_ED)
 
-obtaining_new_taxed_job(X)  not_obtaining_new_taxed_job(X)    
-substance_user(X)
+obtaining_new_taxed_job(X)  
+obtaining_new_taxed_job(X)  
+
+not_obtaining_new_taxed_job(X)    
+not_obtaining_new_taxed_job(X)  
+
 recieved_counseling(X,standard_care)
-
-
-obtaining_new_taxed_job(X)  not_obtaining_new_taxed_job(X)    
-
 recieved_counseling(X,job_seekers_workshop)
-use_substance(X);5* not_use_substance(X)    
+
+use_substance(X)
+not_use_substance(X)    
+
 hispanic(X)
-substance_user(X)
+hispanic(X)
+
 recieve_therapy(X,motivational_enhancement_therapy)
 
+use_substance(X) 
+not_use_substance(X)    
 
-use_substance(X) not_use_substance(X)    
-hispanic(X)
 recieve_therapy(X,counseling_as_usual)
 drug_induced_hepatitis(X)    
 taking_drug(X,buprenorphine_naloxone)
@@ -312,22 +315,26 @@ taking_drug(X,buprenorphine_naloxone)
 drug_induced_hepatitis(X)    
 taking_drug(X,methadone)
 
-reduce_days_of_use_substance(X)    
+reduce_days_of_use_substance(X)  
+
+diagnosed_with_adhd(X)
 diagnosed_with_adhd(X)
 diagnosed_with_sud(X)
+diagnosed_with_sud(X)
+
 adolescent(X)
+adolescent(X)
+
+recieve_therapy(X,methylphenidate)
+recieve_therapy(X,cognitive_behaviora_therapy)
 recieve_therapy(X,methylphenidate)
 recieve_therapy(X,cognitive_behaviora_therapy)
 
 reduce_days_of_use_substance(X)    
-diagnosed_with_adhd(X)
-diagnosed_with_sud(X)
-adolescent(X)
-recieve_therapy(X,methylphenidate)
-recieve_therapy(X,cognitive_behaviora_therapy)
+
 decrease_days_smoking_use(X)    
 diagnosed_with_adhd(X)
-smoker(X),
+smoker(X)
 interested_in_quitting_smoking(X)
 recieved(X,methylphenidate)
 recieved(X,individual_smoking_cessation)
@@ -353,7 +360,6 @@ recieve_counseling(X)
 complete_taper(X)
 \+complete_post_medication_follow_up(X)
 
-
 stop_using_prescription_opioids(X)    
 dependent_on_prescription_opioids(X)
 complete_naloxone_stabilization(X)
@@ -373,7 +379,8 @@ recieve_counseling(X,HIV_risk_reduction_counseling)
 decreased_frequency_of_unprotected_intercourse_episodes(X)
 recieve_test_results(X)    
 on_site_HIV_testing(X)
-infected(X, HCV); infected(newly,X,HCV)    
+infected(X, HCV)
+infected(newly,X,HCV)    
 illicit_drug_user(X)
 
 perceive(HCV_testing,unimportant)    
@@ -413,11 +420,9 @@ drug_free(X,hair_samples)
 moderate_to_severe_problems_related_to_drug_use(X)
 minimal_screening_only(X)
 
-
 drug_free(X,hair_samples)    
 moderate_to_severe_problems_related_to_drug_use(X)
 screening_with_telephone_boosters(X)
-
 
 drug_free(X,hair_samples)    
 moderate_to_severe_problems_related_to_drug_use(X)
@@ -452,11 +457,19 @@ oral_bupropion(X)
 medical_management(X)
 
 start_treatment(X)
-stay_in_treatment(X) opioid_use(X) heavy_drinking(X) viral_suppression(X)    
+stay_in_treatment(X) 
+opioid_use(X) 
+heavy_drinking(X) 
+viral_suppression(X)    
 substance_use_disorder(X)
 infected_with_HIV(X)
 
-start_treatment(X) stay_in_treatment(X) opioid_use(X) opioid_use(X) heavy_drinking(X) viral_suppression(X)    
+start_treatment(X) 
+stay_in_treatment(X) 
+opioid_use(X) 
+opioid_use(X) 
+heavy_drinking(X) 
+viral_suppression(X)    
 substance_use_disorder(X)
 infected_with_HIV(X)
 recieved(X,treatment_as_usual)
