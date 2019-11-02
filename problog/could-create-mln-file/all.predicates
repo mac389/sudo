@@ -220,7 +220,9 @@ pregnant_substance_user(X)
 	substance_user(X).
 
  retain_in_treatment(X,motivational_enhancement_therapy); retain_in_treatment(X,treatment_as_usual)    
-	pregnant_substance_user(X). 	 substance_use(X,brief_strategic_family_therapy); substance_use(X,treatment_as_usual)    
+	pregnant_substance_user(X). 	 
+
+substance_use(X,brief_strategic_family_therapy); substance_use(X,treatment_as_usual)    
 	adolescent(X),
 	uses_substances(X),
 	  substance_use(X)    
@@ -284,12 +286,12 @@ decrease_unprotected_sexual_encounters(X,n6_months); inrease_unprotected_sexual_
 	woman(X),
 	substance_user(X),
 	recieve_therapy(X, HIV_ED),
-	  obtaining_new_taxed_job(X);2* not_obtaining_new_taxed_job(X)    
+	  obtaining_new_taxed_job(X)  not_obtaining_new_taxed_job(X)    
 	substance_user(X),
 	recieved_counseling(X,standard_care),
 	 
 
- obtaining_new_taxed_job(X);2* not_obtaining_new_taxed_job(X)    
+ obtaining_new_taxed_job(X)  not_obtaining_new_taxed_job(X)    
 	substance_user(X),
 	recieved_counseling(X,job_seekers_workshop),
 	 4* use_substance(X);5* not_use_substance(X)    
@@ -298,7 +300,7 @@ decrease_unprotected_sexual_encounters(X,n6_months); inrease_unprotected_sexual_
 	recieve_therapy(X,motivational_enhancement_therapy),
 	 
 
-4* use_substance(X);5* not_use_substance(X)    
+4* use_substance(X) not_use_substance(X)    
 	hispanic(X),
 	substance_user(X),
 	recieve_therapy(X,counseling_as_usual),
@@ -447,12 +449,12 @@ medical_management(X),
 	oral_bupropion(X),
 	medical_management(X),
 
- start_treatment(X);(0.88*P)::stay_in_treatment(X);P2::opioid_use(X);P3::heavy_drinking(X);P4::viral_suppression(X)    
+ start_treatment(X);(0.88*P)::stay_in_treatment(X) opioid_use(X) heavy_drinking(X) viral_suppression(X)    
 	substance_use_disorder(X),
 	infected_with_HIV(X),
 	recieved(X, buprenorphine),
 
-start_treatment(X);(0.5*P)::stay_in_treatment(X);P2::opioid_use(X);P2::opioid_use(X);P3::heavy_drinking(X);P4::viral_suppression(X)    
+start_treatment(X) stay_in_treatment(X) opioid_use(X) opioid_use(X) heavy_drinking(X) viral_suppression(X)    
 	substance_use_disorder(X),
 	infected_with_HIV(X),
 	recieved(X,treatment_as_usual),
