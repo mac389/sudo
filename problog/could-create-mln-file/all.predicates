@@ -12,7 +12,19 @@ person(X)
 person(X)
 
 urine(X,opioid_free, initial)     
-urine(X,opioid_free,initial);(1-P)::urine(X,contains_opioids, initial)    
+urine(X,opioid_free,initial)
+urine(X,contains_opioids, initial)   
+urine(X,opioid_free,n1_month)
+urine(X,contains_opioids,n1_month)    
+urine(X,opioid_free,n3_month)
+urine(X,contains_opioids,n3_month) 
+urine(X,opioid_free,n1_month)
+urine(X,contains_opioids,n1_month)  
+urine(X,opioid_free,n3_month)
+urine(X,contains_opioids,n3_month) 
+urine(X,opioid_free, initial)
+urine(X,contains_opioids,initial)     
+
 
 detoxification(X, opioid, success)
 detoxification(X,opioid,success)
@@ -31,64 +43,52 @@ outpatient(X)
 outpatient(X)
 
 inpatient(X) :-    
-\+outpatient(X). 
+	\+outpatient(X). 
 
 
+taper(X,buprenorphine,n28_days)
+taper(X,buprenorphine,n28_days)
+taper(X,buprenorphine,n7_days)   
+taper(X,buprenorphine,n7_days)
+taper(X,buprenorphine,n28_days)
+taper(X,buprenorphine,n7_days)
 
-urine(X,opioid_free,n1_month);(1-P)::urine(X,contains_opioids,n1_month)    
-taper(X,buprenorphine,n28_days),
+urine(X,opioid_free, initial)
+urine(X,contains_opioids,initial)    
 
-
-urine(X,opioid_free,n3_month);(1-P)::urine(X,contains_opioids,n3_month)    
-taper(X,buprenorphine,n28_days),
-
-
-urine(X,opioid_free,n1_month);(1-P)::urine(X,contains_opioids,n1_month)    
-taper(X,buprenorphine,n7_days),
-
-
-urine(X,opioid_free,n3_month);(1-P)::urine(X,contains_opioids,n3_month)    
-taper(X,buprenorphine,n7_days),
-
-
-urine(X,opioid_free, initial);(1-P)::urine(X,contains_opioids,initial)    
-taper(X,buprenorphine,n28_days),
-
-
-urine(X,opioid_free, initial);(1-P)::urine(X,contains_opioids,initial)    
-taper(X,buprenorphine,n7_days),
-stay_in_therapy(X);(1-P)::not_stay_in_therapy(X)    
-receive_therapy(X,care_as_usual),
+urine_drug_screen(X, positive)
+urine_drug_screen(X, negative)   
+urine_drug_screen(X, positive)
+urine_drug_screen(X, negative) 
+urine_drug_screen(X, positive)
+urine_drug_screen(X, negative) 
+urine_drug_screen(X, positive)
+urine_drug_screen(X, negative)    
 
 
-urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative)    
-receive_therapy(X,care_as_usual),
+stay_in_therapy(X)
+stay_in_therapy(X)
+stay_in_therapy(X, n28_day)
+stay_in_therapy(X, n84_day)
+not_stay_in_therapy(X,n84_day) 
+not_stay_in_therapy(X,n_28_day)  
+not_stay_in_therapy(X)  
+not_stay_in_therapy(X) 
 
-
-stay_in_therapy(X);(1-P)::not_stay_in_therapy(X)    
-receive_therapy(X,motivational_enhancement),
-
-
-urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative)    
-receive_therapy(X,motivational_enhancement),
-stay_in_therapy(X, n28_day);(1-2*P)::not_stay_in_therapy(X,n_28_day)    
-receive_initial_therapy(X,motivational_interviewing),
-
-
-urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative)    
-receive_initial_therapy(X,motiavtional_interviewing),
-
-
-stay_in_therapy(X, n84_day);(1-P)::not_stay_in_therapy(X,n84_day)    
+receive_therapy(X,care_as_usual)
+receive_therapy(X,care_as_usual)
+receive_therapy(X,motivational_enhancement)
+receive_therapy(X,motivational_enhancement)
+receive_initial_therapy(X,motivational_interviewing)
+receive_initial_therapy(X,motiavtional_interviewing)   
 receive_initial_therapy(X,standard_intake_evaluation),
 
 
-urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative)    
 receive_initial_therapy(X,standard_intake_evaluation),
 
-cocaine_or_methamphetmine_user(X)    
-user(X,cocaine);
-user(X,methamphetamine).
+cocaine_or_methamphetmine_user(X) :-    
+	user(X,cocaine)
+	user(X,methamphetamine).
 
 efficacious_for_drug_abstinence(X)    
 contingency_management_intervention(X),
