@@ -1,7 +1,7 @@
-\+outpatient(X). 
+\+outpatient(X)
 
 user(X,cocaine)
-user(X,methamphetamine).
+user(X,methamphetamine)
 
 \+complete_post_medication_follow_up(X)
 \+complete_taper(X)
@@ -14,18 +14,14 @@ abstinence(heavy_drinking,X,during_treatment)
 
 abstinent(X, nicotine, during_treamtent)
 abstinent(X,nicotine,n13_weeks)
-abstinent(X,nicotine,n26_weeks)    
-
-adolescent(X)
-adolescent(X)    
+abstinent(X,nicotine,n26_weeks)       
 
 attend_HIV_testing_appointment(X)
 cannabis_use_disorder(X)
 
-cocaine_dependent(X)
+cocaine_dependent(X) | dependent(X,cocaine)
 
-cocaine_or_methamphetmine_user(X)
-cocaine_or_methamphetmine_user(X)    
+cocaine_or_methamphetmine_user(X) | (user(X,cocaine); user(X,methamphetamine))
 
 complete_naloxone_stabilization(X)
 
@@ -53,14 +49,6 @@ decrease_unprotected_sexual_encounters(X,n6_months)
 
 decreased_frequency_of_unprotected_intercourse_episodes(X)
 
-dependence(X,cocaine)
-dependence(X,methamphetime)
-dependent(X, drug)
-dependent(X, nicotine)    
-dependent(X,alcohol)
-
-dependent_on_prescription_opioids(X)
-
 detoxification(X, opioid, success)
 detoxification(X,opioid, success)  
 detoxification(X,opioid, success)    
@@ -68,8 +56,8 @@ detoxification(X,opioid,failure)
 detoxification(X,opioid,success)
 detoxification(X,opioid,success)    
 
-diagnosed_with_adhd(X)
-diagnosed_with_sud(X)
+diagnosed_with_adhd(X) | diagnosed(X,ADHD)
+diagnosed_with_sud(X) | diagnosed (X,SUD)
 
 did_not_recieve_recommendation_for_treatment(X)
 difficult_to_retain_in_treatment(X)    
@@ -82,10 +70,8 @@ efficacious_for_drug_abstinence(X)
 efficacious_for_drug_abstinence(X)    
 engage_in_risky_behavior(X,drug)
 
-female(X)
 heavy_drinking(X) 
 hispanic(X)
-illicit_drug_user(X)
 
 in_outpatient_addiction_treatment(X)
 
@@ -97,23 +83,17 @@ increase_unprotected_sexual_encounters(X,n6_months)
 
 infected(X, HCV)
 infected(newly,X,HCV)    
-infected_with_HIV(X)
+infected_with_HIV(X) | infected(X, HIV)
 
 inject_substance(X)
 inject_substance(X)  
 
-injectable_naltrexone(X)
-
-inpatient(X)
-inpatient(X) 
-inpatient(X)   
-
+injectable_naltrexone(X) | inject(X, naltrexone)
+  
 interested_in(X,quitting_smoking)
-interested_in_quitting_smoking(X)
+interested_in_quitting_smoking(X) | interested_in(X,quitting_smoking)
 
 lack_symptoms(X)
-
-male(X)
 
 medical_management(X)
 
@@ -135,7 +115,6 @@ negative_urine_drug_scereen(X)
 not_obtaining_new_taxed_job(X)  
 not_obtaining_new_taxed_job(X)    
 
-not_stay_in_therapy(X) 
 not_stay_in_therapy(X)  
 not_stay_in_therapy(X,n84_day) 
 not_stay_in_therapy(X,n_28_day)  
@@ -153,15 +132,7 @@ oral_bupropion(X)
 outpatient(X)
 outpatient_psychosocial_treatment(X)  
 perceive(HCV_testing,unimportant)    
-
-person(X)
-person(X) 
-person(X)  
-
-pregnant(X)
-
-pregnant_substance_user(X)	 
-pregnant_substance_user(X)    
+    
 previously_treated_as_inpatient(X)
 provide_tangible_incentives(X)
 
@@ -238,23 +209,29 @@ stay_in_therapy(X)
 stay_in_therapy(X, n28_day)
 stay_in_therapy(X, n84_day)
 stay_in_treatment(X) 
-stimulant_or_alcohol_user(X)
+stimulant_or_alcohol_user(X) | (use(X,alcohol); use_stimulant(X))
 stimulant_or_alcohol_user(X)    
 stop_using_prescription_opioids(X)
 stop_using_prescription_opioids(X)    
-substance_use(X)
-substance_use(X) 
+
+substance_use(X) | use(X,substance_nos)
+substance_use(X) | use(X,substance_nos)
+substance_user(X) | use(X,substance_nos)
+substane_user(X) | use(X,substance_nos)
+
 substance_use(X,brief_strategic_family_therapy)
 substance_use(X,treatment_as_usual) 
 substance_use_disorder(X)
-substance_user(X)
-substane_user(X)
-taking_drug(X,buprenorphine_naloxone)
-taking_drug(X,methadone)
+
+taking_drug(X,buprenorphine_naloxone) | use(X, buprenorphine_naloxone)
+taking_drug(X,methadone) | use(X,methadone)
+
 taper(X,buprenorphine,n28_days)
 taper(X,buprenorphine,n7_days)
 taper(X,buprenorphine,n7_days)   
-test_positive_for_HCV(X)
+
+test_positive_for_HCV(X) | diagnosed(X,HCV)
+
 urine(X,contains_opioids, initial)   
 urine(X,contains_opioids,initial)    
 urine(X,contains_opioids,initial)     
@@ -275,15 +252,14 @@ urine_positive_opioid(X,n4_weeks,buprenorphine_naloxone)
 urine_positive_opioid(X,n8_weeks,buprenorphine_naloxone)
 urine_positive_opioids(X,n12_weeks,detox)    
 urine_positive_opioids(X,n4_weeks,detox)    
-urine_positive_opioids(X,n8_weeks,detox)    
-use_substance(X)
-use_substance(X) 
-user(X,alcohol)
-user(X,cocaine)
-user(X,stimulant)
-uses(X,drug)     
-uses(X,methadone)
-uses_substances(X)
+urine_positive_opioids(X,n8_weeks,detox) 
+
+use_substance(X) | uses(X,substance_nos).
+use(X,alcohol)
+use(X,cocaine)
+use(X,stimulant)
+use(X,drug)     
+use(X,methadone)
+
 usual_treatment(X,detoxification_and_counseling)    
-viral_suppression(X) 
 viral_suppression(X)    
