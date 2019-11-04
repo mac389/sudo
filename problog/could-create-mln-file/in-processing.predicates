@@ -143,20 +143,22 @@ receive_therapy(X,HIV_ED)
 receive_therapy(X,REMAS)
 receive_therapy(X,care_as_usual)
 receive_therapy(X,motivational_enhancement)
-received(X,bupropion)
+received(X,bupropion) | receive(X, bupropion)
 received(X,treatment_as_usual)
 recieve(X,buspirone)
 recieve(X,computer_modules)
 recieve(X,placebo)
 recieve(x,motivational_incentives)
-recieve_abstinence_based_incentive
+recieve_abstinence_based_incentive | recieve(X,abstinence_based_incentive)
 recieve_abstinence_based_incentives(X)
 recieve_counseling(X)
 recieve_counseling(X,HIV_risk_reduction_counseling)
 recieve_counseling_only(X)
+
 recieve_test_results(X)
-recieve_test_results(X)    
-recieve_therapy(X, HIV_ED)
+
+% take out _, just recieve, and categorize object.    
+recieve_therapy(X, HIV_ED) 
 recieve_therapy(X, care_as_usual)
 recieve_therapy(X, nicotine)
 recieve_therapy(X, safer_skills_building)
@@ -182,27 +184,26 @@ recieved_counseling(X,standard_care)
 recieved_therapy(X,care_as_usual)
 recieved_therapy(X,contingency_management)
 recieving_residential_treatment(X)
+
 reduce_days_of_use_substance(X) 
-reduce_days_of_use_substance(X)  
+
 remain_in_treatment(X,n12_Weeks,detox)   
 remain_in_treatment(X,n12_weeks) 
-remain_in_treatment(X,n12_weeks)  
-remain_in_treatment(X,n12_weeks)    
-remain_in_treatment(X,n12_weeks)       
+
 remain_in_treatment(X,n12_weeks,buprnorphine_naloxone) 
+
 remain_in_treatment(X,n4_weeks) 
-remain_in_treatment(X,n4_weeks)    
-remain_in_treatment(X,n8_weeks)
+
 remain_in_treatment(X,n8_weeks)    
 retain_in_treatment(X,motivational_enhancement_therapy)
 retain_in_treatment(X,treatment_as_usual)    
-sample(X,alcohol_free,n12_weeks) 
+
 sample(X,alcohol_free,n12_weeks)  
 sample(X,stimulant_free,n12_weeks)
+
 screening_assessment_referral_to_treatment(X)
 screening_with_telephone_boosters(X)
 
-smoker(X)
 start_treatment(X)
 start_treatment(X) 
 stay_in_therapy(X)
@@ -210,7 +211,7 @@ stay_in_therapy(X, n28_day)
 stay_in_therapy(X, n84_day)
 stay_in_treatment(X) 
 stimulant_or_alcohol_user(X) | (use(X,alcohol); use_stimulant(X))
-stimulant_or_alcohol_user(X)    
+   
 stop_using_prescription_opioids(X)
 stop_using_prescription_opioids(X)    
 

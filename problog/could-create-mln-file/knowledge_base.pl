@@ -1,3 +1,5 @@
+substance = [cocaine,methadone,heroin,alcohol].
+
 woman(X) :-
 	person(X),
 	female(X).
@@ -11,11 +13,15 @@ adolescent(X) :-
 	\+adult(X),
 	\+child(X).
 
+smoker(X) :-
+	person(X),
+	uses(X,nicotine).
+
 pregnant_substance_user(X) :-
 	person(X),
 	pregnant(X),
 	uses(X,Y),
-	isSubstance(Y).
+	member(Y,substance).
 
 isSubstance(X) :- 
 	%how to look up in list 
@@ -24,19 +30,19 @@ isSubstance(X) :-
 illicit_drug_user(X) :-
 	person(X),
 	uses(X,Y),
-	isIllicitDrug(Y).
+	member(Y,illicit_drug).
 
 use_stimulant(X) :-
 	person(X),
 	uses(X,Y),
-	isStimulant(Y).
+	member(Y,stimulant).
 
 dependence(X,Y) :-
 	%defining for meaning of dependent on substance
 	person(X),
-	isSubstance(Y),
+	member(Y,substance),
 	uses(X,Y). %feels like need more criteria, like the DSM criteria
 
 dependence_on_prescription_opioids(X) :-
 	dependence(X,Y),
-	isPrescriptionOpioid(Y).
+	member(Y,prescription_opioid).

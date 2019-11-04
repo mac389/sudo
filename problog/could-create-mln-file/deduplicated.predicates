@@ -1,7 +1,7 @@
 \+outpatient(X). 
 
-user(X,cocaine)
-user(X,methamphetamine).
+use(X,cocaine)
+use(X,methamphetamine).
 
 \+complete_post_medication_follow_up(X)
 \+complete_taper(X)
