@@ -2,40 +2,40 @@ original, converted, flag
 "recieved(X,bupnx)","receive(X,buprenorphine_naloxone)", done
 "recieved(X,clonidine)","receive(X,clonidine)", done
 person(X),person(X), done 
-"urine(X,opioid_free,initial)","urine(X,opioid_free,initial)"
-"urine(X,contains_opioids, initial)","urine(X,contains_opioids, initial)"
-"urine(X,opioid_free,n1_month)","urine(X,opioid_free,n1_month)"
-"urine(X,contains_opioids,n1_month)","urine(X,contains_opioids,n1_month)"
-"urine(X,opioid_free,n3_month)","urine(X,opioid_free,n3_month)"
-"urine(X,contains_opioids,n3_month)","urine(X,contains_opioids,n3_month)"
-"detoxification(X, opioid, success)","detoxification(X, opioid, success)"
-"detoxification(X,opioid,failure)","detoxification(X,opioid,failure)"
-"detoxification(X,opioid,success)","detoxification(X,opioid,success)"
-"detoxification(X,opioid, success)","detoxification(X,opioid, success)"
-inpatient(X),inpatient(X)
-outpatient(X),outpatient(X)
-inpatient(X),inpatient(X)
-\+outpatient(X).,\+outpatient(X)
-"taper(X,buprenorphine,n28_days)","taper(X,buprenorphine,n28_days)"
-"taper(X,buprenorphine,n7_days)","taper(X,buprenorphine,n7_days)"
-"urine(X,opioid_free, initial)","urine(X,opioid_free, initial)"
-"urine(X,contains_opioids,initial)","contains(X,urine,opioids,initial)"
-"urine_drug_screen(X, positive)","urine_drug_screen(X, positive)"
-"urine_drug_screen(X, negative)","urine_drug_screen(X, negative)"
-stay_in_therapy(X),stay_in_therapy(X)
-"stay_in_therapy(X, n28_day)","stay_in_therapy(X, n28_day)"
-"stay_in_therapy(X, n84_day)","stay_in_therapy(X, n84_day)"
-"not_stay_in_therapy(X,n84_day)","not_stay_in_therapy(X,n84_day)"
-"not_stay_in_therapy(X,n_28_day)","not_stay_in_therapy(X,n_28_day)"
-not_stay_in_therapy(X),not_stay_in_therapy(X)
-"receive_therapy(X,care_as_usual)","receive(X,care_as_usual)"
-"receive_therapy(X,motivational_enhancement)","receive(X,motivational_enhancement)"
-"receive_initial_therapy(X,motivational_interviewing)","receive(X,motivational_interviewing)"
-"receive_initial_therapy(X,motiavtional_interviewing)","receive(X,motiavtional_interviewing)"
-"receive_initial_therapy(X,standard_intake_evaluation),","receive(X,standard_intake_evaluation),"
-cocaine_or_methamphetmine_user(X),"(use(X,cocaine); use(X,methamphetmine))"
-"user(X,methamphetamine).","use(X,methamphetamine)."
-efficacious_for_drug_abstinence(X),efficacious_for_drug_abstinence(X)
+"urine(X,opioid_free,initial)","urine(X,opioid_free,initial)", done
+"urine(X,contains_opioids, initial)","urine(X,contains_opioids, initial)", done
+"urine(X,opioid_free,n1_month)","urine(X,opioid_free,n1_month)", done
+"urine(X,contains_opioids,n1_month)","urine(X,contains_opioids,n1_month)", done
+"urine(X,opioid_free,n3_month)","urine(X,opioid_free,n3_month)", done
+"urine(X,contains_opioids,n3_month)","urine(X,contains_opioids,n3_month)", done
+"detoxification(X, opioid, success)","detoxification(X, opioid, success)", done
+"detoxification(X,opioid,failure)","detoxification(X,opioid,failure)", done
+"detoxification(X,opioid,success)","detoxification(X,opioid,success)", done
+"detoxification(X,opioid, success)","detoxification(X,opioid, success)", done
+inpatient(X),inpatient(X), done
+outpatient(X),outpatient(X), done
+inpatient(X),inpatient(X), done
+\+outpatient(X).,\+outpatient(X), done 
+"taper(X,buprenorphine,n28_days)","taper(X,buprenorphine,n28_days)", done 
+"taper(X,buprenorphine,n7_days)","taper(X,buprenorphine,n7_days)", done
+"urine(X,opioid_free, initial)","urine(X,opioid_free, initial)", done
+"urine(X,contains_opioids,initial)","contains(X,urine,opioids,initial)", done
+"urine_drug_screen(X, positive)","urine_drug_screen(X, positive)", done
+"urine_drug_screen(X, negative)","urine_drug_screen(X, negative)", done
+stay_in_therapy(X),stay(X,in_therapy), done
+"stay_in_therapy(X, n28_day)","stay(X,in_therapy, n28_day)",done
+"stay_in_therapy(X, n84_day)","stay(X,in_therapy, n84_day)", done
+"not_stay_in_therapy(X,n84_day)","\+stay(X,in_therapy,n84_day)", done
+"not_stay_in_therapy(X,n_28_day)","\+stay(X,in_therapy,n_28_day)", done
+not_stay_in_therapy(X),\+stay(X,in_therapy), done
+"receive_therapy(X,care_as_usual)","receive(X,care_as_usual)", done
+"receive_therapy(X,motivational_enhancement)","receive(X,motivational_enhancement)", done
+"receive_initial_therapy(X,motivational_interviewing)","receive(X,motivational_interviewing)", done
+"receive_initial_therapy(X,motiavtional_interviewing)","receive(X,motiavtional_interviewing)", done
+"receive_initial_therapy(X,standard_intake_evaluation),","receive(X,standard_intake_evaluation)", done
+cocaine_or_methamphetmine_user(X),"(use(X,cocaine); use(X,methamphetmine))", done
+"user(X,methamphetamine).","use(X,methamphetamine)", done
+efficacious_for_drug_abstinence(X),efficacious_for(X,for_drug_abstinence), no,
 contingency_management_intervention(X),"receive(X,contingency_management_intervention)"
 cocaine_or_methamphetmine_user(X),"(use(X,cocaine); use(X,methamphetmine))"
 "user(X,cocaine)","use(X,cocaine)"
