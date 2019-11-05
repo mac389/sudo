@@ -1,6 +1,7 @@
-"recieved(X,bupnx)","receive(X,buprenorphine_naloxone)"
-"recieved(X,clonidine)","receive(X,clonidine)"
-person(X),person(X)
+original, converted, flag
+"recieved(X,bupnx)","receive(X,buprenorphine_naloxone)", done
+"recieved(X,clonidine)","receive(X,clonidine)", done
+person(X),person(X), done 
 "urine(X,opioid_free,initial)","urine(X,opioid_free,initial)"
 "urine(X,contains_opioids, initial)","urine(X,contains_opioids, initial)"
 "urine(X,opioid_free,n1_month)","urine(X,opioid_free,n1_month)"
