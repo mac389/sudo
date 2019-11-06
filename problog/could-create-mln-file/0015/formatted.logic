@@ -1,0 +1,11 @@
+P::use(X,substance) :-
+	female(X),
+	use(X,substance),
+	receive(X,womens_health_education),
+	P is 0.5.
+
+P::use(X,substance) :-
+	female(X),
+	use(X,substance),
+	receive(X,seeking_safety),
+	P is 0.5.

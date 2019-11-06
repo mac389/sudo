@@ -1,0 +1,15 @@
+2*P::stay_in_therapy(X, n28_day);(1-2*P)::\+stay(X,in_therapy,n_28_day) :-
+    receive(X,motivational_interviewing),
+    P is 0.33.
+
+P:urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative) :-
+    receive(X,motiavtional_interviewing),
+    P is 0.5.
+
+P::stay_in_therapy(X, n84_day);(1-P)::not_stay(X,in_therapy,n84_day) :-
+    ,
+    P is 0.5.
+    
+P::urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative) :-
+    ,
+    P is 0.5.

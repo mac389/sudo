@@ -1,0 +1,38 @@
+(use(X,cocaine); use(X,methamphetmine)) :-
+	use(X,cocaine);
+	use(X,methamphetamine)
+
+efficacious_for(X,drug_abstinence) :-
+	receive(X,contingency_management_intervention),
+	(use(X,cocaine); use(X,methamphetmine)),
+	receive(X,tangible_incentives).
+
+P::remain(X,in_treatment,n4_weeks) :-
+	receive(X,counseling),
+	(use(X,cocaine); use(X,methamphetmine)),
+	P is 0.25.
+
+P::remain(X,in_treatment,n4_weeks) :-
+	receive(X,abstinence_based_incentive),
+	(use(X,cocaine); use(X,methamphetmine)),
+	P is 0.75.
+
+P::remain(X,in_treatment,n8_weeks) :-
+	receive(X,counseling),
+	(use(X,cocaine); use(X,methamphetmine)),
+	P is 0.25.
+
+P::remain(X,in_treatment,n8_weeks) :-
+	receive(X,abstinence_based_incentive),
+	(use(X,cocaine); use(X,methamphetmine)),
+	P is 0.75.
+
+P::remain(X,in_treatment,n12_weeks) :-
+	receive(X,counseling),
+	(use(X,cocaine); use(X,methamphetmine)),
+	P is 0.2.
+
+P::remain(X,in_treatment,n12_weeks) :-
+	receive(X,abstinence_based_incentive),
+	(use(X,cocaine); use(X,methamphetmine)),
+	P is 0.8.

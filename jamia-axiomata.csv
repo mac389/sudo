@@ -55,8 +55,8 @@ recieved_therapy(X,contingency_management)	receive(X,contingency_management)	 do
 recieved_therapy(X,care_as_usual)	receive(X,care_as_usual)	 done
 recieve_therapy(X,nicotine)	receive(X,nicotine)	 done
 recieve_therapy(X,care_as_usual)	receive(X,care_as_usual)	 done
-dependent(X,nicotine)	dependent(X	 nicotine)	 done
-dependent(X,drug)	dependent(X	 drug)	 done
+dependent(X,nicotine)	dependent(X,nicotine)	 done
+dependent(X,drug)	dependent(X,drug)	 done
 dependent(X,alcohol)	dependent(X,alcohol)	 done
 abstinent(X,nicotine,during_treamtent)	abstinent(X,nicotine,during_treamtent)	 done
 abstinent(X,nicotine,n13_weeks)	abstinent(X,nicotine,n13_weeks)	 done
@@ -148,8 +148,8 @@ recieve_test_results(X)	receive(X,test_results)	 done
 off_site_HIV_testing(X)	receive(X,off_site_HIV_testing)	 done
 on_site_HIV_testing(X)	receive(X,on_site_HIV_testing)	 done
 recieve_counseling(X,HIV_risk_reduction_counseling)	receive(X,HIV_risk_reduction_counseling)	
-infected(X	 HCV)	infected(X	 HCV)	 done
-infected(newly,X	HCV)	infected(X,HCV	 newly)	 done
+infected(X,HCV)	infected(X,HCV)	 done
+infected(newly,X,HCV)	infected(X,HCV,newly)	 done
 illicit_drug_user(X)	use(X,illicit_drugs)	done
 perceive(HCV_testing,unimportant)	perceive(HCV_testing,unimportant)	 done
 lack_symptoms(X)	lack(X,symptoms)	 done
@@ -157,14 +157,14 @@ did_not_recieve_recommendation_for_treatment(X)	\+receive(X,recommendation_for_t
 decide_to_not_pursue_HCV_treatment(X)	decide(X,not_pursue_HCV_treatment)	
 test_positive_for_HCV(X)	diagnosed_with(X,HCV)	 
 mistrust_health_care_providers(X)	mistrust(X,health_care_providers)	 done 
-abstinence(any_drug,X,during_treatment)	(receive(X,treatment)	 sample(X,_	_))	done
+abstinence(any_drug,X,during_treatment)	(receive(X,treatment)	 sample(X,_,_))	done
 abstinence(heavy_drinking,X,during_treatment)	(recieve(X,treatment)	sample(X,_,\+alcohol))	done
 in_outpatient_addiction_treatment(X)	receive(X,outpatient_addiction_treatment)	 done
 recieve(X,computer_modules)	receive(X,computer_modules)	done
 recieve(x,motivational_incentives)	receive(x,motivational_incentives)	 done
 abstinence(any_drug,X	after_treatment)	 (received(X,treatment),sample(X,_,pan_free))	 done
 abstinence(heavy_drinking,X	after_treatment)	(received(X,treatment);sample(X,_,\+alcohol))	 done
-abstinence(X,stimulants,week)	sample(X,_	no_stimulants,week)	 done
+abstinence(X,stimulants,week)	sample(X,_,no_stimulants,week)	 done
 dependence(X,cocaine)	dependent(X,cocaine)	done
 dependence(x,methamphetime)	dependent(x,methamphetime)	 done
 received(X,bupropion)	receive(X,bupropion)	 done

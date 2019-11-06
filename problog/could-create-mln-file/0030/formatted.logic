@@ -1,0 +1,23 @@
+P::stop_using(X,prescription_opioids) :-
+	dependent(X,prescription_opioids),
+	complete(X,naloxone_stabilization),
+	receive(X,counseling),
+	\+complete(X,taper),
+	\+complete(X,post_medication_follow_up),
+	P is 0.06.
+
+P::stop_using(X,prescription_opioids) :-
+	dependent(X,prescription_opioids),
+	complete(X,naloxone_stabilization),
+	receive(X,counseling),
+	complete(X,taper),
+	\+complete(X,post_medication_follow_up),
+	P is 0.492.
+
+P::stop_using(X,prescription_opioids) :-
+	dependent(X,prescription_opioids),
+	complete(X,naloxone_stabilization),
+	receive(X,counseling),
+	complete(X,taper),
+	complete(X,post_medication_follow_up),
+	P is 0.086.

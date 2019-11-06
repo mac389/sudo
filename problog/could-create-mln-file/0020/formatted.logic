@@ -1,0 +1,9 @@
+P::obtain(X,new_taxed_job);2*P::not_obtain(X,new_taxed_job) :-
+	use(X,substance),
+	receive(X,standard_care),
+	P is 0.3.
+
+P::obtain(X,new_taxed_job);2*P::not_obtain(X,new_taxed_job) :-
+	use(X,substance),
+	receive(X,job_seekers_workshop),
+	P is 0.3.

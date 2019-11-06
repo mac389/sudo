@@ -1,0 +1,27 @@
+received(X,detoxification_and_counseling) :-
+	(youth(X);dependent(X,opioid))
+
+
+P::(sample(X,urine,contains_opioids,n4_weeks);receive(X,buprenorphine_naloxone));P::(sample(X,urine,contains_opioids,n4_weeks);receive(X,detox)) :-
+	dependent(X,opioid),
+	P is 0.5.
+
+P::(sample(X,urine,conains_opioids,n8_weeks);receive(X,buprenorphine_naloxone));P::(sample(X :-
+	dependent(X,opioid),
+	P is 0.5.
+
+P::(sample(X,urine,conains_opioids,n8_weeks);receive(X,buprenorphine_naloxone));P::(sample(X :-
+	dependent(X,opioid),
+	P is 0.5.
+
+P::(sample(X,urine,contains_opioids,n12_weeks);receive(X,buprenorphine_naloxone));P::(sample(X,urine,contains_opioids,n12_weeks);receive(X,detox)) :-
+	dependent(X,opioid),
+	P is 0.5.
+
+P::(sample(X,urine,contains_opioids,n12_weeks);receive(X,buprenorphine_naloxone));P::(sample(X,urine,contains_opioids,n12_weeks);receive(X,detox)) :-
+	dependent(X,opioid),
+	P is 0.5.
+
+(3*P)::(remain(X,in_treatment,n12_weeks);receive(X,buprnorphine_naloxone));P::(remain(X,in_treatment,n12_weeks);receive(X,detox)):-
+	dependent(X,opioid),
+	P is 0.25.

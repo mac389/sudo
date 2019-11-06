@@ -1,0 +1,7 @@
+P::develop(X,drug_induced_hepatitis) :-
+	use(X,buprenorphine_naloxone),
+	P is 0.5.
+
+P::develop(X,drug_induced_hepatitis) :-
+	use(X,methadone),
+	P is 0.5.

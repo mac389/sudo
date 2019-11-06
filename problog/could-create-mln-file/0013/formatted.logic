@@ -1,0 +1,10 @@
+participate(X,in_treatment(X)) :-
+	use(X,substance),
+	pregnant(X).
+
+pregnant_use(X,substance) :-
+	pregnant(X),
+	use(X,substance).
+
+P::(retain(X,in_treatment);receive(X,motivational_enhancement_therapy));P::(retain(X,in_treatment);receive(X,treatment_as_usual)) :-
+	pregnant_use(X,substance). 	
