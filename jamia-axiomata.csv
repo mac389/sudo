@@ -163,7 +163,7 @@ in_outpatient_addiction_treatment(X),in_outpatient_addiction_treatment(X),
 "recieve(x,motivational_incentives)","receive(x,motivational_incentives)", done
 "abstinence(any_drug,X,after_treatment)","abstinence(any_drug,X,after_treatment)",
 "abstinence(heavy_drinking,X,after_treatment)","abstinence(heavy_drinking,X,after_treatment)",
-"abstinence(X,stimulants,week)","abstinence(X,stimulants,week)",
+"abstinence(X,stimulants,week)",sample(X,_,no_stimulants,week), done
 "dependence(X,cocaine)","dependent(X,cocaine)",done
 "dependence(x,methamphetime)","dependent(x,methamphetime)", done
 "received(X,bupropion)","receive(X,bupropion)", done
@@ -173,15 +173,15 @@ in_outpatient_addiction_treatment(X),in_outpatient_addiction_treatment(X),
 moderate_to_severe_problems_related_to_drug_use(X),moderate_to_severe_problems_related_to_drug_use(X), 
 minimal_screening_only(X),receive(X,minimal_screening),done
 screening_with_telephone_boosters(X),(receive(X,minimal_screening),receive(X,telephone_boosters)),done
-screening_assessment_referral_to_treatment(X),screening_assessment_referral_to_treatment(X),
-days_between_cocaine_use(X),days_between_cocaine_use(X),
-days_of_continuous_cocaine_use(X),days_of_continuous_cocaine_use(X),
+screening_assessment_referral_to_treatment(X), (receive(X,screening_assessment), receive(X,referral_to_treatment)), done
+days_between_cocaine_use(X),drug_free(X, cocaine, duration), done
+days_of_continuous_cocaine_use(X),sample(X, _, cocaine, duration), done
 cocaine_dependent(X),"dependent(X, cocaine)",done
 previously_treated_as_inpatient(X),previously_treated_as_inpatient(X),
 "recieve(X,placebo)","receive(X,placebo)",done
 "recieve(X,buspirone)","receive(X,buspirone)",done
 negative_urine_cannabinoid_test(X),sample(X, urine, \+contain_cannabinoids), done
-cannabis_use_disorder(X),diagnosed_with(X,cannabis_use_disorder),
+cannabis_use_disorder(X),diagnosed_with(X,cannabis_use_disorder), done
 contingency_management(X),receive(X,contingency_management), done
 medical_management(X),receive(X,medical_management), done 
 "recieved(X,n_acetylcysteine)","receive(X,n_acetylcysteine)", done
@@ -193,7 +193,7 @@ start_treatment(X),"start(X,treatment)", done
 stay_in_treatment(X),"stay_in(X,treatment)", done
 opioid_use(X),"use(X,opioid)", done
 heavy_drinking(X),"use(X,alcohol, heavy)", done
-viral_suppression(X),viral_suppression(X), 
+viral_suppression(X),diagnosed_with(X,viral_suppression), done
 substance_use_disorder(X),diagnosed_with(X, substance_use_disorder),
 infected_with_HIV(X),infected_with(X,HIV), done
 "recieved(X,treatment_as_usual)","received(X,treatment_as_usual)", done
