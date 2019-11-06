@@ -1,0 +1,14 @@
+P::drug_free(X,hair_samples) :-
+	moderate_to_severe_problems_related_to_drug_use(X),
+	minimal_screening_only(X),
+	P is 0.5.
+
+P::drug_free(X,hair_samples) :-
+	moderate_to_severe_problems_related_to_drug_use(X),
+	screening_with_telephone_boosters(X),
+	P is 0.5.
+
+P::drug_free(X,hair_samples) :-
+	moderate_to_severe_problems_related_to_drug_use(X),
+	screening_assessment_referral_to_treatment(X),
+	P is 0.5.

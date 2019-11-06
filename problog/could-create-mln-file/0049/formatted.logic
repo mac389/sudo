@@ -1,0 +1,18 @@
+P::have_poor_HIV_outcomes(X) :-
+  use(X,substance),
+  P is 0.8.
+
+P::experience(X,HIV_suppression) :-
+    infected(X,HIV),
+    diagnosed_with(X,substance_use_disorder),
+    recieve(X,patient_navigation),
+    P is 0.5.
+
+P::experience(X,HIV_suppression) :-
+    infected(X,HIV),
+    diagnosed_with(X,substance_use_disorder),
+    recieve(X,patient_navigation),
+    recieve(X,finanical_motivation),
+    P is 0.5.
+
+

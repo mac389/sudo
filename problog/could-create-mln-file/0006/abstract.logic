@@ -1,0 +1,38 @@
+cocaine_or_methamphetmine_user(X) :-
+	user(X,cocaine);
+	user(X,methamphetamine).
+
+efficacious_for_drug_abstinence(X) :-
+	contingency_management_intervention(X),
+	cocaine_or_methamphetmine_user(X),
+	provide_tangible_incentives(X).
+
+P::remain_in_treatment(X,n4_weeks) :-
+	recieve_counseling_only(X),
+	cocaine_or_methamphetmine_user(X),
+	P is 0.25.
+
+P::remain_in_treatment(X,n4_weeks) :-
+	recieve_abstinence_based_incentives(X),
+	cocaine_or_methamphetmine_user(X),
+	P is 0.75.
+
+P::remain_in_treatment(X,n8_weeks) :-
+	recieve_counseling_only(X),
+	cocaine_or_methamphetmine_user(X),
+	P is 0.25.
+
+P::remain_in_treatment(X,n8_weeks) :-
+	recieve_abstinence_based_incentives(X),
+	cocaine_or_methamphetmine_user(X),
+	P is 0.75.
+
+P::remain_in_treatment(X,n12_weeks) :-
+	recieve_counseling_only(X),
+	cocaine_or_methamphetmine_user(X),
+	P is 0.2.
+
+P::remain_in_treatment(X,n12_weeks) :-
+	recieve_abstinence_based_incentives(X),
+	cocaine_or_methamphetmine_user(X),
+	P is 0.8.

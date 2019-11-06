@@ -1,0 +1,15 @@
+P::reduce_days_of_use(X,substance) :-
+	diagnosed_with(X,adhd),
+	diagnosed_with(X,
+	adolescent(X),
+	receive(X,methylphenidate),
+	receive(X,cognitive_behavioral_therapy),
+	P is 0.5,
+
+P::reduce_days_of_use(X,substance) :-
+	diagnosed_with(X,adhd),
+	diagnosed_with(X,
+	adolescent(X),
+	receive(X,methylphenidate),
+	receive(X,cognitive_behavioral_therapy),
+	P is 0.5.

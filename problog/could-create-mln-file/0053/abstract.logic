@@ -1,0 +1,12 @@
+P::negative_urine_cannabinoid_test(X) :-
+cannabis_use_disorder(X),
+contingency_management(X),
+medical_management(X),
+P is 0.25.
+
+P::negative_urine_cannabinoid_test(X) :-
+cannabis_use_disorder(X),
+contingency_management(X),
+recieved(X,n_acetylcysteine),
+medical_management(X),
+P is 0.25.

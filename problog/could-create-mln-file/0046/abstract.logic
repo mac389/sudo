@@ -1,0 +1,14 @@
+P::abstinence(X,stimulants,week) :-
+	dependence(X,cocaine),
+	dependence(x,methamphetime),
+	interested_in(X,quitting_smoking),
+	received(X,treatment_as_usual),
+	received(X,bupropion),
+	Pis 0.77.
+
+P::abstinence(X,stimulants,week) :-
+	dependence(X,cocaine),
+	dependence(x,methamphetime),
+	interested_in(X,quitting_smoking),
+	received(X,treatment_as_usual),
+	P is 0.78.

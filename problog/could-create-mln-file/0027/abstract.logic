@@ -1,0 +1,7 @@
+P::drug_induced_hepatitis(X) :-
+	taking_drug(X,buprenorphine_naloxone),
+	P is 0.5.
+
+P::drug_induced_hepatitis(X) :-
+	taking_drug(X,methadone),
+	P is 0.5.

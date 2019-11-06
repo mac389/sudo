@@ -1,0 +1,12 @@
+P::abstinence(any_drug,X,during_treatment);P::abstinence(heavy_drinking,X,during_treatment) :-
+	in_outpatient_addiction_treatment(X),
+	recieve(X,computer_modules),
+	recieve(x,motivational_incentives),
+	P is 0.7.
+
+
+P::abstinence(any_drug,X,after_treatment);P::abstinence(heavy_drinking,X,after_treatment) :-
+	in_outpatient_addiction_treatment(X),
+	recieve(X,computer_modules),
+	recieve(x,motivational_incentives),
+	P is 0.5.

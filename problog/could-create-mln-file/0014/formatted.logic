@@ -1,0 +1,4 @@
+P::(use(X;P::(use(X,substance); receive(X,treatment_as_usual)) :-
+	adolescent(X),
+	use(X,substance),
+	P is 0.5.

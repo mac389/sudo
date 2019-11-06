@@ -1,0 +1,11 @@
+P::days_between_cocaine_use(X);;P::days_of_continuous_cocaine_use(X) :-
+cocaine_dependent(X),
+previously_treated_as_inpatient(X),
+recieve(X,buspirone)
+P is 0.5.
+
+P::days_between_cocaine_use(X);;P::days_of_continuous_cocaine_use(X) :- 
+cocaine_dependent(X),
+previously_treated_as_inpatient(X),
+recieve(X,placebo),
+P is 0.5.

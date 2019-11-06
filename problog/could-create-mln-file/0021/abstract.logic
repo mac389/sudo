@@ -1,0 +1,11 @@
+4*P::use_substance(X);5*P::not_use_substance(X) :-
+	hispanic(X),
+	substance_user(X),
+	recieve_therapy(X,motivational_enhancement_therapy),
+	P is 0.1.
+
+4*P::use_substance(X);5*P::not_use_substance(X) :-
+	hispanic(X),
+	substance_user(X),
+	recieve_therapy(X,counseling_as_usual),
+	P is 0.1.

@@ -1,0 +1,27 @@
+usual_treatment(X,detoxification_and_counseling) :-
+	opioid_addicted_youth(X).
+
+
+P::urine_positive_opioid(X,n4_weeks,buprenorphine_naloxone);P::urine_positive_opioids(X,n4_weeks,detox) :-
+	opioid_addicted(X),
+	P is 0.5.
+
+P::urine_positive_opioid(X,n8_weeks,buprenorphine_naloxone);P::urine_positive_opioids(X,n8_weeks,detox) :-
+	opioid_addicted(X),
+	P is 0.5.
+
+P::urine_positive_opioid(X,n8_weeks,buprenorphine_naloxone);P::urine_positive_opioids(X,n8_weeks,detox) :-
+	opioid_addicted(X),
+	P is 0.5.
+
+P::urine_positive_opioid(X,n12_weeks,buprenorphine_naloxone);P::urine_positive_opioids(X,n12_weeks,detox) :-
+	opioid_addicted(X),
+	P is 0.5.
+
+P::urine_positive_opioid(X,n12_weeks,buprenorphine_naloxone);P::urine_positive_opioids(X,n12_weeks,detox) :-
+	opioid_addicted(X),
+	P is 0.5.
+
+(3*P)::remain_in_treatment(X,n12_weeks,buprnorphine_naloxone);P::remain_in_treatment(X,n12_Weeks,detox):-
+	opioid_addicted(X),
+	P is 0.25.

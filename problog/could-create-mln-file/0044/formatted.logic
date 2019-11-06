@@ -1,0 +1,12 @@
+P::(receive(X,treatment);P::(recieve(X,treatment) :-
+	receive(X,outpatient_addiction_treatment),
+	receive(X,computer_modules),
+	receive(x,motivational_incentives),
+	P is 0.7.
+
+
+P::after_treatment),after_treatment);P::after_treatment),after_treatment) :-
+	receive(X,outpatient_addiction_treatment),
+	receive(X,computer_modules),
+	receive(x,motivational_incentives),
+	P is 0.5.

@@ -1,0 +1,14 @@
+P::sample(X,_,no_stimulants,week) :-
+	dependent(X,cocaine),
+	dependent(x,methamphetime),
+	interested_in(X,quitting_smoking),
+	receive(X,treatment_as_usual),
+	receive(X,bupropion),
+	Pis 0.77.
+
+P::sample(X,_,no_stimulants,week) :-
+	dependent(X,cocaine),
+	dependent(x,methamphetime),
+	interested_in(X,quitting_smoking),
+	receive(X,treatment_as_usual),
+	P is 0.78.

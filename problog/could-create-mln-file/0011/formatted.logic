@@ -1,0 +1,3 @@
+P::(participate(X,in_treatment); \+receive(X,discharge_phone_call));P::(participate(X,in_treatment); receive(X,discharge_phone_call)) :-
+	receive(X,residential_treatment),
+	P is 0.5.

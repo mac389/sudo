@@ -1,0 +1,4 @@
+P::substance_use(X,brief_strategic_family_therapy);P::substance_use(X,treatment_as_usual) :-
+	adolescent(X),
+	uses_substances(X),
+	P is 0.5.

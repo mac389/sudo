@@ -1,0 +1,24 @@
+2*P::decrease_unprotected_sexual_encounters(X,n3_months);P::inrease_unprotected_sexual_encounters(X,n3_months) :-
+	woman(X),
+	substance_user(X),
+	recieve_therapy(X, safer_skills_building),
+	P is 0.3.
+
+2*P::decrease_unprotected_sexual_encounters(X,n3_months);P::inrease_unprotected_sexual_encounters(X,n3_months) :-
+	woman(X),
+	substance_user(X),
+	recieve_therapy(X, HIV_ED),
+	P is 0.3.
+
+
+2*P::decrease_unprotected_sexual_encounters(X,n6_months);P::inrease_unprotected_sexual_encounters(X,n6_months) :-
+	woman(X),
+	substance_user(X),
+	recieve_therapy(X, safer_skills_building),
+	P is 0.3.
+
+P::decrease_unprotected_sexual_encounters(X,n6_months);P::inrease_unprotected_sexual_encounters(X,n6_months) :-
+	woman(X),
+	substance_user(X),
+	recieve_therapy(X, HIV_ED),
+	P is 0.3.

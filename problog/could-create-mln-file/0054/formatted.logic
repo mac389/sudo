@@ -1,0 +1,6 @@
+P::sample(X,urine,pan_negative) :-
+	diagnosed_with(X,methamphetamine_use_disorder)
+	receive(X,injectable_naltrexone),
+	recieve(X,bupropion),
+	receive(X,medical_management),
+	P is 11/49.
