@@ -1,200 +1,200 @@
-original, converted, flag
-"recieved(X,bupnx)","receive(X,buprenorphine_naloxone)", done
-"recieved(X,clonidine)","receive(X,clonidine)", done
-person(X),person(X), done 
-"urine(X,opioid_free,initial)","urine(X,opioid_free,initial)", done
-"urine(X,contains_opioids, initial)","urine(X,contains_opioids, initial)", done
-"urine(X,opioid_free,n1_month)","urine(X,opioid_free,n1_month)", done
-"urine(X,contains_opioids,n1_month)","urine(X,contains_opioids,n1_month)", done
-"urine(X,opioid_free,n3_month)","urine(X,opioid_free,n3_month)", done
-"urine(X,contains_opioids,n3_month)","urine(X,contains_opioids,n3_month)", done
-"detoxification(X, opioid, success)","detoxification(X, opioid, success)", done
-"detoxification(X,opioid,failure)","detoxification(X,opioid,failure)", done
-"detoxification(X,opioid,success)","detoxification(X,opioid,success)", done
-"detoxification(X,opioid, success)","detoxification(X,opioid, success)", done
-inpatient(X),inpatient(X), done
-outpatient(X),outpatient(X), done
-inpatient(X),inpatient(X), done
-\+outpatient(X).,\+outpatient(X), done 
-"taper(X,buprenorphine,n28_days)","taper(X,buprenorphine,n28_days)", done 
-"taper(X,buprenorphine,n7_days)","taper(X,buprenorphine,n7_days)", done
-"urine(X,opioid_free, initial)","urine(X,opioid_free, initial)", done
-"urine(X,contains_opioids,initial)","contains(X,urine,opioids,initial)", done
-"urine_drug_screen(X, positive)","urine_drug_screen(X, positive)", done
-"urine_drug_screen(X, negative)","urine_drug_screen(X, negative)", done
-stay_in_therapy(X),stay(X,in_therapy), done
-"stay_in_therapy(X, n28_day)","stay(X,in_therapy, n28_day)",done
-"stay_in_therapy(X, n84_day)","stay(X,in_therapy, n84_day)", done
-"not_stay_in_therapy(X,n84_day)","\+stay(X,in_therapy,n84_day)", done
-"not_stay_in_therapy(X,n_28_day)","\+stay(X,in_therapy,n_28_day)", done
-not_stay_in_therapy(X),\+stay(X,in_therapy), done
-"receive_therapy(X,care_as_usual)","receive(X,care_as_usual)", done
-"receive_therapy(X,motivational_enhancement)","receive(X,motivational_enhancement)", done
-"receive_initial_therapy(X,motivational_interviewing)","receive(X,motivational_interviewing)", done
-"receive_initial_therapy(X,motiavtional_interviewing)","receive(X,motiavtional_interviewing)", done
-"receive_initial_therapy(X,standard_intake_evaluation),","receive(X,standard_intake_evaluation)", done
-cocaine_or_methamphetmine_user(X),"(use(X,cocaine); use(X,methamphetmine))", done
-"user(X,methamphetamine).","use(X,methamphetamine)", done
-efficacious_for_drug_abstinence(X),efficacious_for(X,drug_abstinence), done
-contingency_management_intervention(X),"receive(X,contingency_management_intervention)", done
-cocaine_or_methamphetmine_user(X),"(use(X,cocaine); use(X,methamphetmine))", done
-"user(X,cocaine)","use(X,cocaine)", done
-"user(X,stimulant)","use(X,stimulant)", done
-"user(X,alcohol)","use(X,alcohol)", done
-stimulant_or_alcohol_user(X),"(use(X,stimulant); use(X,alcohol))", done
-provide_tangible_incentives(X),receive(X,tangible_incentives),done
-"remain_in_treatment(X,n4_weeks)","remain(X,in_treatment,n4_weeks)", done
-"remain_in_treatment(X,n8_weeks)","remain(X,in_treatment,n8_weeks)", done
-"remain_in_treatment(X,n12_weeks)","remain(X,in_treatment,n12_weeks)", done
-recieve_counseling_only(X),"receive(X,counseling)", done
-recieve_abstinence_based_incentives(X),"receive(X,abstinence_based_incentive)",done
-recieve_abstinence_based_incentive,"receive(X,abstinence_based_incentive)",done
-"sample(X,stimulant_free,n12_weeks)","sample(X,urine,stimulant_free,n12_weeks)",done
-"sample(X,alcohol_free,n12_weeks)","sample(X,urine,alcohol_free,n12_weeks)", done
-"recieved_therapy(X,contingency_management)","receive(X,contingency_management)", done
-"recieved_therapy(X,care_as_usual)","receive(X,care_as_usual)", done
-"recieve_therapy(X, nicotine)","receive(X, nicotine)", done
-"recieve_therapy(X, care_as_usual)","receive(X, care_as_usual)", done
-"dependent(X, nicotine)","dependent(X, nicotine)", done
-"dependent(X, drug)","dependent(X, drug)", done
-"dependent(X,alcohol)","dependent(X,alcohol)", done
-"abstinent(X, nicotine, during_treamtent)","abstinent(X, nicotine, during_treamtent)", done
-"abstinent(X,nicotine,n13_weeks)","abstinent(X,nicotine,n13_weeks)", done
-"abstinent(X,nicotine,n26_weeks)","abstinent(X,nicotine,n26_weeks)", done
-"uses(X,drug)","use(X,drug)", done
-"uses(X,methadone)","use(X,methadone)", done
-"usual_treatment(X,detoxification_and_counseling)","received(X,detoxification_and_counseling)", done 
-opioid_addicted_youth(X).,(youth(X);dependent(X,opioid)),done
-opioid_addicted(X),dependent(X,opioid),done
-"urine_positive_opioid(X,n4_weeks,buprenorphine_naloxone)","(sample(X,urine,contains_opioids,n4_weeks);receive(X,buprenorphine_naloxone))",done
-"urine_positive_opioids(X,n4_weeks,detox)","(sample(X,urine,contains_opioids,n4_weeks);receive(X,detox))",done
-"urine_positive_opioid(X,n8_weeks,buprenorphine_naloxone)","(sample(X,urine,conains_opioids,n8_weeks);receive(X,buprenorphine_naloxone))", done
-"urine_positive_opioids(X,n8_weeks,detox)","(sample(X, urine, contains_opioids,n8_weeks);receive(X,detox))",done
-"urine_positive_opioid(X,n12_weeks,buprenorphine_naloxone)",(sample(X,urine,contains_opioids,n12_weeks);receive(X,buprenorphine_naloxone))", done
-"urine_positive_opioids(X,n12_weeks,detox)","(sample(X,urine,contains_opioids,n12_weeks);receive(X,detox))", done
-"remain_in_treatment(X,n12_weeks,buprnorphine_naloxone)","(remain(X,in_treatment,n12_weeks);receive(X,buprnorphine_naloxone))", done
-"remain_in_treatment(X,n12_Weeks,detox)","(remain(X,in_treatment,n12_weeks);receive(X,detox))", done
-"continued_attendance_in_treatment(X,recieved_discharge_phone_call)","(participate(X,in_treatment); \+receive(X,discharge_phone_call))"
-"continued_attendance_in_treatment(X,not_Recieved_discharge_phone_call)","(participate(X,in_treatment); receive(X,discharge_phone_call))", done
-recieving_residential_treatment(X),"receive(X,residential_treatment)", done
-difficult_to_retain_in_treatment(X),participate(X,in_treatment(X)), done
-pregnant(X),pregnant(X), done
-uses_substances(X),use(X,substance),done
-substance_use(X),"use(X,substance)", done
-substane_user(X),"use(X,substance)", done
-substance_user(X),"use(X,substance)", done
-pregnant_substance_user(X),"(use(X,substance);pregnant(X))", done
-"retain_in_treatment(X,motivational_enhancement_therapy)","(retain(X,in_treatment);receive(X,motivational_enhancement_therapy))", done
-"retain_in_treatment(X,treatment_as_usual)","(retain(X,in_treatment);receive(X,treatment_as_usual))", done
-"substance_use(X,brief_strategic_family_therapy)","(use(X, substance);receive(X,brief_strategic_family_therapy))", done
-"substance_use(X,treatment_as_usual)","(use(X,substance); receive(X,treatment_as_usual))", done
-male(X),male(X), done
-female(X),female(X), done
-woman(X),female(X), done
-"recieve_therapy(X,womens_health_education)","receive(X,womens_health_education)", done
-"recieve_therapy(X,seeking_safety)","receive(X,seeking_safety)", done
-"recieve_therapy(X,counseling_and_education)","receive(X,counseling_and_education)", done
-"recieve_therapy(X,therapeutic_alliance)","receive(X,therapeutic_alliance)", done
-"recieve_therapy(X,treatment_as_usual)","receive(X,treatment_as_usual)", done
-inject_substance(X),"inject(X,substance)", done
-attend_HIV_testing_appointment(X),"attend(X,HIV_testing_appointment)", done
-methadone_maintenance(X),receive(X, methadone), done
-outpatient_psychosocial_treatment(X),receive(X,outpatient_psychosocial_treatment),done
-"engage_in_risky_behavior(X,drug)","(engage_in(X,drug_use);member(drug_use,risky_behavior))", done
-decrease_unprotected_sexual_encounters(X),decrease(X,unprotected_sexual_encounters), done
-"decrease_unprotected_sexual_encounters(X,n3_months)","decrease(X,unprotected_sexual_encounters,n3_months)", done
-"decrease_unprotected_sexual_encounters(X,n6_months)","decrease(X,unprotected_sexual_encounters,n6_months)", done
-"increase_unprotected_sexual_encounters(X,n6_months)","increase(X,unprotected_sexual_encounters,n6_months)", done
-"increase_unprotected_sexual_encounters(X,n3_months)","increase(X,unprotected_sexual_encounters,n3_months)", done
-increase_unprotected_sexual_encounters(X),increase(X,unprotected_sexual_encounters), done
-methadone_maintenance_or_outpatient_psychosocial_treatment(X),(recieve(X,methadone);receive(X,outpatient_psychosocial_treatment)), done
-"receive_therapy(X,REMAS)","receive(X,REMAS)",done
-"receive_therapy(X,HIV_ED)","receive(X,HIV_ED)", done
-"recieve_therapy(X, safer_skills_building)","recieve(X, safer_skills_building)", done
-"recieve_therapy(X, HIV_ED)","receive(X, HIV_ED)", done
-obtaining_new_taxed_job(X),"obtain(X,new_taxed_job)", done
-not_obtaining_new_taxed_job(X),"\+obtain(X,new_taxed_job)", done
-"recieved_counseling(X,standard_care)","receive(X,standard_care)", done
-"recieved_counseling(X,job_seekers_workshop)","receive(X,job_seekers_workshop)", done
-hispanic(X),hispanic(X), done
-"recieve_therapy(X,motivational_enhancement_therapy)","receive(X,motivational_enhancement_therapy)", done
-use_substance(X),"use(X,substance)", done
-not_use_substance(X),"\+use(X,substance)", done
-"recieve_therapy(X,counseling_as_usual)","receive(X,counseling_as_usual)", done
-"taking_drug(X,buprenorphine_naloxone)","use(X,buprenorphine_naloxone)", done
-drug_induced_hepatitis(X),develop(X,drug_induced_hepatitis), done 
-"taking_drug(X,methadone)","use(X,methadone)",done
-diagnosed_with_sud(X),"diagnosed_with(X, sud)", done
-diagnosed_with_adhd(X),"diagnosed_with(X,adhd)", done
-adolescent(X),adolescent(X), done
-"recieve_therapy(X,methylphenidate)","receive(X,methylphenidate)", done
-"recieve_therapy(X,cognitive_behaviora_therapy)","receive(X,cognitive_behavioral_therapy)", done
-reduce_days_of_use_substance(X),"reduce(X,days_of_use_substance)", done
-decrease_days_smoking_use(X),reduce(X,days_of_smoking_use), done
-smoker(X),"use(X,nicotine)", done
-interested_in_quitting_smoking(X),"desire(X,quit_smoking)", done
-"recieved(X,methylphenidate)","receive(X,methylphenidate)", done
-"recieved(X,individual_smoking_cessation)","receive(X,individual_smoking_cessation)", done
-stop_using_prescription_opioids(X),"stop_using(X,prescription_opioids)", done
-dependent_on_prescription_opioids(X),"dependent(X,prescription_opioids)", done
-complete_naloxone_stabilization(X),complete(X,naloxone_stabilization), done
-recieve_counseling(X),"receive(X,counseling)", done
-\+complete_taper(X),"\+complete(X,taper)", done
-complete_taper(X),"complete(X,taper)", done
-\+complete_post_medication_follow_up(X),"\+complete(X,post_medication_follow_up)", done
-complete_post_medication_follow_up(X),"complete(X,post_medication_follow_up)", done
-decreased_frequency_of_unprotected_intercourse_episodes(X),decreased_frequency_of_unprotected_intercourse_episodes(X),
-recieve_test_results(X),"receive(X,test_results)", done
-off_site_HIV_testing(X),receive(X,off_site_HIV_testing), done
-on_site_HIV_testing(X),receive(X,on_site_HIV_testing), done
-"recieve_counseling(X,HIV_risk_reduction_counseling)","receive(X,HIV_risk_reduction_counseling)",
-"infected(X, HCV)","infected(X, HCV)", done
-"infected(newly,X,HCV)","infected(X,HCV, newly)", done
-illicit_drug_user(X),"use(X, illicit_drugs)",done
-"perceive(HCV_testing,unimportant)","perceive(HCV_testing,unimportant)", done
-lack_symptoms(X),"lack(X,symptoms)", done
-did_not_recieve_recommendation_for_treatment(X),"\+receive(X,recommendation_for_treatment)", done
-decide_to_not_pursue_HCV_treatment(X),decide(X,not_pursue_HCV_treatment),
-test_positive_for_HCV(X),diagnosed_with(X, HCV), 
-mistrust_health_care_providers(X),mistrust(X,health_care_providers), done 
-"abstinence(any_drug,X,during_treatment)",(receive(X,treatment), sample(X,_,_)),done
-"abstinence(heavy_drinking,X,during_treatment)","(recieve(X,treatment),sample(X,_,\+alcohol))",done
-in_outpatient_addiction_treatment(X),receive(X,outpatient_addiction_treatment), done
-"recieve(X,computer_modules)","receive(X,computer_modules)",done
-"recieve(x,motivational_incentives)","receive(x,motivational_incentives)", done
-"abstinence(any_drug,X,after_treatment)", (received(X,treatment),sample(X,_,pan_free)), done
-"abstinence(heavy_drinking,X,after_treatment)",(received(X,treatment),sample(X,_,\+alcohol)), done
-"abstinence(X,stimulants,week)",sample(X,_,no_stimulants,week), done
-"dependence(X,cocaine)","dependent(X,cocaine)",done
-"dependence(x,methamphetime)","dependent(x,methamphetime)", done
-"received(X,bupropion)","receive(X,bupropion)", done
-"received(X,treatment_as_usual)","receive(X,treatment_as_usual)", done
-"interested_in(X,quitting_smoking)","interested_in(X,quitting_smoking)", done
-"drug_free(X,hair_samples)","sample(X, hair, drug_free)", done
-moderate_to_severe_problems_related_to_drug_use(X),moderate_to_severe_problems_related_to_drug_use(X), 
-minimal_screening_only(X),receive(X,minimal_screening),done
-screening_with_telephone_boosters(X),(receive(X,minimal_screening),receive(X,telephone_boosters)),done
-screening_assessment_referral_to_treatment(X), (receive(X,screening_assessment), receive(X,referral_to_treatment)), done
-days_between_cocaine_use(X),drug_free(X, cocaine, duration), done
-days_of_continuous_cocaine_use(X),sample(X, _, cocaine, duration), done
-cocaine_dependent(X),"dependent(X, cocaine)",done
-previously_treated_as_inpatient(X),treated(X,as_inpatient), done
-"recieve(X,placebo)","receive(X,placebo)",done
-"recieve(X,buspirone)","receive(X,buspirone)",done
-negative_urine_cannabinoid_test(X),sample(X, urine, \+contain_cannabinoids), done
-cannabis_use_disorder(X),diagnosed_with(X,cannabis_use_disorder), done
-contingency_management(X),receive(X,contingency_management), done
-medical_management(X),receive(X,medical_management), done 
-"recieved(X,n_acetylcysteine)","receive(X,n_acetylcysteine)", done
-negative_urine_drug_scereen(X),sample(X,urine,pan_negative), done
-methamphetamine_use_disorder(X),diagnosed_with(X,methamphetamine_use_disorder), done
-injectable_naltrexone(X),receive(X,injectable_naltrexone), done
-oral_bupropion(X),recieve(X,bupropion), done
-start_treatment(X),"start(X,treatment)", done
-stay_in_treatment(X),"stay_in(X,treatment)", done
-opioid_use(X),"use(X,opioid)", done
-heavy_drinking(X),"use(X,alcohol, heavy)", done
-viral_suppression(X),diagnosed_with(X,viral_suppression), done
-substance_use_disorder(X),diagnosed_with(X, substance_use_disorder),
-infected_with_HIV(X),infected_with(X,HIV), done
-"recieved(X,treatment_as_usual)","received(X,treatment_as_usual)", done
+original	 converted	 flag
+recieved(X,bupnx)	receive(X,buprenorphine_naloxone)	 done
+recieved(X,clonidine)	receive(X,clonidine)	 done
+person(X)	person(X)	 done 
+urine(X,opioid_free,initial)	urine(X,opioid_free,initial)	 done
+urine(X,contains_opioids,initial)	urine(X,contains_opioids,initial)	 done
+urine(X,opioid_free,n1_month)	urine(X,opioid_free,n1_month)	 done
+urine(X,contains_opioids,n1_month)	urine(X,contains_opioids,n1_month)	 done
+urine(X,opioid_free,n3_month)	urine(X,opioid_free,n3_month)	 done
+urine(X,contains_opioids,n3_month)	urine(X,contains_opioids,n3_month)	 done
+detoxification(X, opioid,success)	detoxification(X,opioid,success)	 done
+detoxification(X,opioid,failure)	detoxification(X,opioid,failure)	 done
+detoxification(X,opioid,success)	detoxification(X,opioid,success)	 done
+detoxification(X,opioid, success)	detoxification(X,opioid, success)	 done
+inpatient(X)	inpatient(X)	 done
+outpatient(X)	outpatient(X)	 done
+inpatient(X)	inpatient(X)	 done
+\+outpatient(X).	\+outpatient(X)	 done 
+taper(X,buprenorphine,n28_days)	taper(X,buprenorphine,n28_days)	 done 
+taper(X,buprenorphine,n7_days)	taper(X,buprenorphine,n7_days)	 done
+urine(X,opioid_free,initial)	urine(X,opioid_free,initial)	 done
+urine(X,contains_opioids,initial)	contains(X,urine,opioids,initial)	 done
+urine_drug_screen(X,positive)	urine_drug_screen(X,positive)	 done
+urine_drug_screen(X,negative)	urine_drug_screen(X,negative)	 done
+stay_in_therapy(X)	stay(X,in_therapy)	 done
+stay_in_therapy(X,n28_day)	stay(X,in_therapy,n28_day)	done
+stay_in_therapy(X,n84_day)	stay(X,in_therapy,n84_day)	 done
+not_stay_in_therapy(X,n84_day)	\+stay(X,in_therapy,n84_day)	 done
+not_stay_in_therapy(X,n_28_day)	\+stay(X,in_therapy,n_28_day)	 done
+not_stay_in_therapy(X)	\+stay(X,in_therapy)	 done
+receive_therapy(X,care_as_usual)	receive(X,care_as_usual)	 done
+receive_therapy(X,motivational_enhancement)	receive(X,motivational_enhancement)	 done
+receive_initial_therapy(X,motivational_interviewing)	receive(X,motivational_interviewing)	 done
+receive_initial_therapy(X,motiavtional_interviewing)	receive(X,motiavtional_interviewing)	 done
+receive_initial_therapy(X,standard_intake_evaluation)		receive(X,standard_intake_evaluation)	 done
+cocaine_or_methamphetmine_user(X)	(use(X,cocaine); use(X,methamphetmine))	 done
+user(X,methamphetamine).	use(X,methamphetamine)	 done
+efficacious_for_drug_abstinence(X)	efficacious_for(X,drug_abstinence)	 done
+contingency_management_intervention(X)	receive(X,contingency_management_intervention)	 done
+cocaine_or_methamphetmine_user(X)	(use(X,cocaine); use(X,methamphetmine))	 done
+user(X,cocaine)	use(X,cocaine)	 done
+user(X,stimulant)	use(X,stimulant)	 done
+user(X,alcohol)	use(X,alcohol)	 done
+stimulant_or_alcohol_user(X)	(use(X,stimulant); use(X,alcohol))	 done
+provide_tangible_incentives(X)	receive(X,tangible_incentives)	done
+remain_in_treatment(X,n4_weeks)	remain(X,in_treatment,n4_weeks)	 done
+remain_in_treatment(X,n8_weeks)	remain(X,in_treatment,n8_weeks)	 done
+remain_in_treatment(X,n12_weeks)	remain(X,in_treatment,n12_weeks)	 done
+recieve_counseling_only(X)	receive(X,counseling)	 done
+recieve_abstinence_based_incentives(X)	receive(X,abstinence_based_incentive)	done
+recieve_abstinence_based_incentive	receive(X,abstinence_based_incentive)	done
+sample(X,stimulant_free,n12_weeks)	sample(X,urine,stimulant_free,n12_weeks)	done
+sample(X,alcohol_free,n12_weeks)	sample(X,urine,alcohol_free,n12_weeks)	 done
+recieved_therapy(X,contingency_management)	receive(X,contingency_management)	 done
+recieved_therapy(X,care_as_usual)	receive(X,care_as_usual)	 done
+recieve_therapy(X,nicotine)	receive(X,nicotine)	 done
+recieve_therapy(X,care_as_usual)	receive(X,care_as_usual)	 done
+dependent(X,nicotine)	dependent(X	 nicotine)	 done
+dependent(X,drug)	dependent(X	 drug)	 done
+dependent(X,alcohol)	dependent(X,alcohol)	 done
+abstinent(X,nicotine,during_treamtent)	abstinent(X,nicotine,during_treamtent)	 done
+abstinent(X,nicotine,n13_weeks)	abstinent(X,nicotine,n13_weeks)	 done
+abstinent(X,nicotine,n26_weeks)	abstinent(X,nicotine,n26_weeks)	 done
+uses(X,drug)	use(X,drug)	 done
+uses(X,methadone)	use(X,methadone)	 done
+usual_treatment(X,detoxification_and_counseling)	received(X,detoxification_and_counseling)	 done 
+opioid_addicted_youth(X).	(youth(X);dependent(X,opioid))	done
+opioid_addicted(X)	dependent(X,opioid)	done
+urine_positive_opioid(X,n4_weeks,buprenorphine_naloxone)	(sample(X,urine,contains_opioids,n4_weeks);receive(X,buprenorphine_naloxone))	done
+urine_positive_opioids(X,n4_weeks,detox)	(sample(X,urine,contains_opioids,n4_weeks);receive(X,detox))	done
+urine_positive_opioid(X,n8_weeks,buprenorphine_naloxone)	(sample(X,urine,conains_opioids,n8_weeks);receive(X,buprenorphine_naloxone))	 done
+urine_positive_opioids(X,n8_weeks,detox)	(sample(X	 urine	 contains_opioids,n8_weeks);receive(X,detox))	done
+urine_positive_opioid(X,n12_weeks,buprenorphine_naloxone)	(sample(X,urine,contains_opioids,n12_weeks);receive(X,buprenorphine_naloxone))	 done
+urine_positive_opioids(X,n12_weeks,detox)	(sample(X,urine,contains_opioids,n12_weeks);receive(X,detox))	 done
+remain_in_treatment(X,n12_weeks,buprnorphine_naloxone)	(remain(X,in_treatment,n12_weeks);receive(X,buprnorphine_naloxone))	 done
+remain_in_treatment(X,n12_Weeks,detox)	(remain(X,in_treatment,n12_weeks);receive(X,detox))	 done
+continued_attendance_in_treatment(X,recieved_discharge_phone_call)	(participate(X,in_treatment); \+receive(X,discharge_phone_call))
+continued_attendance_in_treatment(X,not_Recieved_discharge_phone_call)	(participate(X,in_treatment); receive(X,discharge_phone_call))	 done
+recieving_residential_treatment(X)	receive(X,residential_treatment)	 done
+difficult_to_retain_in_treatment(X)	participate(X,in_treatment(X))	 done
+pregnant(X)	pregnant(X)	 done
+uses_substances(X)	use(X,substance)	done
+substance_use(X)	use(X,substance)	 done
+substane_user(X)	use(X,substance)	 done
+substance_user(X)	use(X,substance)	 done
+pregnant_substance_user(X)	(use(X,substance);pregnant(X))	 done
+retain_in_treatment(X,motivational_enhancement_therapy)	(retain(X,in_treatment);receive(X,motivational_enhancement_therapy))	 done
+retain_in_treatment(X,treatment_as_usual)	(retain(X,in_treatment);receive(X,treatment_as_usual))	 done
+substance_use(X,brief_strategic_family_therapy)	(use(X	 substance);receive(X,brief_strategic_family_therapy))	 done
+substance_use(X,treatment_as_usual)	(use(X,substance); receive(X,treatment_as_usual))	 done
+male(X)	male(X)	 done
+female(X)	female(X)	 done
+woman(X)	female(X)	 done
+recieve_therapy(X,womens_health_education)	receive(X,womens_health_education)	 done
+recieve_therapy(X,seeking_safety)	receive(X,seeking_safety)	 done
+recieve_therapy(X,counseling_and_education)	receive(X,counseling_and_education)	 done
+recieve_therapy(X,therapeutic_alliance)	receive(X,therapeutic_alliance)	 done
+recieve_therapy(X,treatment_as_usual)	receive(X,treatment_as_usual)	 done
+inject_substance(X)	inject(X,substance)	 done
+attend_HIV_testing_appointment(X)	attend(X,HIV_testing_appointment)	 done
+methadone_maintenance(X)	receive(X,methadone)	 done
+outpatient_psychosocial_treatment(X)	receive(X,outpatient_psychosocial_treatment)	done
+engage_in_risky_behavior(X,drug)	(engage_in(X,drug_use);member(drug_use,risky_behavior))	 done
+decrease_unprotected_sexual_encounters(X)	decrease(X,unprotected_sexual_encounters)	 done
+decrease_unprotected_sexual_encounters(X,n3_months)	decrease(X,unprotected_sexual_encounters,n3_months)	 done
+decrease_unprotected_sexual_encounters(X,n6_months)	decrease(X,unprotected_sexual_encounters,n6_months)	 done
+increase_unprotected_sexual_encounters(X,n6_months)	increase(X,unprotected_sexual_encounters,n6_months)	 done
+increase_unprotected_sexual_encounters(X,n3_months)	increase(X,unprotected_sexual_encounters,n3_months)	 done
+increase_unprotected_sexual_encounters(X)	increase(X,unprotected_sexual_encounters)	 done
+methadone_maintenance_or_outpatient_psychosocial_treatment(X)	(recieve(X,methadone);receive(X,outpatient_psychosocial_treatment))	 done
+receive_therapy(X,REMAS)	receive(X,REMAS)	done
+receive_therapy(X,HIV_ED)	receive(X,HIV_ED)	 done
+recieve_therapy(X,safer_skills_building)	receive(X,safer_skills_building)	 done
+recieve_therapy(X,HIV_ED)	receive(X,HIV_ED)	 done
+obtaining_new_taxed_job(X)	obtain(X,new_taxed_job)	 done
+not_obtaining_new_taxed_job(X)	\+obtain(X,new_taxed_job)	 done
+recieved_counseling(X,standard_care)	receive(X,standard_care)	 done
+recieved_counseling(X,job_seekers_workshop)	receive(X,job_seekers_workshop)	 done
+hispanic(X)	hispanic(X)	 done
+recieve_therapy(X,motivational_enhancement_therapy)	receive(X,motivational_enhancement_therapy)	 done
+use_substance(X)	use(X,substance)	 done
+not_use_substance(X)	\+use(X,substance)	 done
+recieve_therapy(X,counseling_as_usual)	receive(X,counseling_as_usual)	 done
+taking_drug(X,buprenorphine_naloxone)	use(X,buprenorphine_naloxone)	 done
+drug_induced_hepatitis(X)	develop(X,drug_induced_hepatitis)	 done 
+taking_drug(X,methadone)	use(X,methadone)	done
+diagnosed_with_sud(X)	diagnosed_with(X	 sud)	 done
+diagnosed_with_adhd(X)	diagnosed_with(X,adhd)	 done
+adolescent(X)	adolescent(X)	 done
+recieve_therapy(X,methylphenidate)	receive(X,methylphenidate)	 done
+recieve_therapy(X,cognitive_behaviora_therapy)	receive(X,cognitive_behavioral_therapy)	 done
+reduce_days_of_use_substance(X)	reduce(X,days_of_use_substance)	 done
+decrease_days_smoking_use(X)	reduce(X,days_of_smoking_use)	 done
+smoker(X)	use(X,nicotine)	 done
+interested_in_quitting_smoking(X)	desire(X,quit_smoking)	 done
+recieved(X,methylphenidate)	receive(X,methylphenidate)	 done
+recieved(X,individual_smoking_cessation)	receive(X,individual_smoking_cessation)	 done
+stop_using_prescription_opioids(X)	stop_using(X,prescription_opioids)	 done
+dependent_on_prescription_opioids(X)	dependent(X,prescription_opioids)	 done
+complete_naloxone_stabilization(X)	complete(X,naloxone_stabilization)	 done
+recieve_counseling(X)	receive(X,counseling)	 done
+\+complete_taper(X)	\+complete(X,taper)	 done
+complete_taper(X)	complete(X,taper)	 done
+\+complete_post_medication_follow_up(X)	\+complete(X,post_medication_follow_up)	 done
+complete_post_medication_follow_up(X)	complete(X,post_medication_follow_up)	 done
+decreased_frequency_of_unprotected_intercourse_episodes(X)	decreased(X,unprotected_intercourse_episodes)	done	
+recieve_test_results(X)	receive(X,test_results)	 done
+off_site_HIV_testing(X)	receive(X,off_site_HIV_testing)	 done
+on_site_HIV_testing(X)	receive(X,on_site_HIV_testing)	 done
+recieve_counseling(X,HIV_risk_reduction_counseling)	receive(X,HIV_risk_reduction_counseling)	
+infected(X	 HCV)	infected(X	 HCV)	 done
+infected(newly,X	HCV)	infected(X,HCV	 newly)	 done
+illicit_drug_user(X)	use(X,illicit_drugs)	done
+perceive(HCV_testing,unimportant)	perceive(HCV_testing,unimportant)	 done
+lack_symptoms(X)	lack(X,symptoms)	 done
+did_not_recieve_recommendation_for_treatment(X)	\+receive(X,recommendation_for_treatment)	 done
+decide_to_not_pursue_HCV_treatment(X)	decide(X,not_pursue_HCV_treatment)	
+test_positive_for_HCV(X)	diagnosed_with(X,HCV)	 
+mistrust_health_care_providers(X)	mistrust(X,health_care_providers)	 done 
+abstinence(any_drug,X,during_treatment)	(receive(X,treatment)	 sample(X,_	_))	done
+abstinence(heavy_drinking,X,during_treatment)	(recieve(X,treatment)	sample(X,_,\+alcohol))	done
+in_outpatient_addiction_treatment(X)	receive(X,outpatient_addiction_treatment)	 done
+recieve(X,computer_modules)	receive(X,computer_modules)	done
+recieve(x,motivational_incentives)	receive(x,motivational_incentives)	 done
+abstinence(any_drug,X	after_treatment)	 (received(X,treatment),sample(X,_,pan_free))	 done
+abstinence(heavy_drinking,X	after_treatment)	(received(X,treatment);sample(X,_,\+alcohol))	 done
+abstinence(X,stimulants,week)	sample(X,_	no_stimulants,week)	 done
+dependence(X,cocaine)	dependent(X,cocaine)	done
+dependence(x,methamphetime)	dependent(x,methamphetime)	 done
+received(X,bupropion)	receive(X,bupropion)	 done
+received(X,treatment_as_usual)	receive(X,treatment_as_usual)	 done
+interested_in(X,quitting_smoking)	interested_in(X,quitting_smoking)	 done
+drug_free(X,hair_samples)	sample(X,hair,drug_free)	 done
+moderate_to_severe_problems_related_to_drug_use(X)	moderate_to_severe_problems_related_to_drug_use(X)	 
+minimal_screening_only(X)	receive(X,minimal_screening)	done
+screening_with_telephone_boosters(X)	(receive(X,minimal_screening),receive(X,telephone_boosters))	done
+screening_assessment_referral_to_treatment(X)	 (receive(X,screening_assessment),receive(X,referral_to_treatment))	 done
+days_between_cocaine_use(X)	drug_free(X,cocaine,duration)	 done
+days_of_continuous_cocaine_use(X)	sample(X,_,cocaine,duration)	 done
+cocaine_dependent(X)	dependent(X	 cocaine)	done
+previously_treated_as_inpatient(X)	treated(X,as_inpatient)	 done
+recieve(X,placebo)	receive(X,placebo)	done
+recieve(X,buspirone)	receive(X,buspirone)	done
+negative_urine_cannabinoid_test(X)	sample(X,urine,\+contain_cannabinoids)	 done
+cannabis_use_disorder(X)	diagnosed_with(X,cannabis_use_disorder)	 done
+contingency_management(X)	receive(X,contingency_management)	 done
+medical_management(X)	receive(X,medical_management)	 done 
+recieved(X,n_acetylcysteine)	receive(X,n_acetylcysteine)	 done
+negative_urine_drug_scereen(X)	sample(X,urine,pan_negative)	 done
+methamphetamine_use_disorder(X)	diagnosed_with(X,methamphetamine_use_disorder)	 done
+injectable_naltrexone(X)	receive(X,injectable_naltrexone)	 done
+oral_bupropion(X)	recieve(X,bupropion)	 done
+start_treatment(X)	start(X,treatment)	 done
+stay_in_treatment(X)	stay_in(X,treatment)	 done
+opioid_use(X)	use(X,opioid)	 done
+heavy_drinking(X)	use(X,alcohol,heavy)	 done
+viral_suppression(X)	diagnosed_with(X,viral_suppression)	 done
+substance_use_disorder(X)	diagnosed_with(X,substance_use_disorder)	
+infected_with_HIV(X)	infected_with(X,HIV)	 done
+recieved(X,treatment_as_usual)	received(X,treatment_as_usual)	 done

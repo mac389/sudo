@@ -7,6 +7,8 @@ risky_behavior=[drug_use].
 
 %Need temporal recourse, need to distinguish between receive and received 
 
+
+
 abstinent(X,_) :-
 	\+use(X,_). 
 
