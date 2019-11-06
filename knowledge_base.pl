@@ -3,6 +3,8 @@ therapy = [motivational_enhancement, motivational_interviewing,
 standard_intake_evaluation,contingency_management_evaluation, abstinence_based_incentive, residential_treatment,
 cognitive_behavioral_therapy].
 
+risky_behavior=[drug_use].
+
 %Need temporal recourse, need to distinguish between receive and received 
 
 abstinent(X,_) :-
