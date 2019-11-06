@@ -1,30 +1,8 @@
-# sudo
-Substance Use Disorders Ontology
+#Sudo 
 
-Competency Questions
-1. What schedules of buprenorphine work?
+**Purpose** The purpose of **sudo**, the _s_ubstance _u_se _d_isorder _o_ntology is to represent the knowledge from clinical trials on opioid use in a format that both humans and computers can understand. This will allow use to synthesize the results from trials and spot inconsistencies on a larger scale than could be done by hand. We use Markov Logic Networks to represent knowledge. We use the implementation of Markov Logic Networks in [ProbLog](https://dtai.cs.kuleuven.be/problog/index.html), a dialect of prolog. 
 
-Want title, keywords, PICO info, link to publications
 
-Convert HTML records to XML
-  -- do this manually, or make HTML form from XSD (seems easier to start by hand)
+### Web page 
 
- Use XML records as database rather than building intermediate layer. 
- -Can see how to use ontologies via XML. 
-
-| Mike 	| Karun 	|
-|------	|-------	|
-| 54 	| ~~10~~ 	|
-| 13 	| ~~17~~ 	|
-| 46 	| ~~21~~ 	|
-| 14 	| ~~11~~ 	|
-| 30 	| ~~27~~ 	|
-| 15 	| ~~32~~ 	|
-| 12 	| 47 	|
-| 52 	| ~~28~~ 	|
-| 7 	| 59 	|
-| 55 	| 49 	|
-| 31 	| ~~9~~ 	|
-| 29 	| ~~20~~ 	|
-| 18 	| 35 	|
-| 19 	|  	|
+### Quickstart
