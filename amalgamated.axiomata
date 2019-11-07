@@ -373,6 +373,7 @@ P::reduce(X,substance,days_of_use) :-
 	receive(X,cognitive_behavioral_therapy),
 	P is 0.5.
 
+%STOPPED HERE, STARTS WITH CTN-29
 P::reduce(X,days_of_smoking_use) :-
 	diagnosed_with(X,adhd),
 	use(X,nicotine),

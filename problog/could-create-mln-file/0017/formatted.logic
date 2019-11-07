@@ -1,16 +1,16 @@
-P::decrease(X,substance_use);P::decrease(X,risky_behavior) :-
+P::decrease(X,substance_use,_);P::decrease(X,risky_behavior,_) :-
 	inject(X,substance),
 	(receive(X,counseling_and_education);receive(X,therapeutic_alliance);receive(X,treatment_as_usual)),
 	P is 0.5,
 	write('Accessed CTN-0017\n').
 
-P::increase(X,attendance,HIV_testing_appointment) :-
+P::increase(X,attendance,HIV_testing_appointment,_) :-
 	inject(X,substance),
 	receive(X,counseling_and_education),
 	P is 0.8,
 	write('Accessed CTN-0017\n').
 
-P::increase(X,attendance,HIV_testing_appointment) :-
+P::increase(X,attendance,HIV_testing_appointment,_) :-
 	inject(X,substance),
 	(receive(X,therapeutic_alliance);receive(X,treatment_as_usual)),
 	P is 0.6,

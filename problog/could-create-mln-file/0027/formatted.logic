@@ -1,7 +1,9 @@
 P::develop(X,drug_induced_hepatitis) :-
 	use(X,buprenorphine_naloxone),
-	P is 0.5.
+	P is 0.5,
+	write('Accessed CTN-0027').
 
 P::develop(X,drug_induced_hepatitis) :-
 	use(X,methadone),
-	P is 0.5.
+	P is 0.5,
+	write('Accessed CTN-0027').

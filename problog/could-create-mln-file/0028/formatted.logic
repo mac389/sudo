@@ -1,15 +1,16 @@
-P::reduce_days_of_use(X,substance) :-
+P::decrease(X,substance_use,_) :-
 	diagnosed_with(X,adhd),
-	diagnosed_with(X,
+	diagnosed_with(X,sud),
+	adolescent(X),
+	receive(X,cognitive_behavioral_therapy),
+	P is 0.5,
+	write('Accessed CTN-0028').
+
+P::decrease(X,substance_use,_) :-
+	diagnosed_with(X,adhd),
+	diagnosed_with(X,sud),
 	adolescent(X),
 	receive(X,methylphenidate),
 	receive(X,cognitive_behavioral_therapy),
 	P is 0.5,
-
-P::reduce_days_of_use(X,substance) :-
-	diagnosed_with(X,adhd),
-	diagnosed_with(X,
-	adolescent(X),
-	receive(X,methylphenidate),
-	receive(X,cognitive_behavioral_therapy),
-	P is 0.5.
+	write('Accessed CTN-0028').
