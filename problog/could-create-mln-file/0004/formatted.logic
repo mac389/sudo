@@ -1,15 +1,19 @@
-P::stay(X,in_therapy);(1-P)::not_stay(X,in_therapy) :-
+P::stay(X,in_therapy) :-
     receive(X,care_as_usual),
-    P is 0.5.
+    P is 0.5,
+    write('CTN-0004 Accessed\n').
 
-P:urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative) :-
+P:sample(X,urine,_,positive);(1-P)::sample(X,urine,_,negative) :-
     receive(X,care_as_usual),
-    P is 0.5.
+    P is 0.5,
+    write('CTN-0004 Accessed\n').
 
-P::stay(X,in_therapy);(1-P)::not_stay(X,in_therapy) :-
+P::stay(X,in_therapy):-
     receive(X,motivational_enhancement),
-    P is 0.5.
+    P is 0.5,
+    write('CTN-0004 Accessed\n').
     
-P::urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative) :-
+P::sample(X,urine,_,positive) :-
     receive(X,motivational_enhancement),
-    P is 0.5.
+    P is 0.5,
+    write('CTN-0004 Accessed\n').

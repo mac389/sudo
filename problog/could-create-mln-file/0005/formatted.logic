@@ -1,15 +1,17 @@
-2*P::stay_in_therapy(X, n28_day);(1-2*P)::\+stay(X,in_therapy,n_28_day) :-
+2*P::stay_in(X, therapy, n28_day):-
     receive(X,motivational_interviewing),
-    P is 0.33.
+    P is 0.33,
+    write('CTN-0005 Accessed\n').
 
-P:urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative) :-
+P:sample(X,urine,_,positive,_) :-
     receive(X,motiavtional_interviewing),
-    P is 0.5.
+    P is 0.5,
+    write('CTN-0005 Accessed\n').
 
-P::stay_in_therapy(X, n84_day);(1-P)::not_stay(X,in_therapy,n84_day) :-
-    ,
-    P is 0.5.
+P::stay_in(X, therapy, n84_day) :-
+    P is 0.5,
+    write('CTN-0005 Accessed\n').
     
-P::urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative) :-
-    ,
-    P is 0.5.
+P::sample(X,urine,_,negative,_) :-
+    P is 0.5,
+    write('CTN-0005 Accessed\n').

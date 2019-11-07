@@ -1,47 +1,51 @@
-(use(X,stimulant); use(X,alcohol)) :-
-	use(X,cocaine);
-	use(X,stimulant);
-	use(X,alcohol).
-
 efficacious_for(X,drug_abstinence) :-
 	receive(X,contingency_management_intervention),
 	(use(X,stimulant); use(X,alcohol)),
-	receive(X,tangible_incentives).
+	receive(X,tangible_incentives),
+	write('CTN-0007 Accessed\n').
 
 P::remain(X,in_treatment,n4_weeks) :-
 	receive(X,counseling),
 	(use(X,stimulant); use(X,alcohol)),
-	P is 0.25.
+	P is 0.25,
+	write('CTN-0007 Accessed\n').
 
 P::remain(X,in_treatment,n4_weeks) :-
 	receive(X,abstinence_based_incentive),
 	(use(X,stimulant); use(X,alcohol)),
-	P is 0.75.
+	P is 0.75,
+	write('CTN-0007 Accessed\n').
 
 P::remain(X,in_treatment,n8_weeks) :-
 	receive(X,counseling),
 	(use(X,stimulant); use(X,alcohol)),
-	P is 0.1.
+	P is 0.1,
+	write('CTN-0007 Accessed\n').
 
 P::remain(X,in_treatment,n8_weeks) :-
 	receive(X,abstinence_based_incentive),
 	(use(X,stimulant); use(X,alcohol)),
-	P is 0.9.
+	P is 0.9,
+	write('CTN-0007 Accessed\n').
 
 P::remain(X,in_treatment,n12_weeks) :-
 	receive(X,counseling),
 	(use(X,stimulant); use(X,alcohol)),
-	P is 0.1.
+	P is 0.1,
+	write('CTN-0007 Accessed\n').
 
 P::remain(X,in_treatment,n12_weeks) :-
 	receive(X,abstinence_based_incentive),
 	(use(X,stimulant); use(X,alcohol)),
-	P is 0.9.
+	P is 0.9,
+	write('CTN-0007 Accessed\n').
 
 P::sample(X,urine,stimulant_free,n12_weeks);P::sample(X,urine,alcohol_free,n12_weeks) :-
     receive(X,contingency_management),
-    P is 0.66.
+    P is 0.66,
+    write('CTN-0007 Accessed\n').
 
 P::sample(X,urine,stimulant_free,n12_weeks);P::sample(X,urine,alcohol_free,n12_weeks) :-
     receive(X,care_as_usual),
-    P is 0.33.
+    P is 0.33,
+    write('CTN-0007 Accessed\n').

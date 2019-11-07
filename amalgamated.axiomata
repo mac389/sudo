@@ -140,6 +140,8 @@ P::remain(X,in_treatment,n12_weeks) :-
 	P is 0.8,
 	write('CTN-0006 Accessed\n').
 
+
+%CTN0007
 efficacious_for(X,drug_abstinence) :-
 	receive(X,contingency_management_intervention),
 	(use(X,stimulant); use(X,alcohol)),
