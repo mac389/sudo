@@ -172,20 +172,19 @@ P::abstinent(X, nicotine, during_treamtent);(0.5*P)::abstinent(X,nicotine,n13_we
 receive(X,detoxification_and_counseling) :-
 	(youth(X);dependent(X,opioid))
 
-
-P::(sample(X,urine,contains_opioids,n4_weeks);receive(X,buprenorphine_naloxone));P::(sample(X,urine,contains_opioids,n4_weeks);receive(X,detox)) :-
+P::sample(X,urine,contains_opioids,n4_weeks);P::receive(X,buprenorphine_naloxone);P::sample(X,urine,contains_opioids,n4_weeks);P::receive(X,detox) :-
 	dependent(X,opioid),
 	P is 0.5.
 
-P::(sample(X,urine,conains_opioids,n8_weeks);receive(X,buprenorphine_naloxone));P::(sample(X :-
+P::sample(X,urine,conains_opioids,n8_weeks);P::receive(X,buprenorphine_naloxone);P::(sample(X :-
 	dependent(X,opioid),
 	P is 0.5.
 
-P::(sample(X,urine,conains_opioids,n8_weeks);receive(X,buprenorphine_naloxone));P::(sample(X :-
+P::sample(X,urine,conains_opioids,n8_weeks;P::receive(X,buprenorphine_naloxone);P::(sample(X :-
 	dependent(X,opioid),
 	P is 0.5.
 
-P::(sample(X,urine,contains_opioids,n12_weeks);receive(X,buprenorphine_naloxone));P::(sample(X,urine,contains_opioids,n12_weeks);receive(X,detox)) :-
+P::sample(X,urine,contains_opioids,n12_weeks;P::receive(X,buprenorphine_naloxone);P::sample(X,urine,contains_opioids,n12_weeks);P::receive(X,detox) :-
 	dependent(X,opioid),
 	P is 0.5.
 
