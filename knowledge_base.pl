@@ -7,6 +7,9 @@ risky_behavior=[drug_use].
 
 %Need temporal recourse, need to distinguish between receive and received 
 
+inpatient(X) :- 
+	\+outpatient(X)
+
 use(X,Y) :- 
     person(X),
     member(Y,substance).
