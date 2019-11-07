@@ -1,26 +1,33 @@
-P::urine(X,opioid_free,initial);(1-P)::urine(X,contains_opioids, initial) :-
-    P is 0.5.
+P::sample(X,urine,opioids,negative,initial);(1-P)::sample(X,urine,opioids,positive,initial) :-
+    P is 0.5,
+    write('CTN-0003 Accessed\n').
 
-P::urine(X,opioid_free,n1_month);(1-P)::urine(X,contains_opioids,n1_month) :-
+P::sample(X,urine,opioids,negative,n1_month);(1-P)::sample(X,urine,opioids,positive,n1_month) :-
 	taper(X,buprenorphine,n28_days),
-	P is 0.18.
+	P is 0.18,
+	write('CTN-0003 Accessed\n').
 
-P::urine(X,opioid_free,n3_month);(1-P)::urine(X,contains_opioids,n3_month) :-
+P::sample(X,urine,opioids,negative,n3_month);(1-P)::sample(X,urine,opioids,positive,n3_month) :-
 	taper(X,buprenorphine,n28_days),
-	P is 0.18.
+	P is 0.18,
+	write('CTN-0003 Accessed\n').
 
-P::urine(X,opioid_free,n1_month);(1-P)::urine(X,contains_opioids,n1_month) :-
+P::sample(X,urine,opioids,negative,n1_month);(1-P)::sample(X,urine,opioids,positive,n1_month) :-
 	taper(X,buprenorphine,n7_days),
-	P is 0.12.
+	P is 0.12,
+	write('CTN-0003 Accessed\n').
 
-P::urine(X,opioid_free,n3_month);(1-P)::urine(X,contains_opioids,n3_month) :-
+P::sample(X,urine,opioids,positive,n3_month);(1-P)::sample(X,urine,opioids,negative,n3_month) :-
 	taper(X,buprenorphine,n7_days),
-	P is 0.13.
+	P is 0.13,
+	write('CTN-0003 Accessed\n').
 
-P::urine(X,opioid_free, initial);(1-P)::contains(X,urine,opioids,initial) :-
+P::sample(X,urine, opioids, negative,initial);(1-P)::sample(X,urine,opioids,positive,initial) :-
 	taper(X,buprenorphine,n28_days),
-	P is 0.30.
+	P is 0.30,
+	write('CTN-0003 Accessed\n').
 
-P::urine(X,opioid_free, initial);(1-P)::contains(X,urine,opioids,initial) :-
+P::sample(X,urine,opioids, negative,initial);(1-P)::sample(X,urine,opioids, positive,initial) :-
 	taper(X,buprenorphine,n7_days),
-	P is 0.44.
+	P is 0.44,
+	write('CTN-0003 Accessed\n').

@@ -26,6 +26,8 @@ stimulant(cocaine).
 stimulant(amphetamine).
 
 
+success :- \+failure.
+
 0.9::outpatient(X). %fit to parameters, need to cie sources
 0.4::use(_,cocaine). %now add for other drugs
 0.5::adult(X). %CITATION NEEDED
