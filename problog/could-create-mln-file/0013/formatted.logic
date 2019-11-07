@@ -1,10 +1,7 @@
-participate(X,in_treatment(X)) :-
+P::remain(X,in_treatment(X),n1_month) :-
 	use(X,substance),
-	pregnant(X).
-
-pregnant_use(X,substance) :-
+	(receive(X,motivational_enhancement_therapy);receive(X,treatment_as_usual)),
 	pregnant(X),
-	use(X,substance).
+	P is 0.81,
+	write('CTN-0013 Accessed\n'). 	
 
-P::(retain(X,in_treatment);receive(X,motivational_enhancement_therapy));P::(retain(X,in_treatment);receive(X,treatment_as_usual)) :-
-	pregnant_use(X,substance). 	

@@ -1,11 +1,6 @@
-P::use(X,substance) :-
+P::decrease(X,substance_use) :-
 	female(X),
 	use(X,substance),
-	receive(X,womens_health_education),
-	P is 0.5.
-
-P::use(X,substance) :-
-	female(X),
-	use(X,substance),
-	receive(X,seeking_safety),
-	P is 0.5.
+	(receive(X,womens_health_education);receive(X,seeking_safety)),
+	P is 0.5,
+	write('CTN-0015 Accessed\n'). 	

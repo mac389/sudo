@@ -1,4 +1,5 @@
-P::(use(X;P::(use(X,substance); receive(X,treatment_as_usual)) :-
+P::use(X,substance);(1.5*P)::decrease(X,substance_use) :-
 	adolescent(X),
-	use(X,substance),
-	P is 0.5.
+	(receive(X,treatment_as_usual);receive(X,beavioral_strategic_family_therapy)),
+	P is 1,
+	write("Accessed CTN-0014").
