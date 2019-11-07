@@ -1,14 +1,11 @@
 substance = [cocaine,methadone,heroin,alcohol].
-therapy = [motivational_enhancement, motivational_interviewing,
-standard_intake_evaluation,contingency_management_evaluation, abstinence_based_incentive, residential_treatment,
-cognitive_behavioral_therapy].
+therapy = [motivational_enhancement, motivational_interviewing,standard_intake_evaluation,contingency_management_evaluation, abstinence_based_incentive, residential_treatment,cognitive_behavioral_therapy].
 
+prescription_opioid = [percocet,fentanyl,oxycodone].
 risky_behavior=[drug_use].
 
-%Need temporal recourse, need to distinguish between receive and received 
-
 inpatient(X) :- 
-	\+outpatient(X)
+	\+outpatient(X).
 
 use(X,Y) :- 
     person(X),
@@ -27,7 +24,7 @@ man(X) :-
 	male(X).
 
 adolescent(X) :-
-	person(X).
+	person(X),
 	\+adult(X),
 	\+child(X).
 
@@ -41,10 +38,6 @@ pregnant_substance_user(X) :-
 	uses(X,Y),
 	member(Y,substance).
 
-isSubstance(X) :- 
-	%how to look up in list 
-	yse.
-
 illicit_drug_user(X) :-
 	person(X),
 	uses(X,Y),
@@ -55,12 +48,13 @@ use_stimulant(X) :-
 	uses(X,Y),
 	member(Y,stimulant).
 
-dependence(X,Y) :-
+dependent(X,Y) :-
 	%defining for meaning of dependent on substance
+	%feels like need more criteria, like the DSM criteria
 	person(X),
 	member(Y,substance),
-	uses(X,Y). %feels like need more criteria, like the DSM criteria
+	uses(X,Y). 
 
-dependence_on_prescription_opioids(X) :-
-	dependence(X,Y),
+dependent_on_prescription_opioids(X) :-
+	dependent(X,Y),
 	member(Y,prescription_opioid).
