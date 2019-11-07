@@ -12,7 +12,10 @@ person(1).
 adult(1).
 male(1).
 caucasian(1).
-query(use(1,cocaine)).
+outpatient(1).
+evidence(receive(X,buprenorphine_naloxone),false).
+query(detoxification(1,opioid,_)).
+trace(query(use(1,_))).
 """)
 
 print get_evaluatable().create_from(p).evaluate()

@@ -89,4 +89,4 @@ dependent_on_prescription_opioids(X) :-
 
 %%%%%% Baseline Substance Use %%%%%
 
-0.4::use(_,_).
+0.4::use.
