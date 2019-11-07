@@ -162,7 +162,7 @@ abstinence(heavy_drinking,X,during_treatment)	(recieve(X,treatment)	sample(X,_,\
 in_outpatient_addiction_treatment(X)	receive(X,outpatient_addiction_treatment)	 done
 recieve(X,computer_modules)	receive(X,computer_modules)	done
 recieve(x,motivational_incentives)	receive(x,motivational_incentives)	 done
-abstinence(any_drug,X	after_treatment)	 (received(X,treatment),sample(X,_,pan_free))	 done
+abstinence(any_drug,X,after_treatment)	 (received(X,treatment),sample(X,_,pan_free))	 done
 abstinence(heavy_drinking,X	after_treatment)	(received(X,treatment);sample(X,_,\+alcohol))	 done
 abstinence(X,stimulants,week)	sample(X,_,no_stimulants,week)	 done
 dependence(X,cocaine)	dependent(X,cocaine)	done

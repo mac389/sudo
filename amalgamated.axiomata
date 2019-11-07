@@ -170,21 +170,21 @@ P::abstinent(X, nicotine, during_treamtent);(0.5*P)::abstinent(X,nicotine,n13_we
     P is 0.05.
 
 receive(X,detoxification_and_counseling) :-
-	(youth(X);dependent(X,opioid))
+	(youth(X);dependent(X,opioid)).
 
 P::sample(X,urine,contains_opioids,n4_weeks);P::receive(X,buprenorphine_naloxone);P::sample(X,urine,contains_opioids,n4_weeks);P::receive(X,detox) :-
 	dependent(X,opioid),
 	P is 0.5.
 
-P::sample(X,urine,conains_opioids,n8_weeks);P::receive(X,buprenorphine_naloxone);P::(sample(X :-
+P::sample(X,urine,conains_opioids,n8_weeks);P::receive(X,buprenorphine_naloxone) :-
 	dependent(X,opioid),
 	P is 0.5.
 
-P::sample(X,urine,conains_opioids,n8_weeks;P::receive(X,buprenorphine_naloxone);P::(sample(X :-
+P::sample(X,urine,conains_opioids,n8_weeks);P::receive(X,buprenorphine_naloxone) :-
 	dependent(X,opioid),
 	P is 0.5.
 
-P::sample(X,urine,contains_opioids,n12_weeks;P::receive(X,buprenorphine_naloxone);P::sample(X,urine,contains_opioids,n12_weeks);P::receive(X,detox) :-
+P::sample(X,urine,contains_opioids,n12_weeks);P::receive(X,buprenorphine_naloxone);P::sample(X,urine,contains_opioids,n12_weeks);P::receive(X,detox) :-
 	dependent(X,opioid),
 	P is 0.5.
 
@@ -196,7 +196,7 @@ P::sample(X,urine,contains_opioids,n12_weeks);P::receive(X,buprenorphine_naloxon
 	dependent(X,opioid),
 	P is 0.25.
 
-P::participate(X,in_treatment); (1-P)::receive(X,discharge_phone_call);P::(participate(X,in_treatment); P::receive(X,discharge_phone_call) :-
+P::participate(X,in_treatment); (1-P)::receive(X,discharge_phone_call);P::participate(X,in_treatment); P::receive(X,discharge_phone_call) :-
 	receive(X,residential_treatment),
 	P is 0.5.
 
@@ -276,7 +276,9 @@ P::decrease(X,unprotected_sexual_encounters,n6_months);P::inrease_unprotected_se
 	female(X),
 	use(X,substance),
 	recieve_therapy(X, HIV_ED),
-	P is 0.3.P::obtain(X,new_taxed_job);2*P::not_obtain(X,new_taxed_job) :-
+	P is 0.3.
+
+P::obtain(X,new_taxed_job);2*P::not_obtain(X,new_taxed_job) :-
 	use(X,substance),
 	receive(X,standard_care),
 	P is 0.3.
@@ -296,7 +298,9 @@ P::obtain(X,new_taxed_job);2*P::not_obtain(X,new_taxed_job) :-
 	hispanic(X),
 	use(X,substance),
 	receive(X,counseling_as_usual),
-	P is 0.1.P::develop(X,drug_induced_hepatitis) :-
+	P is 0.1.
+
+P::develop(X,drug_induced_hepatitis) :-
 	use(X,buprenorphine_naloxone),
 	P is 0.5.
 
@@ -310,9 +314,9 @@ P::reduce_days_of_use(X,substance) :-
 	adolescent(X),
 	receive(X,methylphenidate),
 	receive(X,cognitive_behavioral_therapy),
-	P is 0.5,
+	P is 0.5.
 
-P::reduce_days_of_use(X,substance) :-
+P::reduce(X,substance,days_of_use) :-
 	diagnosed_with(X,adhd),
 	diagnosed_with(X,sud),
 	adolescent(X),
@@ -387,13 +391,13 @@ P::decide(X,not_pursue_HCV_treatment) :-
 	mistrust(X,health_care_providers),
 	P is 0.6.
 
-P::(receive(X,treatment);P::(recieve(X,treatment) :-
+P::receive(X,treatment);P::recieve(X,treatment) :-
 	receive(X,outpatient_addiction_treatment),
 	receive(X,computer_modules),
 	receive(x,motivational_incentives),
 	P is 0.7.
 
-P::after_treatment),after_treatment);P::after_treatment),after_treatment) :-
+P::received(X,treatment);P::sample(X,_,pan_free) :-
 	receive(X,outpatient_addiction_treatment),
 	receive(X,computer_modules),
 	receive(x,motivational_incentives),
@@ -405,7 +409,7 @@ P::sample(X,_,no_stimulants,week) :-
 	interested_in(X,quitting_smoking),
 	receive(X,treatment_as_usual),
 	receive(X,bupropion),
-	Pis 0.77.
+	P is 0.77.
 
 P::sample(X,_,no_stimulants,week) :-
 	dependent(X,cocaine),
@@ -447,13 +451,13 @@ P::experience(X,HIV_suppression) :-
     P is 0.5.
 
 
-P::drug_free(X,cocaine,duration);;P::sample(X,_,cocaine,duration) :-
+P::drug_free(X,cocaine,duration);P::sample(X,_,cocaine,duration) :-
 	dependent(X,cociaine),
 	treated(X,as_inpatient),
-	receive(X,buspirone)
+	receive(X,buspirone),
 	P is 0.5.
 
-P::drug_free(X,cocaine,duration);;P::sample(X,_,cocaine,duration) :- 
+P::drug_free(X,cocaine,duration);P::sample(X,_,cocaine,duration) :- 
 	dependent(X,cocaine),
 	treated(X,as_inpatient),
 	receive(X,placebo),
@@ -473,7 +477,7 @@ P::sample(X,urine,\+contain_cannabinoids) :-
 	P is 0.25.
 
 P::sample(X,urine,pan_negative) :-
-	diagnosed_with(X,methamphetamine_use_disorder)
+	diagnosed_with(X,methamphetamine_use_disorder),
 	receive(X,injectable_naltrexone),
 	recieve(X,bupropion),
 	receive(X,medical_management),
