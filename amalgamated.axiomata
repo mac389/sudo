@@ -1,8 +1,8 @@
 sample(X, urine, opioid_free) :- 
 	detoxification(X, opioid, success).
 
-4*P::detoxification(X,opioid,success);P::detoxification(X,opioid,failure) :- 
-	P is 0.2.
+%4*P::detoxification(X,opioid,success);P::detoxification(X,opioid,failure) :- 
+%	P is 0.2.
 
 0.77::detoxification(X,opioid,success) :-
    inpatient(X),

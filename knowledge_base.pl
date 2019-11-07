@@ -25,11 +25,24 @@ illicit_drug(fentanyl).
 stimulant(cocaine).
 stimulant(amphetamine).
 
-inpatient(X) :- 
-	\+outpatient(X).
 
-hispanic(X) :-
-	\+caucasian(X).
+0.9::outpatient(X). %fit to parameters, need to cie sources
+0.4::use(_,cocaine). %now add for other drugs
+0.5::adult(X). %CITATION NEEDED
+0.5::male(X). %DITTO
+0.5::female(X). %DITTO
+0.4::hispanic(X). %DITTO
+
+0.1::inject(X,Y) :-  %DITTO
+	use(X,Y),
+	member(Y,[cocaine,heroin,amphetamine,fentanyl]).
+
+youth(X) :- \+adult(X).
+
+0.1::pregnant(X) :- female(X).
+female(X) :- \+male(X).
+
+inpatient(X) :- \+outpatient(X).
 
 use(X,Y) :- 
     person(X),
@@ -85,8 +98,3 @@ dependent(X,Y) :-
 dependent_on_prescription_opioids(X) :-
 	dependent(X,Y),
 	prescription_opioid(Y).
-
-
-%%%%%% Baseline Substance Use %%%%%
-
-0.4::use.
