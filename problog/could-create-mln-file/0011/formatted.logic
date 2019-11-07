@@ -1,3 +1,4 @@
-P::(participate(X,in_treatment); \+receive(X,discharge_phone_call));P::(participate(X,in_treatment); receive(X,discharge_phone_call)) :-
+P::participate(X,in_treatment); (1-P)::receive(X,discharge_phone_call) :-
 	receive(X,residential_treatment),
-	P is 0.5.
+	P is 0.5,
+	write('CTN-0011 Accessed\n').

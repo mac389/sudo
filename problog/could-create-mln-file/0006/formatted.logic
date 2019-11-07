@@ -1,8 +1,3 @@
-(use(X,cocaine); use(X,methamphetmine)) :-
-	use(X,cocaine);
-	use(X,methamphetamine),
-	write('CTN-0006 Accessed\n').
-
 efficacious_for(X,drug_abstinence) :-
 	receive(X,contingency_management_intervention),
 	(use(X,cocaine); use(X,methamphetmine)),

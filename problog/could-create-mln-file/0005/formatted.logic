@@ -8,7 +8,7 @@ P:sample(X,urine,_,positive,_) :-
     P is 0.5,
     write('CTN-0005 Accessed\n').
 
-P::stay_in(X, therapy, n84_day) :-
+P::remain(X, in_therapy, n84_day) :-
     P is 0.5,
     write('CTN-0005 Accessed\n').
     

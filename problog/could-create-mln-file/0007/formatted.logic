@@ -1,9 +1,3 @@
-efficacious_for(X,drug_abstinence) :-
-	receive(X,contingency_management_intervention),
-	(use(X,stimulant); use(X,alcohol)),
-	receive(X,tangible_incentives),
-	write('CTN-0007 Accessed\n').
-
 P::remain(X,in_treatment,n4_weeks) :-
 	receive(X,counseling),
 	(use(X,stimulant); use(X,alcohol)),

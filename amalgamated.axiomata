@@ -141,7 +141,7 @@ P::remain(X,in_treatment,n12_weeks) :-
 	write('CTN-0006 Accessed\n').
 
 
-%CTN0007
+
 efficacious_for(X,drug_abstinence) :-
 	receive(X,contingency_management_intervention),
 	(use(X,stimulant); use(X,alcohol)),
@@ -213,7 +213,7 @@ P::dependent(X, nicotine) :-
 
 receive(X,detoxification_and_counseling) :-
 	(youth(X);dependent(X,opioid)),
-	write('CTN-0009 Accessed\n').
+	write('CTN-0010 Accessed\n').
 
 P::sample(X,urine,contains_opioids,n4_weeks);P::receive(X,buprenorphine_naloxone);P::sample(X,urine,contains_opioids,n4_weeks);P::receive(X,detox) :-
 	dependent(X,opioid),

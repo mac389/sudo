@@ -1,21 +1,17 @@
 % P of 0.80 expresses the term "highly prevalent"
 P::dependent(X, nicotine) :-
-    person(X),
+    (dependent(X, drug); dependent(X,alcohol)),
     P is 0.80,
-    dependent(X, drug); dependent(X,alcohol).
+    write('CTN-0009 Accessed\n').
 
-P::abstinent(X, nicotine, during_treamtent);(0.5*P)::abstinent(X,nicotine,n13_weeks);(0.5*P)::abstinent(X,nicotine,n26_weeks) :-
-    person(X),
+(1-P)::use(X,nicotine, during_treamtent);(1-0.5*P)::use(X,nicotine,n13_weeks);(1-0.5*P)::use(X,nicotine,n26_weeks) :-
+    receive_therapy(X, nicotine),
     P is 0.10,
-    recieve_therapy(X, nicotine).
+    write('CTN-0009 Accessed\n').
 
 % Did not say what care as usual P was, only that it was lower
-P::abstinent(X, nicotine, during_treamtent);(0.5*P)::abstinent(X,nicotine,n13_weeks);(0.5*P)::abstinent(X,nicotine,n26_weeks) :-
-    person(X),
+(1-P)::use(X, nicotine, during_treamtent);(1-0.5*P)::use(X,nicotine,n13_weeks);(1-0.5*P)::use(X,nicotine,n26_weeks) :-
+    receive_therapy(X, care_as_usual),
     P is 0.05,
-    recieve_therapy(X, care_as_usual).
+    write('CTN-0009 Accessed\n').
 
-    
-use(X,drug) :- 
-    person(X),
-    use(X,methadone).
