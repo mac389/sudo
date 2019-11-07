@@ -1,16 +1,42 @@
-substance = [cocaine,methadone,heroin,alcohol].
-therapy = [motivational_enhancement, motivational_interviewing,standard_intake_evaluation,contingency_management_evaluation, abstinence_based_incentive, residential_treatment,cognitive_behavioral_therapy].
+substance(cocaine).
+substance(methadone).
+substance(heroin).
+substance(alcohol). 
+substance(amphetamine).
+substance(nicotine).
 
-prescription_opioid = [percocet,fentanyl,oxycodone].
-risky_behavior=[drug_use].
+therapy(motivational_enhancement).
+therapy(motivational_interviewing).
+therapy(standard_intake_evaluation).
+therapy(contingency_management_evaluation).
+therapy(abstinence_based_incentive).
+therapy(residential_treatment).
+therapy(cognitive_behavioral_therapy).
+
+prescription_opioid(percocet).
+prescription_opioid(fentanyl).
+prescription_opioid(oxycodone).
+
+risky_behavior(drug_use).
+
+illicit_drug(heroin).
+illicit_drug(fentanyl).
+
+stimulant(cocaine).
+stimulant(amphetamine).
 
 inpatient(X) :- 
 	\+outpatient(X).
 
+hispanic(X) :-
+	\+caucasian(X).
+
 use(X,Y) :- 
     person(X),
-    member(Y,substance).
+    substance(Y).
     
+therapy(X) :-
+	treatment(X).
 
 abstinent(X,_) :-
 	\+use(X,_). 
@@ -24,9 +50,10 @@ man(X) :-
 	male(X).
 
 adolescent(X) :-
-	person(X),
-	\+adult(X),
-	\+child(X).
+	\+adult(X).
+
+female(X) :- 
+	\+male(X).
 
 smoker(X) :-
 	person(X),
@@ -35,26 +62,31 @@ smoker(X) :-
 pregnant_substance_user(X) :-
 	person(X),
 	pregnant(X),
-	uses(X,Y),
-	member(Y,substance).
+	use(X,Y),
+	substance(Y).
 
 illicit_drug_user(X) :-
 	person(X),
-	uses(X,Y),
-	member(Y,illicit_drug).
+	use(X,Y),
+	illicit_drug(Y).
 
 use_stimulant(X) :-
 	person(X),
-	uses(X,Y),
-	member(Y,stimulant).
+	use(X,Y),
+	stimulant(Y).
 
 dependent(X,Y) :-
 	%defining for meaning of dependent on substance
 	%feels like need more criteria, like the DSM criteria
 	person(X),
-	member(Y,substance),
-	uses(X,Y). 
+	substance(Y),
+	use(X,Y). 
 
 dependent_on_prescription_opioids(X) :-
 	dependent(X,Y),
-	member(Y,prescription_opioid).
+	prescription_opioid(Y).
+
+
+%%%%%% Baseline Substance Use %%%%%
+
+0.4::use(_,_).
