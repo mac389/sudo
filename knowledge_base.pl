@@ -12,6 +12,8 @@ therapy(contingency_management_evaluation).
 therapy(abstinence_based_incentive).
 therapy(residential_treatment).
 therapy(cognitive_behavioral_therapy).
+therapy(safer_skills_building).
+therapy(HIV_ED).
 
 prescription_opioid(percocet).
 prescription_opioid(fentanyl).

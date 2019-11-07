@@ -2,10 +2,12 @@
 	hispanic(X),
 	use(X,substance),
 	receive(X,motivational_enhancement_therapy),
-	P is 0.1.
+	P is 0.1,
+	write('Accessed CTN-0021').
 
 4*P::use(X,substance);5*P::not_use(X,substance) :-
 	hispanic(X),
 	use(X,substance),
 	receive(X,counseling_as_usual),
-	P is 0.1.
+	P is 0.1,
+	write('Accessed CTN-0021').

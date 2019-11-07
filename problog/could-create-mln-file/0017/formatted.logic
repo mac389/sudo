@@ -1,11 +1,17 @@
-P::receive(X,counseling_and_education);P::receive(X,therapeutic_alliance);P::receive(X,treatment_as_usual) :-
+P::decrease(X,substance_use);P::decrease(X,risky_behavior) :-
 	inject(X,substance),
-	(engage_in(X,drug_use);member(drug_use,risky_behavior)),
-	P is 0.3.
+	(receive(X,counseling_and_education);receive(X,therapeutic_alliance);receive(X,treatment_as_usual)),
+	P is 0.5,
+	write('Accessed CTN-0017\n').
 
-% this ignores temporal relationships. 
-
-2*P::receive(X,counseling_and_education);P::receive(X,therapeutic_alliance);P::receive(X,treatment_as_usual) :-
+P::increase(X,attendance,HIV_testing_appointment) :-
 	inject(X,substance),
-	attend(X,HIV_testing_appointment),
-	P is 0.25.
+	receive(X,counseling_and_education),
+	P is 0.8,
+	write('Accessed CTN-0017\n').
+
+P::increase(X,attendance,HIV_testing_appointment) :-
+	inject(X,substance),
+	(receive(X,therapeutic_alliance);receive(X,treatment_as_usual)),
+	P is 0.6,
+	write('Accessed CTN-0017\n').
