@@ -1,81 +1,102 @@
 sample(X, urine, opioid_free) :- 
-	detoxification(X, opioid, success).
+	detoxification(X, opioid, success),
+	write('CTN-0001 Accessed\n').
 
-%4*P::detoxification(X,opioid,success);P::detoxification(X,opioid,failure) :- 
-%	P is 0.2.
+P::detoxification(X,opioid,success);4*P::detoxification(X,opioid,failure) :- 
+	P is 0.2,
+	write('CTN-0001 Accessed\n').
 
 0.77::detoxification(X,opioid,success) :-
    inpatient(X),
-   receive(X,buprenorphine_naloxone).
+   receive(X,buprenorphine_naloxone),
+   write('CTN-0001 Accessed\n').
 
 0.29::detoxification(X,opioid, success) :-
 	outpatient(X),
-	receive(X,buprenorphine_naloxone).
+	receive(X,buprenorphine_naloxone),
+	write('CTN-0001 Accessed\n').
 
 0.05::detoxification(X,opioid, success) :-
 	outpatient(X),
-	receive(X,clonidine).  
+	receive(X,clonidine),
+	write('CTN-0001 Accessed\n'). 
 
 0.22::detoxification(X,opioid, success) :-
 	inpatient(X),
-	receive(X,clonidine).
+	receive(X,clonidine),
+	write('CTN-0001 Accessed\n').
 
 P::sample(X,urine,opioid_free,initial);(1-P)::sample(X,urine,contains_opioids,initial) :-
-    P is 0.5.
+    P is 0.5,
+    write('CTN-0003 Accessed\n').
 
 P::sample(X,urine,opioid_free,n1_month);(1-P)::sample(X,urine,contains_opioids,n1_month) :-
 	taper(X,buprenorphine,n28_days),
-	P is 0.18.
+	P is 0.18,
+	write('CTN-0003 Accessed\n').
 
 P::sample(X,urine,opioid_free,n3_month);(1-P)::sample(X,urine,contains_opioids,n3_month) :-
 	taper(X,buprenorphine,n28_days),
-	P is 0.18.
+	P is 0.18,
+	write('CTN-0003 Accessed\n').
 
 P::sample(X,urine,opioid_free,n1_month);(1-P)::sample(X,urine,contains_opioids,n1_month) :-
 	taper(X,buprenorphine,n7_days),
-	P is 0.12.
+	P is 0.12,
+	write('CTN-0003 Accessed\n').
 
 P::sample(X,urine,opioid_free,n3_month);(1-P)::sample(X,urine,contains_opioids,n3_month) :-
 	taper(X,buprenorphine,n7_days),
-	P is 0.13.
+	P is 0.13,
+	write('CTN-0003 Accessed\n').
 
 P::urine(X,opioid_free, initial);(1-P)::contains(X,urine,opioids,initial) :-
 	taper(X,buprenorphine,n28_days),
-	P is 0.30.
+	P is 0.30,
+	write('CTN-0003 Accessed\n').
 
 P::sample(X,urine,opioid_free, initial);(1-P)::sample(X,urine,contains_opioids,initial) :-
 	taper(X,buprenorphine,n7_days),
-	P is 0.44.
+	P is 0.44,
+	write('CTN-0003 Accessed\n').
 
-P::stay(X,in_therapy);(1-P)::not_stay(X,in_therapy) :-
+P::stay(X,in_therapy) :-
     receive(X,care_as_usual),
-    P is 0.5.
+    P is 0.5,
+    write('CTN-0004 Accessed\n').
 
-P:urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative) :-
+P:sample(X,urine,_,positive);(1-P)::sample(X,urine,_,negative) :-
     receive(X,care_as_usual),
-    P is 0.5.
+    P is 0.5,
+    write('CTN-0004 Accessed\n').
 
-P::stay(X,in_therapy);(1-P)::not_stay(X,in_therapy) :-
+P::stay(X,in_therapy):-
     receive(X,motivational_enhancement),
-    P is 0.5.
+    P is 0.5,
+    write('CTN-0004 Accessed\n').
     
-P::urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative) :-
+P::sample(X,urine,_,positive) :-
     receive(X,motivational_enhancement),
-    P is 0.5.
+    P is 0.5,
+    write('CTN-0004 Accessed\n').
 
-2*P::stay_in_therapy(X, n28_day);(1-2*P)::\+stay(X,in_therapy,n_28_day) :-
+2*P::stay_in_therapy(X, n28_day):-
     receive(X,motivational_interviewing),
-    P is 0.33.
+    P is 0.33,
+    write('CTN-0005 Accessed\n').
 
-P:urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative) :-
+P:sample(X,urine,_,positive) :-
     receive(X,motiavtional_interviewing),
-    P is 0.5.
+    P is 0.5,
+    write('CTN-0005 Accessed\n').
 
-P::stay_in_therapy(X, n84_day);(1-P)::not_stay(X,in_therapy,n84_day) :-
-    P is 0.5.
+P::stay_in_therapy(X, n84_day) :-
+    P is 0.5,
+    write('CTN-0005 Accessed\n').
     
-P::urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative) :-
-    P is 0.5.
+P::sample(X,urine,_,negative) :-
+    P is 0.5,
+    write('CTN-0005 Accessed\n').
 
 efficacious_for(X,drug_abstinence) :-
 	receive(X,contingency_management_intervention),

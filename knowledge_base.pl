@@ -37,6 +37,8 @@ stimulant(amphetamine).
 	use(X,Y),
 	member(Y,[cocaine,heroin,amphetamine,fentanyl]).
 
+sample(X,Y,Z,positive) :- \+sample(X,Y,Z,negative).
+
 youth(X) :- \+adult(X).
 
 0.1::pregnant(X) :- female(X).

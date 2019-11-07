@@ -15,10 +15,12 @@ evidence(outpatient(1),false).
 evidence(adult(1),true).
 evidence(male(1),true).
 evidence(hispanic(1),false).
-%evidence(receive(1,buprenorphine_naloxone),true).
+evidence(receive(1,buprenorphine_naloxone),true).
 query(receive(1,_)).
 query(detoxification(1,opioid,_)).
 """)
+
+#How to indicate source?
 
 ap(get_evaluatable().create_from(p).evaluate())
 
