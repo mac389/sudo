@@ -23,5 +23,3 @@ urine(X,opioid_free, initial) :-
 	person(X),
 	inpatient(X),
 	receive(X,clonidine).
-
-inpatient(X) :- \+outpatient(X)

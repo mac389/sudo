@@ -210,64 +210,70 @@ P::dependent(X, nicotine) :-
     write('CTN-0009 Accessed\n').
 
 receive(X,detoxification_and_counseling) :-
-	(youth(X);dependent(X,opioid)).
+	(youth(X);dependent(X,opioid)),
 	write('CTN-0009 Accessed\n').
 
 P::sample(X,urine,contains_opioids,n4_weeks);P::receive(X,buprenorphine_naloxone);P::sample(X,urine,contains_opioids,n4_weeks);P::receive(X,detox) :-
 	dependent(X,opioid),
-	P is 0.5.
+	P is 0.5,
+	write('CTN-0010 Accessed\n').
 
 P::sample(X,urine,conains_opioids,n8_weeks);P::receive(X,buprenorphine_naloxone) :-
 	dependent(X,opioid),
-	P is 0.5.
+	P is 0.5,
+	write('CTN-0010 Accessed\n').
 
 P::sample(X,urine,conains_opioids,n8_weeks);P::receive(X,buprenorphine_naloxone) :-
 	dependent(X,opioid),
-	P is 0.5.
+	P is 0.5,
+	write('CTN-0010 Accessed\n').
+
+P::sample(X,urine,contains_opioids,n12_weeks);P::receive(X,buprenorphine_naloxone);P::sample(X,urine,contains_opioids,n12_weeks);P::receive(X,detox) :-
+	dependent(X,opioid),	
+	P is 0.5,
+	write('CTN-0010 Accessed\n').
 
 P::sample(X,urine,contains_opioids,n12_weeks);P::receive(X,buprenorphine_naloxone);P::sample(X,urine,contains_opioids,n12_weeks);P::receive(X,detox) :-
 	dependent(X,opioid),
-	P is 0.5.
-
-P::sample(X,urine,contains_opioids,n12_weeks);P::receive(X,buprenorphine_naloxone);P::sample(X,urine,contains_opioids,n12_weeks);P::receive(X,detox) :-
-	dependent(X,opioid),
-	P is 0.5.
+	P is 0.5,
+	write('CTN-0010 Accessed\n').
 
 (3*P)::remain(X,in_treatment,n12_weeks);(3*P)::receive(X,buprnorphine_naloxone);P::remain(X,in_treatment,n12_weeks);P::receive(X,detox):-
 	dependent(X,opioid),
-	P is 0.25.
+	P is 0.25,
+	write('CTN-0010 Accessed\n').
 
 P::participate(X,in_treatment); (1-P)::receive(X,discharge_phone_call);P::participate(X,in_treatment); P::receive(X,discharge_phone_call) :-
 	receive(X,residential_treatment),
-	P is 0.5.
+	P is 0.5,
+	write('CTN-0011 Accessed\n').
 
-participate(X,in_treatment(X)) :-
+P::participate(X,in_treatment(X)) :-
 	use(X,substance),
-	pregnant(X).
-
-pregnant_use(X,substance) :-
 	pregnant(X),
-	use(X,substance).
-
-P::retain(X,in_treatment);P::receive(X,motivational_enhancement_therapy);P::retain(X,in_treatment);P::receive(X,treatment_as_usual):-
-	pregnant_use(X,substance). 	
+	P is 0.62,
+	write('CTN-0013 Accessed\n'). 	
 
 P::use(X,substance);P::receive(X,treatment_as_usual) :-
 	adolescent(X),
 	use(X,substance),
-	P is 0.5.
-
+	P is 0.5,
+	write('CTN-0013 Accessed\n'). 	
+	
 P::use(X,substance) :-
 	female(X),
 	use(X,substance),
 	receive(X,womens_health_education),
-	P is 0.5.
+	P is 0.5,
+	write('CTN-0013 Accessed\n'). 	
 
 P::use(X,substance) :-
 	female(X),
 	use(X,substance),
 	receive(X,seeking_safety),
-	P is 0.5.
+	P is 0.5,
+	write('CTN-0013 Accessed\n'). 	
+
 
 P::receive(X,counseling_and_education);P::receive(X,therapeutic_alliance);P::receive(X,treatment_as_usual) :-
 	inject(X,substance),
