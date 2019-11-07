@@ -63,7 +63,9 @@ P::stay(X,in_therapy);(1-P)::not_stay(X,in_therapy) :-
     
 P::urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative) :-
     receive(X,motivational_enhancement),
-    P is 0.5.2*P::stay_in_therapy(X, n28_day);(1-2*P)::\+stay(X,in_therapy,n_28_day) :-
+    P is 0.5.
+
+2*P::stay_in_therapy(X, n28_day);(1-2*P)::\+stay(X,in_therapy,n_28_day) :-
     receive(X,motivational_interviewing),
     P is 0.33.
 
@@ -72,15 +74,10 @@ P:urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative) :-
     P is 0.5.
 
 P::stay_in_therapy(X, n84_day);(1-P)::not_stay(X,in_therapy,n84_day) :-
-    ,
     P is 0.5.
     
 P::urine_drug_screen(X, positive);(1-P)::urine_drug_screen(X, negative) :-
-    ,
     P is 0.5.
-(use(X,cocaine); use(X,methamphetmine)) :-
-	use(X,cocaine);
-	use(X,methamphetamine)
 
 efficacious_for(X,drug_abstinence) :-
 	receive(X,contingency_management_intervention),
@@ -115,10 +112,7 @@ P::remain(X,in_treatment,n12_weeks) :-
 P::remain(X,in_treatment,n12_weeks) :-
 	receive(X,abstinence_based_incentive),
 	(use(X,cocaine); use(X,methamphetmine)),
-	P is 0.8.(use(X,stimulant); use(X,alcohol)) :-
-	use(X,cocaine);
-	use(X,stimulant);
-	use(X,alcohol).
+	P is 0.8.
 
 efficacious_for(X,drug_abstinence) :-
 	receive(X,contingency_management_intervention),
@@ -162,10 +156,11 @@ P::sample(X,urine,stimulant_free,n12_weeks);P::sample(X,urine,alcohol_free,n12_w
 P::sample(X,urine,stimulant_free,n12_weeks);P::sample(X,urine,alcohol_free,n12_weeks) :-
     receive(X,care_as_usual),
     P is 0.33.% P of 0.80 expresses the term "highly prevalent"
+
 P::dependent(X, nicotine) :-
     person(X),
     P is 0.80,
-    dependent(X, drug); dependent(X,alcohol).
+    (dependent(X, drug); dependent(X,alcohol)).
 
 P::abstinent(X, nicotine, during_treamtent);(0.5*P)::abstinent(X,nicotine,n13_weeks);(0.5*P)::abstinent(X,nicotine,n26_weeks) :-
     person(X),
@@ -178,10 +173,6 @@ P::abstinent(X, nicotine, during_treamtent);(0.5*P)::abstinent(X,nicotine,n13_we
     P is 0.05,
     recieve_therapy(X, care_as_usual).
 
-    
-use(X,drug) :- 
-    person(X),
-    use(X,methadone).
 received(X,detoxification_and_counseling) :-
 	(youth(X);dependent(X,opioid))
 
@@ -208,9 +199,13 @@ P::(sample(X,urine,contains_opioids,n12_weeks);receive(X,buprenorphine_naloxone)
 
 (3*P)::(remain(X,in_treatment,n12_weeks);receive(X,buprnorphine_naloxone));P::(remain(X,in_treatment,n12_weeks);receive(X,detox)):-
 	dependent(X,opioid),
-	P is 0.25.P::(participate(X,in_treatment); \+receive(X,discharge_phone_call));P::(participate(X,in_treatment); receive(X,discharge_phone_call)) :-
+	P is 0.25.
+
+P::(participate(X,in_treatment); \+receive(X,discharge_phone_call));P::(participate(X,in_treatment); receive(X,discharge_phone_call)) :-
 	receive(X,residential_treatment),
-	P is 0.5.participate(X,in_treatment(X)) :-
+	P is 0.5.
+
+participate(X,in_treatment(X)) :-
 	use(X,substance),
 	pregnant(X).
 
@@ -246,9 +241,6 @@ P::use(X,substance) :-
 	person(X),
 	receive(X,methadone),
 	receive(X,outpatient_psychosocial_treatment).
-
-person(X) :-
-	male(X).
 
 4*P::decrease(X,unprotected_sexual_encounters);P::increase(X,unprotected_sexual_encounters) :-
 	male(X),
