@@ -86,7 +86,7 @@ substance_user(X)	use(X,substance)	 done
 pregnant_substance_user(X)	(use(X,substance);pregnant(X))	 done
 retain_in_treatment(X,motivational_enhancement_therapy)	(retain(X,in_treatment);receive(X,motivational_enhancement_therapy))	 done
 retain_in_treatment(X,treatment_as_usual)	(retain(X,in_treatment);receive(X,treatment_as_usual))	 done
-substance_use(X,brief_strategic_family_therapy)	(use(X	 substance);receive(X,brief_strategic_family_therapy))	 done
+substance_use(X,brief_strategic_family_therapy)	(use(X,substance);receive(X,brief_strategic_family_therapy))	 done
 substance_use(X,treatment_as_usual)	(use(X,substance); receive(X,treatment_as_usual))	 done
 male(X)	male(X)	 done
 female(X)	female(X)	 done
@@ -124,7 +124,7 @@ recieve_therapy(X,counseling_as_usual)	receive(X,counseling_as_usual)	 done
 taking_drug(X,buprenorphine_naloxone)	use(X,buprenorphine_naloxone)	 done
 drug_induced_hepatitis(X)	develop(X,drug_induced_hepatitis)	 done 
 taking_drug(X,methadone)	use(X,methadone)	done
-diagnosed_with_sud(X)	diagnosed_with(X	 sud)	 done
+diagnosed_with_sud(X)	diagnosed_with(X,sud)	 done
 diagnosed_with_adhd(X)	diagnosed_with(X,adhd)	 done
 adolescent(X)	adolescent(X)	 done
 recieve_therapy(X,methylphenidate)	receive(X,methylphenidate)	 done
