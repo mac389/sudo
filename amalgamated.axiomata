@@ -101,97 +101,117 @@ P::sample(X,urine,_,negative) :-
 efficacious_for(X,drug_abstinence) :-
 	receive(X,contingency_management_intervention),
 	(use(X,cocaine); use(X,methamphetmine)),
-	receive(X,tangible_incentives).
+	receive(X,tangible_incentives),
+	write('CTN-0006 Accessed\n').
 
 P::remain(X,in_treatment,n4_weeks) :-
 	receive(X,counseling),
 	(use(X,cocaine); use(X,methamphetmine)),
-	P is 0.25.
+	P is 0.25,
+	write('CTN-0006 Accessed\n').
 
 P::remain(X,in_treatment,n4_weeks) :-
 	receive(X,abstinence_based_incentive),
 	(use(X,cocaine); use(X,methamphetmine)),
-	P is 0.75.
+	P is 0.75,
+	write('CTN-0006 Accessed\n').
 
 P::remain(X,in_treatment,n8_weeks) :-
 	receive(X,counseling),
 	(use(X,cocaine); use(X,methamphetmine)),
-	P is 0.25.
+	P is 0.25,
+	write('CTN-0006 Accessed\n').
 
 P::remain(X,in_treatment,n8_weeks) :-
 	receive(X,abstinence_based_incentive),
 	(use(X,cocaine); use(X,methamphetmine)),
-	P is 0.75.
+	P is 0.75,
+	write('CTN-0006 Accessed\n').
 
 P::remain(X,in_treatment,n12_weeks) :-
 	receive(X,counseling),
 	(use(X,cocaine); use(X,methamphetmine)),
-	P is 0.2.
+	P is 0.2,
+	write('CTN-0006 Accessed\n').
 
 P::remain(X,in_treatment,n12_weeks) :-
 	receive(X,abstinence_based_incentive),
 	(use(X,cocaine); use(X,methamphetmine)),
-	P is 0.8.
+	P is 0.8,
+	write('CTN-0006 Accessed\n').
 
 efficacious_for(X,drug_abstinence) :-
 	receive(X,contingency_management_intervention),
 	(use(X,stimulant); use(X,alcohol)),
-	receive(X,tangible_incentives).
+	receive(X,tangible_incentives),
+	write('CTN-0006 Accessed\n').
 
 P::remain(X,in_treatment,n4_weeks) :-
 	receive(X,counseling),
 	(use(X,stimulant); use(X,alcohol)),
-	P is 0.25.
+	P is 0.25,
+	write('CTN-0006 Accessed\n').
 
 P::remain(X,in_treatment,n4_weeks) :-
 	receive(X,abstinence_based_incentive),
 	(use(X,stimulant); use(X,alcohol)),
-	P is 0.75.
+	P is 0.75,
+	write('CTN-0006 Accessed\n').
 
 P::remain(X,in_treatment,n8_weeks) :-
 	receive(X,counseling),
 	(use(X,stimulant); use(X,alcohol)),
-	P is 0.1.
+	P is 0.1,
+	write('CTN-0006 Accessed\n').
 
 P::remain(X,in_treatment,n8_weeks) :-
 	receive(X,abstinence_based_incentive),
 	(use(X,stimulant); use(X,alcohol)),
-	P is 0.9.
+	P is 0.9,
+	write('CTN-0006 Accessed\n').
 
 P::remain(X,in_treatment,n12_weeks) :-
 	receive(X,counseling),
 	(use(X,stimulant); use(X,alcohol)),
-	P is 0.1.
+	P is 0.1,
+	write('CTN-0006 Accessed\n').
 
 P::remain(X,in_treatment,n12_weeks) :-
 	receive(X,abstinence_based_incentive),
 	(use(X,stimulant); use(X,alcohol)),
-	P is 0.9.
+	P is 0.9,
+	write('CTN-0006 Accessed\n').
 
-P::sample(X,urine,stimulant_free,n12_weeks);P::sample(X,urine,alcohol_free,n12_weeks) :-
+P::sample(X,urine,stimulant,negative,n12_weeks);P::sample(X,urine,alcohol, negative,,n12_weeks) :-
     receive(X,contingency_management),
-    P is 0.66.
+    P is 0.66,
+    write('CTN-0007 Accessed\n').
 
 % P of 0.80 expresses the term "highly prevalent"
-P::sample(X,urine,stimulant_free,n12_weeks);P::sample(X,urine,alcohol_free,n12_weeks) :-
+P::sample(X,urine,stimulant, negative,n12_weeks);P::sample(X,urine,alcohol, negative,n12_weeks) :-
     receive(X,care_as_usual),
-    P is 0.33.
+    P is 0.33,
+    write('CTN-0007 Accessed\n').
 
 P::dependent(X, nicotine) :-
     (dependent(X, drug); dependent(X,alcohol)),
-    P is 0.80.
+    P is 0.80,
+    write('CTN-0009 Accessed\n').
 
 (1-P)::use(X,nicotine, during_treamtent);(1-0.5*P)::use(X,nicotine,n13_weeks);(1-0.5*P)::use(X,nicotine,n26_weeks) :-
     receive_therapy(X, nicotine),
-    P is 0.10.
+    P is 0.10,
+    write('CTN-0009 Accessed\n').
 
 % Did not say what care as usual P was, only that it was lower
-P::abstinent(X, nicotine, during_treamtent);(0.5*P)::abstinent(X,nicotine,n13_weeks);(0.5*P)::abstinent(X,nicotine,n26_weeks) :-
+(1-P)::use(X, nicotine, during_treamtent);(1-0.5*P)::use(X,nicotine,n13_weeks);(1-0.5*P)::use(X,nicotine,n26_weeks) :-
     receive_therapy(X, care_as_usual),
-    P is 0.05.
+    P is 0.05,
+    write('CTN-0009 Accessed\n').
 
 receive(X,detoxification_and_counseling) :-
 	(youth(X);dependent(X,opioid)).
+	write('CTN-0009 Accessed\n').
 
 P::sample(X,urine,contains_opioids,n4_weeks);P::receive(X,buprenorphine_naloxone);P::sample(X,urine,contains_opioids,n4_weeks);P::receive(X,detox) :-
 	dependent(X,opioid),
