@@ -16,9 +16,9 @@ evidence(outpatient(1),false).
 evidence(adult(1),true).
 evidence(male(1),true).
 evidence(hispanic(1),false).
-evidence(sample(1,urine,_,_),true).
-query(receive(1,_)).
-query(detoxification(1,opioid,_)).
+evidence(detoxification(1,opioid,success),true).
+query(receive(1,buprenorphine)).
+%query(sample(1,urine,opioid,_)).
 """)
 
 #How to indicate source?

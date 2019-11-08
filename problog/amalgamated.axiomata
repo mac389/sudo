@@ -87,7 +87,7 @@ P::sample(X,urine,_,positive) :-
     P is 0.33,
     write('CTN-0005 Accessed\n').
 
-P:sample(X,urine,_,positive,n28_day);;P::sample(X,urine,_,positive,n28_day) :-
+P:sample(X,urine,_,positive,n28_day);P::sample(X,urine,_,positive,n28_day) :-
     receive(X,motiavtional_interviewing),
     use(X,Y),
     substance(Y),
@@ -276,13 +276,13 @@ P::decrease(X,substance_use,_);P::decrease(X,risky_behavior,_) :-
 	P is 0.5,
 	write('Accessed CTN-0017\n').
 
-P::increase(X,attendance,HIV_testing_appointment,_) :-
+P::increase(X,attendance,hiv_testing_appointment,_) :-
 	inject(X,substance),
 	receive(X,counseling_and_education),
 	P is 0.8,
 	write('Accessed CTN-0017\n').
 
-P::increase(X,attendance,HIV_testing_appointment,_) :-
+P::increase(X,attendance,hiv_testing_appointment,_) :-
 	inject(X,substance),
 	(receive(X,therapeutic_alliance);receive(X,treatment_as_usual)),
 	P is 0.6,
@@ -302,7 +302,7 @@ P::decrease(X,unprotected_sexual_encounters,_);(1-P)::increase(X,unprotected_sex
 	use(X,substance),
 	receive(X,methadone),
 	receive(X,outpatient_psychosocial_treatment),	
-	receive(X,HIV_ED),
+	receive(X,hiv_ed),
 	P is 0.5,
 	write('Accessed CTN-0018\n').
 
@@ -316,7 +316,7 @@ P::decrease(X,unprotected_sexual_encounters,_);(1-P)::increase(X,unprotected_sex
 2*P::decrease(X,unprotected_sexual_encounters,n3_months);P::increase(X,unprotected_sexual_encounters,n3_months) :-
 	female(X),
 	use(X,substance),
-	recieve(X, HIV_ED),
+	recieve(X, hiv_ed),
 	P is 0.3,
 	write('Accessed CTN-0019\n').
 
@@ -330,7 +330,7 @@ P::decrease(X,unprotected_sexual_encounters,_);(1-P)::increase(X,unprotected_sex
 P::decrease(X,unprotected_sexual_encounters,n6_months);P::increase(X,unprotected_sexual_encounters,n6_months) :-
 	female(X),
 	use(X,substance),
-	recieve(X, HIV_ED),
+	recieve(X, hiv_ed),
 	P is 0.3,
 	write('Accessed CTN-0019\n').
 
@@ -432,19 +432,19 @@ P::reduce(X,nicotine,_) :-
 	write('Accessed CTN-0030\n').
 
 P::decrease(X,unprotected_sexual_encounters,_);P::receive(X,test_results) :-
-	receive(X,off_site_HIV_testing),
+	receive(X,off_site_hiv_testing),
 	receive(X,treatment),
 	P is 0.5,
 	write('Accessed CTN-0032\n').
 
 P::decrease(X,unprotected_sexual_encounteers,_);1.5*P::receive(X,test_results) :-
-	receive(X,on_site_HIV_testing),
-	receive(X,HIV_risk_reduction_counseling),
+	receive(X,on_site_hiv_testing),
+	receive(X,hiv_risk_reduction_counseling),
 	P is 0.5,
 	write('Accessed CTN-0032\n').
 
 P::decrease(X,unprotected_sexual_encounters,_);1.5*P::receive(X,test_results) :-
-	receive(X,on_site_HIV_testing),
+	receive(X,on_site_hiv_testing),
 	P is 0.5,
 	write('Accessed CTN-0032\n').
 
@@ -525,20 +525,20 @@ P::sample(X,hair,_,negative,_) :-
 	P is 0.5,
 	write('Accessed CTN-0047\n').
 
-P::have_poor_HIV_outcomes(X) :-
+P::have_poor_hiv_outcomes(X) :-
   use(X,substance),
   P is 0.8,
   write('Accessed CTN-0049\n').
 
-P::experience(X,HIV_suppression) :-
-    infected(X,HIV),
+P::experience(X,hiv_suppression) :-
+    infected(X,hiv),
     diagnosed_with(X,substance_use_disorder),
     recieve(X,patient_navigation),
     P is 0.5,
     write('Accessed CTN-0049\n').
 
-P::experience(X,HIV_suppression) :-
-    infected(X,HIV),
+P::experience(X,hiv_suppression) :-
+    infected(X,hiv),
     diagnosed_with(X,substance_use_disorder),
     recieve(X,patient_navigation),
     recieve(X,finanical_motivation),
@@ -577,7 +577,7 @@ P::sample(X,urine,_,negative,_) :-
 
 P::start(X,treatment);(0.88*P)::stay_in(X,treatment);P2::use(X,opioid);P3::use(X,alcohol,heavy);P4::diagnosed_with(X,viral_suppression) :-
 	diagnosed_with(X,substance_use_disorder),
-	infected_with(X,HIV),
+	infected_with(X,hiv),
 	recieved(X, buprenorphine),
 	P is 34/51,
 	P2 is 13/30,
@@ -588,7 +588,7 @@ P::start(X,treatment);(0.88*P)::stay_in(X,treatment);P2::use(X,opioid);P3::use(X
 
 (0.96*P)::receive(X,treatment);(0.5*P)::stay_in(X,treatment,_);P2::use(X,opioid);P2::use(X,opioid);P3::use(X,alcohol);P4::diagnosed_with(X,viral_suppression) :-
 	diagnosed_with(X,substance_use_disorder),
-	infected(X,HIV),
+	infected(X,hiv),
 	receive(X,treatment_as_usual),
 	P is 1,
 	P2 is 10/30,
