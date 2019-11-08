@@ -15,7 +15,7 @@ person(1).
 evidence(outpatient(1),false).
 evidence(adult(1),true).
 evidence(male(1),true).
-query(receive(1,_)).
+query(sample(1,_,_,_)).
 query(use(1,_)).
 %query(detoxification(1,opioid,success)).
 %query(sample(1,urine,opioid,_)).

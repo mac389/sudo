@@ -72,99 +72,96 @@ P::sample(X,urine,_,positive) :-
 
 2*P::remain(X, in_therapy, n28_day):-
     receive(X,motivational_interviewing),
-    use(X,Y),
-    substance(Y),
+    use(X,Y,_),
     P is 0.33,
     write('CTN-0005 Accessed\n').
 
 P:sample(X,urine,_,positive,n28_day);P::sample(X,urine,_,positive,n28_day) :-
     receive(X,motiavtional_interviewing),
-    use(X,Y),
-    substance(Y),
+    use(X,Y,_),
     P is 0.5,
     write('CTN-0005 Accessed\n').
 
 P::remain(X, in_therapy, n84_day) :-
     P is 0.5,
-    use(X,Y),
-    substance(Y),
+    use(X,Y,_),
     write('CTN-0005 Accessed\n').
 
 efficacious_for(X,drug_abstinence) :-
 	receive(X,contingency_management_intervention),
-	(use(X,cocaine); use(X,methamphetmine)),
+	(use(X,cocaine,_); use(X,methamphetmine,_)),
 	receive(X,tangible_incentives),
 	write('CTN-0006 Accessed\n').
 
 P::remain(X,in_treatment,n4_weeks) :-
 	receive(X,counseling),
-	(use(X,cocaine); use(X,methamphetmine)),
+	(use(X,cocaine,_); use(X,methamphetamine,_)),
 	P is 0.25,
 	write('CTN-0006 Accessed\n').
 
 P::remain(X,in_treatment,n4_weeks) :-
 	receive(X,abstinence_based_incentive),
-	(use(X,cocaine); use(X,methamphetmine)),
+	(use(X,cocaine,_); use(X,methamphetamine,_)),
 	P is 0.75,
 	write('CTN-0006 Accessed\n').
 
 P::remain(X,in_treatment,n8_weeks) :-
 	receive(X,counseling),
-	(use(X,cocaine); use(X,methamphetmine)),
+	(use(X,cocaine,_); use(X,methamphetamine,_)),
 	P is 0.25,
 	write('CTN-0006 Accessed\n').
 
 P::remain(X,in_treatment,n8_weeks) :-
 	receive(X,abstinence_based_incentive),
-	(use(X,cocaine); use(X,methamphetmine)),
+	(use(X,cocaine,_); use(X,methamphetamine,_)),
 	P is 0.75,
 	write('CTN-0006 Accessed\n').
 
 P::remain(X,in_treatment,n12_weeks) :-
 	receive(X,counseling),
-	(use(X,cocaine); use(X,methamphetmine)),
+	(use(X,cocaine,_); use(X,methamphetamine,_)),
 	P is 0.2,
 	write('CTN-0006 Accessed\n').
 
 P::remain(X,in_treatment,n12_weeks) :-
 	receive(X,abstinence_based_incentive),
-	(use(X,cocaine); use(X,methamphetmine)),
+	(use(X,cocaine,_); use(X,methamphetmine,_)),
 	P is 0.8,
 	write('CTN-0006 Accessed\n').
 
 P::remain(X,in_treatment,n4_weeks) :-
 	receive(X,counseling),
-	(use(X,stimulant); use(X,alcohol)),
+	(use(X,stimulant,_); use(X,alcohol,_)),
 	P is 0.25,
 	write('CTN-0007 Accessed\n').
 
 P::remain(X,in_treatment,n4_weeks) :-
 	receive(X,abstinence_based_incentive),
-	(use(X,stimulant); use(X,alcohol)),
+	(use(X,stimulant,_); use(X,alcohol,_)),
 	P is 0.75,
 	write('CTN-0007 Accessed\n').
 
 P::remain(X,in_treatment,n8_weeks) :-
 	receive(X,counseling),
-	(use(X,stimulant); use(X,alcohol)),
+	(use(X,stimulant,_); use(X,alcohol,_)),
 	P is 0.1,
 	write('CTN-0007 Accessed\n').
 
 P::remain(X,in_treatment,n8_weeks) :-
 	receive(X,abstinence_based_incentive),
-	(use(X,stimulant); use(X,alcohol)),
+	(use(X,stimulant,_); use(X,alcohol,_)),
 	P is 0.9,
 	write('CTN-0007 Accessed\n').
 
 P::remain(X,in_treatment,n12_weeks) :-
 	receive(X,counseling),
-	(use(X,stimulant); use(X,alcohol)),
+	(use(X,stimulant,_); use(X,alcohol,_)),
 	P is 0.1,
 	write('CTN-0007 Accessed\n').
 
 P::remain(X,in_treatment,n12_weeks) :-
 	receive(X,abstinence_based_incentive),
-	(use(X,stimulant); use(X,alcohol)),
+	(use(X,stimulant,_); use(X,alcohol,_)),
 	P is 0.9,
 	write('CTN-0007 Accessed\n').
 
@@ -235,14 +232,13 @@ P::participate(X,in_treatment); (1-P)::receive(X,discharge_phone_call) :-
 	write('CTN-0011 Accessed\n').
 
 P::remain(X,in_treatment(X),n1_month) :-
-	use(X,Y),
-	substance(Y),
+	use(X,Y,_),
 	(receive(X,motivational_enhancement_therapy);receive(X,treatment_as_usual)),
 	pregnant(X),
 	P is 0.81,
 	write('CTN-0013 Accessed\n'). 	
 
-P::use(X,substance);(1.5*P)::decrease(X,substance_use) :-
+P::use(X,substance,_);(1.5*P)::decrease(X,substance_use) :-
 	adolescent(X),
 	(receive(X,treatment_as_usual);receive(X,beavioral_strategic_family_therapy)),
 	P is 1,
@@ -250,15 +246,13 @@ P::use(X,substance);(1.5*P)::decrease(X,substance_use) :-
 
 P::decrease(X,substance_use) :-
 	female(X),
-	use(X,Y),
-	substance(Y),
+	use(X,Y,_),
 	(receive(X,womens_health_education);receive(X,seeking_safety)),
 	P is 0.5,
 	write('CTN-0015 Accessed\n'). 	
 
 P::decrease(X,substance_use,_);P::decrease(X,risky_behavior,_) :-
 	inject(X,Y),
-	substance(Y),
 	(receive(X,counseling_and_education);receive(X,therapeutic_alliance);receive(X,treatment_as_usual)),
 	P is 0.5,
 	write('Accessed CTN-0017\n').
@@ -279,8 +273,7 @@ P::increase(X,attendance,hiv_testing_appointment,_) :-
 
 P::decrease(X,unprotected_sexual_encounters,_);(1-P)::increase(X,unprotected_sexual_encounters,_) :-
 	male(X),
-	use(X,Y),
-	substance(Y),
+	use(X,Y,_),
 	receive(X,methadone),
 	receive(X,outpatient_psychosocial_treatment),
 	receive(X,REMAS),
