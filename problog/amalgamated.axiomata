@@ -235,7 +235,8 @@ P::participate(X,in_treatment); (1-P)::receive(X,discharge_phone_call) :-
 	write('CTN-0011 Accessed\n').
 
 P::remain(X,in_treatment(X),n1_month) :-
-	use(X,substance),
+	use(X,Y),
+	substance(Y),
 	(receive(X,motivational_enhancement_therapy);receive(X,treatment_as_usual)),
 	pregnant(X),
 	P is 0.81,
@@ -249,32 +250,37 @@ P::use(X,substance);(1.5*P)::decrease(X,substance_use) :-
 
 P::decrease(X,substance_use) :-
 	female(X),
-	use(X,substance),
+	use(X,Y),
+	substance(Y),
 	(receive(X,womens_health_education);receive(X,seeking_safety)),
 	P is 0.5,
 	write('CTN-0015 Accessed\n'). 	
 
 P::decrease(X,substance_use,_);P::decrease(X,risky_behavior,_) :-
-	inject(X,substance),
+	inject(X,Y),
+	substance(Y),
 	(receive(X,counseling_and_education);receive(X,therapeutic_alliance);receive(X,treatment_as_usual)),
 	P is 0.5,
 	write('Accessed CTN-0017\n').
 
 P::increase(X,attendance,hiv_testing_appointment,_) :-
-	inject(X,substance),
+	inject(X,Y),
+	substance(Y),
 	receive(X,counseling_and_education),
 	P is 0.8,
 	write('Accessed CTN-0017\n').
 
 P::increase(X,attendance,hiv_testing_appointment,_) :-
-	inject(X,substance),
+	inject(X,Y),
+	substance(Y),
 	(receive(X,therapeutic_alliance);receive(X,treatment_as_usual)),
 	P is 0.6,
 	write('Accessed CTN-0017\n').
 
 P::decrease(X,unprotected_sexual_encounters,_);(1-P)::increase(X,unprotected_sexual_encounters,_) :-
 	male(X),
-	use(X,substance),
+	use(X,Y),
+	substance(Y),
 	receive(X,methadone),
 	receive(X,outpatient_psychosocial_treatment),
 	receive(X,REMAS),
@@ -283,7 +289,8 @@ P::decrease(X,unprotected_sexual_encounters,_);(1-P)::increase(X,unprotected_sex
 
 P::decrease(X,unprotected_sexual_encounters,_);(1-P)::increase(X,unprotected_sexual_encounters,_) :-
 	male(X),
-	use(X,substance),
+	use(X,Y),
+	substance(Y),
 	receive(X,methadone),
 	receive(X,outpatient_psychosocial_treatment),	
 	receive(X,hiv_ed),
@@ -292,29 +299,31 @@ P::decrease(X,unprotected_sexual_encounters,_);(1-P)::increase(X,unprotected_sex
 
 2*P::decrease(X,unprotected_sexual_encounters,n3_months);P::increase(X,unprotected_sexual_encounters,n3_months) :-
 	female(X),
-	use(X,substance),
-	recieve(X, safer_skills_building),
+	use(X,Y),
+	substance(Y),
+	receive(X, safer_skills_building),
 	P is 0.3,
 	write('Accessed CTN-0019\n').
 
 2*P::decrease(X,unprotected_sexual_encounters,n3_months);P::increase(X,unprotected_sexual_encounters,n3_months) :-
 	female(X),
-	use(X,substance),
-	recieve(X, hiv_ed),
+	use(X,Y),
+	substance(Y),
+	receive(X, hiv_ed),
 	P is 0.3,
 	write('Accessed CTN-0019\n').
 
 2*P::decrease(X,unprotected_sexual_encounters,n6_months);P::increase(X,unprotected_sexual_encounters,n6_months) :-
 	female(X),
 	use(X,substance),
-	recieve(X, safer_skills_building),
+	receive(X, safer_skills_building),
 	P is 0.3,
 	write('Accessed CTN-0019\n').
 
 P::decrease(X,unprotected_sexual_encounters,n6_months);P::increase(X,unprotected_sexual_encounters,n6_months) :-
 	female(X),
 	use(X,substance),
-	recieve(X, hiv_ed),
+	receive(X, hiv_ed),
 	P is 0.3,
 	write('Accessed CTN-0019\n').
 
@@ -450,7 +459,6 @@ P::decide(X,not_pursue_HCV_treatment) :-
 	P is 0.6,
 	write('Accessed CTN-0035\n').
 
-
 P::decrease(X,substance_use,initial) :-
 	(man(X);woman(X)),
 	receive(X,outpatient_addiction_treatment),
@@ -465,7 +473,6 @@ P::decrease(X,substance_use,initial) :-
 	receive(x,motivational_incentives),
 	P is 0.5,
 	write('Accessed CTN-0044\n').
-
 
 P::decrease(X,substance_use,final) :-
 	(man(X);woman(X)),
@@ -517,15 +524,15 @@ P::have_poor_hiv_outcomes(X) :-
 P::experience(X,hiv_suppression) :-
     infected(X,hiv),
     diagnosed_with(X,substance_use_disorder),
-    recieve(X,patient_navigation),
+    receive(X,patient_navigation),
     P is 0.5,
     write('Accessed CTN-0049\n').
 
 P::experience(X,hiv_suppression) :-
     infected(X,hiv),
     diagnosed_with(X,substance_use_disorder),
-    recieve(X,patient_navigation),
-    recieve(X,finanical_motivation),
+    receive(X,patient_navigation),
+    receive(X,finanical_motivation),
     P is 0.5,
     write('Accessed CTN-0049\n').
 
@@ -554,7 +561,7 @@ P::sample(X,urine,cannabinoids,negative,_) :-
 P::sample(X,urine,_,negative,_) :-
 	diagnosed_with(X,methamphetamine_use_disorder),
 	receive(X,injectable_naltrexone),
-	recieve(X,bupropion),
+	receive(X,bupropion),
 	receive(X,medical_management),
 	P is 11/49,
 	write('Accessed CTN-0054\n').
@@ -562,13 +569,12 @@ P::sample(X,urine,_,negative,_) :-
 P::start(X,treatment);(0.88*P)::remain(X,in_treatment,_);P2::use(X,opioid);P3::use(X,alcohol,heavy);P4::diagnosed_with(X,viral_suppression) :-
 	diagnosed_with(X,substance_use_disorder),
 	infected_with(X,hiv),
-	recieved(X, buprenorphine),
+	receive(X, buprenorphine),
 	P is 34/51,
 	P2 is 13/30,
 	P3 is 6/30,
 	P4 is 0.8,
 	write('Accessed CTN-0055\n').
-
 
 (0.96*P)::receive(X,treatment);(0.5*P)::remain(X,in_treatment,_);P2::use(X,opioid);P2::use(X,opioid);P3::use(X,alcohol);P4::diagnosed_with(X,viral_suppression) :-
 	diagnosed_with(X,substance_use_disorder),
