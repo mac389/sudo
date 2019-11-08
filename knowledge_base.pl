@@ -30,6 +30,8 @@ illicit_drug(fentanyl).
 stimulant(cocaine).
 stimulant(amphetamine).
 
+taper(_,_,_).
+use(_,_).
 
 success :- \+failure.
 positive :- \+negative.
@@ -87,8 +89,8 @@ use_stimulant(X) :-
 	use(X,Y,_),
 	stimulant(Y).
 
-use(X,Y,T) :-
-	dependent(X,Y,T).
+use(X,Y,_) :-
+	dependent(X,Y).
 
 dependent_on_prescription_opioids(X) :-
 	dependent(X,Y,_),
