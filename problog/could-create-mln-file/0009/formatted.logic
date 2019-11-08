@@ -5,13 +5,12 @@ P::dependent(X, nicotine) :-
     write('CTN-0009 Accessed\n').
 
 (1-P)::use(X,nicotine, during_treamtent);(1-0.5*P)::use(X,nicotine,n13_weeks);(1-0.5*P)::use(X,nicotine,n26_weeks) :-
-    receive_therapy(X, nicotine),
+    receive(X, nicotine),
     P is 0.10,
     write('CTN-0009 Accessed\n').
 
 % Did not say what care as usual P was, only that it was lower
 (1-P)::use(X, nicotine, during_treamtent);(1-0.5*P)::use(X,nicotine,n13_weeks);(1-0.5*P)::use(X,nicotine,n26_weeks) :-
-    receive_therapy(X, care_as_usual),
+    receive(X, care_as_usual),
     P is 0.05,
     write('CTN-0009 Accessed\n').
-
