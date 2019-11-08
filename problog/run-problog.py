@@ -15,9 +15,8 @@ person(1).
 evidence(outpatient(1),false).
 evidence(adult(1),true).
 evidence(male(1),true).
-evidence(hispanic(1),false).
-evidence(detoxification(1,opioid,success),true).
-query(receive(1,buprenorphine)).
+evidence(receive(1,clonidine),true).
+query(detoxification(1,opioid,success)).
 %query(sample(1,urine,opioid,_)).
 """)
 
