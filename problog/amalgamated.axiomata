@@ -209,7 +209,7 @@ receive(X,detoxification_and_counseling) :-
 	dependent(X,opioid),
 	write('CTN-0010 Accessed\n').
 
-P::sample(X,urine,contains_opioids,n4_weeks);P::receive(X,buprenorphine_naloxone);P::sample(X,urine,contains_opioids,n4_weeks);P::receive(X,detox) :-
+P::sample(X,urine,opioids,positive,n4_weeks);P::receive(X,buprenorphine_naloxone);P::receive(X,detox) :-
 	dependent(X,opioid),
 	youth(X),
 	P is 0.5,
