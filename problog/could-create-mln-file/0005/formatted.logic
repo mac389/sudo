@@ -1,4 +1,4 @@
-2*P::stay_in(X, therapy, n28_day):-
+2*P::remain(X, in_therapy, n28_day):-
     receive(X,motivational_interviewing),
     use(X,Y),
     substance(Y),

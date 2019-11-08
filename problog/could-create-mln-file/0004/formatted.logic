@@ -1,19 +1,9 @@
-P::stay(X,in_therapy) :-
-    receive(X,care_as_usual),
-    P is 0.5,
-    write('CTN-0004 Accessed\n').
-
-P:sample(X,urine,_,positive);(1-P)::sample(X,urine,_,negative) :-
-    receive(X,care_as_usual),
-    P is 0.5,
-    write('CTN-0004 Accessed\n').
-
-P::remain(X,in_therapy,_):-
-    receive(X,motivational_enhancement),
+P::remain(X,in_therapy,_) :-
+    (receive(X,care_as_usual);receive(X,motivational_enhancement)),
     P is 0.5,
     write('CTN-0004 Accessed\n').
     
 P::sample(X,urine,_,positive) :-
-    receive(X,motivational_enhancement),
+    (receive(X,care_as_usual);receive(X,motivational_enhancement)),
     P is 0.5,
     write('CTN-0004 Accessed\n').

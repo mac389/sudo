@@ -215,26 +215,20 @@ P::sample(X,urine,opioids,positive,n4_weeks);P::receive(X,buprenorphine_naloxone
 	P is 0.5,
 	write('CTN-0010 Accessed\n').
 
-P::sample(X,urine,conains_opioids,n8_weeks);P::receive(X,buprenorphine_naloxone) :-
+P::sample(X,urine,opioids, positive,n8_weeks);P::receive(X,buprenorphine_naloxone) :-
 	dependent(X,opioid),
 	youth(X),
 	P is 0.5,
 	write('CTN-0010 Accessed\n').
 
-P::sample(X,urine,conains_opioids,n8_weeks);P::receive(X,buprenorphine_naloxone) :-
+P::sample(X,urine,opioids,positive,n8_weeks);P::receive(X,buprenorphine_naloxone) :-
 	dependent(X,opioid),
 	youth(X),
 	P is 0.5,
 	write('CTN-0010 Accessed\n').
 
-P::sample(X,urine,contains_opioids,n12_weeks);P::receive(X,buprenorphine_naloxone);P::sample(X,urine,contains_opioids,n12_weeks);P::receive(X,detox) :-
+P::sample(X,urine,opipoids,positive,n12_weeks);P::receive(X,buprenorphine_naloxone);P::receive(X,detox) :-
 	dependent(X,opioid),	
-	youth(X),
-	P is 0.5,
-	write('CTN-0010 Accessed\n').
-
-P::sample(X,urine,contains_opioids,n12_weeks);P::receive(X,buprenorphine_naloxone);P::sample(X,urine,contains_opioids,n12_weeks);P::receive(X,detox) :-
-	dependent(X,opioid),
 	youth(X),
 	P is 0.5,
 	write('CTN-0010 Accessed\n').
@@ -575,7 +569,7 @@ P::sample(X,urine,_,negative,_) :-
 	P is 11/49,
 	write('Accessed CTN-0054\n').
 
-P::start(X,treatment);(0.88*P)::stay_in(X,treatment);P2::use(X,opioid);P3::use(X,alcohol,heavy);P4::diagnosed_with(X,viral_suppression) :-
+P::start(X,treatment);(0.88*P)::remain(X,in_treatment,_);P2::use(X,opioid);P3::use(X,alcohol,heavy);P4::diagnosed_with(X,viral_suppression) :-
 	diagnosed_with(X,substance_use_disorder),
 	infected_with(X,hiv),
 	recieved(X, buprenorphine),
@@ -586,7 +580,7 @@ P::start(X,treatment);(0.88*P)::stay_in(X,treatment);P2::use(X,opioid);P3::use(X
 	write('Accessed CTN-0055\n').
 
 
-(0.96*P)::receive(X,treatment);(0.5*P)::stay_in(X,treatment,_);P2::use(X,opioid);P2::use(X,opioid);P3::use(X,alcohol);P4::diagnosed_with(X,viral_suppression) :-
+(0.96*P)::receive(X,treatment);(0.5*P)::remain(X,in_treatment,_);P2::use(X,opioid);P2::use(X,opioid);P3::use(X,alcohol);P4::diagnosed_with(X,viral_suppression) :-
 	diagnosed_with(X,substance_use_disorder),
 	infected(X,hiv),
 	receive(X,treatment_as_usual),
