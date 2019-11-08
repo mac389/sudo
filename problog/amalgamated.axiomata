@@ -1,0 +1,572 @@
+detoxification(X,opioid,success) :-
+	sample(X, urine, opioid_free),
+	write('CTN-0001 Accessed\n').
+
+P::detoxification(X,opioid,success) :- 
+	P is 0.2,
+	write('CTN-0001 Accessed\n').
+
+0.77::detoxification(X,opioid,success) :-
+   inpatient(X),
+   receive(X,buprenorphine_naloxone),
+   write('CTN-0001 Accessed\n').
+
+0.29::detoxification(X,opioid, success) :-
+	outpatient(X),
+	receive(X,buprenorphine_naloxone),
+	write('CTN-0001 Accessed\n').
+
+0.05::detoxification(X,opioid, success) :-
+	outpatient(X),
+	receive(X,clonidine),
+	write('CTN-0001 Accessed\n'). 
+
+0.22::detoxification(X,opioid, success) :-
+	inpatient(X),
+	receive(X,clonidine),
+	write('CTN-0001 Accessed\n').
+
+P::sample(X,urine,opioids,negative,initial);(1-P)::sample(X,urine,opioids,positive,initial) :-
+    P is 0.5,
+    write('CTN-0003 Accessed\n').
+
+P::sample(X,urine,opioids,negative,n1_month);(1-P)::sample(X,urine,opioids,positive,n1_month) :-
+	taper(X,buprenorphine,n28_days),
+	P is 0.18,
+	write('CTN-0003 Accessed\n').
+
+P::sample(X,urine,opioids,negative,n3_month);(1-P)::sample(X,urine,opioids,positive,n3_month) :-
+	taper(X,buprenorphine,n28_days),
+	P is 0.18,
+	write('CTN-0003 Accessed\n').
+
+P::sample(X,urine,opioids,negative,n1_month);(1-P)::sample(X,urine,opioids,positive,n1_month) :-
+	taper(X,buprenorphine,n7_days),
+	P is 0.12,
+	write('CTN-0003 Accessed\n').
+
+P::sample(X,urine,opioids,positive,n3_month);(1-P)::sample(X,urine,opioids,negative,n3_month) :-
+	taper(X,buprenorphine,n7_days),
+	P is 0.13,
+	write('CTN-0003 Accessed\n').
+
+P::sample(X,urine, opioids, negative,initial);(1-P)::sample(X,urine,opioids,positive,initial) :-
+	taper(X,buprenorphine,n28_days),
+	P is 0.30,
+	write('CTN-0003 Accessed\n').
+
+P::sample(X,urine,opioids, negative,initial);(1-P)::sample(X,urine,opioids, positive,initial) :-
+	taper(X,buprenorphine,n7_days),
+	P is 0.44,
+	write('CTN-0003 Accessed\n').P::stay(X,in_therapy) :-
+    receive(X,care_as_usual),
+    P is 0.5,
+    write('CTN-0004 Accessed\n').
+
+P::sample(X,urine,_,positive);(1-P)::sample(X,urine,_,negative) :-
+    receive(X,care_as_usual),
+    P is 0.5,
+    write('CTN-0004 Accessed\n').
+
+P::remain(X,in_therapy,_):-
+    receive(X,motivational_enhancement),
+    P is 0.5,
+    write('CTN-0004 Accessed\n').
+    
+P::sample(X,urine,_,positive) :-
+    receive(X,motivational_enhancement),
+    P is 0.5,
+    write('CTN-0004 Accessed\n').2*P::stay_in(X, therapy, n28_day):-
+    receive(X,motivational_interviewing),
+    P is 0.33,
+    write('CTN-0005 Accessed\n').
+
+P::sample(X,urine,_,positive,_) :-
+    receive(X,motiavtional_interviewing),
+    P is 0.5,
+    write('CTN-0005 Accessed\n').
+
+P::remain(X, in_therapy, n84_day) :-
+    P is 0.5,
+    write('CTN-0005 Accessed\n').
+    
+P::sample(X,urine,_,negative,_) :-
+    P is 0.5,
+    write('CTN-0005 Accessed\n').
+
+efficacious_for(X,drug_abstinence) :-
+	receive(X,contingency_management_intervention),
+	(use(X,cocaine); use(X,methamphetmine)),
+	receive(X,tangible_incentives),
+	write('CTN-0006 Accessed\n').
+
+P::remain(X,in_treatment,n4_weeks) :-
+	receive(X,counseling),
+	(use(X,cocaine); use(X,methamphetmine)),
+	P is 0.25,
+	write('CTN-0006 Accessed\n').
+
+P::remain(X,in_treatment,n4_weeks) :-
+	receive(X,abstinence_based_incentive),
+	(use(X,cocaine); use(X,methamphetmine)),
+	P is 0.75,
+	write('CTN-0006 Accessed\n').
+
+P::remain(X,in_treatment,n8_weeks) :-
+	receive(X,counseling),
+	(use(X,cocaine); use(X,methamphetmine)),
+	P is 0.25,
+	write('CTN-0006 Accessed\n').
+
+P::remain(X,in_treatment,n8_weeks) :-
+	receive(X,abstinence_based_incentive),
+	(use(X,cocaine); use(X,methamphetmine)),
+	P is 0.75,
+	write('CTN-0006 Accessed\n').
+
+P::remain(X,in_treatment,n12_weeks) :-
+	receive(X,counseling),
+	(use(X,cocaine); use(X,methamphetmine)),
+	P is 0.2,
+	write('CTN-0006 Accessed\n').
+
+P::remain(X,in_treatment,n12_weeks) :-
+	receive(X,abstinence_based_incentive),
+	(use(X,cocaine); use(X,methamphetmine)),
+	P is 0.8,
+	write('CTN-0006 Accessed\n').
+
+P::remain(X,in_treatment,n4_weeks) :-
+	receive(X,counseling),
+	(use(X,stimulant); use(X,alcohol)),
+	P is 0.25,
+	write('CTN-0007 Accessed\n').
+
+P::remain(X,in_treatment,n4_weeks) :-
+	receive(X,abstinence_based_incentive),
+	(use(X,stimulant); use(X,alcohol)),
+	P is 0.75,
+	write('CTN-0007 Accessed\n').
+
+P::remain(X,in_treatment,n8_weeks) :-
+	receive(X,counseling),
+	(use(X,stimulant); use(X,alcohol)),
+	P is 0.1,
+	write('CTN-0007 Accessed\n').
+
+P::remain(X,in_treatment,n8_weeks) :-
+	receive(X,abstinence_based_incentive),
+	(use(X,stimulant); use(X,alcohol)),
+	P is 0.9,
+	write('CTN-0007 Accessed\n').
+
+P::remain(X,in_treatment,n12_weeks) :-
+	receive(X,counseling),
+	(use(X,stimulant); use(X,alcohol)),
+	P is 0.1,
+	write('CTN-0007 Accessed\n').
+
+P::remain(X,in_treatment,n12_weeks) :-
+	receive(X,abstinence_based_incentive),
+	(use(X,stimulant); use(X,alcohol)),
+	P is 0.9,
+	write('CTN-0007 Accessed\n').
+
+P::sample(X,urine,stimulant_free,n12_weeks);P::sample(X,urine,alcohol_free,n12_weeks) :-
+    receive(X,contingency_management),
+    P is 0.66,
+    write('CTN-0007 Accessed\n').
+
+P::sample(X,urine,stimulant_free,n12_weeks);P::sample(X,urine,alcohol_free,n12_weeks) :-
+    receive(X,care_as_usual),
+    P is 0.33,
+    write('CTN-0007 Accessed\n').
+% P of 0.80 expresses the term "highly prevalent"
+P::dependent(X, nicotine) :-
+    (dependent(X, drug); dependent(X,alcohol)),
+    P is 0.80,
+    write('CTN-0009 Accessed\n').
+
+(1-P)::use(X,nicotine, during_treamtent);(1-0.5*P)::use(X,nicotine,n13_weeks);(1-0.5*P)::use(X,nicotine,n26_weeks) :-
+    receive_therapy(X, nicotine),
+    P is 0.10,
+    write('CTN-0009 Accessed\n').
+
+% Did not say what care as usual P was, only that it was lower
+(1-P)::use(X, nicotine, during_treamtent);(1-0.5*P)::use(X,nicotine,n13_weeks);(1-0.5*P)::use(X,nicotine,n26_weeks) :-
+    receive_therapy(X, care_as_usual),
+    P is 0.05,
+    write('CTN-0009 Accessed\n').
+
+receive(X,detoxification_and_counseling) :-
+	youth(X),
+	dependent(X,opioid),
+	write('CTN-0010 Accessed\n').
+
+P::sample(X,urine,contains_opioids,n4_weeks);P::receive(X,buprenorphine_naloxone);P::sample(X,urine,contains_opioids,n4_weeks);P::receive(X,detox) :-
+	dependent(X,opioid),
+	youth(X),
+	P is 0.5,
+	write('CTN-0010 Accessed\n').
+
+P::sample(X,urine,conains_opioids,n8_weeks);P::receive(X,buprenorphine_naloxone) :-
+	dependent(X,opioid),
+	youth(X),
+	P is 0.5,
+	write('CTN-0010 Accessed\n').
+
+P::sample(X,urine,conains_opioids,n8_weeks);P::receive(X,buprenorphine_naloxone) :-
+	dependent(X,opioid),
+	youth(X),
+	P is 0.5,
+	write('CTN-0010 Accessed\n').
+
+P::sample(X,urine,contains_opioids,n12_weeks);P::receive(X,buprenorphine_naloxone);P::sample(X,urine,contains_opioids,n12_weeks);P::receive(X,detox) :-
+	dependent(X,opioid),	
+	youth(X),
+	P is 0.5,
+	write('CTN-0010 Accessed\n').
+
+P::sample(X,urine,contains_opioids,n12_weeks);P::receive(X,buprenorphine_naloxone);P::sample(X,urine,contains_opioids,n12_weeks);P::receive(X,detox) :-
+	dependent(X,opioid),
+	youth(X),
+	P is 0.5,
+	write('CTN-0010 Accessed\n').
+
+(3*P)::remain(X,in_treatment,n12_weeks);(3*P)::receive(X,buprnorphine_naloxone);P::remain(X,in_treatment,n12_weeks);P::receive(X,detox):-
+	dependent(X,opioid),
+	youth(X),
+	P is 0.25,
+	write('CTN-0010 Accessed\n').
+
+P::participate(X,in_treatment); (1-P)::receive(X,discharge_phone_call) :-
+	receive(X,residential_treatment),
+	P is 0.5,
+	write('CTN-0011 Accessed\n').
+
+P::remain(X,in_treatment(X),n1_month) :-
+	use(X,substance),
+	(receive(X,motivational_enhancement_therapy);receive(X,treatment_as_usual)),
+	pregnant(X),
+	P is 0.81,
+	write('CTN-0013 Accessed\n'). 	
+
+P::use(X,substance);(1.5*P)::decrease(X,substance_use) :-
+	adolescent(X),
+	(receive(X,treatment_as_usual);receive(X,beavioral_strategic_family_therapy)),
+	P is 1,
+	write("Accessed CTN-0014").
+
+P::decrease(X,substance_use) :-
+	female(X),
+	use(X,substance),
+	(receive(X,womens_health_education);receive(X,seeking_safety)),
+	P is 0.5,
+	write('CTN-0015 Accessed\n'). 	
+
+P::decrease(X,substance_use,_);P::decrease(X,risky_behavior,_) :-
+	inject(X,substance),
+	(receive(X,counseling_and_education);receive(X,therapeutic_alliance);receive(X,treatment_as_usual)),
+	P is 0.5,
+	write('Accessed CTN-0017\n').
+
+P::increase(X,attendance,HIV_testing_appointment,_) :-
+	inject(X,substance),
+	receive(X,counseling_and_education),
+	P is 0.8,
+	write('Accessed CTN-0017\n').
+
+P::increase(X,attendance,HIV_testing_appointment,_) :-
+	inject(X,substance),
+	(receive(X,therapeutic_alliance);receive(X,treatment_as_usual)),
+	P is 0.6,
+	write('Accessed CTN-0017\n').
+
+P::decrease(X,unprotected_sexual_encounters,_);(1-P)::increase(X,unprotected_sexual_encounters,_) :-
+	male(X),
+	use(X,substance),
+	receive(X,methadone),
+	receive(X,outpatient_psychosocial_treatment),
+	receive(X,REMAS),
+	P is 0.8,
+	write('Accessed CTN-0018\n').
+
+P::decrease(X,unprotected_sexual_encounters,_);(1-P)::increase(X,unprotected_sexual_encounters,_) :-
+	male(X),
+	use(X,substance),
+	receive(X,methadone),
+	receive(X,outpatient_psychosocial_treatment),	
+	receive(X,HIV_ED),
+	P is 0.5,
+	write('Accessed CTN-0018\n').
+
+2*P::decrease(X,unprotected_sexual_encounters,n3_months);P::increase(X,unprotected_sexual_encounters,n3_months) :-
+	female(X),
+	use(X,substance),
+	recieve(X, safer_skills_building),
+	P is 0.3,
+	write('Accessed CTN-0019\n').
+
+2*P::decrease(X,unprotected_sexual_encounters,n3_months);P::increase(X,unprotected_sexual_encounters,n3_months) :-
+	female(X),
+	use(X,substance),
+	recieve(X, HIV_ED),
+	P is 0.3,
+	write('Accessed CTN-0019\n').
+
+2*P::decrease(X,unprotected_sexual_encounters,n6_months);P::increase(X,unprotected_sexual_encounters,n6_months) :-
+	female(X),
+	use(X,substance),
+	recieve(X, safer_skills_building),
+	P is 0.3,
+	write('Accessed CTN-0019\n').
+
+P::decrease(X,unprotected_sexual_encounters,n6_months);P::increase(X,unprotected_sexual_encounters,n6_months) :-
+	female(X),
+	use(X,substance),
+	recieve(X, HIV_ED),
+	P is 0.3,
+	write('Accessed CTN-0019\n').
+
+P::obtain(X,new_taxed_job) :-
+	use(X,substance),
+	receive(X,standard_care),
+	P is 0.3,
+	write('Accessed CTN-0020').
+
+P::obtain(X,new_taxed_job):-
+	use(X,substance),
+	receive(X,job_seekers_workshop),
+	P is 0.3,
+	write('Accessed CTN-0020').4*P::use(X,substance) :-
+	hispanic(X),
+	use(X,substance),
+	receive(X,motivational_enhancement_therapy),
+	P is 0.1,
+	write('Accessed CTN-0021').
+
+4*P::use(X,substance):-
+	hispanic(X),
+	use(X,substance),
+	receive(X,counseling_as_usual),
+	P is 0.1,
+	write('Accessed CTN-0021').P::develop(X,drug_induced_hepatitis) :-
+	use(X,buprenorphine_naloxone),
+	P is 0.5,
+	write('Accessed CTN-0027').
+
+P::develop(X,drug_induced_hepatitis) :-
+	use(X,methadone),
+	P is 0.5,
+	write('Accessed CTN-0027').P::decrease(X,substance_use,_) :-
+	diagnosed_with(X,adhd),
+	diagnosed_with(X,sud),
+	adolescent(X),
+	receive(X,cognitive_behavioral_therapy),
+	P is 0.5,
+	write('Accessed CTN-0028').
+
+P::decrease(X,substance_use,_) :-
+	diagnosed_with(X,adhd),
+	diagnosed_with(X,sud),
+	adolescent(X),
+	receive(X,methylphenidate),
+	receive(X,cognitive_behavioral_therapy),
+	P is 0.5,
+	write('Accessed CTN-0028').
+
+P::reduce(X,days_of_smoking_use) :-
+	diagnosed_with(X,adhd),
+	use(X,nicotine),
+	desire(X,quit_smoking),
+	receive(X,methylphenidate),
+	receive(X,individual_smoking_cessation),
+	P is 0.5,
+	write('Accessed CTN-0029\n').
+
+P::reduce(X,days_of_smoking_use) :-
+	diagnosed_with(X,adhd),
+	use(X,nicotine),
+	desire(X,quit_smoking),
+	receive(X,individual_smoking_cessation),
+	P is 0.5,
+	write('Accessed CTN-0029\n').
+
+(1-P)::use(X,prescription_opioids) :-
+	dependent(X,prescription_opioids),
+	complete(X,naloxone_stabilization),
+	receive(X,counseling),
+	\+complete(X,taper),
+	\+complete(X,post_medication_follow_up),
+	P is 0.06,
+	write('Accessed CTN-0030\n').
+
+(1-P)::use(X,prescription_opioids) :-
+	dependent(X,prescription_opioids),
+	complete(X,naloxone_stabilization),
+	receive(X,counseling),
+	complete(X,taper),
+	\+complete(X,post_medication_follow_up),
+	P is 0.492,
+	write('Accessed CTN-0030\n').
+
+(1-P)::use(X,prescription_opioids) :-
+	dependent(X,prescription_opioids),
+	complete(X,naloxone_stabilization),
+	receive(X,counseling),
+	complete(X,taper),
+	complete(X,post_medication_follow_up),
+	P is 0.086,
+	write('Accessed CTN-0030\n').
+
+P::decrease(X,unprotected_sexual_encounters,_);P::receive(X,test_results) :-
+	receive(X,off_site_HIV_testing),
+	receive(X,treatment),
+	P is 0.5,
+	write('Accessed CTN-0032\n').
+
+P::decrease(X,unprotected_sexual_encounteers,_);1.5*P::receive(X,test_results) :-
+	receive(X,on_site_HIV_testing),
+	receive(X,HIV_risk_reduction_counseling),
+	P is 0.5,
+	write('Accessed CTN-0032\n').
+
+P::decrease(X,unprotected_sexual_encounters,_);1.5*P::receive(X,test_results) :-
+	receive(X,on_site_HIV_testing),
+	P is 0.5,
+	write('Accessed CTN-0032\n').P::infected(X, HCV,_);P::infected(X,HCV,newly) :-
+	use(X,illicit_drugs),
+	P is 0.8,
+	write('Accessed CTN-0035\n').
+
+P::perceive(HCV_testing,unimportant) :-
+	lack(X,symptoms),
+	use(X,illicit_drugs),
+	\+receive(X,recommendation_for_treatment),
+	P is 0.8,
+	write('Accessed CTN-0035\n'). 
+
+P::decide(X,not_pursue_HCV_treatment) :-
+	diagnosed_with(X,HCV),
+	mistrust(X,health_care_providers),
+	P is 0.6,
+	write('Accessed CTN-0035\n').
+
+P::(receive(X,treatment);P::(recieve(X,treatment) :-
+	receive(X,outpatient_addiction_treatment),
+	receive(X,computer_modules),
+	receive(x,motivational_incentives),
+	P is 0.7,
+	write('Accessed CTN-0044\n').
+
+
+P::after_treatment),after_treatment);P::after_treatment),after_treatment) :-
+	receive(X,outpatient_addiction_treatment),
+	receive(X,computer_modules),
+	receive(x,motivational_incentives),
+	P is 0.5,
+	write('Accessed CTN-0044\n').
+
+P::sample(X,_,stimulants,negative,week) :-
+	dependent(X,cocaine),
+	dependent(x,methamphetime),
+	interested_in(X,quitting_smoking),
+	receive(X,treatment_as_usual),
+	receive(X,bupropion),
+	P is 0.77,
+	write('Accessed CTN-0046\n').
+
+P::sample(X,_,stimulants,negative,week) :-
+	dependent(X,cocaine),
+	dependent(x,methamphetime),
+	interested_in(X,quitting_smoking),
+	receive(X,treatment_as_usual),
+	P is 0.78,
+	write('Accessed CTN-0046\n').
+
+P::sample(X,hair,_,negative,_) :-
+	moderate_to_severe_problems_related_to_drug_use(X),
+	receive(X,minimal_screening),
+	P is 0.5,
+	write('Accessed CTN-0047\n').
+
+P::sample(X,hair,_,negative,_) :-
+	moderate_to_severe_problems_related_to_drug_use(X),
+	(receive(X,minimal_screening),receive(X,telephone_boosters)),
+	P is 0.5,
+	write('Accessed CTN-0047\n').
+
+P::sample(X,hair,_,negative,_) :-
+	moderate_to_severe_problems_related_to_drug_use(X),
+	(receive(X,screening_assessment),receive(X,referral_to_treatment)),
+	P is 0.5,
+	write('Accessed CTN-0047\n').
+
+P::have_poor_HIV_outcomes(X) :-
+  use(X,substance),
+  P is 0.8,
+  write('Accessed CTN-0049\n').
+
+P::experience(X,HIV_suppression) :-
+    infected(X,HIV),
+    diagnosed_with(X,substance_use_disorder),
+    recieve(X,patient_navigation),
+    P is 0.5,
+    write('Accessed CTN-0049\n').
+
+P::experience(X,HIV_suppression) :-
+    infected(X,HIV),
+    diagnosed_with(X,substance_use_disorder),
+    recieve(X,patient_navigation),
+    recieve(X,finanical_motivation),
+    P is 0.5,
+    write('Accessed CTN-0049\n').P::sample(X,_,cocaine,negative,_) :-
+	dependent(X,cocaine),
+	inpatient(X),
+	(receive(X,buspirone);receive(X,placebo)),
+	P is 0.5,
+	write('Accessed CTN-0052\n').
+
+P::sample(X,urine,cannabinoids,negative,_) :-
+	diagnosed_with(X,cannabis_use_disorder),
+	receive(X,contingency_management),
+	receive(X,medical_management),
+	P is 0.25,
+	write('Accessed CTN-0053\n').
+
+P::sample(X,urine,cannabinoids,negative,_) :-
+	diagnosed_with(X,cannabis_use_disorder),
+	receive(X,contingency_management),
+	receive(X,n_acetylcysteine),
+	receive(X,medical_management),
+	P is 0.25,
+	write('Accessed CTN-0053\n').
+
+P::sample(X,urine,_,negative,_) :-
+	diagnosed_with(X,methamphetamine_use_disorder)
+	receive(X,injectable_naltrexone),
+	recieve(X,bupropion),
+	receive(X,medical_management),
+	P is 11/49,
+	write('Accessed CTN-0054\n').
+
+P::start(X,treatment);(0.88*P)::stay_in(X,treatment);P2::use(X,opioid);P3::use(X,alcohol,heavy);P4::diagnosed_with(X,viral_suppression) :-
+	diagnosed_with(X,substance_use_disorder),
+	infected_with(X,HIV),
+	recieved(X, buprenorphine),
+	P is 34/51,
+	P2 is 13/30,
+	P3 is 6/30,
+	P4 is 0.8,
+	write('Accessed CTN-0055\n').
+
+
+(0.96*P)::receive(X,treatment);(0.5*P)::stay_in(X,treatment,_);P2::use(X,opioid);P2::use(X,opioid);P3::use(X,alcohol);P4::diagnosed_with(X,viral_suppression) :-
+	diagnosed_with(X,substance_use_disorder),
+	infected(X,HIV),
+	receive(X,treatment_as_usual),
+	P is 1,
+	P2 is 10/30,
+	P3 is 7/30,
+	P4 is 0.75,
+	write('Accessed CTN-0055\n').
