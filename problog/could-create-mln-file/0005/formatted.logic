@@ -1,17 +1,19 @@
 2*P::stay_in(X, therapy, n28_day):-
     receive(X,motivational_interviewing),
+    use(X,Y),
+    substance(Y),
     P is 0.33,
     write('CTN-0005 Accessed\n').
 
-P:sample(X,urine,_,positive,_) :-
+P:sample(X,urine,_,positive,n28_day);;P::sample(X,urine,_,positive,n28_day) :-
     receive(X,motiavtional_interviewing),
+    use(X,Y),
+    substance(Y),
     P is 0.5,
     write('CTN-0005 Accessed\n').
 
 P::remain(X, in_therapy, n84_day) :-
     P is 0.5,
-    write('CTN-0005 Accessed\n').
-    
-P::sample(X,urine,_,negative,_) :-
-    P is 0.5,
+    use(X,Y),
+    substance(Y),
     write('CTN-0005 Accessed\n').

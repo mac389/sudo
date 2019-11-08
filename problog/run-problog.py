@@ -16,7 +16,7 @@ evidence(outpatient(1),false).
 evidence(adult(1),true).
 evidence(male(1),true).
 evidence(hispanic(1),false).
-evidence(receive(1,buprenorphine_naloxone),true).
+evidence(sample(1,urine,_,_),true).
 query(receive(1,_)).
 query(detoxification(1,opioid,_)).
 """)

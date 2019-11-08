@@ -32,6 +32,7 @@ stimulant(amphetamine).
 
 
 success :- \+failure.
+positive :- \+negative.
 in_treatment :- in_therapy.
 
 0.9::outpatient(X). %fit to parameters, need to cie sources
