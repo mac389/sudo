@@ -4,11 +4,11 @@ from problog.program import PrologString
 from problog.core import ProbLog
 from problog import get_evaluatable
 
-#from awesome_print import ap 
-from pprint import pprint
+from awesome_print import ap 
+#from pprint import pprint
 
 kb = open(os.path.join('..','knowledge_base.pl'),'r').read()
-axioms = open(os.path.join('..','amalgamated.axiomata'),'r').read()
+axioms = open(os.path.join('.','amalgamated.axiomata'),'r').read()
 
 p = PrologString(kb + '\n'+ axioms + """\n	
 person(1).
@@ -23,8 +23,8 @@ query(detoxification(1,opioid,_)).
 
 #How to indicate source?
 
-#ap(get_evaluatable().create_from(p).evaluate())
-pprint(get_evaluatable().create_from(p).evaluate())
+ap(get_evaluatable().create_from(p).evaluate())
+#pprint(get_evaluatable().create_from(p).evaluate())
 '''
    Don't debug away all InconsistentError messages, Only those that involve reasoning
    over the results of more than one study. 

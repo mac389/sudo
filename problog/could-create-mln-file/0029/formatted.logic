@@ -1,4 +1,4 @@
-P::reduce(X,days_of_smoking_use) :-
+P::reduce(X,nicotine,_) :-
  diagnosed_with(X,adhd),
  use(X,nicotine),
  desire(X,quit_smoking),
@@ -7,7 +7,7 @@ P::reduce(X,days_of_smoking_use) :-
  P is 0.5,
  write('Accessed CTN-0029\n').
 
-P::reduce(X,days_of_smoking_use) :-
+P::reduce(X,nicotine,_) :-
  diagnosed_with(X,adhd),
  use(X,nicotine),
  desire(X,quit_smoking),
