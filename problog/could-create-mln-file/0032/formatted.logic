@@ -1,12 +1,16 @@
-P::decreased(X,unprotected_intercourse_episodes);P::receive(X,test_results) :-
+P::decrease(X,unprotected_sexual_encounters,_);P::receive(X,test_results) :-
 	receive(X,off_site_HIV_testing),
-	P is 0.5.
+	receive(X,treatment),
+	P is 0.5,
+	write('Accessed CTN-0032\n').
 
-P::decreased(X,unprotected_intercourse_episodes);1.5*P::receive(X,test_results) :-
+P::decrease(X,unprotected_sexual_encounteers,_);1.5*P::receive(X,test_results) :-
 	receive(X,on_site_HIV_testing),
 	receive(X,HIV_risk_reduction_counseling),
-	P is 0.5.
+	P is 0.5,
+	write('Accessed CTN-0032\n').
 
-P::decreased(X,unprotected_intercourse_episodes);1.5*P::receive(X,test_results) :-
+P::decrease(X,unprotected_sexual_encounters,_);1.5*P::receive(X,test_results) :-
 	receive(X,on_site_HIV_testing),
-	P is 0.5.
+	P is 0.5,
+	write('Accessed CTN-0032\n').

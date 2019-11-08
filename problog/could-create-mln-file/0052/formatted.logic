@@ -1,11 +1,6 @@
-P::drug_free(X,cocaine,duration);;P::sample(X,_,cocaine,duration) :-
-dependent(X,
-treated(X,as_inpatient),
-receive(X,buspirone)
-P is 0.5.
-
-P::drug_free(X,cocaine,duration);;P::sample(X,_,cocaine,duration) :- 
-dependent(X,
-treated(X,as_inpatient),
-receive(X,placebo),
-P is 0.5.
+P::sample(X,_,cocaine,negative,_) :-
+	dependent(X,cocaine),
+	inpatient(X),
+	(receive(X,buspirone);receive(X,placebo)),
+	P is 0.5,
+	write('Accessed CTN-0052\n').

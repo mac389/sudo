@@ -4,11 +4,13 @@ P::reduce(X,days_of_smoking_use) :-
  desire(X,quit_smoking),
  receive(X,methylphenidate),
  receive(X,individual_smoking_cessation),
- P is 0.5.
+ P is 0.5,
+ write('Accessed CTN-0029\n').
 
 P::reduce(X,days_of_smoking_use) :-
  diagnosed_with(X,adhd),
  use(X,nicotine),
  desire(X,quit_smoking),
  receive(X,individual_smoking_cessation),
- P is 0.5.
+ P is 0.5,
+ write('Accessed CTN-0029\n').

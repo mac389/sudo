@@ -1,14 +1,17 @@
-P::sample(X,hair,drug_free) :-
+P::sample(X,hair,_,negative,_) :-
 	moderate_to_severe_problems_related_to_drug_use(X),
 	receive(X,minimal_screening),
-	P is 0.5.
+	P is 0.5,
+	write('Accessed CTN-0047\n').
 
-P::sample(X,hair,drug_free) :-
+P::sample(X,hair,_,negative,_) :-
 	moderate_to_severe_problems_related_to_drug_use(X),
 	(receive(X,minimal_screening),receive(X,telephone_boosters)),
-	P is 0.5.
+	P is 0.5,
+	write('Accessed CTN-0047\n').
 
-P::sample(X,hair,drug_free) :-
+P::sample(X,hair,_,negative,_) :-
 	moderate_to_severe_problems_related_to_drug_use(X),
 	(receive(X,screening_assessment),receive(X,referral_to_treatment)),
-	P is 0.5.
+	P is 0.5,
+	write('Accessed CTN-0047\n').

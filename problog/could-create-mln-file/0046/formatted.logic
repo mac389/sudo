@@ -1,14 +1,16 @@
-P::sample(X,_,no_stimulants,week) :-
+P::sample(X,_,stimulants,negative,week) :-
 	dependent(X,cocaine),
 	dependent(x,methamphetime),
 	interested_in(X,quitting_smoking),
 	receive(X,treatment_as_usual),
 	receive(X,bupropion),
-	Pis 0.77.
+	P is 0.77,
+	write('Accessed CTN-0046\n').
 
-P::sample(X,_,no_stimulants,week) :-
+P::sample(X,_,stimulants,negative,week) :-
 	dependent(X,cocaine),
 	dependent(x,methamphetime),
 	interested_in(X,quitting_smoking),
 	receive(X,treatment_as_usual),
-	P is 0.78.
+	P is 0.78,
+	write('Accessed CTN-0046\n').

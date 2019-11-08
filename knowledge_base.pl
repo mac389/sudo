@@ -7,6 +7,9 @@ substance(nicotine).
 
 therapy(motivational_enhancement).
 therapy(motivational_interviewing).
+therapy(motivational_incentives).
+therapy(computer_modules).
+therapy(outpatient_addiction_treatment).
 therapy(standard_intake_evaluation).
 therapy(contingency_management_evaluation).
 therapy(abstinence_based_incentive).

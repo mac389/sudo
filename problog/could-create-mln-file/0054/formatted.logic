@@ -1,6 +1,7 @@
-P::sample(X,urine,pan_negative) :-
+P::sample(X,urine,_,negative,_) :-
 	diagnosed_with(X,methamphetamine_use_disorder)
 	receive(X,injectable_naltrexone),
 	recieve(X,bupropion),
 	receive(X,medical_management),
-	P is 11/49.
+	P is 11/49,
+	write('Accessed CTN-0054\n').

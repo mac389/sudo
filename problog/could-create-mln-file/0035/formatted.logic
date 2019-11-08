@@ -1,14 +1,17 @@
-P::infected(X, HCV);P::infected(X,HCV,newly) :-
+P::infected(X, HCV,_);P::infected(X,HCV,newly) :-
 	use(X,illicit_drugs),
-	P is 0.8.
+	P is 0.8,
+	write('Accessed CTN-0035\n').
 
 P::perceive(HCV_testing,unimportant) :-
 	lack(X,symptoms),
 	use(X,illicit_drugs),
 	\+receive(X,recommendation_for_treatment),
-	P is 0.8. 
+	P is 0.8,
+	write('Accessed CTN-0035\n'). 
 
 P::decide(X,not_pursue_HCV_treatment) :-
 	diagnosed_with(X,HCV),
 	mistrust(X,health_care_providers),
-	P is 0.6.
+	P is 0.6,
+	write('Accessed CTN-0035\n').

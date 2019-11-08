@@ -1,12 +1,14 @@
-P::sample(X,urine,\+contain_cannabinoids) :-
-diagnosed_with(X,cannabis_use_disorder),
-receive(X,contingency_management),
-receive(X,medical_management),
-P is 0.25.
+P::sample(X,urine,cannabinoids,negative,_) :-
+	diagnosed_with(X,cannabis_use_disorder),
+	receive(X,contingency_management),
+	receive(X,medical_management),
+	P is 0.25,
+	write('Accessed CTN-0053\n').
 
-P::sample(X,urine,\+contain_cannabinoids) :-
-diagnosed_with(X,cannabis_use_disorder),
-receive(X,contingency_management),
-receive(X,n_acetylcysteine),
-receive(X,medical_management),
-P is 0.25.
+P::sample(X,urine,cannabinoids,negative,_) :-
+	diagnosed_with(X,cannabis_use_disorder),
+	receive(X,contingency_management),
+	receive(X,n_acetylcysteine),
+	receive(X,medical_management),
+	P is 0.25,
+	write('Accessed CTN-0053\n').

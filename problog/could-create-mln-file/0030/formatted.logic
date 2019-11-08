@@ -1,23 +1,26 @@
-P::stop_using(X,prescription_opioids) :-
+(1-P)::use(X,prescription_opioids) :-
 	dependent(X,prescription_opioids),
 	complete(X,naloxone_stabilization),
 	receive(X,counseling),
 	\+complete(X,taper),
 	\+complete(X,post_medication_follow_up),
-	P is 0.06.
+	P is 0.06,
+	write('Accessed CTN-0030\n').
 
-P::stop_using(X,prescription_opioids) :-
+(1-P)::use(X,prescription_opioids) :-
 	dependent(X,prescription_opioids),
 	complete(X,naloxone_stabilization),
 	receive(X,counseling),
 	complete(X,taper),
 	\+complete(X,post_medication_follow_up),
-	P is 0.492.
+	P is 0.492,
+	write('Accessed CTN-0030\n').
 
-P::stop_using(X,prescription_opioids) :-
+(1-P)::use(X,prescription_opioids) :-
 	dependent(X,prescription_opioids),
 	complete(X,naloxone_stabilization),
 	receive(X,counseling),
 	complete(X,taper),
 	complete(X,post_medication_follow_up),
-	P is 0.086.
+	P is 0.086,
+	write('Accessed CTN-0030\n').
