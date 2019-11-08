@@ -35,14 +35,15 @@ success :- \+failure.
 positive :- \+negative.
 in_treatment :- in_therapy.
 
-0.9::outpatient(X). %fit to parameters, need to cie sources
+0.9::outpatient(X). %fit to parameters, need to cite sources
 0.1::use(_,cocaine). %now add for other drugs
 0.5::adult(X). %CITATION NEEDED
 0.5::male(X). %DITTO
 0.5::female(X). %DITTO
 0.4::hispanic(X). %DITTO
-0.1::inject(X,Y) :-  %DITTO
-	use(X,Y),
+
+0.1::inject(X,Y,T) :-  %DITTO
+	use(X,Y,T),
 	member(Y,[cocaine,heroin,amphetamine,fentanyl]).
 
 sample(X,Y,positive,Z) :- \+sample(X,Y,negative,Z).
@@ -54,16 +55,7 @@ female(X) :- \+male(X).
 
 inpatient(X) :- \+outpatient(X).
 
-use(X,Y) :- 
-    person(X),
-    substance(Y).
     
-therapy(X) :-
-	treatment(X).
-
-abstinent(X,_) :-
-	\+use(X,_). 
-
 woman(X) :-
 	person(X),
 	female(X).
@@ -83,28 +75,21 @@ smoker(X) :-
 	uses(X,nicotine).
 
 pregnant_substance_user(X) :-
-	person(X),
+	use(X,Y,_),
 	pregnant(X),
-	use(X,Y),
 	substance(Y).
 
 illicit_drug_user(X) :-
-	person(X),
-	use(X,Y),
+	use(X,Y,_),
 	illicit_drug(Y).
 
 use_stimulant(X) :-
-	person(X),
-	use(X,Y),
+	use(X,Y,_),
 	stimulant(Y).
 
-dependent(X,Y) :-
-	%defining for meaning of dependent on substance
-	%feels like need more criteria, like the DSM criteria
-	person(X),
-	substance(Y),
-	use(X,Y). 
+use(X,Y,T) :-
+	dependent(X,Y,T).
 
 dependent_on_prescription_opioids(X) :-
-	dependent(X,Y),
+	dependent(X,Y,_),
 	prescription_opioid(Y).
