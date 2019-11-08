@@ -36,17 +36,16 @@ positive :- \+negative.
 in_treatment :- in_therapy.
 
 0.9::outpatient(X). %fit to parameters, need to cie sources
-0.4::use(_,cocaine). %now add for other drugs
+0.1::use(_,cocaine). %now add for other drugs
 0.5::adult(X). %CITATION NEEDED
 0.5::male(X). %DITTO
 0.5::female(X). %DITTO
 0.4::hispanic(X). %DITTO
-
 0.1::inject(X,Y) :-  %DITTO
 	use(X,Y),
 	member(Y,[cocaine,heroin,amphetamine,fentanyl]).
 
-sample(X,Y,Z,positive) :- \+sample(X,Y,Z,negative).
+sample(X,Y,positive,Z) :- \+sample(X,Y,negative,Z).
 
 youth(X) :- \+adult(X).
 
