@@ -74,7 +74,7 @@ female(X) :-
 
 smoker(X) :-
 	person(X),
-	uses(X,nicotine).
+	uses(X,nicotine,_).
 
 pregnant_substance_user(X) :-
 	use(X,Y,_),

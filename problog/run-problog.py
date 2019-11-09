@@ -13,10 +13,11 @@ axioms = open(os.path.join('.','amalgamated.axiomata'),'r').read()
 p = PrologString(kb + '\n'+ axioms + """\n	
 person(1).
 dependent(1,opioids).
-evidence(outpatient(1),false).
+use(1,cocaine,_).
+evidence(outpatient(1),true).
 evidence(adult(1),true).
 evidence(male(1),true).
-receive(1,buprenorphine_naloxone).
+receive(1,buprenorphine_suboxone).
 query(detoxification(1,opioid,success)).
 query(sample(1,urine,opioids,_,_)).
 """)
@@ -24,7 +25,9 @@ query(sample(1,urine,opioids,_,_)).
 #How to indicate source?
 
 #ap(get_evaluatable().create_from(p).evaluate())
-pprint(get_evaluatable().create_from(p).evaluate())
+res = get_evaluatable().create_from(p).evaluate()
+pprint(res)
+
 '''
    Don't debug away all InconsistentError messages, Only those that involve reasoning
    over the results of more than one study. 
@@ -36,10 +39,10 @@ List of competency questions:
 1. 
 	Query: What are the chances of successful opioid detoxification? 
 	Expected answer: 
-	  -- Inpatient, clonidine => 22%
-	  -- Inpatient, suboxone => 77%
-	  -- Outpatient, clonidine => 5%
-	  -- Outpatient, buprenorphine 29%
+	  -- Inpatient, clonidine => 22% (calculated 38)
+	  -- Inpatient, suboxone => 77%  (calculated 81.6)
+	  -- Outpatient, clonidine => 5%  (calculated 24)
+	  -- Outpatient, suboxone 29%.  (calculated 20)
 
 
 
