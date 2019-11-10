@@ -11,14 +11,21 @@ kb = open(os.path.join('..','knowledge_base.pl'),'r').read()
 axioms = open(os.path.join('.','amalgamated.axiomata'),'r').read()
 
 p = PrologString(kb + '\n'+ axioms + """\n	
+
 person(1).
 dependent(1,opioids).
 use(1,cocaine,_).
+receive(1,buprenorphine_naloxone).
+receive(1,motivational_enhancement).
+
+taper(1,buprenorphine,n7_days).
+
 evidence(outpatient(1),true).
 evidence(adult(1),true).
 evidence(male(1),true).
-receive(1,buprenorphine_suboxone).
+
 query(detoxification(1,opioid,success)).
+query(remain(X,in_therapy,_)).
 query(sample(1,urine,opioids,_,_)).
 """)
 
@@ -35,15 +42,16 @@ pprint(res)
 
 
 '''
-List of competency questions:
+List of competency questions (stored in */{CTN}/test.pl):
 1. 
 	Query: What are the chances of successful opioid detoxification? 
 	Expected answer: 
 	  -- Inpatient, clonidine => 22% (calculated 38)
 	  -- Inpatient, suboxone => 77%  (calculated 81.6)
 	  -- Outpatient, clonidine => 5%  (calculated 24)
-	  -- Outpatient, suboxone 29%.  (calculated 20)
+	  -- Outpatient, suboxone 29%.  (calculated 43)
 
-
+2. 
+	Query: 
 
 '''

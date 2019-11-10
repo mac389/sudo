@@ -1,73 +1,68 @@
-P::detoxification(X,opioid,success) :- 
-	P is 0.2,
-	dependent(X,opioids),
-	writenl('CTN-0001 Accessed').
-
-detoxification(X,opioid,success,T) :-
-	sample(X, urine, opioid, negative,T),
-	dependent(X,opioids),
-	writenl('CTN-0001 Accessed').
-
 0.77::detoxification(X,opioid,success) :-
    inpatient(X),
    dependent(X,opioids),
    receive(X,buprenorphine_naloxone),
    writenl('CTN-0001 Accessed').
 
-0.29::detoxification(X,opioid, success) :-
+0.29::detoxification(X,opioid,success) :-
 	outpatient(X),
 	dependent(X,opioids),
 	receive(X,buprenorphine_naloxone),
 	writenl('CTN-0001 Accessed').
 
-0.05::detoxification(X,opioid, success) :-
+0.05::detoxification(X,opioid,success) :-
 	outpatient(X),
 	dependent(X,opioids),
 	receive(X,clonidine),
 	writenl('CTN-0001 Accessed'). 
 
-0.22::detoxification(X,opioid, success) :-
+0.22::detoxification(X,opioid,success) :-
 	inpatient(X),
 	dependent(X,opioids),
 	receive(X,clonidine),
 	writenl('CTN-0001 Accessed').
 
-P::sample(X,urine,opioids,negative,initial);(1-P)::sample(X,urine,opioids,positive,initial) :-
+P::detoxification(X,opioid,success) :- 
+	P is 0.2,
+	dependent(X,opioids),
+	writenl('CTN-0001 Accessed').
+
+P::sample(X,urine,opioids,positive,initial):-
     P is 0.5,
     dependent(X,opioids),
     writenl('CTN-0003 Accessed').
 
-P::sample(X,urine,opioids,negative,n1_month);(1-P)::sample(X,urine,opioids,positive,n1_month) :-
+P::sample(X,urine,opioids,negative,n1_month) :-
 	taper(X,buprenorphine,n28_days),
 	P is 0.18,
 	dependent(X,opioids),
 	writenl('CTN-0003 Accessed').
 
-P::sample(X,urine,opioids,negative,n3_month);(1-P)::sample(X,urine,opioids,positive,n3_month) :-
+P::sample(X,urine,opioids,negative,n3_month) :-
 	taper(X,buprenorphine,n28_days),
 	dependent(X,opioids),
 	P is 0.18,
 	writenl('CTN-0003 Accessed').
 
-P::sample(X,urine,opioids,negative,n1_month);(1-P)::sample(X,urine,opioids,positive,n1_month) :-
+P::sample(X,urine,opioids,negative,n1_month) :-
 	taper(X,buprenorphine,n7_days),
 	dependent(X,opioids),
 	P is 0.12,
 	writenl('CTN-0003 Accessed').
 
-P::sample(X,urine,opioids,positive,n3_month);(1-P)::sample(X,urine,opioids,negative,n3_month) :-
+P::sample(X,urine,opioids,positive,n3_month) :-
 	taper(X,buprenorphine,n7_days),
 	dependent(X,opioids),
 	P is 0.13,
 	writenl('CTN-0003 Accessed').
 
-P::sample(X,urine, opioids, negative,initial);(1-P)::sample(X,urine,opioids,positive,initial) :-
+P::sample(X,urine, opioids, negative,initial) :-
 	taper(X,buprenorphine,n28_days),
 	dependent(X,opioids),
 	P is 0.30,
 	writenl('CTN-0003 Accessed').
 
-P::sample(X,urine,opioids, negative,initial);(1-P)::sample(X,urine,opioids, positive,initial) :-
+P::sample(X,urine,opioids,negative,initial) :-
 	taper(X,buprenorphine,n7_days),
 	dependent(X,opioids),
 	P is 0.44,
@@ -91,7 +86,7 @@ P::sample(X,urine,Y,positive) :-
     P is 0.33,
     writenl('CTN-0005 Accessed').
 
-P:sample(X,urine,Y,positive,n28_day);P::sample(X,urine,Y,positive,n28_day) :-
+P:sample(X,urine,Y,positive,n28_day) :-
     receive(X,motiavtional_interviewing),
     dependent(X,Y,_),
     P is 0.5,

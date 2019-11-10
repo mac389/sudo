@@ -3,7 +3,8 @@ P::remain(X,in_therapy,_) :-
     P is 0.5,
     write('CTN-0004 Accessed\n').
     
-P::sample(X,urine,_,positive) :-
+P::sample(X,urine,Y,positive,_) :-
     (receive(X,care_as_usual);receive(X,motivational_enhancement)),
     P is 0.5,
+    substance(Y),
     write('CTN-0004 Accessed\n').

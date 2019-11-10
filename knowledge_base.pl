@@ -9,6 +9,8 @@ therapy(motivational_enhancement).
 therapy(motivational_interviewing).
 therapy(motivational_incentives).
 therapy(computer_modules).
+therapy(care_as_usual).
+therapy(standard_care).
 therapy(outpatient_addiction_treatment).
 therapy(standard_intake_evaluation).
 therapy(contingency_management_evaluation).
@@ -31,11 +33,19 @@ stimulant(cocaine).
 stimulant(amphetamine).
 
 taper(_,_,_).
-use(_,_).
 
 success :- \+failure.
 positive :- \+negative.
 in_treatment :- in_therapy.
+
+receive(X,buprenorphine) :-
+	receive(X,buprenorphine_naloxone).
+
+receive(X,standard_care) :-
+	receive(X, care_as_usual).
+
+receive(X, care_as_usual) :-
+	receive(X,standard_care).
 
 0.9::outpatient(X). %fit to parameters, need to cite sources
 0.1::use(_,cocaine). %now add for other drugs
