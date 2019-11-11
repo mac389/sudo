@@ -1,5 +1,4 @@
 (1-P)::use(X,prescription_opioids) :-
-	dependent(X,prescription_opioids),
 	complete(X,naloxone_stabilization),
 	receive(X,counseling),
 	\+complete(X,taper),
@@ -8,7 +7,6 @@
 	write('Accessed CTN-0030\n').
 
 (1-P)::use(X,prescription_opioids) :-
-	dependent(X,prescription_opioids),
 	complete(X,naloxone_stabilization),
 	receive(X,counseling),
 	complete(X,taper),
@@ -17,7 +15,6 @@
 	write('Accessed CTN-0030\n').
 
 (1-P)::use(X,prescription_opioids) :-
-	dependent(X,prescription_opioids),
 	complete(X,naloxone_stabilization),
 	receive(X,counseling),
 	complete(X,taper),

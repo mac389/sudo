@@ -33,7 +33,7 @@ P::sample(X,urine,opioids,positive,initial):-
     writenl('CTN-0003 Accessed').
 
 P::sample(X,urine,opioids,negative,n1_month) :-
-	taper(X,buprenorphine,n28_days),
+	(X,buprenorphine,n28_days),
 	P is 0.18,
 	dependent(X,opioids),
 	writenl('CTN-0003 Accessed').
@@ -56,7 +56,7 @@ P::sample(X,urine,opioids,positive,n3_month) :-
 	P is 0.13,
 	writenl('CTN-0003 Accessed').
 
-P::sample(X,urine, opioids, negative,initial) :-
+P::sample(X,urine, opioids,negative,initial) :-
 	taper(X,buprenorphine,n28_days),
 	dependent(X,opioids),
 	P is 0.30,
@@ -68,33 +68,33 @@ P::sample(X,urine,opioids,negative,initial) :-
 	P is 0.44,
 	writenl('CTN-0003 Accessed').
 
-P::remain(X,in_therapy,_) :-
+P::remain(X,in_therapy,n4_weeks);P::remain(X,in_therapy,n12_weeks) :-
     (receive(X,care_as_usual);receive(X,motivational_enhancement)),
     dependent(X,opioids),
-    P is 0.5,
+    P is 0.5, %What was the acutal enrolment rate?
     writenl('CTN-0004 Accessed').
     
 P::sample(X,urine,Y,positive) :-
     (receive(X,care_as_usual);receive(X,motivational_enhancement)),
-    dependent(X,Y,_),
+    dependent(X,Y),
     P is 0.5,
     writenl('CTN-0004 Accessed').
 
 2*P::remain(X, in_therapy, n28_day):-
     receive(X,motivational_interviewing),
-    dependent(X,_,_),
+    dependent(X,_),
     P is 0.33,
     writenl('CTN-0005 Accessed').
 
 P:sample(X,urine,Y,positive,n28_day) :-
     receive(X,motiavtional_interviewing),
-    dependent(X,Y,_),
+    dependent(X,Y),
     P is 0.5,
     writenl('CTN-0005 Accessed').
 
 P::remain(X, in_therapy, n84_day) :-
     P is 0.5,
-    dependent(X,Y,_),
+    dependent(X,Y),
     writenl('CTN-0005 Accessed').
 
 efficacious_for(X,drug_abstinence) :-
@@ -255,7 +255,7 @@ P::use(X,substance,_);(1.5*P)::decrease(X,substance_use) :-
 	writenl("Accessed CTN-0014").
 
 P::decrease(X,substance_use) :-
-	female(X),
+	gender(X,female),
 	use(X,Y,_),
 	(receive(X,womens_health_education);receive(X,seeking_safety)),
 	P is 0.5,
@@ -300,28 +300,28 @@ P::decrease(X,unprotected_sexual_encounters,_);(1-P)::increase(X,unprotected_sex
 	writenl('Accessed CTN-0018').
 
 2*P::decrease(X,unprotected_sexual_encounters,n3_months);P::increase(X,unprotected_sexual_encounters,n3_months) :-
-	female(X),
+	gender(X,female),
 	use(X,Y,_),
 	receive(X, safer_skills_building),
 	P is 0.3,
 	writenl('Accessed CTN-0019').
 
 2*P::decrease(X,unprotected_sexual_encounters,n3_months);P::increase(X,unprotected_sexual_encounters,n3_months) :-
-	female(X),
+	gender(X,female),
 	use(X,Y,_),
 	receive(X, hiv_ed),
 	P is 0.3,
 	writenl('Accessed CTN-0019').
 
 2*P::decrease(X,unprotected_sexual_encounters,n6_months);P::increase(X,unprotected_sexual_encounters,n6_months) :-
-	female(X),
+	gender(X,female),
 	use(X,Y,_),
 	receive(X, safer_skills_building),
 	P is 0.3,
 	writenl('Accessed CTN-0019').
 
 P::decrease(X,unprotected_sexual_encounters,n6_months);P::increase(X,unprotected_sexual_encounters,n6_months) :-
-	female(X),
+	gender(X,female),
 	use(X,Y,_),
 	receive(X, hiv_ed),
 	P is 0.3,

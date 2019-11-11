@@ -32,59 +32,45 @@ illicit_drug(fentanyl).
 stimulant(cocaine).
 stimulant(amphetamine).
 
+sex(male).
+sex(female).
+
 taper(_,_,_).
+
+adolescent(_).
 
 success :- \+failure.
 positive :- \+negative.
 in_treatment :- in_therapy.
 
+n4_weeks :- n1_month.
+n12_weeks :- n3_month.
+
+standard_care :-
+	care_as_usual;
+	counseling_as_usual.
+
 receive(X,buprenorphine) :-
 	receive(X,buprenorphine_naloxone).
 
-receive(X,standard_care) :-
-	receive(X, care_as_usual).
-
-receive(X, care_as_usual) :-
-	receive(X,standard_care).
-
 0.9::outpatient(X). %fit to parameters, need to cite sources
-0.1::use(_,cocaine). %now add for other drugs
-0.5::adult(X). %CITATION NEEDED
-0.5::male(X). %DITTO
-0.5::female(X). %DITTO
-0.4::hispanic(X). %DITTO
-
 0.1::inject(X,Y,T) :-  %DITTO
-	use(X,Y,T),
+	use(X,Y),
 	member(Y,[cocaine,heroin,amphetamine,fentanyl]).
 
 sample(X,Y,positive,Z) :- \+sample(X,Y,negative,Z).
 
-youth(X) :- \+adult(X).
-
-0.1::pregnant(X) :- female(X).
-female(X) :- \+male(X).
+0.1::pregnant(X) :- gender(X,female).
 
 inpatient(X) :- \+outpatient(X).
 
-    
-woman(X) :-
+gender(X,Y) :-
 	person(X),
-	female(X).
-
-man(X) :-
-	person(X),
-	male(X).
-
-adolescent(X) :-
-	\+adult(X).
-
-female(X) :- 
-	\+male(X).
+	sex(Y).
 
 smoker(X) :-
 	person(X),
-	uses(X,nicotine,_).
+	use(X,nicotine,_).
 
 pregnant_substance_user(X) :-
 	use(X,Y,_),
@@ -101,6 +87,14 @@ use_stimulant(X) :-
 
 use(X,Y,_) :-
 	dependent(X,Y).
+
+use(X,Y,_) :- use(X,Y).
+
+use(X,Y) :- dependent(X,Y).
+
+0.05::use(X,Y,before) :- %background probability
+	person(X,_),
+	substance(Y).
 
 dependent_on_prescription_opioids(X) :-
 	dependent(X,Y,_),
