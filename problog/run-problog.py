@@ -14,6 +14,9 @@ p = PrologString(kb + '\n'+ axioms + """\n
 
 person(1,male).
 dependent(1,opioids).
+infected(1,hiv).
+receive(1,treatment_as_usual),
+
 use(1,cocaine,before).
 receive(1,buprenorphine_naloxone).
 receive(1,motivational_enhancement).
@@ -23,7 +26,7 @@ taper(1,buprenorphine,n7_days).
 
 evidence(outpatient(1),true).
 evidence(hispanic(1),true).
-
+query(use(X,opioid))
 query(detoxification(1,opioid,success)).
 query(remain(X,in_therapy,_)).
 query(use(1,_,_)).
