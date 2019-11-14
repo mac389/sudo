@@ -248,9 +248,11 @@ P::remain(X,in_treatment(X),n1_month) :-
 	P is 0.81,
 	writenl('CTN-0013 Accessed'). 	
 
-P::use(X,substance,_);(1.5*P)::decrease(X,substance_use) :-
+(1.5*P)::decrease(X,substance_use);P::use(X,Y,_) :-
 	adolescent(X),
-	(receive(X,treatment_as_usual);receive(X,beavioral_strategic_family_therapy)),
+	substance(Y),
+	dependent(X,Y),
+	(receive(X,treatment_as_usual);receive(X,behavioral_strategic_family_therapy)),
 	P is 1,
 	writenl("Accessed CTN-0014").
 
@@ -354,12 +356,12 @@ P::obtain(X,new_taxed_job):-
 	writenl('Accessed CTN-0021').
 
 P::develop(X,drug_induced_hepatitis) :-
-	use(X,buprenorphine_naloxone),
+	use(X,buprenorphine_naloxone,_),
 	P is 0.5,
 	writenl('Accessed CTN-0027').
 
 P::develop(X,drug_induced_hepatitis) :-
-	use(X,methadone),
+	use(X,methadone,_),
 	P is 0.5,
 	writenl('Accessed CTN-0027').
 
@@ -382,7 +384,7 @@ P::decrease(X,substance_use,_) :-
 
 P::reduce(X,nicotine,_) :-
 	diagnosed_with(X,adhd),
-	use(X,nicotine),
+	use(X,nicotine,_),
 	desire(X,quit_smoking),
 	receive(X,methylphenidate),
 	receive(X,individual_smoking_cessation),
@@ -391,13 +393,13 @@ P::reduce(X,nicotine,_) :-
 
 P::reduce(X,nicotine,_) :-
 	diagnosed_with(X,adhd),
-	use(X,nicotine),
+	use(X,nicotine,_),
 	desire(X,quit_smoking),
 	receive(X,individual_smoking_cessation),
 	P is 0.5,
 	writenl('Accessed CTN-0029').
 
-(1-P)::use(X,prescription_opioids) :-
+(1-P)::use(X,prescription_opioids,_) :-
 	dependent(X,prescription_opioids),
 	complete(X,naloxone_stabilization),
 	receive(X,counseling),
@@ -406,7 +408,7 @@ P::reduce(X,nicotine,_) :-
 	P is 0.06,
 	writenl('Accessed CTN-0030').
 
-(1-P)::use(X,prescription_opioids) :-
+(1-P)::use(X,prescription_opioids,_) :-
 	dependent(X,prescription_opioids),
 	complete(X,naloxone_stabilization),
 	receive(X,counseling),
@@ -415,7 +417,7 @@ P::reduce(X,nicotine,_) :-
 	P is 0.492,
 	writenl('Accessed CTN-0030').
 
-(1-P)::use(X,prescription_opioids) :-
+(1-P)::use(X,prescription_opioids,_) :-
 	dependent(X,prescription_opioids),
 	complete(X,naloxone_stabilization),
 	receive(X,counseling),
@@ -442,13 +444,13 @@ P::decrease(X,unprotected_sexual_encounters,_);1.5*P::receive(X,test_results) :-
 	writenl('Accessed CTN-0032').
 
 P::infected(X, HCV,_);P::infected(X,HCV,newly) :-
-	use(X,illicit_drugs),
+	use_illicit_drugs(X,_,_),
 	P is 0.8,
 	writenl('Accessed CTN-0035').
 
 P::perceive(HCV_testing,unimportant) :-
 	lack(X,symptoms),
-	use(X,illicit_drugs),
+	use_illicit_drugs(X,_,_),
 	\+receive(X,recommendation_for_treatment),
 	P is 0.8,
 	writenl('Accessed CTN-0035'). 

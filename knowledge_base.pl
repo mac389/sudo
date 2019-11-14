@@ -18,6 +18,7 @@ therapy(abstinence_based_incentive).
 therapy(residential_treatment).
 therapy(cognitive_behavioral_therapy).
 therapy(safer_skills_building).
+therapy(behavioral_strategic_family_therapy).
 therapy(hiv_ed).
 
 prescription_opioid(percocet).
@@ -77,7 +78,7 @@ pregnant_substance_user(X) :-
 	pregnant(X),
 	substance(Y).
 
-illicit_drug_user(X) :-
+use_illicit_drugs(X) :-
 	use(X,Y,_),
 	illicit_drug(Y).
 

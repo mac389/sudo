@@ -1,27 +1,28 @@
-detoxification(X,opioid,success) :-
-	sample(X, urine, opioid_free),
-	write('CTN-0001 Accessed\n').
+0.77::detoxification(X,opioid,success) :-
+   inpatient(X),
+   dependent(X,opioids),
+   receive(X,buprenorphine_naloxone),
+   writenl('CTN-0001 Accessed').
+
+0.29::detoxification(X,opioid,success) :-
+	outpatient(X),
+	dependent(X,opioids),
+	receive(X,buprenorphine_naloxone),
+	writenl('CTN-0001 Accessed').
+
+0.05::detoxification(X,opioid,success) :-
+	outpatient(X),
+	dependent(X,opioids),
+	receive(X,clonidine),
+	writenl('CTN-0001 Accessed'). 
+
+0.22::detoxification(X,opioid,success) :-
+	inpatient(X),
+	dependent(X,opioids),
+	receive(X,clonidine),
+	writenl('CTN-0001 Accessed').
 
 P::detoxification(X,opioid,success) :- 
 	P is 0.2,
-	write('CTN-0001 Accessed\n').
-
-0.77::detoxification(X,opioid,success) :-
-   inpatient(X),
-   receive(X,buprenorphine_naloxone),
-   write('CTN-0001 Accessed\n').
-
-0.29::detoxification(X,opioid, success) :-
-	outpatient(X),
-	receive(X,buprenorphine_naloxone),
-	write('CTN-0001 Accessed\n').
-
-0.05::detoxification(X,opioid, success) :-
-	outpatient(X),
-	receive(X,clonidine),
-	write('CTN-0001 Accessed\n'). 
-
-0.22::detoxification(X,opioid, success) :-
-	inpatient(X),
-	receive(X,clonidine),
-	write('CTN-0001 Accessed\n').
+	dependent(X,opioids),
+	writenl('CTN-0001 Accessed').
