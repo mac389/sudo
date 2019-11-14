@@ -12,26 +12,12 @@ axioms = open(os.path.join('.','amalgamated.axiomata'),'r').read()
 
 p = PrologString(kb + '\n'+ axioms + """\n	
 
-person(1,male).
-dependent(1,opioids).
-infected(1,hiv).
-receive(1,treatment_as_usual).
-
-use(1,cocaine,before).
+person(1).
+location(outpatient).
+dependent(1,Y).
 receive(1,buprenorphine_naloxone).
-receive(1,motivational_enhancement).
-receive(1,standard_care).
-hispanic(1).
-taper(1,buprenorphine,n7_days).
-
-evidence(outpatient(1),true).
-evidence(hispanic(1),true).
-query(use(X,opioid)).
-query(detoxification(1,opioid,success)).
-query(remain(X,in_therapy,_)).
-query(use(1,_,_)).
-query(taper(1,_,_)).
-query(sample(1,urine,opioids,_,_)).
+query(location(_)).
+%query(detoxification(X,Y,_)).
 """)
 
 #How to indicate source?

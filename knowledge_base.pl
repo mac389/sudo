@@ -36,6 +36,8 @@ stimulant(amphetamine).
 sex(male).
 sex(female).
 
+location(inpatient) :- \+location(outpatient).
+
 taper(_,_,_).
 
 adolescent(_).
@@ -54,7 +56,6 @@ standard_care :-
 receive(X,buprenorphine) :-
 	receive(X,buprenorphine_naloxone).
 
-0.9::outpatient(X). %fit to parameters, need to cite sources
 0.1::inject(X,Y,T) :-  %DITTO
 	use(X,Y),
 	member(Y,[cocaine,heroin,amphetamine,fentanyl]).
@@ -63,7 +64,7 @@ sample(X,Y,positive,Z) :- \+sample(X,Y,negative,Z).
 
 0.1::pregnant(X) :- gender(X,female).
 
-inpatient(X) :- \+outpatient(X).
+inpatient :- \+outpatient.
 
 gender(X,Y) :-
 	person(X),
