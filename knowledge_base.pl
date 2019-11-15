@@ -18,6 +18,7 @@ therapy(abstinence_based_incentive).
 therapy(residential_treatment).
 therapy(cognitive_behavioral_therapy).
 therapy(safer_skills_building).
+therapy(behavioral_strategic_family_therapy).
 therapy(hiv_ed).
 
 prescription_opioid(percocet).
@@ -34,6 +35,8 @@ stimulant(amphetamine).
 
 sex(male).
 sex(female).
+
+location(inpatient) :- \+location(outpatient).
 
 taper(_,_,_).
 
@@ -53,7 +56,6 @@ standard_care :-
 receive(X,buprenorphine) :-
 	receive(X,buprenorphine_naloxone).
 
-0.9::outpatient(X). %fit to parameters, need to cite sources
 0.1::inject(X,Y,T) :-  %DITTO
 	use(X,Y),
 	member(Y,[cocaine,heroin,amphetamine,fentanyl]).
@@ -62,7 +64,7 @@ sample(X,Y,positive,Z) :- \+sample(X,Y,negative,Z).
 
 0.1::pregnant(X) :- gender(X,female).
 
-inpatient(X) :- \+outpatient(X).
+inpatient :- \+outpatient.
 
 gender(X,Y) :-
 	person(X),
@@ -77,7 +79,7 @@ pregnant_substance_user(X) :-
 	pregnant(X),
 	substance(Y).
 
-illicit_drug_user(X) :-
+use_illicit_drugs(X) :-
 	use(X,Y,_),
 	illicit_drug(Y).
 
