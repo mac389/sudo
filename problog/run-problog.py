@@ -10,14 +10,21 @@ from pprint import pprint
 kb = open(os.path.join('..','knowledge_base.pl'),'r').read()
 axioms = open(os.path.join('.','amalgamated.axiomata'),'r').read()
 
-p = PrologString(kb + '\n'+ axioms + """\n	
+#p = PrologString(kb + '\n'+ axioms + """\n	
+#""")
 
+
+p = PrologString("""\n	
+setting([inpatient,outpatient]).
+location(X,Y) :-
+	person(X),
+	setting(L),
+	member(Y,L).
+
+location(X,inpatient) :- \+location(X,outpatient).
 person(1).
-location(outpatient).
-dependent(1,Y).
-receive(1,buprenorphine_naloxone).
-query(location(_)).
-%query(detoxification(X,Y,_)).
+query(location(_,_)).
+
 """)
 
 #How to indicate source?
