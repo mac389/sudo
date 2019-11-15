@@ -53,7 +53,9 @@ List of competency questions (stored in */{CTN}/test.pl):
 	  -- Outpatient, clonidine => 5%  (calculated 24)
 	  -- Outpatient, suboxone 29%.  (calculated 43)
 
-2. 
+(-1) (Starting from end)
+
+
 	Query: 
 
 '''
