@@ -10,21 +10,15 @@ from pprint import pprint
 kb = open(os.path.join('..','knowledge_base.pl'),'r').read()
 axioms = open(os.path.join('.','amalgamated.axiomata'),'r').read()
 
-#p = PrologString(kb + '\n'+ axioms + """\n	
-#""")
+p = PrologString(kb + '\n'+ axioms + """\n	
+:- use_module(library(lists)).
 
-
-p = PrologString("""\n	
-setting([inpatient,outpatient]).
-location(X,Y) :-
-	person(X),
-	setting(L),
-	member(Y,L).
-
-location(X,inpatient) :- \+location(X,outpatient).
 person(1).
-query(location(_,_)).
-
+inpatient(1).
+dependent(1,opioids).
+receive(1,buprenorphine_naloxone).
+query(detoxification(1,opioids,success)).
+query(property(X,location,_)).
 """)
 
 #How to indicate source?
@@ -32,12 +26,6 @@ query(location(_,_)).
 #ap(get_evaluatable().create_from(p).evaluate())
 res = get_evaluatable().create_from(p).evaluate()
 pprint(res)
-
-'''
-   Don't debug away all InconsistentError messages, Only those that involve reasoning
-   over the results of more than one study. 
-'''
-
 
 '''
 List of competency questions (stored in */{CTN}/test.pl):

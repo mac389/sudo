@@ -36,7 +36,22 @@ stimulant(amphetamine).
 sex(male).
 sex(female).
 
-location(inpatient) :- \+location(outpatient).
+
+P::property(X,location,inpatient);(1-P)::property(X,location, outpatient) :- 
+	inpatient(X),
+	P is 1. 
+
+P::property(X,location,outpatient);(1-P)::property(X,location, inpatient) :- 
+	outpatient(X),
+	P is 1. 
+
+P::inpatient(X);(1-P)::outpatient(X) :- 
+	property(X,location,inpatient),
+	P is 1.
+
+P::outpatient(X);(1-P)::inpatient(X) :-
+	property(X,location,outpatient),
+	P is 1. 
 
 taper(_,_,_).
 
@@ -93,10 +108,6 @@ use(X,Y,_) :-
 use(X,Y,_) :- use(X,Y).
 
 use(X,Y) :- dependent(X,Y).
-
-0.05::use(X,Y,before) :- %background probability
-	person(X,_),
-	substance(Y).
 
 dependent_on_prescription_opioids(X) :-
 	dependent(X,Y,_),

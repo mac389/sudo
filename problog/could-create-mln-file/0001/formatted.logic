@@ -1,31 +1,27 @@
 0.77::detoxification(X,opioids,success) :-
-   inpatient(X),
+   %inpatient(X),
+   property(X,location,inpatient),
    dependent(X,opioids),
    receive(X,buprenorphine_naloxone),
-   writenl('CTN-0001 Accessed').
+   writenl('Someone dependent on opioids treated as an inpatient with buprenorphine/naloxone has a 77% chance of successful detoxification. (CTN-001)').
 
 0.29::detoxification(X,opioids,success) :-
 	outpatient(X),
+	property(1,location,outpatient),
 	dependent(X,opioids),
 	receive(X,buprenorphine_naloxone),
-	writenl('CTN-0001 Accessed').
+	writenl('Someone dependent on opioids treated as an outpatient with buprenorphine/naloxone has a 29% chance of successful detoxification. (CTN-0001)').
 
 0.05::detoxification(X,opioids,success) :-
-	outpatient(X),
+	%outpatient(X),
+	property(1,location,outpatient),
 	dependent(X,opioids),
 	receive(X,clonidine),
-	writenl('CTN-0001 Accessed'). 
+	writenl('Someone dependent on opioids treated as an outpatient with clonidine has a 5% chance of successful detoxification. (CTN-0001)').
 
 0.22::detoxification(X,opioids,success) :-
-	inpatient(X),
+	%inpatient(X),
+	property(X,location,inpatient),
 	dependent(X,opioids),
 	receive(X,clonidine),
-	writenl('CTN-0001 Accessed').
-
-P::detoxification(X,opioids,success) :- 
-	P is 0.2,
-	dependent(X,opioids),
-	writenl('CTN-0001 Accessed').
-
-%% better to write 
-outpatient(X) as property(X,outpatient)
+	writenl('Someone dependent on opioids treated as an inpatient with clonidine has a 22% chance of successful detoxification. (CTN-0001)').
