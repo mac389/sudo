@@ -88,21 +88,21 @@ P::property(X,urine_sample,Y,positive) :-
     P is 0.5,
     writenl('Those who received motivational enhancement therapy were not significantly less likely to submit opioid free urine samples than those who received "care as usual" (CTN-0004).').
  
-2*P::remain(X, in_therapy, n28_day):-
+2*P::remain(X, in_therapy, n28_days):-
     receive(X,motivational_interviewing),
     property(X,dependence,Y),
     property(X,location,outpatient),
     P is 0.33,
     writenl('Of 423 users, those who recieved motivational interviewing had significantly better retention through the 28-day follow-up than those assigned to the standard intervention.(CTN-0005)').
 
-P:property(X,urine_sample,Y,positive,n28_day) :-
+P:property(X,urine_sample,Y,positive,n28_days) :-
     (receive(X,motiavtional_interviewing);receive(X,standard_care)),
     property(X,location,outpatient),
     property(X,dependence,Y),
     P is 0.5,
     writenl('Of 423 users, those who recieved motivational interviewing weren ot significantly less likely to submit opioid-free urine samples at 28 days after treatment than those assigned to the standard intervention.(CTN-0005)').
 
-P::remain(X, in_therapy, n84_day) :-
+P::remain(X, in_therapy, n84_days) :-
     P is 0.5,
     property(X,location,outpatient),
     (receive(X,motivational_interviewing);receive(X,standard_care)),
@@ -260,40 +260,80 @@ P::property(X,use,nicotine,just_after_treatment);0.5*P::property(X,use,nicotine,
     P is 0.1,
     writenl('Of 225 cigarette smokers with either opioid or alcohol use disorders, those who receieved nicotine replacement therapy showed an initial rate of nicotine abstinence of 10%, that dropped to 5% at 13- and 26-week follow-up (CTN-0009).').
 
-receive(X,detoxification_and_counseling) :-
-	youth(X),
-	property(X,opioid),
-	writenl('CTN-0010 Accessed').
+P::property(X,urine_sample,opioids,positive,n4_weeks) :-
+	property(X,depdence, opioids),
+	property(X,location,outpatient),
+	property(X,age,youth),
+	receive(X, buprenorphine_naloxone),
+	P is 0.76,
+	writenl('Of 125 opioid-addicted youth, at week 4 of treatment, 59/78 detox patients had positive urine opioid screens versus 58/74 of those who received buprenorphine/naloxone. (CTN-0010)').
 
-P::property(X,urine_sample,opioids,positive,n4_weeks);P::receive(X,buprenorphine_naloxone);P::receive(X,detox) :-
-	property(X,opioid),
-	youth(X),
-	P is 0.5,
-	writenl('CTN-0010 Accessed').
+P::property(X,urine_sample,opioids,positive,n4_weeks) :-
+	property(X,depdence, opioids),
+	property(X,location,outpatient),
+	property(X,age,youth),
+	receive(X, buprenorphine_naloxone),
+	receive(X,counseling),
+	receive(X,detoxification),
+	P is 0.76,
+	writenl('Of 125 opioid-addicted youth, at week 4 of treatment, 59/78 detox patients had positive urine opioid screens versus 58/74 of those who received buprenorphine/naloxone. (CTN-0010)').
 
-P::property(X,urine_sample,opioids, positive,n8_weeks);P::receive(X,buprenorphine_naloxone) :-
-	property(X,opioid),
-	youth(X),
-	P is 0.5,
-	writenl('CTN-0010 Accessed').
+P::property(X,urine_sample,opioids, positive,n8_weeks) :-
+	property(X,depdence, opioids),
+	property(X,location,outpatient),
+	receive(X, buprenorphine_naloxone),
+	receive(X,counseling),
+	receive(X,detoxification),
+	property(X,age,youth),
+	P is 0.68,
+	writenl('Of 125 opioid-addicted youth, at week 4 of treatment, 53/78 detox patients had positive urine opioid screens versus 52/74 of those who received buprenorphine/naloxone. (CTN-0010)').
 
-P::property(X,urine_sample,opioids,positive,n8_weeks);P::receive(X,buprenorphine_naloxone) :-
-	property(X,opioid),
-	youth(X),
-	P is 0.5,
-	writenl('CTN-0010 Accessed').
+P::property(X,urine_sample,opioids,positive,n8_weeks) :-
+	property(X,depdence, opioids),
+	property(X,location,outpatient),
+	receive(X,counseling),
+	receive(X,detoxification),
+	property(X,age,youth),
+	P is 0.68,
+	writenl('Of 125 opioid-addicted youth, at week 4 of treatment, 59/78 detox patients had positive urine opioid screens versus 58/74 of those who received buprenorphine/naloxone. (CTN-0010)').
 
-P::property(X,urine_sample,opipoids,positive,n12_weeks);P::receive(X,buprenorphine_naloxone);P::receive(X,detox) :-
-	property(X,opioid),	
-	youth(X),
-	P is 0.5,
-	writenl('CTN-0010 Accessed').
+P::property(X,urine_sample,opioids, positive,n12_weeks) :-
+	property(X,depdence, opioids),
+	property(X,location,outpatient),
+	receive(X, buprenorphine_naloxone),
+	receive(X,counseling),
+	receive(X,detoxification),
+	property(X,age,youth),
+	P is 0.65,
+	writenl('Of 125 opioid-addicted youth, at week 4 of treatment, 53/78 detox patients had positive urine opioid screens versus 49/74 of those who received buprenorphine/naloxone. (CTN-0010)').
 
-(3*P)::remain(X,in_treatment,n12_weeks);(3*P)::receive(X,buprnorphine_naloxone);P::remain(X,in_treatment,n12_weeks);P::receive(X,detox):-
-	property(X,opioid),
-	youth(X),
+P::property(X,urine_sample,opioids,positive,n12_weeks) :-
+	property(X,depdence, opioids),
+	property(X,location,outpatient),
+	receive(X,counseling),
+	receive(X,detoxification),
+	property(X,age,youth),
+	P is 0.65,
+	writenl('Of 125 opioid-addicted youth, at week 4 of treatment, 53/78 detox patients had positive urine opioid screens versus 49/74 of those who received buprenorphine/naloxone. (CTN-0010)').
+
+P::remain(X,in_treatment,n12_weeks) :-
+	property(X,depdence, opioids),
+	property(X,location,outpatient),
+	property(X,age,youth),
+	receive(X,counseling),
+	receive(X,detoxification),
 	P is 0.25,
-	writenl('CTN-0010 Accessed').
+	writenl('Of 125 opioid-addicted youth randomized to either detoxification (n=78) or medication-assisted therapy (n=74), by week 12, 16 detox patients remained in treatment vs. 52s buprenorphine/naloxone patients (70%).(CTN-0010) Accessed').
+
+P::remain(X,in_treatment,n12_weeks) :-
+	property(X,depdence, opioids),
+	property(X,location,outpatient),
+	property(X,age,youth),
+	receive(X,counseling),
+	receive(X,detoxification),
+	receive(X, buprenorphine_naloxone),
+	P is 0.75,
+	writenl('Of 125 opioid-addicted youth randomized to either detoxification (n=78) or medication-assisted therapy (n=74), by week 12, 16 detox patients remained in treatment vs. 52s buprenorphine/naloxone patients (70%).(CTN-0010) Accessed').
 
 P::participate(X,in_treatment); (1-P)::receive(X,discharge_phone_call) :-
 	receive(X,residential_treatment),

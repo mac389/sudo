@@ -105,6 +105,21 @@ P::property(X,use,nicotine) :-
    substance(Z), %I have defined alcohol as a substance
    P is 0.8.
 
+/* From CTN-0010
+	Representation of: The usual treatment for opioid-addicted youth 
+	is detoxification and counseling. 
+
+*/
+
+P::receive(X,detoxification);P::receive(X,counseling) :-
+	property(X,age,youth),
+	property(X,dependence,opioids),
+	P is 1.
+
+receive(X,detoxification) :-
+	receive(X,buprenorphine);
+	receive(X,buprenorphine_naloxone).
+
 inpatient :- \+outpatient.
 
 gender(X,Y) :-
