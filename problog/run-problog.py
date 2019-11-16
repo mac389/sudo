@@ -15,10 +15,12 @@ p = PrologString(kb + '\n'+ axioms + """\n
 
 person(1).
 property(1,dependence,opioids).
-receive(1,standard_care).
-receive(1,motivational_interviewing).
+receive(1,counseling).
 property(1,location,outpatient).
-query(remain(1,in_therapy,_)).
+property(1,use,cocaine).
+
+query(property(1,urine_sample,opioids,_,_)).
+
 """)
 
 #How to indicate source?

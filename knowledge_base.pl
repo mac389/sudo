@@ -53,6 +53,8 @@ P::outpatient(X);(1-P)::inpatient(X) :-
 	property(X,location,outpatient),
 	P is 1. 
 
+property(X,use,Y) :- property(X,dependence,Y).
+
 taper(_,_,_).
 
 adolescent(_).
@@ -101,14 +103,3 @@ use_illicit_drugs(X) :-
 use_stimulant(X) :-
 	use(X,Y,_),
 	stimulant(Y).
-
-use(X,Y,_) :-
-	dependent(X,Y).
-
-use(X,Y,_) :- use(X,Y).
-
-use(X,Y) :- dependent(X,Y).
-
-dependent_on_prescription_opioids(X) :-
-	dependent(X,Y,_),
-	prescription_opioid(Y).
