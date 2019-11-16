@@ -31,14 +31,14 @@ P::property(X,urine_sample,opioids,negative,n1_month) :-
 	property(buprenorphine,duration,n28_days),
 	property(buprenorphine,dosing,taper),
 	P is 0.18,
-	property(X,dependent,opioids),
+	property(X,dependence,opioids),
 	writenl('At one month follow-up after one-month stabilization and 28-day burpenorphine taper, 18% provided opioid-free urine samples. (CTN-0003)').
 
 P::property(X,urine_sample,opioids,negative,n3_month) :-
 	receive(X,buprenorphine),
 	property(buprenorphine,duration,n28_days),
 	property(buprenorphine,dosing,taper),
-	property(X,dependent,opioids),
+	property(X,dependence,opioids),
 	P is 0.18,
 	writenl('At three month follow-up after one-month stabilization and 28-day burpenorphine taper, 18% provided opioid-free urine samples. (CTN-0003)').
 
@@ -46,15 +46,15 @@ P::property(X,urine_sample,opioids,negative,n1_month) :-
 	receive(X,buprenorphine),
 	property(buprenorphine,duration,n7_days),
 	property(buprenorphine,dosing,taper),
-	property(X,dependent,opioids),
+	property(X,dependence,opioids),
 	P is 0.12,
 	writenl('At one month follow-up after one-month stabilization and 7-day burpenorphine taper, 12% provided opioid-free urine samples. (CTN-0003)').
 
 P::property(X,urine_sample,opioids,positive,n3_month) :-
 	receive(X,buprenorphine),
-	property(buprenorphine,duration,n28_days),
+	property(buprenorphine,duration,n7_days),
 	property(buprenorphine,dosing,taper),
-	property(X,dependent,opioids),
+	property(X,dependence,opioids),
 	P is 0.13,
 	writenl('At three month follow-up after one-month stabilization and 7-day burpenorphine taper, 13% provided opioid-free urine samples. (CTN-000').
 
@@ -62,7 +62,7 @@ P::property(X,urine_sample, opioids,negative,just_after_treatment) :-
 	receive(X,buprenorphine),
 	property(buprenorphine,duration,n28_days),
 	property(buprenorphine,dosing,taper),
-	property(X,dependent,opioids),
+	property(X,dependence,opioids),
 	P is 0.30,
 	writenl('After one-month stabilization, and 28-day buprenorphine taper, 30% (n=255) provided opioid-free urine speciments (CTN-0003)').
 
@@ -70,38 +70,44 @@ P::property(X,urine_sample,opioids,negative,just_after_treatment) :-
 	receive(X,buprenorphine),
 	property(buprenorphine,duration,n7_days),
 	property(buprenorphine,dosing,taper),
-	property(X,dependent,opioids),
+	property(X,dependence,opioids),
 	P is 0.44,
 	writenl('After one-month stabilization, and 7-day buprenorphine taper, 44% (n=261) provided opioid-free urine speciments (CTN-0003)').
 
 P::remain(X,in_therapy,n4_weeks);P::remain(X,in_therapy,n12_weeks) :-
     (receive(X,care_as_usual);receive(X,motivational_enhancement)),
-    property(X,dependent,opioids),
+    property(X,dependence,opioids),
+    property(X,location,outpatient),
     P is 0.5, %What was the acutal enrolment rate?
-    writenl('CTN-0004 Accessed').
+    writenl('Those who received motivational enhancement therapy were not significantly more likely to stay in treatment than those who received "care as usual" (CTN-0004).').
     
 P::property(X,urine_sample,Y,positive) :-
     (receive(X,care_as_usual);receive(X,motivational_enhancement)),
-    property(X,Y),
+    property(X,dependence,Y),
+    property(X,location,outpatient),
     P is 0.5,
-    writenl('CTN-0004 Accessed').
-
+    writenl('Those who received motivational enhancement therapy were not significantly less likely to submit opioid free urine samples than those who received "care as usual" (CTN-0004).').
+ 
 2*P::remain(X, in_therapy, n28_day):-
     receive(X,motivational_interviewing),
-    property(X,_),
+    property(X,dependence,Y),
+    property(X,location,outpatient),
     P is 0.33,
-    writenl('CTN-0005 Accessed').
+    writenl('Of 423 users, those who recieved motivational interviewing had significantly better retention through the 28-day follow-up than those assigned to the standard intervention.(CTN-0005)').
 
 P:property(X,urine_sample,Y,positive,n28_day) :-
-    receive(X,motiavtional_interviewing),
-    property(X,Y),
+    (receive(X,motiavtional_interviewing);receive(X,standard_care)),
+    property(X,location,outpatient),
+    property(X,dependence,Y),
     P is 0.5,
-    writenl('CTN-0005 Accessed').
+    writenl('Of 423 users, those who recieved motivational interviewing weren ot significantly less likely to submit opioid-free urine samples at 28 days after treatment than those assigned to the standard intervention.(CTN-0005)').
 
 P::remain(X, in_therapy, n84_day) :-
     P is 0.5,
-    property(X,Y),
-    writenl('CTN-0005 Accessed').
+    property(X,location,outpatient),
+    (receive(X,motivational_interviewing);receive(X,standard_care)),
+    property(X,dependence,Y),
+    writenl('Of 423 users, those who recieved motivational interviewing weren ot significantly less likely to submit opioid-free urine samples at 84 days after treatment than those assigned to the standard intervention.(CTN-0005)').
 
 efficacious_for(X,drug_abstinence) :-
 	receive(X,contingency_management_intervention),

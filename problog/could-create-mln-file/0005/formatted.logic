@@ -1,19 +1,20 @@
 2*P::remain(X, in_therapy, n28_day):-
     receive(X,motivational_interviewing),
-    use(X,Y),
-    substance(Y),
+    property(X,dependence,Y),
+    property(X,location,outpatient),
     P is 0.33,
-    write('CTN-0005 Accessed\n').
+    writenl('Of 423 users, those who recieved motivational interviewing had significantly better retention through the 28-day follow-up than those assigned to the standard intervention.(CTN-0005)').
 
-P:sample(X,urine,_,positive,n28_day);;P::sample(X,urine,_,positive,n28_day) :-
-    receive(X,motiavtional_interviewing),
-    use(X,Y),
-    substance(Y),
+P:property(X,urine_sample,Y,positive,n28_day) :-
+    (receive(X,motiavtional_interviewing);receive(X,standard_care)),
+    property(X,location,outpatient),
+    property(X,dependence,Y),
     P is 0.5,
-    write('CTN-0005 Accessed\n').
+    writenl('Of 423 users, those who recieved motivational interviewing weren ot significantly less likely to submit opioid-free urine samples at 28 days after treatment than those assigned to the standard intervention.(CTN-0005)').
 
 P::remain(X, in_therapy, n84_day) :-
     P is 0.5,
-    use(X,Y),
-    substance(Y),
-    write('CTN-0005 Accessed\n').
+    property(X,location,outpatient),
+    (receive(X,motivational_interviewing);receive(X,standard_care)),
+    property(X,dependence,Y),
+    writenl('Of 423 users, those who recieved motivational interviewing weren ot significantly less likely to submit opioid-free urine samples at 84 days after treatment than those assigned to the standard intervention.(CTN-0005)').

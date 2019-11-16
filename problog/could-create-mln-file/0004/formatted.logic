@@ -1,10 +1,13 @@
-P::remain(X,in_therapy,_) :-
+P::remain(X,in_therapy,n4_weeks);P::remain(X,in_therapy,n12_weeks) :-
     (receive(X,care_as_usual);receive(X,motivational_enhancement)),
-    P is 0.5,
-    write('CTN-0004 Accessed\n').
+    property(X,dependence,opioids),
+    property(X,location,outpatient),
+    P is 0.5, %What was the acutal enrolment rate?
+    writenl('Those who received motivational enhancement therapy were not significantly more likely to stay in treatment than those who received "care as usual" (CTN-0004).').
     
-P::sample(X,urine,Y,positive,_) :-
+P::property(X,urine_sample,Y,positive) :-
     (receive(X,care_as_usual);receive(X,motivational_enhancement)),
+    property(X,dependence,Y),
+    property(X,location,outpatient),
     P is 0.5,
-    substance(Y),
-    write('CTN-0004 Accessed\n').
+    writenl('Those who received motivational enhancement therapy were not significantly less likely to submit opioid free urine samples than those who received "care as usual" (CTN-0004).').
