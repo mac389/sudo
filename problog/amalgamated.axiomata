@@ -3,28 +3,28 @@
    property(X,dependence,opioids),
    receive(X,buprenorphine_naloxone),
    property(buprenorphine_naloxone,duration,n13_days),
-   writenl('Someone dependent on opioids treated as an inpatient with buprenorphine/naloxone has a 77% chance of submitting an opioid-free urine sample on the last day of treatment. (CTN-001)').
+   writenl('Someone dependence on opioids treated as an inpatient with buprenorphine/naloxone has a 77% chance of submitting an opioid-free urine sample on the last day of treatment. (CTN-001)').
 
 0.29::property(X,urine_sample,opioids,negative,just_after_treatment) :-
 	property(1,location,outpatient),
 	property(X,dependence,opioids),
 	receive(X,buprenorphine_naloxone),
 	property(buprenophine_naloxone,duration,n13_days),
-	writenl('Someone dependent on opioids treated as an outpatient with buprenorphine/naloxone has a 29% chance of submitting an opioid-free urine sample on the last day of treatment. (CTN-0001)').
+	writenl('Someone dependence on opioids treated as an outpatient with buprenorphine/naloxone has a 29% chance of submitting an opioid-free urine sample on the last day of treatment. (CTN-0001)').
 
 0.05::property(X,urine_sample,opioids,negative,just_after_treatment) :-
 	property(1,location,outpatient),
 	property(X,dependence,opioids),
 	receive(X,clonidine),
 	property(clonidine,duration,n13_days),
-	writenl('Someone dependent on opioids treated as an outpatient with clonidine has a 5% chance of submitting an opioid-free urine sample on the last day of treatment. (CTN-0001)').
+	writenl('Someone dependence on opioids treated as an outpatient with clonidine has a 5% chance of submitting an opioid-free urine sample on the last day of treatment. (CTN-0001)').
 
 0.22::property(X,urine_sample,opioids,negative,just_after_treatment) :-
 	property(X,location,inpatient),
 	property(X,dependence,opioids),
 	receive(X,clonidine),
 	property(clonidine,duration,n13_days),
-	writenl('Someone dependent on opioids treated as an inpatient with clonidine has a 22% chance of submitting an opioid-free urine sample on the last day of treatment. (CTN-0001)').
+	writenl('Someone dependence on opioids treated as an inpatient with clonidine has a 22% chance of submitting an opioid-free urine sample on the last day of treatment. (CTN-0001)').
 
 P::property(X,urine_sample,opioids,negative,n1_month) :-
 	receive(X,buprenorphine),
@@ -107,95 +107,163 @@ P::remain(X, in_therapy, n84_day) :-
     property(X,location,outpatient),
     (receive(X,motivational_interviewing);receive(X,standard_care)),
     property(X,dependence,Y),
-    writenl('Of 423 users, those who recieved motivational interviewing weren ot significantly less likely to submit opioid-free urine samples at 84 days after treatment than those assigned to the standard intervention.(CTN-0005)').
+    writenl('Of 423 users, those who recieved motivational interviewing were not significantly less likely to submit opioid-free urine samples at 84 days after treatment than those assigned to the standard intervention.(CTN-0005)').
 
 P::remain(X,in_treatment,n4_weeks) :-
 	receive(X,counseling),
 	property(X,location,outpatient),
 	(property(X,use,cocaine); property(X,use,methamphetamine)),
 	P is 0.25,
-	writenl('Of 415 methamphetamine or cocaine users assigned who received monetary prizes for abstinence, were 2.5 times more likely than those who received standard care to submit opioid-free urine samples 4 week sinto therapy (CTN-0006).').
+	writenl('Of 415 methamphetamine or cocaine users who received monetary prizes for abstinence, were 2.5 times more likely than those who received standard care to submit opioid-free urine samples 4 week sinto therapy (CTN-0006).').
 
 P::property(X,urine_sample,opioids,negative,n4_weeks) :-
 	receive(X,abstinence_based_incentive),
 	property(X,location,outpatient),
 	(property(X,use,cocaine); property(X,use,methamphetamine)),
 	P is 0.75,
-	writenl('Of 415 methamphetamine or cocaine users assigned who received monetary prizes for abstinence, were 2.5 times more likely than those who received standard care to submit opioid-free urine samples 4 week sinto therapy (CTN-0006).').
+	writenl('Of 415 methamphetamine or cocaine users who received monetary prizes for abstinence, were 2.5 times more likely than those who received standard care to submit opioid-free urine samples 4 week sinto therapy (CTN-0006).').
 
 P::property(X,urine_sample,opioids,negative,n4_weeks):-
 	receive(X,counseling),
 	property(X,location,outpatient),
 	(property(X,use,cocaine); property(X,use,methamphetamine)),
 	P is 0.25,
-	writenl('Of 415 methamphetamine or cocaine users assigned who received monetary prizes for abstinence, were 2.5 times more likely than those who received standard care to submit opioid-free urine samples 4 week sinto therapy (CTN-0006).').
+	writenl('Of 415 methamphetamine or cocaine users who received monetary prizes for abstinence, were 2.5 times more likely than those who received standard care to submit opioid-free urine samples 4 week sinto therapy (CTN-0006).').
 
 P::property(X,urine_sample,opioids,negative,n8_weeks):-
 	receive(X,abstinence_based_incentive),
 	property(X,location,outpatient),
 	(property(X,use,cocaine); property(X,use,methamphetamine)),
 	P is 0.75,
-	writenl('Of 415 methamphetamine or cocaine users assigned who received monetary prizes for abstinence, were 2.5 times more likely than those who received standard care to submit opioid-free urine samples 4 week sinto therapy (CTN-0006).').
+	writenl('Of 415 methamphetamine or cocaine users who received monetary prizes for abstinence, were 2.5 times more likely than those who received standard care to submit opioid-free urine samples 4 week sinto therapy (CTN-0006).').
 
 P::property(X,urine_sample,opioids,negative,n8_weeks):-
 	receive(X,counseling),
 	property(X,location,outpatient),
 	(property(X,use,cocaine); property(X,use,methamphetamine)),
 	P is 0.2,
-	writenl('Of 415 methamphetamine or cocaine users assigned who received monetary prizes for abstinence, were 2.7 times more likely than those who received standard care to submit opioid-free urine samples 4 week sinto therapy (CTN-0006).').
+	writenl('Of 415 methamphetamine or cocaine users who received monetary prizes for abstinence, were 2.7 times more likely than those who received standard care to submit opioid-free urine samples 4 week sinto therapy (CTN-0006).').
 
 P::property(X,urine_sample,opioids,negative,n12_weeks):-
 	receive(X,abstinence_based_incentive),
 	property(X,location,outpatient),
 	(property(X,use,cocaine); property(X,use,methamphetamine)),
 	P is 0.8,
-	writenl('Of 415 methamphetamine or cocaine users assigned who received monetary prizes for abstinence, were 4.5 times more likely than those who received standard care to submit opioid-free urine samples 4 week sinto therapy (CTN-0006).').
+	writenl('Of 415 methamphetamine or cocaine users who received monetary prizes for abstinence, were 4.5 times more likely than those who received standard care to submit opioid-free urine samples 4 week sinto therapy (CTN-0006).').
 
 P::property(X,urine_sample,opioids,negative,n12_weeks):-
 	receive(X,counseling),
-	(use(X,stimulant,_); use(X,alcohol,_)),
+	((property(X,use,Y),stimulant(Y));property(X,use,alcohol)),
 	P is 0.2,
-	writenl('Of 415 methamphetamine or cocaine users assigned who received monetary prizes for abstinence, were 2.7 times more likely than those who received standard care to submit opioid-free urine samples 4 week sinto therapy (CTN-0006).').
+	writenl('Of 415 methamphetamine or cocaine users who received monetary prizes for abstinence, were 2.7 times more likely than those who received standard care to submit opioid-free urine samples 4 week sinto therapy (CTN-0006).').
 
-P::remain(X,in_treatment,n4_weeks) :-
+P::property(X,urine_sample,Y,negative,n12_weeks);P::property(X,urine_sample,alcohol,negative,n12_weeks) :-
+	property(X,location,outpatient),
+	property(X,dependence,opioids),
+	property(X,dependence,Z),
+	stimulant(Z), %the patient may not be dependence on the stimulant tested for
 	receive(X,abstinence_based_incentive),
-	(use(X,stimulant,_); use(X,alcohol,_)),
+	receive(X,methadone),
+	stimulant(Y),
+	P is 0.66,
+	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were twice as likely as those who did not to submit stimulant- and alcohol negative samples at 12 weeks. (CTN-0007)').
+
+P::property(X,urine_sample,Y,negative,n12_weeks);P::property(X,urine_sample,alcohol,negative,n12_weeks) :-
+	property(X,location,outpatient),
+	property(X,dependence,opioids),
+	property(X,dependence,Z),
+	stimulant(Z), %the patient may not be dependence on the stimulant tested for
+	receive(X,counseling),
+	receive(X,methadone),
+	stimulant(Y),
+	P is 0.33,
+	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were twice as likely as those who did not to submit stimulant- and alcohol negative samples at 12 weeks. (CTN-0007)').
+
+
+P::property(X,urine_sample,Y,negative,n12_weeks);P::property(X,urine_sample,alcohol,negative,n12_weeks) :-
+	property(X,location,outpatient),
+	property(X,dependence,opioids),
+	property(X,dependence,Z),
+	stimulant(Z), %the patient may not be dependence on the stimulant tested for
+	receive(X,abstinence_based_incentive),
+	receive(X,methadone),
+	stimulant(Y),
+	P is 0.66,
+	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were twice as likely as those who did not to submit stimulant- and alcohol negative samples at 12 weeks. (CTN-0007)').
+
+P::property(X,urine_sample,Y,negative,n4_weeks);P::property(X,urine_sample,alcohol,negative,n4_weeks);P::property(X,abstinence,A,n4_weeks);P::property(X,abstinence,Y,n4_weeks) :-
+	property(X,location,outpatient),
+	property(X,dependence,opioids),
+	property(X,dependence,Z),
+	stimulant(Z), %the patient may not be dependence on the stimulant tested for
+	receive(X,counseling),
+	receive(X,methadone),
+	stimulant(Y),
+	opioid(A),
+	P is 0.25,
+	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were three times as likely to achieve four weeks of continuous abstinence during treatment. (CTN-0007)').
+
+P::property(X,urine_sample,Y,negative,n4_weeks);P::property(X,urine_sample,alcohol,negative,n4_weeks);P::property(X,abstinence,A,n4_weeks);P::property(X,abstinence,Y,n4_weeks)  :-
+	property(X,location,outpatient),
+	property(X,dependence,opioids),
+	property(X,dependence,Z),
+	stimulant(Z), %the patient may not be dependence on the stimulant tested for
+	receive(X,abstinence_based_incentive),
+	receive(X,methadone),
+	stimulant(Y),
+	opioid(A),
 	P is 0.75,
-	writenl('CTN-0007 Accessed').
+	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were three times as likely to achieve four weeks of continuous abstinence during treatment. (CTN-0007)').
 
-P::remain(X,in_treatment,n8_weeks) :-
+P::property(X,urine_sample,Y,negative,n8_weeks);P::property(X,urine_sample,alcohol,negative,n8_weeks);P::property(X,abstinence,A,n8_weeks);P::property(X,abstinence,Y,n8_weeks)  :-
+	property(X,location,outpatient),
+	property(X,dependence,opioids),
+	property(X,dependence,Z),
+	stimulant(Z), %the patient may not be dependence on the stimulant tested for
 	receive(X,counseling),
-	(use(X,stimulant,_); use(X,alcohol,_)),
-	P is 0.1,
-	writenl('CTN-0007 Accessed').
+	receive(X,methadone),
+	stimulant(Y),
+	opioid(A),
+	P is 0.11,
+	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were nine times as likely to achieve eight weeks of continuous abstinence during treatment. (CTN-0007)').
 
-P::remain(X,in_treatment,n8_weeks) :-
+P::property(X,urine_sample,Y,negative,n8_weeks);P::property(X,urine_sample,alcohol,negative,n8_weeks);P::property(X,abstinence,A,n8_weeks);P::property(X,abstinence,Y,n8_weeks)  :-
+	property(X,location,outpatient),
+	property(X,dependence,opioids),
+	property(X,dependence,Z),
+	stimulant(Z), %the patient may not be dependence on the stimulant tested for
 	receive(X,abstinence_based_incentive),
-	(use(X,stimulant,_); use(X,alcohol,_)),
-	P is 0.9,
-	writenl('CTN-0007 Accessed').
+	receive(X,methadone),
+	stimulant(Y),
+	opioid(A),
+	P is 0.88,
+	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were nine times as likely to achieve eight weeks of continuous abstinence during treatment. (CTN-0007)').
 
-P::remain(X,in_treatment,n12_weeks) :-
+P::property(X,urine_sample,Y,negative,n12_weeks);P::property(X,urine_sample,alcohol,negative,n12_weeks);P::property(X,abstinence,A,n12_weeks);P::property(X,abstinence,Y,n12_weeks)  :-
+	property(X,location,outpatient),
+	property(X,dependence,opioids),
+	property(X,dependence,Z),
+	stimulant(Z),
 	receive(X,counseling),
-	(use(X,stimulant,_); use(X,alcohol,_)),
-	P is 0.1,
-	writenl('CTN-0007 Accessed').
+	receive(X,methadone),
+	stimulant(Y),
+	opioid(A),
+	P is 0.08,
+	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were eleven times as likely to achieve twelve weeks of continuous abstinence during treatment. (CTN-0007)').
 
-P::remain(X,in_treatment,n12_weeks) :-
+
+P::property(X,urine_sample,Y,negative,n12_weeks);P::property(X,urine_sample,alcohol,negative,n12_weeks);P::property(X,abstinence,A,n12_weeks);P::property(X,abstinence,Y,n12_weeks)  :-
+	property(X,location,outpatient),
+	property(X,dependence,opioids),
+	property(X,dependence,Z),
+	stimulant(Z), %the patient may not be dependence on the stimulant tested for
 	receive(X,abstinence_based_incentive),
-	(use(X,stimulant,_); use(X,alcohol,_)),
-	P is 0.9,
-	writenl('CTN-0007 Accessed').
+	receive(X,methadone),
+	stimulant(Y),
+	opioid(A),
+	P is 0.92,
+	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were eleven times as likely to achieve twelve weeks of continuous abstinence during treatment. (CTN-0007)').
 
-P::property(X,urine_sample,stimulant_free,n12_weeks);P::property(X,urine_sample,alcohol_free,n12_weeks) :-
-    receive(X,contingency_management),
-    P is 0.66,
-    writenl('CTN-0007 Accessed').
-
-P::property(X,urine_sample,stimulant_free,n12_weeks);P::property(X,urine_sample,alcohol_free,n12_weeks) :-
-    receive(X,care_as_usual),
-    P is 0.33,
-    writenl('CTN-0007 Accessed').
 % P of 0.80 expresses the term "highly prevalent"
 P::property(X, nicotine) :-
     (property(X, drug); property(X,alcohol)),

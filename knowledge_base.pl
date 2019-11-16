@@ -25,6 +25,14 @@ prescription_opioid(percocet).
 prescription_opioid(fentanyl).
 prescription_opioid(oxycodone).
 
+
+opioid(oxycodone).
+opioid(fentanyl).
+opioid(morphine).
+opioid(heroin).
+opioid(percocet).
+%opioid(methadone).
+
 risky_behavior(drug_use).
 
 illicit_drug(heroin).
@@ -35,7 +43,6 @@ stimulant(amphetamine).
 
 sex(male).
 sex(female).
-
 
 P::property(X,location,inpatient);(1-P)::property(X,location, outpatient) :- 
 	inpatient(X),

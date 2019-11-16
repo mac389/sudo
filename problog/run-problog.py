@@ -17,11 +17,15 @@ person(1).
 property(1,dependence,opioids).
 receive(1,counseling).
 property(1,location,outpatient).
-property(1,use,cocaine).
+property(1,dependence,amphetamine).
+receive(1,methadone).
 
-query(property(1,urine_sample,opioids,_,_)).
-
+%query(property(1,urine_sample,alcohol,negative,_)).
+query(property(1,urine_sample,Y,negative,_)) :- stimulant(Y).
+%query(property(1,urine_sample,Y,negative,_)) :- opioid(Y).
+%query(property(1,stop_use,Y,_)) :- stimulant(Y).
 """)
+
 
 #How to indicate source?
 

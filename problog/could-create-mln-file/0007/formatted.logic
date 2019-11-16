@@ -1,45 +1,120 @@
-P::remain(X,in_treatment,n4_weeks) :-
+
+P::property(X,urine_sample,Y,negative,n12_weeks),P::property(X,urine_sample,alcohol,negative,n12_weeks) :-
+	property(X,location,outpatient),
+	property(X,dependence,opioids),
+	property(X,dependent,Z),
+	stimulant(Z), %the patient may not be dependent on the stimulant tested for
+	receive(X,abstinence_based_incentive),
+	receive(X,methadone),
+	stimulant(Y),
+	P is 0.66,
+	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were twice as likely as those who did not to submit stimulant- and alcohol negative samples at 12 weeks. (CTN-0007)').
+
+P::property(X,urine_sample,Y,negative,n12_weeks),P::property(X,urine_sample,alcohol,negative,n12_weeks) :-
+	property(X,location,outpatient),
+	property(X,dependence,opioids),
+	property(X,dependent,Z),
+	stimulant(Z), %the patient may not be dependent on the stimulant tested for
 	receive(X,counseling),
-	(use(X,stimulant); use(X,alcohol)),
+	receive(X,methadone),
+	stimulant(Y),
+	P is 0.33,
+	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were twice as likely as those who did not to submit stimulant- and alcohol negative samples at 12 weeks. (CTN-0007)').
+
+
+P::property(X,urine_sample,Y,negative,n12_weeks),P::property(X,urine_sample,alcohol,negative,n12_weeks) :-
+	property(X,location,outpatient),
+	property(X,dependence,opioids),
+	property(X,dependent,Z),
+	stimulant(Z), %the patient may not be dependent on the stimulant tested for
+	receive(X,abstinence_based_incentive),
+	receive(X,methadone),
+	stimulant(Y),
+	P is 0.66,
+	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were twice as likely as those who did not to submit stimulant- and alcohol negative samples at 12 weeks. (CTN-0007)').
+
+P::property(X,urine_sample,Y,negative,n4_weeks),P::property(X,urine_sample,alcohol,negative,n4_weeks) :-
+	property(X,location,outpatient),
+	property(X,dependence,opioids),
+	property(X,dependent,Z),
+	stimulant(Z), %the patient may not be dependent on the stimulant tested for
+	receive(X,counseling),
+	receive(X,methadone),
+	property(X,not_use,O), %does not account for duration of abstinence
+	property(X,not_use,Z),
+	stimulant(Y),
+	opioid(O),
 	P is 0.25,
-	write('CTN-0007 Accessed\n').
+	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were three times as likely to achieve four weeks of continuous abstinence during treatment. (CTN-0007)').
 
-P::remain(X,in_treatment,n4_weeks) :-
+
+P::property(X,urine_sample,Y,negative,n4_weeks),P::property(X,urine_sample,alcohol,negative,n4_weeks) :-
+	property(X,location,outpatient),
+	property(X,dependence,opioids),
+	property(X,dependent,Z),
+	stimulant(Z), %the patient may not be dependent on the stimulant tested for
 	receive(X,abstinence_based_incentive),
-	(use(X,stimulant); use(X,alcohol)),
+	receive(X,methadone),
+	property(X,not_use,O), %does not account for duration of abstinence
+	property(X,not_use,Z),
+	stimulant(Y),
+	opioid(O),
 	P is 0.75,
-	write('CTN-0007 Accessed\n').
+	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were three times as likely to achieve four weeks of continuous abstinence during treatment. (CTN-0007)').
 
-P::remain(X,in_treatment,n8_weeks) :-
+P::property(X,urine_sample,Y,negative,n4_weeks),P::property(X,urine_sample,alcohol,negative,n4_weeks) :-
+	property(X,location,outpatient),
+	property(X,dependence,opioids),
+	property(X,dependent,Z),
+	stimulant(Z), %the patient may not be dependent on the stimulant tested for
 	receive(X,counseling),
-	(use(X,stimulant); use(X,alcohol)),
-	P is 0.1,
-	write('CTN-0007 Accessed\n').
+	receive(X,methadone),
+	property(X,not_use,O), %does not account for duration of abstinence
+	property(X,not_use,Z),
+	stimulant(Y),
+	opioid(O),
+	P is 0.11,
+	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were nince times as likely to achieve eight weeks of continuous abstinence during treatment. (CTN-0007)').
 
-P::remain(X,in_treatment,n8_weeks) :-
+P::property(X,urine_sample,Y,negative,n4_weeks),P::property(X,urine_sample,alcohol,negative,n4_weeks) :-
+	property(X,location,outpatient),
+	property(X,dependence,opioids),
+	property(X,dependent,Z),
+	stimulant(Z), %the patient may not be dependent on the stimulant tested for
 	receive(X,abstinence_based_incentive),
-	(use(X,stimulant); use(X,alcohol)),
-	P is 0.9,
-	write('CTN-0007 Accessed\n').
+	receive(X,methadone),
+	property(X,not_use,O), %does not account for duration of abstinence
+	property(X,not_use,Z),
+	stimulant(Y),
+	opioid(O),
+	P is 0.88,
+	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were nine times as likely to achieve eight weeks of continuous abstinence during treatment. (CTN-0007)').
 
-P::remain(X,in_treatment,n12_weeks) :-
+P::property(X,urine_sample,Y,negative,n4_weeks),P::property(X,urine_sample,alcohol,negative,n4_weeks) :-
+	property(X,location,outpatient),
+	property(X,dependence,opioids),
+	property(X,dependent,Z),
+	stimulant(Z), %the patient may not be dependent on the stimulant tested for
 	receive(X,counseling),
-	(use(X,stimulant); use(X,alcohol)),
-	P is 0.1,
-	write('CTN-0007 Accessed\n').
+	receive(X,methadone),
+	property(X,not_use,O), %does not account for duration of abstinence
+	property(X,not_use,Z),
+	stimulant(Y),
+	opioid(O),
+	P is 0.08,
+	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were eleven times as likely to achieve eight weeks of continuous abstinence during treatment. (CTN-0007)').
 
-P::remain(X,in_treatment,n12_weeks) :-
+
+P::property(X,urine_sample,Y,negative,n4_weeks),P::property(X,urine_sample,alcohol,negative,n4_weeks) :-
+	property(X,location,outpatient),
+	property(X,dependence,opioids),
+	property(X,dependent,Z),
+	stimulant(Z), %the patient may not be dependent on the stimulant tested for
 	receive(X,abstinence_based_incentive),
-	(use(X,stimulant); use(X,alcohol)),
-	P is 0.9,
-	write('CTN-0007 Accessed\n').
-
-P::sample(X,urine,stimulant_free,n12_weeks);P::sample(X,urine,alcohol_free,n12_weeks) :-
-    receive(X,contingency_management),
-    P is 0.66,
-    write('CTN-0007 Accessed\n').
-
-P::sample(X,urine,stimulant_free,n12_weeks);P::sample(X,urine,alcohol_free,n12_weeks) :-
-    receive(X,care_as_usual),
-    P is 0.33,
-    write('CTN-0007 Accessed\n').
+	receive(X,methadone),
+	property(X,not_use,O), %does not account for duration of abstinence
+	property(X,not_use,Z),
+	stimulant(Y),
+	opioid(O),
+	P is 0.92,
+	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were eleven times as likely to achieve eight weeks of continuous abstinence during treatment. (CTN-0007)').
