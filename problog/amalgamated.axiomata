@@ -128,7 +128,7 @@ P::property(X,urine_sample,opioids,negative,n4_weeks):-
 	property(X,location,outpatient),
 	(property(X,use,cocaine); property(X,use,methamphetamine)),
 	P is 0.25,
-	writenl('Of 415 methamphetamine or cocaine users who received monetary prizes for abstinence, were 2.5 times more likely than those who received standard care to submit opioid-free urine samples 4 week sinto therapy (CTN-0006).').
+	writenl('Of 415 methamphetamine or cocaine users who received monetary prizes for abstinence, were 2.5 times more likely than those who received standard care to submit opioid-free urine samples 4 weeks into therapy (CTN-0006).').
 
 P::property(X,urine_sample,opioids,negative,n8_weeks):-
 	receive(X,abstinence_based_incentive),
@@ -149,24 +149,13 @@ P::property(X,urine_sample,opioids,negative,n12_weeks):-
 	property(X,location,outpatient),
 	(property(X,use,cocaine); property(X,use,methamphetamine)),
 	P is 0.8,
-	writenl('Of 415 methamphetamine or cocaine users who received monetary prizes for abstinence, were 4.5 times more likely than those who received standard care to submit opioid-free urine samples 4 week sinto therapy (CTN-0006).').
+	writenl('Of 415 methamphetamine or cocaine users who received monetary prizes for abstinence, were 4.5 times more likely than those who received standard care to submit opioid-free urine samples 4 weeks into therapy (CTN-0006).').
 
 P::property(X,urine_sample,opioids,negative,n12_weeks):-
 	receive(X,counseling),
 	((property(X,use,Y),stimulant(Y));property(X,use,alcohol)),
 	P is 0.2,
-	writenl('Of 415 methamphetamine or cocaine users who received monetary prizes for abstinence, were 2.7 times more likely than those who received standard care to submit opioid-free urine samples 4 week sinto therapy (CTN-0006).').
-
-P::property(X,urine_sample,Y,negative,n12_weeks);P::property(X,urine_sample,alcohol,negative,n12_weeks) :-
-	property(X,location,outpatient),
-	property(X,dependence,opioids),
-	property(X,dependence,Z),
-	stimulant(Z), %the patient may not be dependence on the stimulant tested for
-	receive(X,abstinence_based_incentive),
-	receive(X,methadone),
-	stimulant(Y),
-	P is 0.66,
-	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were twice as likely as those who did not to submit stimulant- and alcohol negative samples at 12 weeks. (CTN-0007)').
+	writenl('Of 415 methamphetamine or cocaine users who received monetary prizes for abstinence, were 2.7 times more likely than those who received standard care to submit opioid-free urine samples 4 weeks into therapy (CTN-0006).').
 
 P::property(X,urine_sample,Y,negative,n12_weeks);P::property(X,urine_sample,alcohol,negative,n12_weeks) :-
 	property(X,location,outpatient),
@@ -178,7 +167,6 @@ P::property(X,urine_sample,Y,negative,n12_weeks);P::property(X,urine_sample,alco
 	stimulant(Y),
 	P is 0.33,
 	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were twice as likely as those who did not to submit stimulant- and alcohol negative samples at 12 weeks. (CTN-0007)').
-
 
 P::property(X,urine_sample,Y,negative,n12_weeks);P::property(X,urine_sample,alcohol,negative,n12_weeks) :-
 	property(X,location,outpatient),
@@ -239,7 +227,7 @@ P::property(X,urine_sample,Y,negative,n8_weeks);P::property(X,urine_sample,alcoh
 	P is 0.88,
 	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were nine times as likely to achieve eight weeks of continuous abstinence during treatment. (CTN-0007)').
 
-P::property(X,urine_sample,Y,negative,n12_weeks);P::property(X,urine_sample,alcohol,negative,n12_weeks);P::property(X,abstinence,A,n12_weeks);P::property(X,abstinence,Y,n12_weeks)  :-
+P::property(X,abstinence,A,n12_weeks);P::property(X,abstinence,Y,n12_weeks)  :-
 	property(X,location,outpatient),
 	property(X,dependence,opioids),
 	property(X,dependence,Z),
@@ -252,7 +240,7 @@ P::property(X,urine_sample,Y,negative,n12_weeks);P::property(X,urine_sample,alco
 	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were eleven times as likely to achieve twelve weeks of continuous abstinence during treatment. (CTN-0007)').
 
 
-P::property(X,urine_sample,Y,negative,n12_weeks);P::property(X,urine_sample,alcohol,negative,n12_weeks);P::property(X,abstinence,A,n12_weeks);P::property(X,abstinence,Y,n12_weeks)  :-
+P::property(X,abstinence,A,n12_weeks);P::property(X,abstinence,Y,n12_weeks)  :-
 	property(X,location,outpatient),
 	property(X,dependence,opioids),
 	property(X,dependence,Z),

@@ -20,10 +20,7 @@ property(1,location,outpatient).
 property(1,dependence,amphetamine).
 receive(1,methadone).
 
-%query(property(1,urine_sample,alcohol,negative,_)).
-query(property(1,urine_sample,Y,negative,_)) :- stimulant(Y).
-%query(property(1,urine_sample,Y,negative,_)) :- opioid(Y).
-%query(property(1,stop_use,Y,_)) :- stimulant(Y).
+query(property(1,abstinence,A,_)) :- opioid(A).
 """)
 
 
