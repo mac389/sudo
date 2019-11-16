@@ -62,6 +62,10 @@ P::outpatient(X);(1-P)::inpatient(X) :-
 
 property(X,use,Y) :- property(X,dependence,Y).
 
+property(X,dependence,opioids) :-
+	property(X,dependence,Y),
+	opioid(Y).
+
 taper(_,_,_).
 
 adolescent(_).
@@ -87,6 +91,19 @@ receive(X,buprenorphine) :-
 sample(X,Y,positive,Z) :- \+sample(X,Y,negative,Z).
 
 0.1::pregnant(X) :- gender(X,female).
+
+
+/* From CTN-0009. 
+   Representation of: Nicotine dependence is highly prevalent 
+   among drug- and alcohol-dependent patients. 
+
+   I use 80% to operationalize "highly prevalent"
+*/
+
+P::property(X,use,nicotine) :- 
+   property(X,use,Z),
+   substance(Z), %I have defined alcohol as a substance
+   P is 0.8.
 
 inpatient :- \+outpatient.
 

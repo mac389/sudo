@@ -14,13 +14,13 @@ p = PrologString(kb + '\n'+ axioms + """\n
 :- use_module(library(lists)).
 
 person(1).
-property(1,dependence,opioids).
+property(1,dependence,fentanyl).
+property(1,use,nicotine).
 receive(1,counseling).
 property(1,location,outpatient).
-property(1,dependence,amphetamine).
-receive(1,methadone).
+receive(1,nicotine).
 
-query(property(1,abstinence,A,_)) :- opioid(A).
+query(property(1,use,_,_)).
 """)
 
 

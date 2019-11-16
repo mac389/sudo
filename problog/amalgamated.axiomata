@@ -239,7 +239,6 @@ P::property(X,abstinence,A,n12_weeks);P::property(X,abstinence,Y,n12_weeks)  :-
 	P is 0.08,
 	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were eleven times as likely to achieve twelve weeks of continuous abstinence during treatment. (CTN-0007)').
 
-
 P::property(X,abstinence,A,n12_weeks);P::property(X,abstinence,Y,n12_weeks)  :-
 	property(X,location,outpatient),
 	property(X,dependence,opioids),
@@ -252,22 +251,14 @@ P::property(X,abstinence,A,n12_weeks);P::property(X,abstinence,Y,n12_weeks)  :-
 	P is 0.92,
 	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were eleven times as likely to achieve twelve weeks of continuous abstinence during treatment. (CTN-0007)').
 
-% P of 0.80 expresses the term "highly prevalent"
-P::property(X, nicotine) :-
-    (property(X, drug); property(X,alcohol)),
-    P is 0.80,
-    writenl('CTN-0009 Accessed').
-
-(1-P)::use(X,nicotine, during_treamtent);(1-0.5*P)::use(X,nicotine,n13_weeks);(1-0.5*P)::use(X,nicotine,n26_weeks) :-
+P::property(X,use,nicotine,just_after_treatment);0.5*P::property(X,use,nicotine,n13_weeks);0.5*P::property(X,use,nicotine,n26_weeks) :-
     receive(X, nicotine),
-    P is 0.10,
-    writenl('CTN-0009 Accessed').
-
-% Did not say what care as usual P was, only that it was lower
-(1-P)::use(X, nicotine, during_treamtent);(1-0.5*P)::use(X,nicotine,n13_weeks);(1-0.5*P)::use(X,nicotine,n26_weeks) :-
-    receive(X, care_as_usual),
-    P is 0.05,
-    writenl('CTN-0009 Accessed').
+    property(X, use, nicotine),
+    property(X,location,outpatient),
+    property(X,dependence,Y),
+    (Y = alcohol; opioid(Y)),
+    P is 0.1,
+    writenl('Of 225 cigarette smokers with either opioid or alcohol use disorders, those who receieved nicotine replacement therapy showed an initial rate of nicotine abstinence of 10%, that dropped to 5% at 13- and 26-week follow-up (CTN-0009).').
 
 receive(X,detoxification_and_counseling) :-
 	youth(X),
