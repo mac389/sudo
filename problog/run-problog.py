@@ -14,11 +14,9 @@ p = PrologString(kb + '\n'+ axioms + """\n
 :- use_module(library(lists)).
 
 person(1).
-inpatient(1).
-dependent(1,opioids).
-receive(1,buprenorphine_naloxone).
-query(detoxification(1,opioids,success)).
-query(property(X,location,_)).
+property(1,dependent,opioids).
+receive(1,n28_days_buprenorphine_taper).
+query(property(1,urine_sample,opioids,_,_)).
 """)
 
 #How to indicate source?

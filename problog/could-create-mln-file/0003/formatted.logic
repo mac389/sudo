@@ -1,33 +1,47 @@
-P::sample(X,urine,opioids,negative,initial);(1-P)::sample(X,urine,opioids,positive,initial) :-
-    P is 0.5,
-    write('CTN-0003 Accessed\n').
-
-P::sample(X,urine,opioids,negative,n1_month);(1-P)::sample(X,urine,opioids,positive,n1_month) :-
-	taper(X,buprenorphine,n28_days),
+P::property(X,urine_sample,opioids,negative,n1_month) :-
+	receive(X,buprenorphine),
+	property(buprenorphine,duration,n28_days),
+	property(buprenorphine,dosing,taper),
 	P is 0.18,
-	write('CTN-0003 Accessed\n').
+	property(X,dependent,opioids),
+	writenl('At one month follow-up after one-month stabilization and 28-day burpenorphine taper, 18% provided opioid-free urine samples. (CTN-0003)').
 
-P::sample(X,urine,opioids,negative,n3_month);(1-P)::sample(X,urine,opioids,positive,n3_month) :-
-	taper(X,buprenorphine,n28_days),
+P::property(X,urine_sample,opioids,negative,n3_month) :-
+	receive(X,buprenorphine),
+	property(buprenorphine,duration,n28_days),
+	property(buprenorphine,dosing,taper),
+	property(X,dependent,opioids),
 	P is 0.18,
-	write('CTN-0003 Accessed\n').
+	writenl('At three month follow-up after one-month stabilization and 28-day burpenorphine taper, 18% provided opioid-free urine samples. (CTN-0003)').
 
-P::sample(X,urine,opioids,negative,n1_month);(1-P)::sample(X,urine,opioids,positive,n1_month) :-
-	taper(X,buprenorphine,n7_days),
+P::property(X,urine_sample,opioids,negative,n1_month) :-
+	receive(X,buprenorphine),
+	property(buprenorphine,duration,n7_days),
+	property(buprenorphine,dosing,taper),
+	property(X,dependent,opioids),
 	P is 0.12,
-	write('CTN-0003 Accessed\n').
+	writenl('At one month follow-up after one-month stabilization and 7-day burpenorphine taper, 12% provided opioid-free urine samples. (CTN-0003)').
 
-P::sample(X,urine,opioids,positive,n3_month);(1-P)::sample(X,urine,opioids,negative,n3_month) :-
-	taper(X,buprenorphine,n7_days),
+P::property(X,urine_sample,opioids,positive,n3_month) :-
+	receive(X,buprenorphine),
+	property(buprenorphine,duration,n7_days),
+	property(buprenorphine,dosing,taper),
+	property(X,dependent,opioids),
 	P is 0.13,
-	write('CTN-0003 Accessed\n').
+	writenl('At three month follow-up after one-month stabilization and 7-day burpenorphine taper, 13% provided opioid-free urine samples. (CTN-000').
 
-P::sample(X,urine, opioids, negative,initial);(1-P)::sample(X,urine,opioids,positive,initial) :-
-	taper(X,buprenorphine,n28_days),
+P::property(X,urine_sample, opioids,negative,just_after_treatment) :-
+	receive(X,buprenorphine),
+	property(buprenorphine,duration,n28_days),
+	property(buprenorphine,dosing,taper),
+	property(X,dependent,opioids),
 	P is 0.30,
-	write('CTN-0003 Accessed\n').
+	writenl('After one-month stabilization, and 28-day buprenorphine taper, 30% (n=255) provided opioid-free urine speciments (CTN-0003)').
 
-P::sample(X,urine,opioids, negative,initial);(1-P)::sample(X,urine,opioids, positive,initial) :-
-	taper(X,buprenorphine,n7_days),
+P::property(X,urine_sample,opioids,negative,just_after_treatment) :-
+	receive(X,buprenorphine),
+	property(buprenorphine,duration,n7_days),
+	property(buprenorphine,dosing,taper),
+	property(X,dependent,opioids),
 	P is 0.44,
-	write('CTN-0003 Accessed\n').
+	writenl('After one-month stabilization, and 7-day buprenorphine taper, 44% (n=261) provided opioid-free urine speciments (CTN-0003)').

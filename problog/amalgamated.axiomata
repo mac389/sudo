@@ -1,99 +1,106 @@
-0.77::detoxification(X,opioids,success) :-
-   %inpatient(X),
+0.77::property(X,urine_sample,opioids,negative,just_after_treatment) :-
    property(X,location,inpatient),
-   dependent(X,opioids),
+   property(X,dependence,opioids),
    receive(X,buprenorphine_naloxone),
-   writenl('Someone dependent on opioids treated as an inpatient with buprenorphine/naloxone has a 77% chance of successful detoxification. (CTN-001)').
+   property(buprenorphine_naloxone,duration,n13_days),
+   writenl('Someone dependent on opioids treated as an inpatient with buprenorphine/naloxone has a 77% chance of submitting an opioid-free urine sample on the last day of treatment. (CTN-001)').
 
-0.29::detoxification(X,opioids,success) :-
-	outpatient(X),
+0.29::property(X,urine_sample,opioids,negative,just_after_treatment) :-
 	property(1,location,outpatient),
-	dependent(X,opioids),
+	property(X,dependence,opioids),
 	receive(X,buprenorphine_naloxone),
-	writenl('Someone dependent on opioids treated as an outpatient with buprenorphine/naloxone has a 29% chance of successful detoxification. (CTN-0001)').
+	property(buprenophine_naloxone,duration,n13_days),
+	writenl('Someone dependent on opioids treated as an outpatient with buprenorphine/naloxone has a 29% chance of submitting an opioid-free urine sample on the last day of treatment. (CTN-0001)').
 
-0.05::detoxification(X,opioids,success) :-
-	%outpatient(X),
+0.05::property(X,urine_sample,opioids,negative,just_after_treatment) :-
 	property(1,location,outpatient),
-	dependent(X,opioids),
+	property(X,dependence,opioids),
 	receive(X,clonidine),
-	writenl('Someone dependent on opioids treated as an outpatient with clonidine has a 5% chance of successful detoxification. (CTN-0001)').
+	property(clonidine,duration,n13_days),
+	writenl('Someone dependent on opioids treated as an outpatient with clonidine has a 5% chance of submitting an opioid-free urine sample on the last day of treatment. (CTN-0001)').
 
-0.22::detoxification(X,opioids,success) :-
-	%inpatient(X),
+0.22::property(X,urine_sample,opioids,negative,just_after_treatment) :-
 	property(X,location,inpatient),
-	dependent(X,opioids),
+	property(X,dependence,opioids),
 	receive(X,clonidine),
-	writenl('Someone dependent on opioids treated as an inpatient with clonidine has a 22% chance of successful detoxification. (CTN-0001)').
+	property(clonidine,duration,n13_days),
+	writenl('Someone dependent on opioids treated as an inpatient with clonidine has a 22% chance of submitting an opioid-free urine sample on the last day of treatment. (CTN-0001)').
 
-P::sample(X,urine,opioids,positive,initial):-
-    P is 0.5,
-    dependent(X,opioids),
-    writenl('CTN-0003 Accessed').
-
-P::sample(X,urine,opioids,negative,n1_month) :-
-	(X,buprenorphine,n28_days),
+P::property(X,urine_sample,opioids,negative,n1_month) :-
+	receive(X,buprenorphine),
+	property(buprenorphine,duration,n28_days),
+	property(buprenorphine,dosing,taper),
 	P is 0.18,
-	dependent(X,opioids),
-	writenl('CTN-0003 Accessed').
+	property(X,dependent,opioids),
+	writenl('At one month follow-up after one-month stabilization and 28-day burpenorphine taper, 18% provided opioid-free urine samples. (CTN-0003)').
 
-P::sample(X,urine,opioids,negative,n3_month) :-
-	taper(X,buprenorphine,n28_days),
-	dependent(X,opioids),
+P::property(X,urine_sample,opioids,negative,n3_month) :-
+	receive(X,buprenorphine),
+	property(buprenorphine,duration,n28_days),
+	property(buprenorphine,dosing,taper),
+	property(X,dependent,opioids),
 	P is 0.18,
-	writenl('CTN-0003 Accessed').
+	writenl('At three month follow-up after one-month stabilization and 28-day burpenorphine taper, 18% provided opioid-free urine samples. (CTN-0003)').
 
-P::sample(X,urine,opioids,negative,n1_month) :-
-	taper(X,buprenorphine,n7_days),
-	dependent(X,opioids),
+P::property(X,urine_sample,opioids,negative,n1_month) :-
+	receive(X,buprenorphine),
+	property(buprenorphine,duration,n7_days),
+	property(buprenorphine,dosing,taper),
+	property(X,dependent,opioids),
 	P is 0.12,
-	writenl('CTN-0003 Accessed').
+	writenl('At one month follow-up after one-month stabilization and 7-day burpenorphine taper, 12% provided opioid-free urine samples. (CTN-0003)').
 
-P::sample(X,urine,opioids,positive,n3_month) :-
-	taper(X,buprenorphine,n7_days),
-	dependent(X,opioids),
+P::property(X,urine_sample,opioids,positive,n3_month) :-
+	receive(X,buprenorphine),
+	property(buprenorphine,duration,n28_days),
+	property(buprenorphine,dosing,taper),
+	property(X,dependent,opioids),
 	P is 0.13,
-	writenl('CTN-0003 Accessed').
+	writenl('At three month follow-up after one-month stabilization and 7-day burpenorphine taper, 13% provided opioid-free urine samples. (CTN-000').
 
-P::sample(X,urine, opioids,negative,initial) :-
-	taper(X,buprenorphine,n28_days),
-	dependent(X,opioids),
+P::property(X,urine_sample, opioids,negative,just_after_treatment) :-
+	receive(X,buprenorphine),
+	property(buprenorphine,duration,n28_days),
+	property(buprenorphine,dosing,taper),
+	property(X,dependent,opioids),
 	P is 0.30,
-	writenl('CTN-0003 Accessed').
+	writenl('After one-month stabilization, and 28-day buprenorphine taper, 30% (n=255) provided opioid-free urine speciments (CTN-0003)').
 
-P::sample(X,urine,opioids,negative,initial) :-
-	taper(X,buprenorphine,n7_days),
-	dependent(X,opioids),
+P::property(X,urine_sample,opioids,negative,just_after_treatment) :-
+	receive(X,buprenorphine),
+	property(buprenorphine,duration,n7_days),
+	property(buprenorphine,dosing,taper),
+	property(X,dependent,opioids),
 	P is 0.44,
-	writenl('CTN-0003 Accessed').
+	writenl('After one-month stabilization, and 7-day buprenorphine taper, 44% (n=261) provided opioid-free urine speciments (CTN-0003)').
 
 P::remain(X,in_therapy,n4_weeks);P::remain(X,in_therapy,n12_weeks) :-
     (receive(X,care_as_usual);receive(X,motivational_enhancement)),
-    dependent(X,opioids),
+    property(X,dependent,opioids),
     P is 0.5, %What was the acutal enrolment rate?
     writenl('CTN-0004 Accessed').
     
-P::sample(X,urine,Y,positive) :-
+P::property(X,urine_sample,Y,positive) :-
     (receive(X,care_as_usual);receive(X,motivational_enhancement)),
-    dependent(X,Y),
+    property(X,Y),
     P is 0.5,
     writenl('CTN-0004 Accessed').
 
 2*P::remain(X, in_therapy, n28_day):-
     receive(X,motivational_interviewing),
-    dependent(X,_),
+    property(X,_),
     P is 0.33,
     writenl('CTN-0005 Accessed').
 
-P:sample(X,urine,Y,positive,n28_day) :-
+P:property(X,urine_sample,Y,positive,n28_day) :-
     receive(X,motiavtional_interviewing),
-    dependent(X,Y),
+    property(X,Y),
     P is 0.5,
     writenl('CTN-0005 Accessed').
 
 P::remain(X, in_therapy, n84_day) :-
     P is 0.5,
-    dependent(X,Y),
+    property(X,Y),
     writenl('CTN-0005 Accessed').
 
 efficacious_for(X,drug_abstinence) :-
@@ -174,18 +181,18 @@ P::remain(X,in_treatment,n12_weeks) :-
 	P is 0.9,
 	writenl('CTN-0007 Accessed').
 
-P::sample(X,urine,stimulant_free,n12_weeks);P::sample(X,urine,alcohol_free,n12_weeks) :-
+P::property(X,urine_sample,stimulant_free,n12_weeks);P::property(X,urine_sample,alcohol_free,n12_weeks) :-
     receive(X,contingency_management),
     P is 0.66,
     writenl('CTN-0007 Accessed').
 
-P::sample(X,urine,stimulant_free,n12_weeks);P::sample(X,urine,alcohol_free,n12_weeks) :-
+P::property(X,urine_sample,stimulant_free,n12_weeks);P::property(X,urine_sample,alcohol_free,n12_weeks) :-
     receive(X,care_as_usual),
     P is 0.33,
     writenl('CTN-0007 Accessed').
 % P of 0.80 expresses the term "highly prevalent"
-P::dependent(X, nicotine) :-
-    (dependent(X, drug); dependent(X,alcohol)),
+P::property(X, nicotine) :-
+    (property(X, drug); property(X,alcohol)),
     P is 0.80,
     writenl('CTN-0009 Accessed').
 
@@ -202,35 +209,35 @@ P::dependent(X, nicotine) :-
 
 receive(X,detoxification_and_counseling) :-
 	youth(X),
-	dependent(X,opioid),
+	property(X,opioid),
 	writenl('CTN-0010 Accessed').
 
-P::sample(X,urine,opioids,positive,n4_weeks);P::receive(X,buprenorphine_naloxone);P::receive(X,detox) :-
-	dependent(X,opioid),
+P::property(X,urine_sample,opioids,positive,n4_weeks);P::receive(X,buprenorphine_naloxone);P::receive(X,detox) :-
+	property(X,opioid),
 	youth(X),
 	P is 0.5,
 	writenl('CTN-0010 Accessed').
 
-P::sample(X,urine,opioids, positive,n8_weeks);P::receive(X,buprenorphine_naloxone) :-
-	dependent(X,opioid),
+P::property(X,urine_sample,opioids, positive,n8_weeks);P::receive(X,buprenorphine_naloxone) :-
+	property(X,opioid),
 	youth(X),
 	P is 0.5,
 	writenl('CTN-0010 Accessed').
 
-P::sample(X,urine,opioids,positive,n8_weeks);P::receive(X,buprenorphine_naloxone) :-
-	dependent(X,opioid),
+P::property(X,urine_sample,opioids,positive,n8_weeks);P::receive(X,buprenorphine_naloxone) :-
+	property(X,opioid),
 	youth(X),
 	P is 0.5,
 	writenl('CTN-0010 Accessed').
 
-P::sample(X,urine,opipoids,positive,n12_weeks);P::receive(X,buprenorphine_naloxone);P::receive(X,detox) :-
-	dependent(X,opioid),	
+P::property(X,urine_sample,opipoids,positive,n12_weeks);P::receive(X,buprenorphine_naloxone);P::receive(X,detox) :-
+	property(X,opioid),	
 	youth(X),
 	P is 0.5,
 	writenl('CTN-0010 Accessed').
 
 (3*P)::remain(X,in_treatment,n12_weeks);(3*P)::receive(X,buprnorphine_naloxone);P::remain(X,in_treatment,n12_weeks);P::receive(X,detox):-
-	dependent(X,opioid),
+	property(X,opioid),
 	youth(X),
 	P is 0.25,
 	writenl('CTN-0010 Accessed').
@@ -250,7 +257,7 @@ P::remain(X,in_treatment(X),n1_month) :-
 (1.5*P)::decrease(X,substance_use);P::use(X,Y,_) :-
 	adolescent(X),
 	substance(Y),
-	dependent(X,Y),
+	property(X,Y),
 	(receive(X,treatment_as_usual);receive(X,behavioral_strategic_family_therapy)),
 	P is 1,
 	writenl("Accessed CTN-0014").
@@ -399,7 +406,7 @@ P::reduce(X,nicotine,_) :-
 	writenl('Accessed CTN-0029').
 
 (1-P)::use(X,prescription_opioids,_) :-
-	dependent(X,prescription_opioids),
+	property(X,prescription_opioids),
 	complete(X,naloxone_stabilization),
 	receive(X,counseling),
 	\+complete(X,taper),
@@ -408,7 +415,7 @@ P::reduce(X,nicotine,_) :-
 	writenl('Accessed CTN-0030').
 
 (1-P)::use(X,prescription_opioids,_) :-
-	dependent(X,prescription_opioids),
+	property(X,prescription_opioids),
 	complete(X,naloxone_stabilization),
 	receive(X,counseling),
 	complete(X,taper),
@@ -417,7 +424,7 @@ P::reduce(X,nicotine,_) :-
 	writenl('Accessed CTN-0030').
 
 (1-P)::use(X,prescription_opioids,_) :-
-	dependent(X,prescription_opioids),
+	property(X,prescription_opioids),
 	complete(X,naloxone_stabilization),
 	receive(X,counseling),
 	complete(X,taper),
@@ -482,36 +489,36 @@ P::decrease(X,substance_use,final) :-
 	P is 0.5,
 	writenl('Accessed CTN-0044').
 
-P::sample(X,_,stimulants,negative,week) :-
-	dependent(X,cocaine),
-	dependent(x,methamphetime),
+P::property(X,_,stimulants,negative,week) :-
+	property(X,cocaine),
+	property(x,methamphetime),
 	interested_in(X,quitting_smoking),
 	receive(X,treatment_as_usual),
 	receive(X,bupropion),
 	P is 0.77,
 	writenl('Accessed CTN-0046').
 
-P::sample(X,_,stimulants,negative,week) :-
-	dependent(X,cocaine),
-	dependent(x,methamphetime),
+P::property(X,_,stimulants,negative,week) :-
+	property(X,cocaine),
+	property(x,methamphetime),
 	interested_in(X,quitting_smoking),
 	receive(X,treatment_as_usual),
 	P is 0.78,
 	writenl('Accessed CTN-0046').
 
-P::sample(X,hair,_,negative,_) :-
+P::property(X,hair,_,negative,_) :-
 	moderate_to_severe_problems_related_to_drug_use(X),
 	receive(X,minimal_screening),
 	P is 0.5,
 	writenl('Accessed CTN-0047').
 
-P::sample(X,hair,_,negative,_) :-
+P::property(X,hair,_,negative,_) :-
 	moderate_to_severe_problems_related_to_drug_use(X),
 	(receive(X,minimal_screening),receive(X,telephone_boosters)),
 	P is 0.5,
 	writenl('Accessed CTN-0047').
 
-P::sample(X,hair,_,negative,_) :-
+P::property(X,hair,_,negative,_) :-
 	moderate_to_severe_problems_related_to_drug_use(X),
 	(receive(X,screening_assessment),receive(X,referral_to_treatment)),
 	P is 0.5,
@@ -537,21 +544,21 @@ P::experience(X,hiv_suppression) :-
     P is 0.5,
     writenl('Accessed CTN-0049').
 
-P::sample(X,_,cocaine,negative,_) :-
-	dependent(X,cocaine),
+P::property(X,_,cocaine,negative,_) :-
+	property(X,cocaine),
 	inpatient(X),
 	(receive(X,buspirone);receive(X,placebo)),
 	P is 0.5,
 	writenl('Accessed CTN-0052').
 
-P::sample(X,urine,cannabinoids,negative,_) :-
+P::property(X,urine_sample,cannabinoids,negative,_) :-
 	diagnosed_with(X,cannabis_use_disorder),
 	receive(X,contingency_management),
 	receive(X,medical_management),
 	P is 0.25,
 	writenl('Accessed CTN-0053').
 
-P::sample(X,urine,cannabinoids,negative,_) :-
+P::property(X,urine_sample,cannabinoids,negative,_) :-
 	diagnosed_with(X,cannabis_use_disorder),
 	receive(X,contingency_management),
 	receive(X,n_acetylcysteine),
@@ -559,7 +566,7 @@ P::sample(X,urine,cannabinoids,negative,_) :-
 	P is 0.25,
 	writenl('Accessed CTN-0053').
 
-P::sample(X,urine,_,negative,_) :-
+P::property(X,urine_sample,_,negative,_) :-
 	diagnosed_with(X,methamphetamine_use_disorder),
 	receive(X,injectable_naltrexone),
 	receive(X,bupropion),
