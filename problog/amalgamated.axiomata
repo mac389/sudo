@@ -335,10 +335,10 @@ P::remain(X,in_treatment,n12_weeks) :-
 	P is 0.75,
 	writenl('Of 125 opioid-addicted youth randomized to either detoxification (n=78) or medication-assisted therapy (n=74), by week 12, 16 detox patients remained in treatment vs. 52s buprenorphine/naloxone patients (70%).(CTN-0010) Accessed').
 
-P::participate(X,in_treatment); (1-P)::receive(X,discharge_phone_call) :-
-	receive(X,residential_treatment),
+P::participate(X,in_treatment) :-
+	(receive(X,phone_call);\+ receive(X,phone_call)),
 	P is 0.5,
-	writenl('CTN-0011 Accessed').
+	writenl('339 patients were randomized either to receive calls or have no planned contact. Those who received calls were not statistically more likely to remain in treatment. (CTN-0011).').
 
 P::remain(X,in_treatment(X),n1_month) :-
 	use(X,Y,_),
