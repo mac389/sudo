@@ -1,17 +1,17 @@
-P::decrease(X,unprotected_sexual_encounters,_);(1-P)::increase(X,unprotected_sexual_encounters,_) :-
-	male(X),
-	use(X,substance),
-	receive(X,methadone),
-	receive(X,outpatient_psychosocial_treatment),
+P::property(X,decrease,unprotected_sexual_encounters);(1-P)::property(X,increase,unprotected_sexual_encounters) :-
+	property(X,gender,male),
+	property(X,dependence,Y),
+	substance(Y),
+	(receive(X,methadone);receive(X,outpatient_psychosocial_treatment)),	
 	receive(X,REMAS),
 	P is 0.8,
-	write('Accessed CTN-0018\n').
+	writenl('Men who inject drugs in methadone maintenance (n = 288) or outpatient psychosocial treatment (n = 302) who recieved multi-session safe sexual practice educations engaged in significantly fewer unprotected vaginal and anal sexual intercourse occasions (USO) during the 90 days prior to the 3- and 6-month follow-ups than those who received a single education session.(CTN-0018)').
 
-P::decrease(X,unprotected_sexual_encounters,_);(1-P)::increase(X,unprotected_sexual_encounters,_) :-
-	male(X),
-	use(X,substance),
-	receive(X,methadone),
-	receive(X,outpatient_psychosocial_treatment),	
-	receive(X,HIV_ED),
+P::property(X,decrease,unprotected_sexual_encounters);(1-P)::property(X,increase,unprotected_sexual_encounters) :-
+	property(X,gender,male),
+	property(X,dependence,Y),
+	substance(Y),
+	(receive(X,methadone);receive(X,outpatient_psychosocial_treatment)),	
+	receive(X,hiv_ed),
 	P is 0.5,
-	write('Accessed CTN-0018\n').
+	writenl('Men who inject drugs in methadone maintenance (n = 288) or outpatient psychosocial treatment (n = 302) who recieved multi-session safe sexual practice educations engaged in significantly fewer unprotected vaginal and anal sexual intercourse occasions (USO) during the 90 days prior to the 3- and 6-month follow-ups than those who received a single education session.(CTN-0018)').

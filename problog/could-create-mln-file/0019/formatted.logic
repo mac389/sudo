@@ -1,27 +1,31 @@
 2*P::decrease(X,unprotected_sexual_encounters,n3_months);P::increase(X,unprotected_sexual_encounters,n3_months) :-
-	female(X),
-	use(X,substance),
+	property(X,gender,female),
+	property(X,use,Y),
+	substance(Y),
 	recieve(X, safer_skills_building),
 	P is 0.3,
 	write('Accessed CTN-0019\n').
 
 2*P::decrease(X,unprotected_sexual_encounters,n3_months);P::increase(X,unprotected_sexual_encounters,n3_months) :-
-	female(X),
-	use(X,substance),
-	recieve(X, HIV_ED),
+	property(X,gender,female),
+	property(X,use,Y),
+	substance(Y),
+	recieve(X, hiv_ed),
 	P is 0.3,
 	write('Accessed CTN-0019\n').
 
 2*P::decrease(X,unprotected_sexual_encounters,n6_months);P::increase(X,unprotected_sexual_encounters,n6_months) :-
-	female(X),
-	use(X,substance),
+	property(X,gender,female),
+	property(X,use,Y),
+	substance(Y),
 	recieve(X, safer_skills_building),
 	P is 0.3,
 	write('Accessed CTN-0019\n').
 
 P::decrease(X,unprotected_sexual_encounters,n6_months);P::increase(X,unprotected_sexual_encounters,n6_months) :-
-	female(X),
-	use(X,substance),
-	recieve(X, HIV_ED),
+	property(X,gender,female),
+	property(X,use,Y),
+	substance(Y),
+	recieve(X, hiv_ed),
 	P is 0.3,
 	write('Accessed CTN-0019\n').
