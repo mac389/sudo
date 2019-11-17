@@ -1,7 +1,7 @@
 P::remain(X,in_treatment(X),n1_month) :-
-	use(X,substance),
+	property(X,dependence,Y),
+	substance(Y),
+	property(X,pregnant),
 	(receive(X,motivational_enhancement_therapy);receive(X,treatment_as_usual)),
-	pregnant(X),
 	P is 0.81,
-	write('CTN-0013 Accessed\n'). 	
-
+	writenl('Of 198 pregnant substance users those who received motivation enhancement therapy were not more likely to report decreased substance use than those who received treatment-as-usual.(CTN-0013 Accessed)'). 

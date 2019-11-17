@@ -4,6 +4,7 @@ substance(heroin).
 substance(alcohol). 
 substance(amphetamine).
 substance(nicotine).
+substance(fentanyl).
 
 therapy(motivational_enhancement).
 therapy(motivational_interviewing).

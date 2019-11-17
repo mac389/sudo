@@ -1,5 +1,6 @@
-P::use(X,substance);(1.5*P)::decrease(X,substance_use) :-
-	adolescent(X),
+P::property(X,urine_sample,opioids,positive,n1_year) :-
+	property(X,age,adolescent),
+	(property(X,ethnicity,hispanic);property(X,ethnicity,white);property(X;ethnicity,black)),
 	(receive(X,treatment_as_usual);receive(X,beavioral_strategic_family_therapy)),
-	P is 1,
-	write("Accessed CTN-0014").
+	P is .5, %abstract did not report actual probability
+	write("Of 471 adolescent, those who received behavioral strategic family were not less likely than those who received treatment as usual to submit opioid-free urine samples for the year following therapy. (CTN-0014)").

@@ -340,27 +340,30 @@ P::participate(X,in_treatment) :-
 	P is 0.5,
 	writenl('339 patients were randomized either to receive calls or have no planned contact. Those who received calls were not statistically more likely to remain in treatment. (CTN-0011).').
 
-P::remain(X,in_treatment(X),n1_month) :-
-	use(X,Y,_),
-	(receive(X,motivational_enhancement_therapy);receive(X,treatment_as_usual)),
-	pregnant(X),
-	P is 0.81,
-	writenl('CTN-0013 Accessed'). 	
-
-(1.5*P)::decrease(X,substance_use);P::use(X,Y,_) :-
-	adolescent(X),
+P::remain(X,in_treatment,n1_month) :-
+	property(X,dependence,Y),
 	substance(Y),
-	property(X,Y),
-	(receive(X,treatment_as_usual);receive(X,behavioral_strategic_family_therapy)),
-	P is 1,
-	writenl("Accessed CTN-0014").
+	property(X,pregnant),
+	(receive(X,motivational_enhancement_therapy);receive(X,treatment_as_usual)),
+	P is 0.81,
+	writenl('Of 198 pregnant substance users those who received motivation enhancement therapy were not more likely to report decreased substance use than those who received treatment-as-usual.(CTN-0013 Accessed)'). 	
+
+P::property(X,urine_sample,opioids,positive,n1_year) :-
+	property(X,age,adolescent),
+	(property(X,ethnicity,hispanic);property(X,ethnicity,white);property(X;ethnicity,black)),
+	(receive(X,treatment_as_usual);receive(X,beavioral_strategic_family_therapy)),
+	P is .5, %abstract did not report actual probability
+	write("Of 471 adolescent, those who received behavioral strategic family were not less likely than those who received treatment as usual to submit opioid-free urine samples for the year following therapy. (CTN-0014)").
 
 P::decrease(X,substance_use) :-
-	gender(X,female),
-	use(X,Y,_),
+	property(X,gender,female);
+	property(X,dependence,Y),
+	property(X,location,outpatient),
+	property(X,diagnosis,PTSD),
+	substance(Y),
 	(receive(X,womens_health_education);receive(X,seeking_safety)),
-	P is 0.5,
-	writenl('CTN-0015 Accessed'). 	
+	P is 0.5, %abstract did not report actual probability
+	writenl('There was no difference in substance use in O33 women with PTSD and substance dependence who receives cognitive behavioral therapy as compared to group education. (CTN-0015)'). 	
 
 P::decrease(X,substance_use,_);P::decrease(X,risky_behavior,_) :-
 	inject(X,Y),

@@ -1,6 +1,9 @@
 P::decrease(X,substance_use) :-
-	female(X),
-	use(X,substance),
+	property(X,gender,female);
+	property(X,dependence,Y),
+	property(X,location,outpatient),
+	property(X,diagnosis,PTSD),
+	substance(Y),
 	(receive(X,womens_health_education);receive(X,seeking_safety)),
-	P is 0.5,
-	write('CTN-0015 Accessed\n'). 	
+	P is 0.5, %abstract did not report actual probability
+	writenl('There was no difference in substance use in O33 women with PTSD and substance dependence who receives cognitive behavioral therapy as compared to group education. (CTN-0015)'). 
