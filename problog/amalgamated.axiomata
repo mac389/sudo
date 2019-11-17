@@ -469,49 +469,44 @@ P::property(X,decrease,substance_use) :-
 	P is 0.5, %Is this the correct number? PRobability vs likelihood ratio. 
 	writenl('Of 303 adolescents (13-18) who meet DSM-IV criteria for ADHD and SUD, those who received methylphenidate and cognitive behavioral therapy were not more likely to decrease substance use than those who received only cognitive behavior therapy. Neither group decreased substance use (CTN-0028)').
 
-P::reduce(X,nicotine,_) :-
-	diagnosed_with(X,adhd),
-	use(X,nicotine,_),
-	desire(X,quit_smoking),
-	receive(X,methylphenidate),
-	receive(X,individual_smoking_cessation),
+P::property(X,reduce,nicotine_use) :- %May be able to unpack nicotine use
+	property(X,diagnosis,adhd),
+	property(X,use,nicotine),
+	property(X,location,outpatient),
+	property(X,desire,quit_smoking), %There has to be a better representation
+	(receive(X,methylphenidate);receive(X,individual_smoking_cessation)),
 	P is 0.5,
-	writenl('Accessed CTN-0029').
+	writenl('Adults meeting DSM-IV criteria for ADHD and interested in quitting smoking who receieve methylphenidate (72 mg/day; n=127) were not significantly more likely to quit smoking than those who received only placebo (n=128).  (CTN-0029)').
 
-P::reduce(X,nicotine,_) :-
-	diagnosed_with(X,adhd),
-	use(X,nicotine,_),
-	desire(X,quit_smoking),
-	receive(X,individual_smoking_cessation),
-	P is 0.5,
-	writenl('Accessed CTN-0029').
-
-(1-P)::use(X,prescription_opioids,_) :-
-	property(X,prescription_opioids),
-	complete(X,naloxone_stabilization),
+(1-P)::property(X,use,prescription_opioids,n2_weeks) :-
+	property(X,complete, naloxone_stabilization),
+	property(X,location,outpatient),
+	property(X,dependence,opioids),
 	receive(X,counseling),
 	\+complete(X,taper),
 	\+complete(X,post_medication_follow_up),
 	P is 0.06,
-	writenl('Accessed CTN-0030').
+	writenl('Of the 653 outpatients dependent on opioids, 6% were able to stop using opioids afte 2-week treatment with suboxone. (CTN-0030)').
 
-(1-P)::use(X,prescription_opioids,_) :-
-	property(X,prescription_opioids),
-	complete(X,naloxone_stabilization),
+(1-P)::property(X,use,prescription_opioids,n8_weeks) :-
+	property(X,complete, naloxone_stabilization),
 	receive(X,counseling),
+	property(X,location,outpatient),
+	property(X,dependence,opioids),
 	complete(X,taper),
 	\+complete(X,post_medication_follow_up),
 	P is 0.492,
-	writenl('Accessed CTN-0030').
+	writenl('Of the 653 outpatients dependent on opioids, 49.2 % were able to stop using opioids after 12-week treatment with suboxone. (CTN-0030)').
 
-(1-P)::use(X,prescription_opioids,_) :-
-	property(X,prescription_opioids),
-	complete(X,naloxone_stabilization),
+(1-P)::property(X,use,prescription_opioids,n20_weeks) :-
+	property(X,complete, naloxone_stabilization),
 	receive(X,counseling),
+	property(X,location,outpatient),
+	property(X,dependence,opioids),
 	complete(X,taper),
 	complete(X,post_medication_follow_up),
 	P is 0.086,
-	writenl('Accessed CTN-0030').
+	writenl('Of the 653 outpatients dependent on opioids, 8.6 % were able to abstain from opioid use at 8 week follow-up. (CTN-0030)').
 
 P::decrease(X,unprotected_sexual_encounters,_);P::receive(X,test_results) :-
 	receive(X,off_site_hiv_testing),

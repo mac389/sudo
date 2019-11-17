@@ -1,16 +1,8 @@
-P::reduce(X,nicotine,_) :-
- diagnosed_with(X,adhd),
- use(X,nicotine),
- desire(X,quit_smoking),
- receive(X,methylphenidate),
- receive(X,individual_smoking_cessation),
- P is 0.5,
- write('Accessed CTN-0029\n').
-
-P::reduce(X,nicotine,_) :-
- diagnosed_with(X,adhd),
- use(X,nicotine),
- desire(X,quit_smoking),
- receive(X,individual_smoking_cessation),
- P is 0.5,
- write('Accessed CTN-0029\n').
+P::property(X,reduce,nicotine_use) :- %May be able to unpack nicotine use
+	property(X,diagnosis,adhd),
+	property(X,use,nicotine),
+	property(X,location,outpatient),
+	property(X,desire,quit_smoking), %There has to be a better representation
+	(receive(X,methylphenidate);receive(X,individual_smoking_cessation)),
+	P is 0.5,
+	writenl('Adults meeting DSM-IV criteria for ADHD and interested in quitting smoking who receieve methylphenidate (72 mg/day; n=127) were not significantly more likely to quit smoking than those who received only placebo (n=128).  (CTN-0029)').

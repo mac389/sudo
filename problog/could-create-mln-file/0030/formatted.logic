@@ -1,23 +1,29 @@
-(1-P)::use(X,prescription_opioids) :-
-	complete(X,naloxone_stabilization),
+(1-P)::property(X,use,prescription_opioids,n2_weeks) :-
+	property(X,complete, naloxone_stabilization),
+	property(X,location,outpatient),
+	property(X,dependence,opioids),
 	receive(X,counseling),
 	\+complete(X,taper),
 	\+complete(X,post_medication_follow_up),
 	P is 0.06,
-	write('Accessed CTN-0030\n').
+	writenl('Of the 653 outpatients dependent on opioids, 6% were able to stop using opioids afte 2-week treatment with suboxone. (CTN-0030)').
 
-(1-P)::use(X,prescription_opioids) :-
-	complete(X,naloxone_stabilization),
+(1-P)::property(X,use,prescription_opioids,n8_weeks) :-
+	property(X,complete, naloxone_stabilization),
 	receive(X,counseling),
+	property(X,location,outpatient),
+	property(X,dependence,opioids),
 	complete(X,taper),
 	\+complete(X,post_medication_follow_up),
 	P is 0.492,
-	write('Accessed CTN-0030\n').
+	writenl('Of the 653 outpatients dependent on opioids, 49.2 % were able to stop using opioids after 12-week treatment with suboxone. (CTN-0030)').
 
-(1-P)::use(X,prescription_opioids) :-
-	complete(X,naloxone_stabilization),
+(1-P)::property(X,use,prescription_opioids,n20_weeks) :-
+	property(X,complete, naloxone_stabilization),
 	receive(X,counseling),
+	property(X,location,outpatient),
+	property(X,dependence,opioids),
 	complete(X,taper),
 	complete(X,post_medication_follow_up),
 	P is 0.086,
-	write('Accessed CTN-0030\n').
+	writenl('Of the 653 outpatients dependent on opioids, 8.6 % were able to abstain from opioid use at 8 week follow-up. (CTN-0030)').
