@@ -1,31 +1,35 @@
-2*P::decrease(X,unprotected_sexual_encounters,n3_months);P::increase(X,unprotected_sexual_encounters,n3_months) :-
+2*P::property(X,decrease,unprotected_sexual_encounters,n3_months);P::property(X,increase,unprotected_sexual_encounters,n3_months) :-
 	property(X,gender,female),
 	property(X,use,Y),
 	substance(Y),
+	(receive(X,methadone);receive(X,outpatient_psychosocial_treatment)),
 	recieve(X, safer_skills_building),
 	P is 0.3,
-	write('Accessed CTN-0019\n').
+	writenl('Of 515 women who had at least one unprotected anal or vaginal sex encounter within the last six months with a male, those who received five 90 minute skill building sessions or one informational session at six months follow-up were equally less likely to have an unprotected sexual encounter at three month follow-up. (CTN-00199')).
 
-2*P::decrease(X,unprotected_sexual_encounters,n3_months);P::increase(X,unprotected_sexual_encounters,n3_months) :-
+2*P::property(X,decrease,unprotected_sexual_encounters,n3_months);P::property(X,increase,unprotected_sexual_encounters,n3_months) :-
 	property(X,gender,female),
 	property(X,use,Y),
 	substance(Y),
+	(receive(X,methadone);receive(X,outpatient_psychosocial_treatment)),
 	recieve(X, hiv_ed),
 	P is 0.3,
-	write('Accessed CTN-0019\n').
+	writenl('Of 515 women who had at least one unprotected anal or vaginal sex encounter within the last six months with a male, those who received five 90 minute skill building sessions or one informational session at six months follow-up were equally less likely to have an unprotected sexual encounter at three month follow-up. (CTN-00199')).
 
-2*P::decrease(X,unprotected_sexual_encounters,n6_months);P::increase(X,unprotected_sexual_encounters,n6_months) :-
+2*P::property(X,decrease,unprotected_sexual_encounters,n6_months);P::property(X,increase,unprotected_sexual_encounters,n6_months) :-
 	property(X,gender,female),
 	property(X,use,Y),
 	substance(Y),
+	(receive(X,methadone);receive(X,outpatient_psychosocial_treatment)),
 	recieve(X, safer_skills_building),
 	P is 0.3,
-	write('Accessed CTN-0019\n').
+	writenl('Of 515 women who had at least one unprotected anal or vaginal sex encounter within the last six months with a male, those who received five 90 minute skill building sessions were 30% less likely to have unprotected sexual encounters than those who received one informational session at six months follow-up. (CTN-00199')).
 
-P::decrease(X,unprotected_sexual_encounters,n6_months);P::increase(X,unprotected_sexual_encounters,n6_months) :-
+P::property(X,decrease,unprotected_sexual_encounters,n6_months);P::property(X,increase,unprotected_sexual_encounters,n6_months) :-
 	property(X,gender,female),
 	property(X,use,Y),
 	substance(Y),
+	(receive(X,methadone);receive(X,outpatient_psychosocial_treatment)),
 	recieve(X, hiv_ed),
-	P is 0.3,
-	write('Accessed CTN-0019\n').
+	P is 0.2,
+	writenl('Of 515 women who had at least one unprotected anal or vaginal sex encounter within the last six months with a male, those who received five 90 minute skill building sessions were 30% less likely to have unprotected sexual encounters than those who received one informational session at six months follow-up. (CTN-00199')).
