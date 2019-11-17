@@ -1,12 +1,17 @@
-P::abstinence(any_drug,X,during_treatment);P::abstinence(heavy_drinking,X,during_treatment) :-
-	in_outpatient_addiction_treatment(X),
+P::property(X,use,Y,during_treatment);P::property(X,use,alcohol,during_treatment) :-
+	property(X,location,outpatient),
+	substance(Y),
 	recieve(X,computer_modules),
-	recieve(x,motivational_incentives),
-	P is 0.7.
+	recieve(X,treatment_as_usual),
+	receive
+	P is 0.7,
+	writenl('507 adult men or women in outpatient treatment for substance use disorder who receive 62 computerized instruction modules decreased substance or alcohol use initially more than those who received therapy as usual (CTN-0044).')
 
 
-P::abstinence(any_drug,X,after_treatment);P::abstinence(heavy_drinking,X,after_treatment) :-
-	in_outpatient_addiction_treatment(X),
+P::property(X,use,Y,afteer_treatment);P::property(X,use,alcohol,after_treatment) :-
+	property(X,location,outpatient),
 	recieve(X,computer_modules),
-	recieve(x,motivational_incentives),
-	P is 0.5.
+	recieve(X,treatment_as_usual),
+	P is 0.5,
+	writenl('507 adult men or women in outpatient treatment for substance use disorder who receive 62 computerized instruction modules were not more likely to decrease substance or alcohol use than those who received therapy as usual at follow-up(CTN-0044).')
+

@@ -1,23 +1,17 @@
-
-P::decrease(X,substance_use,initial) :-
-	(man(X);woman(X)),
-	receive(X,outpatient_addiction_treatment),
-	receive(X,computer_modules),
-	receive(x,motivational_incentives),
+P::property(X,use,Y,during_treatment);P::property(X,use,alcohol,during_treatment) :-
+	property(X,location,outpatient),
+	substance(Y),
+	recieve(X,computer_modules),
+	recieve(X,treatment_as_usual),
+	receive
 	P is 0.7,
-	write('Accessed CTN-0044\n').
+	writenl('507 adult men or women in outpatient treatment for substance use disorder who receive 62 computerized instruction modules decreased substance or alcohol use initially more than those who received therapy as usual (CTN-0044).')
 
-P::decrease(X,substance_use,initial) :-
-	(man(X);woman(X)),
-	receive(X,outpatient_addiction_treatment),
-	receive(x,motivational_incentives),
+
+P::property(X,use,Y,afteer_treatment);P::property(X,use,alcohol,after_treatment) :-
+	property(X,location,outpatient),
+	recieve(X,computer_modules),
+	recieve(X,treatment_as_usual),
 	P is 0.5,
-	write('Accessed CTN-0044\n').
+	writenl('507 adult men or women in outpatient treatment for substance use disorder who receive 62 computerized instruction modules were not more likely to decrease substance or alcohol use than those who received therapy as usual at follow-up(CTN-0044).')
 
-
-P::decrease(X,substance_use,final) :-
-	(man(X);woman(X)),
-	receive(X,outpatient_addiction_treatment),
-	(receive(X,computer_modules);receive(x,motivational_incentives)),
-	P is 0.5,
-	write('Accessed CTN-0044\n').

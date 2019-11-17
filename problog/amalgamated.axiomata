@@ -519,45 +519,47 @@ P::property(X,decrease,unprotected_sexual_encounteers);1.5*P::receive(X,hiv_test
 	P is 0.5,
 	writenl('Of 1281 patients with negative or unknown HIV status those who receieved onsite testing were more likely to recieve their HIV test results than those who received a referral to offsite testing, but not likely to have fewer episodes of unprotected sexual encounters (CTN-0032)').
 
-P::infected(X, HCV,_);P::infected(X,HCV,newly) :-
-	use_illicit_drugs(X,_,_),
+P::property(X, diagnosis, chronic_HCV_infection);;P::property(X,diagnosis,acute_HCV_infection) :-
+	(property(X,ethnicity,black);property(X,ethnicity,latinx)),
+	property(X,use,Y),
+	illicit_drug(Y),
 	P is 0.8,
-	writenl('Accessed CTN-0035').
+	write('Accessed CTN-0035\n').
 
-P::perceive(HCV_testing,unimportant) :-
+P::property(X,understand_importance_of,HCV_testing) :-
+	(property(X,ethnicity,black);property(X,ethnicity,latinx)),
+	property(X,use,Y),
+	illicit_drug(Y),
 	lack(X,symptoms),
-	use_illicit_drugs(X,_,_),
-	\+receive(X,recommendation_for_treatment),
-	P is 0.8,
-	writenl('Accessed CTN-0035'). 
+	use(X,illicit_drugs),
+	P is 0.2,
+	write('Accessed CTN-0035\n'). 
 
-P::decide(X,not_pursue_HCV_treatment) :-
-	diagnosed_with(X,HCV),
-	mistrust(X,health_care_providers),
-	P is 0.6,
-	writenl('Accessed CTN-0035').
+P::receive(X,HCV_testing) :-
+	(property(X,ethnicity,black);property(X,ethnicity,latinx)),
+	property(X,diagnosis, HCV),
+	property(X,use,Y),
+	illicit_drug(Y),
+	property(X,mistrust,health_care_providers),
+	P is 0.3,
+	write('Accessed CTN-0035\n').
 
-P::decrease(X,substance_use,initial) :-
-	(man(X);woman(X)),
-	receive(X,outpatient_addiction_treatment),
-	receive(X,computer_modules),
-	receive(x,motivational_incentives),
+P::property(X,use,Y,during_treatment);P::property(X,use,alcohol,during_treatment) :-
+	property(X,location,outpatient),
+	substance(Y),
+	recieve(X,computer_modules),
+	recieve(X,treatment_as_usual),
+	receive
 	P is 0.7,
-	writenl('Accessed CTN-0044').
+	writenl('507 adult men or women in outpatient treatment for substance use disorder who receive 62 computerized instruction modules decreased substance or alcohol use initially more than those who received therapy as usual (CTN-0044).')
 
-P::decrease(X,substance_use,initial) :-
-	(man(X);woman(X)),
-	receive(X,outpatient_addiction_treatment),
-	receive(x,motivational_incentives),
-	P is 0.5,
-	writenl('Accessed CTN-0044').
 
-P::decrease(X,substance_use,final) :-
-	(man(X);woman(X)),
-	receive(X,outpatient_addiction_treatment),
-	(receive(X,computer_modules);receive(x,motivational_incentives)),
+P::property(X,use,Y,afteer_treatment);P::property(X,use,alcohol,after_treatment) :-
+	property(X,location,outpatient),
+	recieve(X,computer_modules),
+	recieve(X,treatment_as_usual),
 	P is 0.5,
-	writenl('Accessed CTN-0044').
+	writenl('507 adult men or women in outpatient treatment for substance use disorder who receive 62 computerized instruction modules were not more likely to decrease substance or alcohol use than those who received therapy as usual at follow-up(CTN-0044).')
 
 P::property(X,_,stimulants,negative,week) :-
 	property(X,cocaine),
