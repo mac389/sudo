@@ -455,15 +455,12 @@ P::use(X,substance) :-
 	P is 0.8,
 	write('For 405 individuals seeking treatment for any substance use disorder, those who received four sessions of motivational enhancement therapy spaced once weekly for a month were not more likely to decrease substance use than those who received usual counseling. (CTN-0021)').
 
-P::develop(X,drug_induced_hepatitis) :-
-	use(X,buprenorphine_naloxone,_),
-	P is 0.5,
-	writenl('Accessed CTN-0027').
+P::property(X,develop,drug_induced_hepatitis) :-
+	property(X,dependent,opioids),
+	(property(X,use,buprenorphine_naloxone);property(X,use,methadone)),
+	P is 0.1,
+	write('Of 1269 opioid-dependent patients those who received buprenorphine/naloxone were not more likely to develop hepatitis than those who received methadone. (CTN-0027)').
 
-P::develop(X,drug_induced_hepatitis) :-
-	use(X,methadone,_),
-	P is 0.5,
-	writenl('Accessed CTN-0027').
 
 P::decrease(X,substance_use,_) :-
 	diagnosed_with(X,adhd),

@@ -1,9 +1,5 @@
-P::develop(X,drug_induced_hepatitis) :-
-	use(X,buprenorphine_naloxone),
-	P is 0.5,
-	write('Accessed CTN-0027').
-
-P::develop(X,drug_induced_hepatitis) :-
-	use(X,methadone),
-	P is 0.5,
-	write('Accessed CTN-0027').
+P::property(X,develop,drug_induced_hepatitis) :-
+	property(X,dependent,opioids),
+	(property(X,use,buprenorphine_naloxone);property(X,use,methadone)),
+	P is 0.1,
+	write('Of 1269 opioid-dependent patients those who received buprenorphine/naloxone were not more likely to develop hepatitis than those who received methadone. (CTN-0027)').
