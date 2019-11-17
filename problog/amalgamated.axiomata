@@ -603,72 +603,67 @@ P::sample(X,hair,_,negative,_) :-
 	P is 0.8,
 	writenl('Of 1285 patient presenting to Emeregncy Department and then followed-up in an addiction medicine clinic, the rates of positive hair samples for the substances implicated in the use disorder were not different no matter whether the patient received a pamphlet, a pamphlet and telephone follow-up, or a full screening, assessment, and referral. (CTN-0047)').
 
-P::have_poor_hiv_outcomes(X) :-
-  use(X,Y,_),
-  P is 0.8,
-  writenl('Accessed CTN-0049').
-
-P::experience(X,hiv_suppression) :-
-    infected(X,hiv),
-    diagnosed_with(X,substance_use_disorder),
-    receive(X,patient_navigation),
-    P is 0.5,
-    writenl('Accessed CTN-0049').
-
-P::experience(X,hiv_suppression) :-
-    infected(X,hiv),
-    diagnosed_with(X,substance_use_disorder),
-    receive(X,patient_navigation),
-    receive(X,finanical_motivation),
-    P is 0.5,
-    writenl('Accessed CTN-0049').
-
-P::property(X,_,cocaine,negative,_) :-
-	property(X,cocaine),
-	inpatient(X),
+P::property(X,urine_sample,cocaine,positive) :-
+	property(X,dependence,cocaine),
+	property(X,gender,male)
+	property(X,location,inpatient),
 	(receive(X,buspirone);receive(X,placebo)),
 	P is 0.5,
-	writenl('Accessed CTN-0052').
+	writenl('Of the 39 men hospitalized with cocaine use disorder, buspirone was no more effect than placebo in decreasing the change of opioid-free urine samples during treatment (CTN-0052)').
 
-P::property(X,urine_sample,cannabinoids,negative,_) :-
-	diagnosed_with(X,cannabis_use_disorder),
+P::property(X,urine_sample,cocaine,positive) :-
+	property(X,dependence,cocaine),
+	property(X,gender,female)
+	property(X,location,inpatient),
+	receive(X,buspirone),
+	P is 0.8,
+	writenl('Of the 23 women hospitalized with cocaine use disorder, those who received buspiraon were more likely to have opioid-containing urine samples during treatment than those who did not receive buspirone (CTN-0052)').
+s
+P::property(X,urine_sample,cocaine,positive) :-
+	property(X,dependence,cocaine),
+	property(X,gender,female)
+	property(X,location,inpatient),
+	receive(X,placebo),
+	P is 0.5,
+	writenl('Of the 23 women hospitalized with cocaine use disorder, those who received buspiraon were more likely to have opioid-containing urine samples during treatment than those who did not receive buspirone (CTN-0052)').
+
+
+(1-P)::property(X,urine_sample,cannabinoids,positive) :-
+	property(X,dependence,cannabis),
 	receive(X,contingency_management),
-	receive(X,medical_management),
+	(receive(X,n_acetylcysteine);receive(X,medical_management)),
 	P is 0.25,
-	writenl('Accessed CTN-0053').
+	writenl('Among 302 adults with cannabis use disorder, those who recieved 12-weeks of n-acetylcysteine treatment along with contingency management and counseling as usual were not significantly less likely to demonstrate positive urine screens for cannabis (CTN-0053)').
 
-P::property(X,urine_sample,cannabinoids,negative,_) :-
-	diagnosed_with(X,cannabis_use_disorder),
-	receive(X,contingency_management),
-	receive(X,n_acetylcysteine),
-	receive(X,medical_management),
-	P is 0.25,
-	writenl('Accessed CTN-0053').
-
-P::property(X,urine_sample,_,negative,_) :-
-	diagnosed_with(X,methamphetamine_use_disorder),
-	receive(X,injectable_naltrexone),
+P::property(X,urine_sample,Y,negative) :-
+	stimulant(Y),
+	property(X,dependence,Z),
+	stimulant(Z),
+	receive(X,naltrexone),
 	receive(X,bupropion),
 	receive(X,medical_management),
-	P is 11/49,
-	writenl('Accessed CTN-0054').
+	P is 11/49, %abstract provides no base rate
+	writenl('Of 49 adults with methamphetamine use disorder, 11 submitted 3/4 urine drug screens negative for amphetamines after treatment with bupropion and injectable naltrexone. (CTN-0054)').
 
-P::start(X,treatment);(0.88*P)::remain(X,in_treatment,_);P2::use(X,opioid,_);P3::use(X,alcohol,_);P4::diagnosed_with(X,viral_suppression) :-
-	diagnosed_with(X,substance_use_disorder),
-	infected_with(X,hiv),
+P::receive(X,treatment);(0.88*P)::remain(X,in_treatment,_);P2::property(X,use,opioid);P3::property(X,use,alcohol);P4::property(X,diagnosis,HIV_viral_suppression) :-
+	property(X,diagnosis,hiv_infection),
+	property(X,diagnosis,sud),
 	receive(X, buprenorphine),
 	P is 34/51,
 	P2 is 13/30,
 	P3 is 6/30,
 	P4 is 0.8,
-	writenl('Accessed CTN-0055').
+	writenl('Of 51 HIV+ patients seeking treatment for opioid use disorder (OUD, n=16), alcohol use disorder (AUD, n=27), or both (n=8) those who received buprenorphine improved retention in treatment and decreased alcohol use as compared to those who received only counseling (CTN-0055).').
 
-(0.5*P)::remain(X,in_treatment,_);P2::use(X,opioid,_);P3::use(X,alcohol);P4::diagnosed_with(X,viral_suppression) :-
-	diagnosed_with(X,substance_use_disorder),
-	infected(X,hiv),
+
+
+0.5*P::receive(X,treatment);(0.88*P)::remain(X,in_treatment,_);P2::property(X,use,opioid);P3::property(X,use,alcohol);P4::property(X,diagnosis,HIV_viral_suppression) :-
+	property(X,diagnosis,hiv_infection),
+	property(X,diagnosis,sud),
 	receive(X,treatment_as_usual),
 	P is 1,
 	P2 is 10/30,
 	P3 is 7/30,
 	P4 is 0.75,
-	writenl('Accessed CTN-0055').
+	writenl('Of 51 HIV+ patients seeking treatment for opioid use disorder (OUD, n=16), alcohol use disorder (AUD, n=27), or both (n=8) those who received buprenorphine improved retention in treatment and decreased alcohol use as compared to those who received only counseling (CTN-0055).').
+

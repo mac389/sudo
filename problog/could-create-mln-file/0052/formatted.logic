@@ -1,6 +1,24 @@
-P::sample(X,_,cocaine,negative,_) :-
-	dependent(X,cocaine),
-	inpatient(X),
+P::property(X,urine_sample,cocaine,positive) :-
+	property(X,dependence,cocaine),
+	property(X,gender,male)
+	property(X,location,inpatient),
 	(receive(X,buspirone);receive(X,placebo)),
 	P is 0.5,
-	write('Accessed CTN-0052\n').
+	writenl('Of the 39 men hospitalized with cocaine use disorder, buspirone was no more effect than placebo in decreasing the change of opioid-free urine samples during treatment (CTN-0052)').
+
+P::property(X,urine_sample,cocaine,positive) :-
+	property(X,dependence,cocaine),
+	property(X,gender,female)
+	property(X,location,inpatient),
+	receive(X,buspirone),
+	P is 0.8,
+	writenl('Of the 23 women hospitalized with cocaine use disorder, those who received buspiraon were more likely to have opioid-containing urine samples during treatment than those who did not receive buspirone (CTN-0052)').
+
+
+P::property(X,urine_sample,cocaine,positive) :-
+	property(X,dependence,cocaine),
+	property(X,gender,female)
+	property(X,location,inpatient),
+	receive(X,placebo),
+	P is 0.5,
+	writenl('Of the 23 women hospitalized with cocaine use disorder, those who received buspiraon were more likely to have opioid-containing urine samples during treatment than those who did not receive buspirone (CTN-0052)').

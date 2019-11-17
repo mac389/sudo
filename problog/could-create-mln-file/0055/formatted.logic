@@ -1,19 +1,23 @@
-P::start(X,treatment);(0.88*P)::remain(X,in_treatment,_);P2::use(X,opioid,_);P3::use(X,alcohol,_);P4::diagnosed_with(X,viral_suppression) :-
-	diagnosed_with(X,substance_use_disorder),
-	infected_with(X,hiv),
+P::receive(X,treatment);(0.88*P)::remain(X,in_treatment,_);P2::property(X,use,opioid);P3::property(X,use,alcohol);P4::property(X,diagnosis,HIV_viral_suppression) :-
+	property(X,diagnosis,hiv_infection),
+	property(X,diagnosis,sud),
 	receive(X, buprenorphine),
 	P is 34/51,
 	P2 is 13/30,
 	P3 is 6/30,
 	P4 is 0.8,
-	writenl('Accessed CTN-0055').
+	writenl('Of 51 HIV+ patients seeking treatment for opioid use disorder (OUD, n=16), alcohol use disorder (AUD, n=27), or both (n=8) those who received buprenorphine improved retention in treatment and decreased alcohol use as compared to those who received only counseling (CTN-0055).').
 
-(0.5*P)::remain(X,in_treatment,_);P2::use(X,opioid,_);P3::use(X,alcohol);P4::diagnosed_with(X,viral_suppression) :-
-	diagnosed_with(X,substance_use_disorder),
-	infected(X,hiv),
+
+
+0.5*P::receive(X,treatment);(0.88*P)::remain(X,in_treatment,_);P2::property(X,use,opioid);P3::property(X,use,alcohol);P4::property(X,diagnosis,HIV_viral_suppression) :-
+	property(X,diagnosis,hiv_infection),
+	property(X,diagnosis,sud),
 	receive(X,treatment_as_usual),
 	P is 1,
 	P2 is 10/30,
 	P3 is 7/30,
 	P4 is 0.75,
-	writenl('Accessed CTN-0055').
+	writenl('Of 51 HIV+ patients seeking treatment for opioid use disorder (OUD, n=16), alcohol use disorder (AUD, n=27), or both (n=8) those who received buprenorphine improved retention in treatment and decreased alcohol use as compared to those who received only counseling (CTN-0055).').
+
+

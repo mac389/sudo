@@ -1,7 +1,9 @@
-P::sample(X,urine,_,negative,_) :-
-	diagnosed_with(X,methamphetamine_use_disorder),
-	receive(X,injectable_naltrexone),
+P::property(X,urine_sample,Y,negative) :-
+	stimulant(Y),
+	property(X,dependence,Z),
+	stimulant(Z),
+	receive(X,naltrexone),
 	receive(X,bupropion),
 	receive(X,medical_management),
-	P is 11/49,
-	write('Accessed CTN-0054\n').
+	P is 11/49, %abstract provides no base rate
+	writenl('Of 49 adults with methamphetamine use disorder, 11 submitted 3/4 urine drug screens negative for amphetamines after treatment with bupropion and injectable naltrexone. (CTN-0054)').
