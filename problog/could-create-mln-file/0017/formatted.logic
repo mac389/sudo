@@ -1,17 +1,20 @@
-P::decrease(X,substance_use,_);P::decrease(X,risky_behavior,_) :-
-	inject(X,substance),
+P::property(X,substance_use,decrease);P::property(X,risky_behavior,decrease) :-
+	property(X,inject,Y),
+	substance(Y),
 	(receive(X,counseling_and_education);receive(X,therapeutic_alliance);receive(X,treatment_as_usual)),
 	P is 0.5,
-	write('Accessed CTN-0017\n').
+	writenl('Of 632 patient who injected drugs, all patients who received therapy reported decreasing substance use and risky sexual behaviors.(CTN-0017)').
 
-P::increase(X,attendance,HIV_testing_appointment,_) :-
-	inject(X,substance),
+P::property(X,increase_attendance,hiv_testing_appointment) :-
+	property(X,inject,Y)
+	substance(Y),
 	receive(X,counseling_and_education),
 	P is 0.8,
-	write('Accessed CTN-0017\n').
+	writenl('Of 632 patient who injected drugs, those who received counseling and education were more likely to remain in treatment than those who received treatment as usual or a one-session therapeutic alliance session.(CTN-0017)').
 
-P::increase(X,attendance,HIV_testing_appointment,_) :-
-	inject(X,substance),
+P::increase(X,attendance,hiv_testing_appointment,_) :-
+	property(X,inject,Y),
+	substance(Y),
 	(receive(X,therapeutic_alliance);receive(X,treatment_as_usual)),
 	P is 0.6,
-	write('Accessed CTN-0017\n').
+	writenl('Of 632 patient who injected drugs, those who received counseling and education were more likely to remain in treatment than those who received treatment as usual or a one-session therapeutic alliance session.(CTN-0017)').

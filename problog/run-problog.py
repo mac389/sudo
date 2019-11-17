@@ -14,12 +14,9 @@ p = PrologString(kb + '\n'+ axioms + """\n
 :- use_module(library(lists)).
 
 person(1).
-property(1,pregnant).
-property(1,dependence,fentanyl).
-query(substance(fentanyl)).
-%receive(1,treatment_as_usual).
-receive(1,motivational_enhancement_therapy).
-query(remain(1,in_treatment,_)).
+property(1,inject,fentanyl).
+receive(1,therapeutic_alliance).
+query(property(1,increase_attendance,counseling_and_education)).
 """)
 
 
