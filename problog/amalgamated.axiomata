@@ -439,17 +439,13 @@ P::property(X,decrease,unprotected_sexual_encounters,n6_months);P::property(X,in
 	P is 0.2,
 	writenl('Of 515 women who had at least one unprotected anal or vaginal sex encounter within the last six months with a male, those who received five 90 minute skill building sessions were 30% less likely to have unprotected sexual encounters than those who received one informational session at six months follow-up. (CTN-00199')).
 
-P::obtain(X,new_taxed_job) :-
-	use(X,Y,_),
-	receive(X,standard_care),
+P::property(X,obtain,new_taxed_job):-
+	property(X,use,Y),
+	substance(Y),
+	(receive(X,methadone);receive(X,outpatient_psychosocial_treatment)),
+	(receive(X,job_seekers_workshop);receive(X,standard_care)),
 	P is 0.3,
-	writenl('Accessed CTN-0020').
-
-P::obtain(X,new_taxed_job):-
-	use(X,Y,_),
-	receive(X,job_seekers_workshop),
-	P is 0.3,
-	writenl('Accessed CTN-0020').
+	write('Of patients receiving methadone (n=301) or psychological counseling (n=327) those who received a five-session job-training workshop were not more likely to obtain a new taxed job or enroll in a longer job training program. (CTN-0020)').
 
 .4*P::use(X,Y,_) :-
 	property(X,ethnicity,hispanic),

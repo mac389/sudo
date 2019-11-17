@@ -1,11 +1,8 @@
-P::obtain(X,new_taxed_job) :-
-	use(X,substance),
-	receive(X,standard_care),
+P::property(X,obtain,new_taxed_job):-
+	property(X,use,Y),
+	substance(Y),
+	(receive(X,methadone);receive(X,outpatient_psychosocial_treatment)),
+	(receive(X,job_seekers_workshop);receive(X,standard_care)),
 	P is 0.3,
-	write('Accessed CTN-0020').
+	write('Of patients receiving methadone (n=301) or psychological counseling (n=327) those who received a five-session job-training workshop were not more likely to obtain a new taxed job or enroll in a longer job training program. (CTN-0020)').
 
-P::obtain(X,new_taxed_job):-
-	use(X,substance),
-	receive(X,job_seekers_workshop),
-	P is 0.3,
-	write('Accessed CTN-0020').
