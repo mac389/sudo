@@ -410,7 +410,7 @@ P::property(X,decrease,unprotected_sexual_encounters);(1-P)::property(X,increase
 	(receive(X,methadone);receive(X,outpatient_psychosocial_treatment)),
 	recieve(X, safer_skills_building),
 	P is 0.3,
-	writenl('Of 515 women who had at least one unprotected anal or vaginal sex encounter within the last six months with a male, those who received five 90 minute skill building sessions or one informational session at six months follow-up were equally less likely to have an unprotected sexual encounter at three month follow-up. (CTN-00199')).
+	writenl('Of 515 women who had at least one unprotected anal or vaginal sex encounter within the last six months with a male, those who received five 90 minute skill building sessions or one informational session at six months follow-up were equally less likely to have an unprotected sexual encounter at three month follow-up. (CTN-00199)').
 
 2*P::property(X,decrease,unprotected_sexual_encounters,n3_months);P::property(X,increase,unprotected_sexual_encounters,n3_months) :-
 	property(X,gender,female),
@@ -419,7 +419,7 @@ P::property(X,decrease,unprotected_sexual_encounters);(1-P)::property(X,increase
 	(receive(X,methadone);receive(X,outpatient_psychosocial_treatment)),
 	recieve(X, hiv_ed),
 	P is 0.3,
-	writenl('Of 515 women who had at least one unprotected anal or vaginal sex encounter within the last six months with a male, those who received five 90 minute skill building sessions or one informational session at six months follow-up were equally less likely to have an unprotected sexual encounter at three month follow-up. (CTN-00199')).
+	writenl('Of 515 women who had at least one unprotected anal or vaginal sex encounter within the last six months with a male, those who received five 90 minute skill building sessions or one informational session at six months follow-up were equally less likely to have an unprotected sexual encounter at three month follow-up. (CTN-00199)').
 
 2*P::property(X,decrease,unprotected_sexual_encounters,n6_months);P::property(X,increase,unprotected_sexual_encounters,n6_months) :-
 	property(X,gender,female),
@@ -428,7 +428,7 @@ P::property(X,decrease,unprotected_sexual_encounters);(1-P)::property(X,increase
 	(receive(X,methadone);receive(X,outpatient_psychosocial_treatment)),
 	recieve(X, safer_skills_building),
 	P is 0.3,
-	writenl('Of 515 women who had at least one unprotected anal or vaginal sex encounter within the last six months with a male, those who received five 90 minute skill building sessions were 30% less likely to have unprotected sexual encounters than those who received one informational session at six months follow-up. (CTN-00199')).
+	writenl('Of 515 women who had at least one unprotected anal or vaginal sex encounter within the last six months with a male, those who received five 90 minute skill building sessions were 30% less likely to have unprotected sexual encounters than those who received one informational session at six months follow-up. (CTN-00199)').
 
 P::property(X,decrease,unprotected_sexual_encounters,n6_months);P::property(X,increase,unprotected_sexual_encounters,n6_months) :-
 	property(X,gender,female),
@@ -437,7 +437,7 @@ P::property(X,decrease,unprotected_sexual_encounters,n6_months);P::property(X,in
 	(receive(X,methadone);receive(X,outpatient_psychosocial_treatment)),
 	recieve(X, hiv_ed),
 	P is 0.2,
-	writenl('Of 515 women who had at least one unprotected anal or vaginal sex encounter within the last six months with a male, those who received five 90 minute skill building sessions were 30% less likely to have unprotected sexual encounters than those who received one informational session at six months follow-up. (CTN-00199')).
+	writenl('Of 515 women who had at least one unprotected anal or vaginal sex encounter within the last six months with a male, those who received five 90 minute skill building sessions were 30% less likely to have unprotected sexual encounters than those who received one informational session at six months follow-up. (CTN-00199)').
 
 P::property(X,obtain,new_taxed_job):-
 	property(X,use,Y),
@@ -519,7 +519,7 @@ P::property(X,decrease,unprotected_sexual_encounteers);1.5*P::receive(X,hiv_test
 	P is 0.5,
 	writenl('Of 1281 patients with negative or unknown HIV status those who receieved onsite testing were more likely to recieve their HIV test results than those who received a referral to offsite testing, but not likely to have fewer episodes of unprotected sexual encounters (CTN-0032)').
 
-P::property(X, diagnosis, chronic_HCV_infection);;P::property(X,diagnosis,acute_HCV_infection) :-
+P::property(X, diagnosis, chronic_HCV_infection);P::property(X,diagnosis,acute_HCV_infection) :-
 	(property(X,ethnicity,black);property(X,ethnicity,latinx)),
 	property(X,use,Y),
 	illicit_drug(Y),
@@ -549,17 +549,16 @@ P::property(X,use,Y,during_treatment);P::property(X,use,alcohol,during_treatment
 	substance(Y),
 	recieve(X,computer_modules),
 	recieve(X,treatment_as_usual),
-	receive
 	P is 0.7,
-	writenl('507 adult men or women in outpatient treatment for substance use disorder who receive 62 computerized instruction modules decreased substance or alcohol use initially more than those who received therapy as usual (CTN-0044).')
+	writenl('507 adult men or women in outpatient treatment for substance use disorder who receive 62 computerized instruction modules decreased substance or alcohol use initially more than those who received therapy as usual (CTN-0044).').
 
 
-P::property(X,use,Y,afteer_treatment);P::property(X,use,alcohol,after_treatment) :-
+P::property(X,use,Y,after_treatment);P::property(X,use,alcohol,after_treatment) :-
 	property(X,location,outpatient),
 	recieve(X,computer_modules),
 	recieve(X,treatment_as_usual),
 	P is 0.5,
-	writenl('507 adult men or women in outpatient treatment for substance use disorder who receive 62 computerized instruction modules were not more likely to decrease substance or alcohol use than those who received therapy as usual at follow-up (CTN-0044).')
+	writenl('507 adult men or women in outpatient treatment for substance use disorder who receive 62 computerized instruction modules were not more likely to decrease substance or alcohol use than those who received therapy as usual at follow-up (CTN-0044).').
 
 P::property(X,urine_sample,Y,negative,just_after_treatment) :-
 	stimulant(Y),
@@ -605,7 +604,7 @@ P::sample(X,hair,_,negative,_) :-
 
 P::property(X,urine_sample,cocaine,positive) :-
 	property(X,dependence,cocaine),
-	property(X,gender,male)
+	property(X,gender,male),
 	property(X,location,inpatient),
 	(receive(X,buspirone);receive(X,placebo)),
 	P is 0.5,
@@ -613,15 +612,15 @@ P::property(X,urine_sample,cocaine,positive) :-
 
 P::property(X,urine_sample,cocaine,positive) :-
 	property(X,dependence,cocaine),
-	property(X,gender,female)
+	property(X,gender,female),
 	property(X,location,inpatient),
 	receive(X,buspirone),
 	P is 0.8,
 	writenl('Of the 23 women hospitalized with cocaine use disorder, those who received buspiraon were more likely to have opioid-containing urine samples during treatment than those who did not receive buspirone (CTN-0052)').
-s
+
 P::property(X,urine_sample,cocaine,positive) :-
 	property(X,dependence,cocaine),
-	property(X,gender,female)
+	property(X,gender,female),
 	property(X,location,inpatient),
 	receive(X,placebo),
 	P is 0.5,

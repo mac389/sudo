@@ -3,7 +3,6 @@ P::property(X,use,Y,during_treatment);P::property(X,use,alcohol,during_treatment
 	substance(Y),
 	recieve(X,computer_modules),
 	recieve(X,treatment_as_usual),
-	receive
 	P is 0.7,
 	writenl('507 adult men or women in outpatient treatment for substance use disorder who receive 62 computerized instruction modules decreased substance or alcohol use initially more than those who received therapy as usual (CTN-0044).')
 
