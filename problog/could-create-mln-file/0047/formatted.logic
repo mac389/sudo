@@ -1,17 +1,19 @@
-P::sample(X,hair,_,negative,_) :-
-	moderate_to_severe_problems_related_to_drug_use(X),
+P::property(X,hair_sample,Y,negative) :-
+	substance(Y),
+	property(X,dependence,Y),
 	receive(X,minimal_screening),
-	P is 0.5,
-	write('Accessed CTN-0047\n').
+	P is 0.8,
+	writenl('Of 1285 patient presenting to Emeregncy Department and then followed-up in an addiction medicine clinic, the rates of positive hair samples for the substances implicated in the use disorder were not different no matter whether the patient received a pamphlet, a pamphlet and telephone follow-up, or a full screening, assessment, and referral. (CTN-0047)').
 
-P::sample(X,hair,_,negative,_) :-
-	moderate_to_severe_problems_related_to_drug_use(X),
+P::property(X,hair_sample,Y,negative) :-
+	substance(Y),
+	property(X,dependence,Y),
 	(receive(X,minimal_screening),receive(X,telephone_boosters)),
-	P is 0.5,
-	write('Accessed CTN-0047\n').
+	P is 0.8,
+	writenl('Of 1285 patient presenting to Emeregncy Department and then followed-up in an addiction medicine clinic, the rates of positive hair samples for the substances implicated in the use disorder were not different no matter whether the patient received a pamphlet, a pamphlet and telephone follow-up, or a full screening, assessment, and referral. (CTN-0047)').
 
 P::sample(X,hair,_,negative,_) :-
 	moderate_to_severe_problems_related_to_drug_use(X),
 	(receive(X,screening_assessment),receive(X,referral_to_treatment)),
-	P is 0.5,
-	write('Accessed CTN-0047\n').
+	P is 0.8,
+	writenl('Of 1285 patient presenting to Emeregncy Department and then followed-up in an addiction medicine clinic, the rates of positive hair samples for the substances implicated in the use disorder were not different no matter whether the patient received a pamphlet, a pamphlet and telephone follow-up, or a full screening, assessment, and referral. (CTN-0047)').

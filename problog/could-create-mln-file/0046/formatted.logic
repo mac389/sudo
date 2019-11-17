@@ -1,16 +1,21 @@
-P::sample(X,_,stimulants,negative,week) :-
-	dependent(X,cocaine),
-	dependent(x,methamphetime),
-	interested_in(X,quitting_smoking),
-	receive(X,treatment_as_usual),
-	receive(X,bupropion),
+P::property(X,urine_sample,Y,negative,just_after_treatment) :-
+	stimulant(Y),
+	(property(X,dependence,cocaine);property(X,dependence,methamphetamine)),
+	property(X,desire,quit_smoking),
+	(receive(X,treatment_as_usual);receive(X,bupropion)),
 	P is 0.77,
-	write('Accessed CTN-0046\n').
+	writenl('Adults meeting DSM-IV-TR criteria for cocaine or methamphetamine dependence and interested in quitting smoking were randomized to treatment as usual (TAU) (n=271) or TAU with smoking cessation treatment with burpropion and a nicotine inhaler (n=267). Those who received smoking cessation were not more likely to provide opioid-free samples during treatment (CTN-0046)').
 
-P::sample(X,_,stimulants,negative,week) :-
-	dependent(X,cocaine),
-	dependent(x,methamphetime),
-	interested_in(X,quitting_smoking),
+P::property(X,urine_sample,Y,negative,n3_weeks)  :-
+	(property(X,dependence,cocaine);property(X,dependence,methamphetamine)),
+	property(X,desire,quit_smoking),
 	receive(X,treatment_as_usual),
-	P is 0.78,
-	write('Accessed CTN-0046\n').
+	P is 0.78, %abstract didn't give number jsut said both groups were equal
+	writenl('Adults meeting DSM-IV-TR criteria for cocaine or methamphetamine dependence and interested in quitting smoking were randomized to treatment as usual (TAU) (n=271) or TAU with smoking cessation treatment with burpropion and a nicotine inhaler (n=267). Those who received smoking cessation were not more likely to provide opioid-free samples at follow-up three weeks after the study (CTN-0046)').
+
+P::property(X,urine_sample,Y,negative,n6_weeks)  :-
+	(property(X,dependence,cocaine);property(X,dependence,methamphetamine)),
+	property(X,desire,quit_smoking),
+	receive(X,treatment_as_usual),
+	P is 0.78, %abstract didn't give number jsut said both groups were equal
+	writenl('Adults meeting DSM-IV-TR criteria for cocaine or methamphetamine dependence and interested in quitting smoking were randomized to treatment as usual (TAU) (n=271) or TAU with smoking cessation treatment with burpropion and a nicotine inhaler (n=267). Those who received smoking cessation were not more likely to provide opioid-free samples at follow-up six weeks after the study (CTN-0046)').

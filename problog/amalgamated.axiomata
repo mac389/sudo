@@ -524,7 +524,7 @@ P::property(X, diagnosis, chronic_HCV_infection);;P::property(X,diagnosis,acute_
 	property(X,use,Y),
 	illicit_drug(Y),
 	P is 0.8,
-	write('Accessed CTN-0035\n').
+	writenl('Accessed CTN-0035').
 
 P::property(X,understand_importance_of,HCV_testing) :-
 	(property(X,ethnicity,black);property(X,ethnicity,latinx)),
@@ -533,7 +533,7 @@ P::property(X,understand_importance_of,HCV_testing) :-
 	lack(X,symptoms),
 	use(X,illicit_drugs),
 	P is 0.2,
-	write('Accessed CTN-0035\n'). 
+	writenl('Accessed CTN-0035'). 
 
 P::receive(X,HCV_testing) :-
 	(property(X,ethnicity,black);property(X,ethnicity,latinx)),
@@ -542,7 +542,7 @@ P::receive(X,HCV_testing) :-
 	illicit_drug(Y),
 	property(X,mistrust,health_care_providers),
 	P is 0.3,
-	write('Accessed CTN-0035\n').
+	writenl('Accessed CTN-0035').
 
 P::property(X,use,Y,during_treatment);P::property(X,use,alcohol,during_treatment) :-
 	property(X,location,outpatient),
@@ -559,42 +559,49 @@ P::property(X,use,Y,afteer_treatment);P::property(X,use,alcohol,after_treatment)
 	recieve(X,computer_modules),
 	recieve(X,treatment_as_usual),
 	P is 0.5,
-	writenl('507 adult men or women in outpatient treatment for substance use disorder who receive 62 computerized instruction modules were not more likely to decrease substance or alcohol use than those who received therapy as usual at follow-up(CTN-0044).')
+	writenl('507 adult men or women in outpatient treatment for substance use disorder who receive 62 computerized instruction modules were not more likely to decrease substance or alcohol use than those who received therapy as usual at follow-up (CTN-0044).')
 
-P::property(X,_,stimulants,negative,week) :-
-	property(X,cocaine),
-	property(x,methamphetime),
-	interested_in(X,quitting_smoking),
-	receive(X,treatment_as_usual),
-	receive(X,bupropion),
+P::property(X,urine_sample,Y,negative,just_after_treatment) :-
+	stimulant(Y),
+	(property(X,dependence,cocaine);property(X,dependence,methamphetamine)),
+	property(X,desire,quit_smoking),
+	(receive(X,treatment_as_usual);receive(X,bupropion)),
 	P is 0.77,
-	writenl('Accessed CTN-0046').
+	writenl('Adults meeting DSM-IV-TR criteria for cocaine or methamphetamine dependence and interested in quitting smoking were randomized to treatment as usual (TAU) (n=271) or TAU with smoking cessation treatment with burpropion and a nicotine inhaler (n=267). Those who received smoking cessation were not more likely to provide opioid-free samples during treatment (CTN-0046)').
 
-P::property(X,_,stimulants,negative,week) :-
-	property(X,cocaine),
-	property(x,methamphetime),
-	interested_in(X,quitting_smoking),
+P::property(X,urine_sample,Y,negative,n3_weeks)  :-
+	(property(X,dependence,cocaine);property(X,dependence,methamphetamine)),
+	property(X,desire,quit_smoking),
 	receive(X,treatment_as_usual),
-	P is 0.78,
-	writenl('Accessed CTN-0046').
+	P is 0.78, %abstract didn't give number jsut said both groups were equal
+	writenl('Adults meeting DSM-IV-TR criteria for cocaine or methamphetamine dependence and interested in quitting smoking were randomized to treatment as usual (TAU) (n=271) or TAU with smoking cessation treatment with burpropion and a nicotine inhaler (n=267). Those who received smoking cessation were not more likely to provide opioid-free samples at follow-up three weeks after the study (CTN-0046)').
 
-P::property(X,hair,_,negative,_) :-
-	moderate_to_severe_problems_related_to_drug_use(X),
+P::property(X,urine_sample,Y,negative,n6_weeks)  :-
+	(property(X,dependence,cocaine);property(X,dependence,methamphetamine)),
+	property(X,desire,quit_smoking),
+	receive(X,treatment_as_usual),
+	P is 0.78, %abstract didn't give number jsut said both groups were equal
+	writenl('Adults meeting DSM-IV-TR criteria for cocaine or methamphetamine dependence and interested in quitting smoking were randomized to treatment as usual (TAU) (n=271) or TAU with smoking cessation treatment with burpropion and a nicotine inhaler (n=267). Those who received smoking cessation were not more likely to provide opioid-free samples at follow-up six weeks after the study (CTN-0046)').
+
+P::property(X,hair_sample,Y,negative) :-
+	substance(Y),
+	property(X,dependence,Y),
 	receive(X,minimal_screening),
-	P is 0.5,
-	writenl('Accessed CTN-0047').
+	P is 0.8,
+	writenl('Of 1285 patient presenting to Emeregncy Department and then followed-up in an addiction medicine clinic, the rates of positive hair samples for the substances implicated in the use disorder were not different no matter whether the patient received a pamphlet, a pamphlet and telephone follow-up, or a full screening, assessment, and referral. (CTN-0047)').
 
-P::property(X,hair,_,negative,_) :-
-	moderate_to_severe_problems_related_to_drug_use(X),
+P::property(X,hair_sample,Y,negative) :-
+	substance(Y),
+	property(X,dependence,Y),
 	(receive(X,minimal_screening),receive(X,telephone_boosters)),
-	P is 0.5,
-	writenl('Accessed CTN-0047').
+	P is 0.8,
+	writenl('Of 1285 patient presenting to Emeregncy Department and then followed-up in an addiction medicine clinic, the rates of positive hair samples for the substances implicated in the use disorder were not different no matter whether the patient received a pamphlet, a pamphlet and telephone follow-up, or a full screening, assessment, and referral. (CTN-0047)').
 
-P::property(X,hair,_,negative,_) :-
+P::sample(X,hair,_,negative,_) :-
 	moderate_to_severe_problems_related_to_drug_use(X),
 	(receive(X,screening_assessment),receive(X,referral_to_treatment)),
-	P is 0.5,
-	writenl('Accessed CTN-0047').
+	P is 0.8,
+	writenl('Of 1285 patient presenting to Emeregncy Department and then followed-up in an addiction medicine clinic, the rates of positive hair samples for the substances implicated in the use disorder were not different no matter whether the patient received a pamphlet, a pamphlet and telephone follow-up, or a full screening, assessment, and referral. (CTN-0047)').
 
 P::have_poor_hiv_outcomes(X) :-
   use(X,Y,_),

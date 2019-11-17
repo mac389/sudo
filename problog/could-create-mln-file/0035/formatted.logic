@@ -1,21 +1,24 @@
 P::property(X, diagnosis, chronic_HCV_infection);;P::property(X,diagnosis,acute_HCV_infection) :-
 	(property(X,ethnicity,black);property(X,ethnicity,latinx)),
-	proerty(X,use,Y),
+	property(X,use,Y),
 	illicit_drug(Y),
 	P is 0.8,
 	write('Accessed CTN-0035\n').
 
-P::perceive(HCV_testing,unimportant) :-
+P::property(X,understand_importance_of,HCV_testing) :-
 	(property(X,ethnicity,black);property(X,ethnicity,latinx)),
+	property(X,use,Y),
+	illicit_drug(Y),
 	lack(X,symptoms),
 	use(X,illicit_drugs),
-	\+receive(X,recommendation_for_treatment),
-	P is 0.8,
+	P is 0.2,
 	write('Accessed CTN-0035\n'). 
 
-P::decide(X,not_pursue_HCV_treatment) :-
+P::receive(X,HCV_testing) :-
 	(property(X,ethnicity,black);property(X,ethnicity,latinx)),
-	diagnosed_with(X,HCV),
-	mistrust(X,health_care_providers),
-	P is 0.6,
+	property(X,diagnosis, HCV),
+	property(X,use,Y),
+	illicit_drug(Y),
+	property(X,mistrust,health_care_providers),
+	P is 0.3,
 	write('Accessed CTN-0035\n').
