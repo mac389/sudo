@@ -1,16 +1,7 @@
-P::decrease(X,substance_use,_) :-
-	diagnosed_with(X,adhd),
-	diagnosed_with(X,sud),
-	adolescent(X),
-	receive(X,cognitive_behavioral_therapy),
-	P is 0.5,
-	write('Accessed CTN-0028').
-
-P::decrease(X,substance_use,_) :-
-	diagnosed_with(X,adhd),
-	diagnosed_with(X,sud),
-	adolescent(X),
-	receive(X,methylphenidate),
-	receive(X,cognitive_behavioral_therapy),
-	P is 0.5,
-	write('Accessed CTN-0028').
+P::property(X,decrease,substance_use) :-
+	property(X,diagnosis,adhd),
+	property(X,diagnosis, sud),
+	property(X,age,adolescent),
+	(receive(X,cognitive_behavioral_therapy);receive(X,methylphenidate)),
+	P is 0.5, %Is this the correct number? PRobability vs likelihood ratio. 
+	writenl('Of 303 adolescents (13-18) who meet DSM-IV criteria for ADHD and SUD, those who received methylphenidate and cognitive behavioral therapy were not more likely to decrease substance use than those who received only cognitive behavior therapy. Neither group decreased substance use (CTN-0028)').s

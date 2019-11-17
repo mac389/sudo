@@ -359,7 +359,7 @@ P::property(X,substance_use,decrease) :-
 	property(X,gender,female),
 	property(X,dependence,Y),
 	property(X,location,outpatient),
-	property(X,diagnosis,PTSD),
+	property(X,diagnosis,ptsd),
 	substance(Y),
 	(receive(X,womens_health_education);receive(X,seeking_safety)),
 	P is 0.5, %abstract did not report actual probability
@@ -461,23 +461,13 @@ P::property(X,develop,drug_induced_hepatitis) :-
 	P is 0.1,
 	write('Of 1269 opioid-dependent patients those who received buprenorphine/naloxone were not more likely to develop hepatitis than those who received methadone. (CTN-0027)').
 
-
-P::decrease(X,substance_use,_) :-
-	diagnosed_with(X,adhd),
-	diagnosed_with(X,sud),
-	adolescent(X),
-	receive(X,cognitive_behavioral_therapy),
-	P is 0.5,
-	writenl('Accessed CTN-0028').
-
-P::decrease(X,substance_use,_) :-
-	diagnosed_with(X,adhd),
-	diagnosed_with(X,sud),
-	adolescent(X),
-	receive(X,methylphenidate),
-	receive(X,cognitive_behavioral_therapy),
-	P is 0.5,
-	writenl('Accessed CTN-0028').
+P::property(X,decrease,substance_use) :-
+	property(X,diagnosis,adhd),
+	property(X,diagnosis, sud),
+	property(X,age,adolescent),
+	(receive(X,cognitive_behavioral_therapy);receive(X,methylphenidate)),
+	P is 0.5, %Is this the correct number? PRobability vs likelihood ratio. 
+	writenl('Of 303 adolescents (13-18) who meet DSM-IV criteria for ADHD and SUD, those who received methylphenidate and cognitive behavioral therapy were not more likely to decrease substance use than those who received only cognitive behavior therapy. Neither group decreased substance use (CTN-0028)').
 
 P::reduce(X,nicotine,_) :-
 	diagnosed_with(X,adhd),
