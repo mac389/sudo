@@ -1,13 +1,7 @@
-4*P::use(X,substance) :-
-	hispanic(X),
-	use(X,substance),
-	receive(X,motivational_enhancement_therapy),
-	P is 0.1,
-	write('Accessed CTN-0021').
-
-4*P::use(X,substance):-
-	hispanic(X),
-	use(X,substance),
-	receive(X,counseling_as_usual),
-	P is 0.1,
-	write('Accessed CTN-0021').
+P::use(X,substance) :-
+	property(X,ethnicity,hispanic),
+	property(X,use,Y),
+	substance(Y),
+	(receive(X,motivational_enhancement_therapy);receive(X,counseling_as_usual)),
+	P is 0.8,
+	write('For 405 individuals seeking treatment for any substance use disorder, those who received four sessions of motivational enhancement therapy spaced once weekly for a month were not more likely to decrease substance use than those who received usual counseling. (CTN-0021)').
