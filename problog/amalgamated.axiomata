@@ -508,22 +508,16 @@ P::property(X,reduce,nicotine_use) :- %May be able to unpack nicotine use
 	P is 0.086,
 	writenl('Of the 653 outpatients dependent on opioids, 8.6 % were able to abstain from opioid use at 8 week follow-up. (CTN-0030)').
 
-P::decrease(X,unprotected_sexual_encounters,_);P::receive(X,test_results) :-
+P::property(X,decrease,unprotected_sexual_encounters);P::receive(X,hiv_test_results) :-
 	receive(X,off_site_hiv_testing),
-	receive(X,treatment),
+	receive(X,treatment_as_usual),
 	P is 0.5,
-	writenl('Accessed CTN-0032').
+	writenl('Of 1281 patients with negative or unknown HIV status those who receieved onsite testing were more likely to recieve their HIV test results than those who received a referral to offsite testing, but not likely to have fewer episodes of unprotected sexual encounters (CTN-0032)').
 
-P::decrease(X,unprotected_sexual_encounteers,_);1.5*P::receive(X,test_results) :-
-	receive(X,on_site_hiv_testing),
-	receive(X,hiv_risk_reduction_counseling),
+P::property(X,decrease,unprotected_sexual_encounteers);1.5*P::receive(X,hiv_test_results) :-
+	(receive(X,HIV_risk_reduction_counseling);receive(X,on_site_hiv_testing)),
 	P is 0.5,
-	writenl('Accessed CTN-0032').
-
-P::decrease(X,unprotected_sexual_encounters,_);1.5*P::receive(X,test_results) :-
-	receive(X,on_site_hiv_testing),
-	P is 0.5,
-	writenl('Accessed CTN-0032').
+	writenl('Of 1281 patients with negative or unknown HIV status those who receieved onsite testing were more likely to recieve their HIV test results than those who received a referral to offsite testing, but not likely to have fewer episodes of unprotected sexual encounters (CTN-0032)').
 
 P::infected(X, HCV,_);P::infected(X,HCV,newly) :-
 	use_illicit_drugs(X,_,_),

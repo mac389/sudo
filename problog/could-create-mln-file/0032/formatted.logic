@@ -1,16 +1,10 @@
-P::decrease(X,unprotected_sexual_encounters,_);P::receive(X,test_results) :-
-	receive(X,off_site_HIV_testing),
-	receive(X,treatment),
+P::property(X,decrease,unprotected_sexual_encounters);P::receive(X,hiv_test_results) :-
+	receive(X,off_site_hiv_testing),
+	receive(X,treatment_as_usual),
 	P is 0.5,
-	write('Accessed CTN-0032\n').
+	writenl('Of 1281 patients with negative or unknown HIV status those who receieved onsite testing were more likely to recieve their HIV test results than those who received a referral to offsite testing, but not likely to have fewer episodes of unprotected sexual encounters (CTN-0032)').
 
-P::decrease(X,unprotected_sexual_encounteers,_);1.5*P::receive(X,test_results) :-
-	receive(X,on_site_HIV_testing),
-	receive(X,HIV_risk_reduction_counseling),
+P::property(X,decrease,unprotected_sexual_encounteers);1.5*P::receive(X,hiv_test_results) :-
+	(receive(X,HIV_risk_reduction_counseling);receive(X,on_site_hiv_testing)),
 	P is 0.5,
-	write('Accessed CTN-0032\n').
-
-P::decrease(X,unprotected_sexual_encounters,_);1.5*P::receive(X,test_results) :-
-	receive(X,on_site_HIV_testing),
-	P is 0.5,
-	write('Accessed CTN-0032\n').
+	writenl('Of 1281 patients with negative or unknown HIV status those who receieved onsite testing were more likely to recieve their HIV test results than those who received a referral to offsite testing, but not likely to have fewer episodes of unprotected sexual encounters (CTN-0032)').
