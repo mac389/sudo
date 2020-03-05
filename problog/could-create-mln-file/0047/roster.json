@@ -1,4 +1,4 @@
 {
-	"predicate":["sample","moderate_to_severe_problems_related_to_drug_use","receive"],
+	"predicates":["sample","moderate_to_severe_problems_related_to_drug_use","receive"],
 	"atoms":["hair","drug_free","minimal_screening","telephone_boosters","referral_to_treatment","screening_assessment"]
 }

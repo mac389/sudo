@@ -2,17 +2,3 @@
 	"predicates":["infected","use","receive","diagnosed_with","mistrust"],
 	"atoms":["HCV","newly","HCV_testing","health_care_providers","not_pursue_HCV_treatment","symptoms","illicit_drugs","recommendation_for_treatment"]
 }
-P::infected(X, HCV);P::infected(X,HCV,newly) :-
-	use(X,illicit_drugs),
-	P is 0.8.
-
-P::perceive(HCV_testing,unimportant) :-
-	lack(X,symptoms),
-	use(X,illicit_drugs),
-	\+receive(X,recommendation_for_treatment),
-	P is 0.8. 
-
-P::decide(X,not_pursue_HCV_treatment) :-
-	diagnosed_with(X,HCV),
-	mistrust(X,health_care_providers),
-	P is 0.6.
