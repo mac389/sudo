@@ -1,0 +1,4 @@
+{
+	"predicates":["receive","inject","engage_in","member","attend"],
+	"atoms":["counseling_and_education","therapeutic_alliance","treatment_as_usual","substance","drug_use","risky_behavior","HIV_testing_appointment"]
+}

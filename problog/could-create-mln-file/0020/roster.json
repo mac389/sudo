@@ -1,0 +1,5 @@
+{
+
+	"predicates":["obtain","use","receive","not_obtain"],
+	"atoms":["new_taxed_job","substance","standard_care","job_seekers_workshop"]
+}

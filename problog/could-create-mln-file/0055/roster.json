@@ -1,0 +1,4 @@
+{
+	"predicates":["start","stay_in","use","diagnosed_with","infected_with","recieved"],
+	"atoms":["treatment","opioid","alcohol","heavy","viral_suppression","substance_use_disorder","HIV","buprenorphine","treatment_as_usual"]
+}

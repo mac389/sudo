@@ -170,13 +170,13 @@ P::dependent(X, nicotine) :-
 P::abstinent(X, nicotine, during_treamtent);(0.5*P)::abstinent(X,nicotine,n13_weeks);(0.5*P)::abstinent(X,nicotine,n26_weeks) :-
     person(X),
     P is 0.10,
-    recieve_therapy(X, nicotine).
+    receive_therapy(X, nicotine).
 
 % Did not say what care as usual P was, only that it was lower
 P::abstinent(X, nicotine, during_treamtent);(0.5*P)::abstinent(X,nicotine,n13_weeks);(0.5*P)::abstinent(X,nicotine,n26_weeks) :-
     person(X),
     P is 0.05,
-    recieve_therapy(X, care_as_usual).
+    receive_therapy(X, care_as_usual).
 
     
 use(X,drug) :- 
@@ -263,29 +263,29 @@ P::decrease(X,unprotected_sexual_encounters);P::increase(X,unprotected_sexual_en
 	methadone_maintenance_or_receive(X,outpatient_psychosocial_treatment),
 	receive(X,HIV_ED),
 	P is 0.5.
-2*P::decrease(X,unprotected_sexual_encounters,n3_months);P::inrease_unprotected_sexual_encounters(X,n3_months) :-
+2*P::decrease(X,unprotected_sexual_encounters,n3_months);P::increase_unprotected_sexual_encounters(X,n3_months) :-
 	female(X),
 	use(X,substance),
-	recieve_therapy(X, safer_skills_building),
+	receive_therapy(X, safer_skills_building),
 	P is 0.3.
 
-2*P::decrease(X,unprotected_sexual_encounters,n3_months);P::inrease_unprotected_sexual_encounters(X,n3_months) :-
+2*P::decrease(X,unprotected_sexual_encounters,n3_months);P::increase_unprotected_sexual_encounters(X,n3_months) :-
 	female(X),
 	use(X,substance),
-	recieve_therapy(X, HIV_ED),
+	receive_therapy(X, HIV_ED),
 	P is 0.3.
 
 
-2*P::decrease(X,unprotected_sexual_encounters,n6_months);P::inrease_unprotected_sexual_encounters(X,n6_months) :-
+2*P::decrease(X,unprotected_sexual_encounters,n6_months);P::increase_unprotected_sexual_encounters(X,n6_months) :-
 	female(X),
 	use(X,substance),
-	recieve_therapy(X, safer_skills_building),
+	receive_therapy(X, safer_skills_building),
 	P is 0.3.
 
-P::decrease(X,unprotected_sexual_encounters,n6_months);P::inrease_unprotected_sexual_encounters(X,n6_months) :-
+P::decrease(X,unprotected_sexual_encounters,n6_months);P::increase_unprotected_sexual_encounters(X,n6_months) :-
 	female(X),
 	use(X,substance),
-	recieve_therapy(X, HIV_ED),
+	receive_therapy(X, HIV_ED),
 	P is 0.3.P::obtain(X,new_taxed_job);2*P::not_obtain(X,new_taxed_job) :-
 	use(X,substance),
 	receive(X,standard_care),
@@ -311,9 +311,10 @@ P::obtain(X,new_taxed_job);2*P::not_obtain(X,new_taxed_job) :-
 P::develop(X,drug_induced_hepatitis) :-
 	use(X,methadone),
 	P is 0.5.
+
 P::reduce_days_of_use(X,substance) :-
 	diagnosed_with(X,adhd),
-	diagnosed_with(X,
+	diagnosed_with(X,_),
 	adolescent(X),
 	receive(X,methylphenidate),
 	receive(X,cognitive_behavioral_therapy),
@@ -321,7 +322,7 @@ P::reduce_days_of_use(X,substance) :-
 
 P::reduce_days_of_use(X,substance) :-
 	diagnosed_with(X,adhd),
-	diagnosed_with(X,
+	diagnosed_with(X,_),
 	adolescent(X),
 	receive(X,methylphenidate),
 	receive(X,cognitive_behavioral_therapy),
@@ -386,7 +387,7 @@ P::decide(X,not_pursue_HCV_treatment) :-
 	diagnosed_with(X,HCV),
 	mistrust(X,health_care_providers),
 	P is 0.6.
-P::(receive(X,treatment);P::(recieve(X,treatment) :-
+P::(receive(X,treatment);P::(receive(X,treatment) :-
 	receive(X,outpatient_addiction_treatment),
 	receive(X,computer_modules),
 	receive(x,motivational_incentives),
@@ -432,49 +433,51 @@ P::have_poor_HIV_outcomes(X) :-
 P::experience(X,HIV_suppression) :-
     infected(X,HIV),
     diagnosed_with(X,substance_use_disorder),
-    recieve(X,patient_navigation),
+    receive(X,patient_navigation),
     P is 0.5.
 
 P::experience(X,HIV_suppression) :-
     infected(X,HIV),
     diagnosed_with(X,substance_use_disorder),
-    recieve(X,patient_navigation),
-    recieve(X,finanical_motivation),
+    receive(X,patient_navigation),
+    receive(X,finanical_motivation),
     P is 0.5.
 
-
 P::drug_free(X,cocaine,duration);;P::sample(X,_,cocaine,duration) :-
-dependent(X,
+dependent(X,cocaine)
 treated(X,as_inpatient),
 receive(X,buspirone)
 P is 0.5.
 
 P::drug_free(X,cocaine,duration);;P::sample(X,_,cocaine,duration) :- 
-dependent(X,
+dependent(X,cocaine)
 treated(X,as_inpatient),
 receive(X,placebo),
-P is 0.5.P::sample(X,urine,\+contain_cannabinoids) :-
+
+(1-P)::sample(X,urine,contain_cannabinoids) :-
 diagnosed_with(X,cannabis_use_disorder),
 receive(X,contingency_management),
 receive(X,medical_management),
 P is 0.25.
 
-P::sample(X,urine,\+contain_cannabinoids) :-
+(1-P)::sample(X,urine,contain_cannabinoids) :-
 diagnosed_with(X,cannabis_use_disorder),
 receive(X,contingency_management),
 receive(X,n_acetylcysteine),
 receive(X,medical_management),
 P is 0.25.
+
 P::sample(X,urine,pan_negative) :-
 	diagnosed_with(X,methamphetamine_use_disorder)
 	receive(X,injectable_naltrexone),
-	recieve(X,bupropion),
+	receive(X,bupropion),
 	receive(X,medical_management),
 	P is 11/49.
+
 P::start(X,treatment);(0.88*P)::stay_in(X,treatment);P2::use(X,opioid);P3::use(X,alcohol,heavy);P4::diagnosed_with(X,viral_suppression) :-
 	diagnosed_with(X,substance_use_disorder),
 	infected_with(X,HIV),
-	recieved(X, buprenorphine),
+	received(X, buprenorphine),
 	P is 34/51,
 	P2 is 13/30,
 	P3 is 6/30,
@@ -492,7 +495,7 @@ P::start(X,treatment);(0.88*P)::stay_in(X,treatment);P2::use(X,opioid);P3::use(X
 P::start(X,treatment);(0.88*P)::stay_in(X,treatment);P2::use(X,opioid);P3::use(X,alcohol,heavy);P4::diagnosed_with(X,viral_suppression) :-
 	diagnosed_with(X,substance_use_disorder),
 	infected_with(X,HIV),
-	recieved(X, buprenorphine),
+	received(X, buprenorphine),
 	P is 34/51,
 	P2 is 13/30,
 	P3 is 6/30,
@@ -510,7 +513,7 @@ P::start(X,treatment);(0.88*P)::stay_in(X,treatment);P2::use(X,opioid);P3::use(X
 P::start(X,treatment);(0.88*P)::stay_in(X,treatment);P2::use(X,opioid);P3::use(X,alcohol,heavy);P4::diagnosed_with(X,viral_suppression) :-
 	diagnosed_with(X,substance_use_disorder),
 	infected_with(X,HIV),
-	recieved(X, buprenorphine),
+	received(X, buprenorphine),
 	P is 34/51,
 	P2 is 13/30,
 	P3 is 6/30,
@@ -528,7 +531,7 @@ P::start(X,treatment);(0.88*P)::stay_in(X,treatment);P2::use(X,opioid);P3::use(X
 P::start(X,treatment);(0.88*P)::stay_in(X,treatment);P2::use(X,opioid);P3::use(X,alcohol,heavy);P4::diagnosed_with(X,viral_suppression) :-
 	diagnosed_with(X,substance_use_disorder),
 	infected_with(X,HIV),
-	recieved(X, buprenorphine),
+	receive(X, buprenorphine),
 	P is 34/51,
 	P2 is 13/30,
 	P3 is 6/30,

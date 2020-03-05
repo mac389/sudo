@@ -1,0 +1,4 @@
+{
+	"predicates":["develop","use"],
+	"atoms":["drug_induced_hepatitis","buprenorphine_naloxone","methadone"]
+}

@@ -1,0 +1,4 @@
+{
+	"predicates":["drug_free","sample"],
+	"atoms":["cocaine","duration","as_inpatient","placebo","buspirone"]
+}

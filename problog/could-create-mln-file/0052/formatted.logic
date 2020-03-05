@@ -1,11 +1,11 @@
 P::drug_free(X,cocaine,duration);;P::sample(X,_,cocaine,duration) :-
-dependent(X,
+dependent(X,cocaine)
 treated(X,as_inpatient),
 receive(X,buspirone)
 P is 0.5.
 
 P::drug_free(X,cocaine,duration);;P::sample(X,_,cocaine,duration) :- 
-dependent(X,
+dependent(X,cocaine)
 treated(X,as_inpatient),
 receive(X,placebo),
 P is 0.5.

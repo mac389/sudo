@@ -1,0 +1,4 @@
+{
+	"predicates":["sample","diagnosed_with","receive"],
+	"atoms":["urine","contain_cannabinoids","cannabis_use_disorder","contingency_management","medical_management","n_acetylcysteine"]
+}

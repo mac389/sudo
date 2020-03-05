@@ -1,0 +1,4 @@
+{
+    "predicates":["have_poor_HIV_outcomes","use","infected","diagnosed_with","recieve"],
+    "atoms":["substance","substance_use_disorder","patient_navigation","finanical_motivation","HIV","HIV_suppression"]
+}

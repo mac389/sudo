@@ -1,0 +1,4 @@
+{
+	"predicates":["methadone_maintenance_or_receive","person","receive","decrease","increase","male"],
+	"atoms":["outpatient_psychosocial_treatment","unprotected_sexual_encounters","REMAS","HIV_ED","substance","methadone"]
+}

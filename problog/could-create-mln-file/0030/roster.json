@@ -1,0 +1,4 @@
+{
+	"predicates":["stop_using","dependent","complete","receive","complete"],
+	"atoms":["prescription_opioids","naloxone_stabilization","counseling","taper","post_medication_follow_up"]
+}
