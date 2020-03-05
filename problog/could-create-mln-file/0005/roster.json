@@ -1,0 +1,5 @@
+{
+	"predicates":["stay","urine_drug_screen"],
+	"atoms":["in_therapy","n28_day","positive","negative","motivational_interviewing","standard_intake_evaluations"]
+
+}

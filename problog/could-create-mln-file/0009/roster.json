@@ -1,0 +1,4 @@
+{
+    "predicates":["dependent","person","recieve_therapy","use"],
+    "atoms":["nicotine","drug","alcohol","during_treamtent","n13_weeks","n26_weeks","care_as_usual","methadone"]
+}

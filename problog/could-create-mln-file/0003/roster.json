@@ -1,0 +1,4 @@
+{
+	"predicates":["urine"],
+	"atoms":["opioid_free","initial","contains_opioids","n1_month","n3_month","n28_days","n7_days","buprenorphine"]
+}

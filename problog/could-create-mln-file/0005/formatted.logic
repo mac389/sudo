@@ -1,4 +1,4 @@
-2*P::stay_in_therapy(X, n28_day);(1-2*P)::\+stay(X,in_therapy,n_28_day) :-
+2*P::stay(X,in_therapy, n28_day) :-
     receive(X,motivational_interviewing),
     P is 0.33.
 

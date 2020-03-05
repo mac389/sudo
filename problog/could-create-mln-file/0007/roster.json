@@ -1,0 +1,5 @@
+{
+	"predicates":["use","receive","remain","sample"],
+	"atoms":["stimulant","alcohol","cocaine","drug_abstinence","contingency_management_intervention","tangible_incentives","counseling","in_treatment","n4_weeks","n8_weeks","n12_weeks",
+		"urine","stimulant_free","alcohol_free"]
+}

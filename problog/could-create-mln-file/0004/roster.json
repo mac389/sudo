@@ -1,0 +1,4 @@
+{
+	"predicates":["stay","not_stay","urine_drug_screen","receive"],
+	"atoms":["positive","negative","care_as_usual","motivational_enhancement"]
+}
