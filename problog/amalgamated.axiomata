@@ -6,14 +6,14 @@
    writenl('Someone dependence on opioids treated as an inpatient with buprenorphine/naloxone has a 77% chance of submitting an opioid-free urine sample on the last day of treatment. (CTN-001)').
 
 0.29::property(X,urine_sample,opioids,negative,just_after_treatment) :-
-	property(1,location,outpatient),
+	property(X,location,outpatient),
 	property(X,dependence,opioids),
 	receive(X,buprenorphine_naloxone),
 	property(buprenophine_naloxone,duration,n13_days),
 	writenl('Someone dependence on opioids treated as an outpatient with buprenorphine/naloxone has a 29% chance of submitting an opioid-free urine sample on the last day of treatment. (CTN-0001)').
 
 0.05::property(X,urine_sample,opioids,negative,just_after_treatment) :-
-	property(1,location,outpatient),
+	property(X,location,outpatient),
 	property(X,dependence,opioids),
 	receive(X,clonidine),
 	property(clonidine,duration,n13_days),
@@ -93,35 +93,35 @@ P::property(X,urine_sample,Y,positive) :-
     property(X,dependence,Y),
     property(X,location,outpatient),
     P is 0.33,
-    writenl('Of 423 users, those who recieved motivational interviewing had significantly better retention through the 28-day follow-up than those assigned to the standard intervention.(CTN-0005)').
+    writenl('Of 423 users, those who received motivational interviewing had significantly better retention through the 28-day follow-up than those assigned to the standard intervention.(CTN-0005)').
 
 P:property(X,urine_sample,Y,positive,n28_days) :-
-    (receive(X,motiavtional_interviewing);receive(X,standard_care)),
+    (receive(X,motivational_interviewing);receive(X,standard_care)),
     property(X,location,outpatient),
     property(X,dependence,Y),
     P is 0.5,
-    writenl('Of 423 users, those who recieved motivational interviewing weren ot significantly less likely to submit opioid-free urine samples at 28 days after treatment than those assigned to the standard intervention.(CTN-0005)').
+    writenl('Of 423 users, those who received motivational interviewing weren ot significantly less likely to submit opioid-free urine samples at 28 days after treatment than those assigned to the standard intervention.(CTN-0005)').
 
 P::remain(X, in_therapy, n84_days) :-
     P is 0.5,
     property(X,location,outpatient),
     (receive(X,motivational_interviewing);receive(X,standard_care)),
     property(X,dependence,Y),
-    writenl('Of 423 users, those who recieved motivational interviewing were not significantly less likely to submit opioid-free urine samples at 84 days after treatment than those assigned to the standard intervention.(CTN-0005)').
+    writenl('Of 423 users, those who received motivational interviewing were not significantly less likely to submit opioid-free urine samples at 84 days after treatment than those assigned to the standard intervention.(CTN-0005)').
 
 P::remain(X,in_treatment,n4_weeks) :-
 	receive(X,counseling),
 	property(X,location,outpatient),
 	(property(X,use,cocaine); property(X,use,methamphetamine)),
 	P is 0.25,
-	writenl('Of 415 methamphetamine or cocaine users who received monetary prizes for abstinence, were 2.5 times more likely than those who received standard care to submit opioid-free urine samples 4 week sinto therapy (CTN-0006).').
+	writenl('Of 415 methamphetamine or cocaine users who received monetary prizes for abstinence, were 2.5 times more likely than those who received standard care to submit opioid-free urine samples 4 weeks into therapy (CTN-0006).').
 
 P::property(X,urine_sample,opioids,negative,n4_weeks) :-
 	receive(X,abstinence_based_incentive),
 	property(X,location,outpatient),
 	(property(X,use,cocaine); property(X,use,methamphetamine)),
 	P is 0.75,
-	writenl('Of 415 methamphetamine or cocaine users who received monetary prizes for abstinence, were 2.5 times more likely than those who received standard care to submit opioid-free urine samples 4 week sinto therapy (CTN-0006).').
+	writenl('Of 415 methamphetamine or cocaine users who received monetary prizes for abstinence, were 2.5 times more likely than those who received standard care to submit opioid-free urine samples 4 weeks into therapy (CTN-0006).').
 
 P::property(X,urine_sample,opioids,negative,n4_weeks):-
 	receive(X,counseling),
@@ -161,12 +161,12 @@ P::property(X,urine_sample,Y,negative,n12_weeks);P::property(X,urine_sample,alco
 	property(X,location,outpatient),
 	property(X,dependence,opioids),
 	property(X,dependence,Z),
-	stimulant(Z), %the patient may not be dependence on the stimulant tested for
+	stimulant(Z), %the patient may not be dependent on the stimulant tested for
 	receive(X,counseling),
 	receive(X,methadone),
 	stimulant(Y),
 	P is 0.33,
-	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were twice as likely as those who did not to submit stimulant- and alcohol negative samples at 12 weeks. (CTN-0007)').
+	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who received financial incentives were twice as likely as those who did not to submit stimulant- and alcohol negative samples at 12 weeks. (CTN-0007)').
 
 P::property(X,urine_sample,Y,negative,n12_weeks);P::property(X,urine_sample,alcohol,negative,n12_weeks) :-
 	property(X,location,outpatient),
@@ -177,7 +177,7 @@ P::property(X,urine_sample,Y,negative,n12_weeks);P::property(X,urine_sample,alco
 	receive(X,methadone),
 	stimulant(Y),
 	P is 0.66,
-	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were twice as likely as those who did not to submit stimulant- and alcohol negative samples at 12 weeks. (CTN-0007)').
+	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who received financial incentives were twice as likely as those who did not to submit stimulant- and alcohol negative samples at 12 weeks. (CTN-0007)').
 
 P::property(X,urine_sample,Y,negative,n4_weeks);P::property(X,urine_sample,alcohol,negative,n4_weeks);P::property(X,abstinence,A,n4_weeks);P::property(X,abstinence,Y,n4_weeks) :-
 	property(X,location,outpatient),
@@ -189,7 +189,7 @@ P::property(X,urine_sample,Y,negative,n4_weeks);P::property(X,urine_sample,alcoh
 	stimulant(Y),
 	opioid(A),
 	P is 0.25,
-	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were three times as likely to achieve four weeks of continuous abstinence during treatment. (CTN-0007)').
+	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who received financial incentives were three times as likely to achieve four weeks of continuous abstinence during treatment. (CTN-0007)').
 
 P::property(X,urine_sample,Y,negative,n4_weeks);P::property(X,urine_sample,alcohol,negative,n4_weeks);P::property(X,abstinence,A,n4_weeks);P::property(X,abstinence,Y,n4_weeks)  :-
 	property(X,location,outpatient),
@@ -201,7 +201,7 @@ P::property(X,urine_sample,Y,negative,n4_weeks);P::property(X,urine_sample,alcoh
 	stimulant(Y),
 	opioid(A),
 	P is 0.75,
-	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were three times as likely to achieve four weeks of continuous abstinence during treatment. (CTN-0007)').
+	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who received financial incentives were three times as likely to achieve four weeks of continuous abstinence during treatment. (CTN-0007)').
 
 P::property(X,urine_sample,Y,negative,n8_weeks);P::property(X,urine_sample,alcohol,negative,n8_weeks);P::property(X,abstinence,A,n8_weeks);P::property(X,abstinence,Y,n8_weeks)  :-
 	property(X,location,outpatient),
@@ -213,7 +213,7 @@ P::property(X,urine_sample,Y,negative,n8_weeks);P::property(X,urine_sample,alcoh
 	stimulant(Y),
 	opioid(A),
 	P is 0.11,
-	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were nine times as likely to achieve eight weeks of continuous abstinence during treatment. (CTN-0007)').
+	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who received financial incentives were nine times as likely to achieve eight weeks of continuous abstinence during treatment. (CTN-0007)').
 
 P::property(X,urine_sample,Y,negative,n8_weeks);P::property(X,urine_sample,alcohol,negative,n8_weeks);P::property(X,abstinence,A,n8_weeks);P::property(X,abstinence,Y,n8_weeks)  :-
 	property(X,location,outpatient),
@@ -225,7 +225,7 @@ P::property(X,urine_sample,Y,negative,n8_weeks);P::property(X,urine_sample,alcoh
 	stimulant(Y),
 	opioid(A),
 	P is 0.88,
-	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were nine times as likely to achieve eight weeks of continuous abstinence during treatment. (CTN-0007)').
+	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who received financial incentives were nine times as likely to achieve eight weeks of continuous abstinence during treatment. (CTN-0007)').
 
 P::property(X,abstinence,A,n12_weeks);P::property(X,abstinence,Y,n12_weeks)  :-
 	property(X,location,outpatient),
@@ -237,7 +237,7 @@ P::property(X,abstinence,A,n12_weeks);P::property(X,abstinence,Y,n12_weeks)  :-
 	stimulant(Y),
 	opioid(A),
 	P is 0.08,
-	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were eleven times as likely to achieve twelve weeks of continuous abstinence during treatment. (CTN-0007)').
+	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who received financial incentives were eleven times as likely to achieve twelve weeks of continuous abstinence during treatment. (CTN-0007)').
 
 P::property(X,abstinence,A,n12_weeks);P::property(X,abstinence,Y,n12_weeks)  :-
 	property(X,location,outpatient),
@@ -249,19 +249,19 @@ P::property(X,abstinence,A,n12_weeks);P::property(X,abstinence,Y,n12_weeks)  :-
 	stimulant(Y),
 	opioid(A),
 	P is 0.92,
-	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who recieved financial incentives were eleven times as likely to achieve twelve weeks of continuous abstinence during treatment. (CTN-0007)').
+	writenl('Of 388 patients with stimulant and opioid abuse disorder, those who received financial incentives were eleven times as likely to achieve twelve weeks of continuous abstinence during treatment. (CTN-0007)').
 
 P::property(X,use,nicotine,just_after_treatment);0.5*P::property(X,use,nicotine,n13_weeks);0.5*P::property(X,use,nicotine,n26_weeks) :-
     receive(X, nicotine),
     property(X, use, nicotine),
     property(X,location,outpatient),
     property(X,dependence,Y),
-    (Y = alcohol; opioid(Y)),
+    (alcohol(Y); opioid(Y)),
     P is 0.1,
     writenl('Of 225 cigarette smokers with either opioid or alcohol use disorders, those who receieved nicotine replacement therapy showed an initial rate of nicotine abstinence of 10%, that dropped to 5% at 13- and 26-week follow-up (CTN-0009).').
 
 P::property(X,urine_sample,opioids,positive,n4_weeks) :-
-	property(X,depdence, opioids),
+	property(X,dependence, opioids),
 	property(X,location,outpatient),
 	property(X,age,youth),
 	receive(X, buprenorphine_naloxone),
@@ -269,7 +269,7 @@ P::property(X,urine_sample,opioids,positive,n4_weeks) :-
 	writenl('Of 125 opioid-addicted youth, at week 4 of treatment, 59/78 detox patients had positive urine opioid screens versus 58/74 of those who received buprenorphine/naloxone. (CTN-0010)').
 
 P::property(X,urine_sample,opioids,positive,n4_weeks) :-
-	property(X,depdence, opioids),
+	property(X,dependence, opioids),
 	property(X,location,outpatient),
 	property(X,age,youth),
 	receive(X, buprenorphine_naloxone),
@@ -279,7 +279,7 @@ P::property(X,urine_sample,opioids,positive,n4_weeks) :-
 	writenl('Of 125 opioid-addicted youth, at week 4 of treatment, 59/78 detox patients had positive urine opioid screens versus 58/74 of those who received buprenorphine/naloxone. (CTN-0010)').
 
 P::property(X,urine_sample,opioids, positive,n8_weeks) :-
-	property(X,depdence, opioids),
+	property(X,dependence, opioids),
 	property(X,location,outpatient),
 	receive(X, buprenorphine_naloxone),
 	receive(X,counseling),
@@ -289,7 +289,7 @@ P::property(X,urine_sample,opioids, positive,n8_weeks) :-
 	writenl('Of 125 opioid-addicted youth, at week 4 of treatment, 53/78 detox patients had positive urine opioid screens versus 52/74 of those who received buprenorphine/naloxone. (CTN-0010)').
 
 P::property(X,urine_sample,opioids,positive,n8_weeks) :-
-	property(X,depdence, opioids),
+	property(X,dependence, opioids),
 	property(X,location,outpatient),
 	receive(X,counseling),
 	receive(X,detoxification),
@@ -298,7 +298,7 @@ P::property(X,urine_sample,opioids,positive,n8_weeks) :-
 	writenl('Of 125 opioid-addicted youth, at week 4 of treatment, 59/78 detox patients had positive urine opioid screens versus 58/74 of those who received buprenorphine/naloxone. (CTN-0010)').
 
 P::property(X,urine_sample,opioids, positive,n12_weeks) :-
-	property(X,depdence, opioids),
+	property(X,dependence, opioids),
 	property(X,location,outpatient),
 	receive(X, buprenorphine_naloxone),
 	receive(X,counseling),
@@ -308,7 +308,7 @@ P::property(X,urine_sample,opioids, positive,n12_weeks) :-
 	writenl('Of 125 opioid-addicted youth, at week 4 of treatment, 53/78 detox patients had positive urine opioid screens versus 49/74 of those who received buprenorphine/naloxone. (CTN-0010)').
 
 P::property(X,urine_sample,opioids,positive,n12_weeks) :-
-	property(X,depdence, opioids),
+	property(X,dependence, opioids),
 	property(X,location,outpatient),
 	receive(X,counseling),
 	receive(X,detoxification),
@@ -317,7 +317,7 @@ P::property(X,urine_sample,opioids,positive,n12_weeks) :-
 	writenl('Of 125 opioid-addicted youth, at week 4 of treatment, 53/78 detox patients had positive urine opioid screens versus 49/74 of those who received buprenorphine/naloxone. (CTN-0010)').
 
 P::remain(X,in_treatment,n12_weeks) :-
-	property(X,depdence, opioids),
+	property(X,dependence, opioids),
 	property(X,location,outpatient),
 	property(X,age,youth),
 	receive(X,counseling),
@@ -326,7 +326,7 @@ P::remain(X,in_treatment,n12_weeks) :-
 	writenl('Of 125 opioid-addicted youth randomized to either detoxification (n=78) or medication-assisted therapy (n=74), by week 12, 16 detox patients remained in treatment vs. 52s buprenorphine/naloxone patients (70%).(CTN-0010) Accessed').
 
 P::remain(X,in_treatment,n12_weeks) :-
-	property(X,depdence, opioids),
+	property(X,dependence, opioids),
 	property(X,location,outpatient),
 	property(X,age,youth),
 	receive(X,counseling),
@@ -393,7 +393,7 @@ P::property(X,decrease,unprotected_sexual_encounters);(1-P)::property(X,increase
 	(receive(X,methadone);receive(X,outpatient_psychosocial_treatment)),	
 	receive(X,REMAS),
 	P is 0.8,
-	writenl('Men who inject drugs in methadone maintenance (n = 288) or outpatient psychosocial treatment (n = 302) who recieved multi-session safe sexual practice educations engaged in significantly fewer unprotected vaginal and anal sexual intercourse occasions (USO) during the 90 days prior to the 3- and 6-month follow-ups than those who received a single education session.(CTN-0018)').
+	writenl('Men who inject drugs in methadone maintenance (n = 288) or outpatient psychosocial treatment (n = 302) who received multi-session safe sexual practice educations engaged in significantly fewer unprotected vaginal and anal sexual intercourse occasions (USO) during the 90 days prior to the 3- and 6-month follow-ups than those who received a single education session.(CTN-0018)').
 
 P::property(X,decrease,unprotected_sexual_encounters);(1-P)::property(X,increase,unprotected_sexual_encounters) :-
 	property(X,gender,male),
@@ -402,13 +402,13 @@ P::property(X,decrease,unprotected_sexual_encounters);(1-P)::property(X,increase
 	(receive(X,methadone);receive(X,outpatient_psychosocial_treatment)),	
 	receive(X,hiv_ed),
 	P is 0.5,
-	writenl('Men who inject drugs in methadone maintenance (n = 288) or outpatient psychosocial treatment (n = 302) who recieved multi-session safe sexual practice educations engaged in significantly fewer unprotected vaginal and anal sexual intercourse occasions (USO) during the 90 days prior to the 3- and 6-month follow-ups than those who received a single education session.(CTN-0018)').
+	writenl('Men who inject drugs in methadone maintenance (n = 288) or outpatient psychosocial treatment (n = 302) who received multi-session safe sexual practice educations engaged in significantly fewer unprotected vaginal and anal sexual intercourse occasions (USO) during the 90 days prior to the 3- and 6-month follow-ups than those who received a single education session.(CTN-0018)').
 2*P::property(X,decrease,unprotected_sexual_encounters,n3_months);P::property(X,increase,unprotected_sexual_encounters,n3_months) :-
 	property(X,gender,female),
 	property(X,use,Y),
 	substance(Y),
 	(receive(X,methadone);receive(X,outpatient_psychosocial_treatment)),
-	recieve(X, safer_skills_building),
+	receive(X, safer_skills_building),
 	P is 0.3,
 	writenl('Of 515 women who had at least one unprotected anal or vaginal sex encounter within the last six months with a male, those who received five 90 minute skill building sessions or one informational session at six months follow-up were equally less likely to have an unprotected sexual encounter at three month follow-up. (CTN-00199)').
 
@@ -417,7 +417,7 @@ P::property(X,decrease,unprotected_sexual_encounters);(1-P)::property(X,increase
 	property(X,use,Y),
 	substance(Y),
 	(receive(X,methadone);receive(X,outpatient_psychosocial_treatment)),
-	recieve(X, hiv_ed),
+	receive(X, hiv_ed),
 	P is 0.3,
 	writenl('Of 515 women who had at least one unprotected anal or vaginal sex encounter within the last six months with a male, those who received five 90 minute skill building sessions or one informational session at six months follow-up were equally less likely to have an unprotected sexual encounter at three month follow-up. (CTN-00199)').
 
@@ -426,7 +426,7 @@ P::property(X,decrease,unprotected_sexual_encounters);(1-P)::property(X,increase
 	property(X,use,Y),
 	substance(Y),
 	(receive(X,methadone);receive(X,outpatient_psychosocial_treatment)),
-	recieve(X, safer_skills_building),
+	receive(X, safer_skills_building),
 	P is 0.3,
 	writenl('Of 515 women who had at least one unprotected anal or vaginal sex encounter within the last six months with a male, those who received five 90 minute skill building sessions were 30% less likely to have unprotected sexual encounters than those who received one informational session at six months follow-up. (CTN-00199)').
 
@@ -435,7 +435,7 @@ P::property(X,decrease,unprotected_sexual_encounters,n6_months);P::property(X,in
 	property(X,use,Y),
 	substance(Y),
 	(receive(X,methadone);receive(X,outpatient_psychosocial_treatment)),
-	recieve(X, hiv_ed),
+	receive(X, hiv_ed),
 	P is 0.2,
 	writenl('Of 515 women who had at least one unprotected anal or vaginal sex encounter within the last six months with a male, those who received five 90 minute skill building sessions were 30% less likely to have unprotected sexual encounters than those who received one informational session at six months follow-up. (CTN-00199)').
 
@@ -512,12 +512,12 @@ P::property(X,decrease,unprotected_sexual_encounters);P::receive(X,hiv_test_resu
 	receive(X,off_site_hiv_testing),
 	receive(X,treatment_as_usual),
 	P is 0.5,
-	writenl('Of 1281 patients with negative or unknown HIV status those who receieved onsite testing were more likely to recieve their HIV test results than those who received a referral to offsite testing, but not likely to have fewer episodes of unprotected sexual encounters (CTN-0032)').
+	writenl('Of 1281 patients with negative or unknown HIV status those who receieved onsite testing were more likely to receive their HIV test results than those who received a referral to offsite testing, but not likely to have fewer episodes of unprotected sexual encounters (CTN-0032)').
 
-P::property(X,decrease,unprotected_sexual_encounteers);1.5*P::receive(X,hiv_test_results) :-
+P::property(X,decrease,unprotected_sexual_encounters);1.5*P::receive(X,hiv_test_results) :-
 	(receive(X,HIV_risk_reduction_counseling);receive(X,on_site_hiv_testing)),
 	P is 0.5,
-	writenl('Of 1281 patients with negative or unknown HIV status those who receieved onsite testing were more likely to recieve their HIV test results than those who received a referral to offsite testing, but not likely to have fewer episodes of unprotected sexual encounters (CTN-0032)').
+	writenl('Of 1281 patients with negative or unknown HIV status those who receieved onsite testing were more likely to receive their HIV test results than those who received a referral to offsite testing, but not likely to have fewer episodes of unprotected sexual encounters (CTN-0032)').
 
 P::property(X, diagnosis, chronic_HCV_infection);P::property(X,diagnosis,acute_HCV_infection) :-
 	(property(X,ethnicity,black);property(X,ethnicity,latinx)),
@@ -547,16 +547,18 @@ P::receive(X,HCV_testing) :-
 P::property(X,use,Y,during_treatment);P::property(X,use,alcohol,during_treatment) :-
 	property(X,location,outpatient),
 	substance(Y),
-	recieve(X,computer_modules),
-	recieve(X,treatment_as_usual),
+	receive(X,computer_modules),
+	property(X, use, Y),
+	receive(X,treatment_as_usual),
 	P is 0.7,
 	writenl('507 adult men or women in outpatient treatment for substance use disorder who receive 62 computerized instruction modules decreased substance or alcohol use initially more than those who received therapy as usual (CTN-0044).').
 
 
 P::property(X,use,Y,after_treatment);P::property(X,use,alcohol,after_treatment) :-
 	property(X,location,outpatient),
-	recieve(X,computer_modules),
-	recieve(X,treatment_as_usual),
+	receive(X,computer_modules),
+	property(X, use, Y),
+	receive(X,treatment_as_usual),
 	P is 0.5,
 	writenl('507 adult men or women in outpatient treatment for substance use disorder who receive 62 computerized instruction modules were not more likely to decrease substance or alcohol use than those who received therapy as usual at follow-up (CTN-0044).').
 
@@ -632,7 +634,7 @@ P::property(X,urine_sample,cocaine,positive) :-
 	receive(X,contingency_management),
 	(receive(X,n_acetylcysteine);receive(X,medical_management)),
 	P is 0.25,
-	writenl('Among 302 adults with cannabis use disorder, those who recieved 12-weeks of n-acetylcysteine treatment along with contingency management and counseling as usual were not significantly less likely to demonstrate positive urine screens for cannabis (CTN-0053)').
+	writenl('Among 302 adults with cannabis use disorder, those who received 12-weeks of n-acetylcysteine treatment along with contingency management and counseling as usual were not significantly less likely to demonstrate positive urine screens for cannabis (CTN-0053)').
 
 P::property(X,urine_sample,Y,negative) :-
 	stimulant(Y),
