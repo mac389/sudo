@@ -1,0 +1,427 @@
+property(X,urine_sample,opioids,negative,just_after_treatment)	property(X,location,inpatient)	CTN-0001
+property(X,urine_sample,opioids,negative,just_after_treatment)	property(X,dependence,opioids)	CTN-0001
+property(X,urine_sample,opioids,negative,just_after_treatment)	receive(X,buprenorphine_naloxone)	CTN-0001
+property(X,urine_sample,opioids,negative,just_after_treatment)	property(buprenorphine_naloxone,duration,n13_days)	CTN-0001
+
+property(X,urine_sample,opioids,negative,just_after_treatment)	property(X,location,outpatient)	CTN-0001
+property(X,urine_sample,opioids,negative,just_after_treatment)	property(X,dependence,opioids)	CTN-0001
+property(X,urine_sample,opioids,negative,just_after_treatment)	receive(X,buprenorphine_naloxone)	CTN-0001
+property(X,urine_sample,opioids,negative,just_after_treatment)	property(buprenophine_naloxone,duration,n13_days)	CTN-0001
+
+property(X,urine_sample,opioids,negative,just_after_treatment)	property(X,urine_sample,opioids,negative,just_after_treatment)	CTN-0001
+property(X,urine_sample,opioids,negative,just_after_treatment)	property(X,location,outpatient)	CTN-0001
+property(X,urine_sample,opioids,negative,just_after_treatment)	property(X,dependence,opioids)	CTN-0001
+property(X,urine_sample,opioids,negative,just_after_treatment)	receive(X,clonidine)	CTN-0001
+property(X,urine_sample,opioids,negative,just_after_treatment)	property(clonidine,duration,n13_days)	CTN-0001
+
+property(X,urine_sample,opioids,negative,just_after_treatment)	property(X,location,inpatient)	CTN-0001
+property(X,urine_sample,opioids,negative,just_after_treatment)	property(X,dependence,opioids)	CTN-0001
+property(X,urine_sample,opioids,negative,just_after_treatment)	receive(X,clonidine)	CTN-0001
+property(X,urine_sample,opioids,negative,just_after_treatment)	property(clonidine,duration,n13_days)	CTN-0001
+
+property(X,urine_sample,opioids,negative,n1_month)	receive(X,buprenorphine)	CTN-0003
+property(X,urine_sample,opioids,negative,n1_month)	property(buprenorphine,duration,n28_days)	CTN-0003
+property(X,urine_sample,opioids,negative,n1_month)	property(buprenorphine,dosing,taper)	CTN-0003
+property(X,urine_sample,opioids,negative,n1_month)	property(X,dependence,opioids)	CTN-0003
+
+property(X,urine_sample,opioids,negative,n3_month)	receive(X,buprenorphine)	CTN-0003
+property(X,urine_sample,opioids,negative,n3_month)	property(buprenorphine,duration,n28_days)	CTN-0003
+property(X,urine_sample,opioids,negative,n3_month)	property(buprenorphine,dosing,taper)	CTN-0003
+property(X,urine_sample,opioids,negative,n3_month)	property(X,dependence,opioids)	CTN-0003
+
+property(X,urine_sample,opioids,negative,n1_month)	receive(X,buprenorphine)	CTN-0003
+property(X,urine_sample,opioids,negative,n1_month)	property(buprenorphine,duration,n7_days)	CTN-0003
+property(X,urine_sample,opioids,negative,n1_month)	property(buprenorphine,dosing,taper)	CTN-0003
+property(X,urine_sample,opioids,negative,n1_month)	property(X,dependence,opioids)	CTN-0003
+
+property(X,urine_sample,opioids,positive,n3_month)	receive(X,buprenorphine)	CTN-0003
+property(X,urine_sample,opioids,positive,n3_month)	property(buprenorphine,duration,n7_days)	CTN-0003
+property(X,urine_sample,opioids,positive,n3_month)	property(buprenorphine,dosing,taper)	CTN-0003
+property(X,urine_sample,opioids,positive,n3_month)	property(X,dependence,opioids)	CTN-0003
+
+property(X,urine_sample, opioids,negative,just_after_treatment)	receive(X,buprenorphine)	CTN-0003
+property(X,urine_sample, opioids,negative,just_after_treatment)	property(buprenorphine,duration,n28_days)	CTN-0003
+property(X,urine_sample, opioids,negative,just_after_treatment)	property(buprenorphine,dosing,taper)	CTN-0003
+property(X,urine_sample, opioids,negative,just_after_treatment)	property(X,dependence,opioids)	CTN-0003
+
+property(X,urine_sample,opioids,negative,just_after_treatment)	receive(X,buprenorphine)	CTN-0003
+property(X,urine_sample,opioids,negative,just_after_treatment)	property(buprenorphine,duration,n7_days)	CTN-0003
+property(X,urine_sample,opioids,negative,just_after_treatment)	property(buprenorphine,dosing,taper)	CTN-0003
+property(X,urine_sample,opioids,negative,just_after_treatment)	property(X,dependence,opioids)	CTN-0003
+
+remain(X,in_therapy,n4_weeks)	receive(X,care_as_usual)	CTN-0004
+remain(X,in_therapy,n4_weeks)	receive(X,motivational_enhancement)	CTN-0004
+remain(X,in_therapy,n4_weeks)	property(X,dependence,opioids)	CTN-0004
+remain(X,in_therapy,n4_weeks)	property(X,location,outpatient)	CTN-0004
+
+remain(X,in_therapy,n12_weeks)	receive(X,care_as_usual)	CTN-0004
+remain(X,in_therapy,n12_weeks)	receive(X,motivational_enhancement)	CTN-0004
+remain(X,in_therapy,n12_weeks)	property(X,dependence,opioids)	CTN-0004
+remain(X,in_therapy,n12_weeks)	property(X,location,outpatient)	CTN-0004
+    
+property(X,urine_sample,Y,positive)	receive(X,care_as_usual)	CTN-0004
+property(X,urine_sample,Y,positive)	receive(X,motivational_enhancement))	CTN-0004
+property(X,urine_sample,Y,positive)	property(X,dependence,Y)	CTN-0004
+property(X,urine_sample,Y,positive)	substance(Y)	CTN-0004
+property(X,urine_sample,Y,positive)	property(X,location,outpatient)	CTN-0004
+ 
+remain(X, in_therapy, n28_days)	receive(X,motivational_interviewing)	CTN-0005
+remain(X, in_therapy, n28_days)	property(X,dependence,Y)	CTN-0005
+remain(X, in_therapy, n28_days)	substance(Y)	CTN-0005
+remain(X, in_therapy, n28_days)	property(X,location,outpatient)	CTN-0005
+
+property(X,urine_sample,Y,positive,n28_days)	receive(X,motivational_interviewing)	CTN-0005
+property(X,urine_sample,Y,positive,n28_days)	receive(X,standard_care)	CTN-0005
+property(X,urine_sample,Y,positive,n28_days)	property(X,location,outpatient)	CTN-0005
+property(X,urine_sample,Y,positive,n28_days)	property(X,dependence,Y)	CTN-0005
+property(X,urine_sample,Y,positive,n28_days)	substance(Y)	CTN-0005
+
+remain(X, in_therapy, n84_days)	property(X,location,outpatient)	CTN-0005
+remain(X, in_therapy, n84_days)	receive(X,motivational_interviewing)	CTN-0005
+remain(X, in_therapy, n84_days)	receive(X,standard_care)	CTN-0005
+remain(X, in_therapy, n84_days)	property(X,dependence,Y)	CTN-0005
+remain(X, in_therapy, n84_days)	substance(Y)	CTN-0005 	
+
+remain(X,in_treatment,n4_weeks)	receive(X,counseling)	CTN-0006
+remain(X,in_treatment,n4_weeks)	property(X,location,outpatient)	CTN-0006
+remain(X,in_treatment,n4_weeks)	property(X,use,cocaine)	CTN-0006
+remain(X,in_treatment,n4_weeks)	property(X,use,methamphetamine)	CTN-0006
+
+property(X,urine_sample,opioids,negative,n4_weeks)	receive(X,abstinence_based_incentive)	CTN-0006
+property(X,urine_sample,opioids,negative,n4_weeks)	property(X,location,outpatient)	CTN-0006
+property(X,urine_sample,opioids,negative,n4_weeks)	property(X,use,cocaine)	CTN-0006
+property(X,urine_sample,opioids,negative,n4_weeks)	property(X,use,methamphetamine)	CTN-0006
+
+property(X,urine_sample,opioids,negative,n4_weeks)	receive(X,counseling)	CTN-0006
+property(X,urine_sample,opioids,negative,n4_weeks)	property(X,location,outpatient)	CTN-0006
+property(X,urine_sample,opioids,negative,n4_weeks)	property(X,use,cocaine)	CTN-0006
+property(X,urine_sample,opioids,negative,n4_weeks)	property(X,use,methamphetamine)	CTN-0006
+
+property(X,urine_sample,opioids,negative,n8_weeks)	receive(X,abstinence_based_incentive)	CTN-0006
+property(X,urine_sample,opioids,negative,n8_weeks)	property(X,location,outpatient)	CTN-0006
+property(X,urine_sample,opioids,negative,n8_weeks)	property(X,use,cocaine)	CTN-0006
+property(X,urine_sample,opioids,negative,n8_weeks)	property(X,use,methamphetamine)	CTN-0006
+
+property(X,urine_sample,opioids,negative,n8_weeks)	receive(X,counseling)	CTN-0006
+property(X,urine_sample,opioids,negative,n8_weeks)	property(X,location,outpatient)	CTN-0006
+property(X,urine_sample,opioids,negative,n8_weeks)	property(X,use,cocaine)	CTN-0006
+property(X,urine_sample,opioids,negative,n8_weeks)	property(X,use,methamphetamine)	CTN-0006
+
+property(X,urine_sample,opioids,negative,n12_weeks)	receive(X,abstinence_based_incentive)	CTN-0006
+property(X,urine_sample,opioids,negative,n12_weeks)	property(X,location,outpatient)	CTN-0006
+property(X,urine_sample,opioids,negative,n12_weeks)	property(X,use,cocaine)	CTN-0006
+property(X,urine_sample,opioids,negative,n12_weeks)	property(X,use,methamphetamine)	CTN-0006
+
+property(X,urine_sample,opioids,negative,n12_weeks)	receive(X,counseling)	CTN-0006
+property(X,urine_sample,opioids,negative,n12_weeks)	property(X,use,Y)	CTN-0006
+property(X,urine_sample,opioids,negative,n12_weeks)	stimulant(Y))	CTN-0006
+property(X,urine_sample,opioids,negative,n12_weeks)	property(X,use,alcohol)	CTN-0006
+
+property(X,urine_sample,Y,negative,n12_weeks)	property(X,location,outpatient)	CTN-0006
+property(X,urine_sample,Y,negative,n12_weeks)	property(X,dependence,Y)	CTN-0006
+property(X,urine_sample,Y,negative,n12_weeks)	property(X,dependence,Z)	CTN-0006
+property(X,urine_sample,Y,negative,n12_weeks)	stimulant(Z)	CTN-0006
+property(X,urine_sample,Y,negative,n12_weeks)	opioid(Y)	CTN-0006
+property(X,urine_sample,Y,negative,n12_weeks)	receive(X,counseling)	CTN-0006
+property(X,urine_sample,Y,negative,n12_weeks)	receive(X,methadone)	CTN-0006
+property(X,urine_sample,Y,negative,n12_weeks)	receive(X,abstinence_based_incentive)	CTN-0006
+
+property(X,urine_sample,alcohol,negative,n12_weeks)	property(X,location,outpatient)	CTN-0006
+property(X,urine_sample,alcohol,negative,n12_weeks)	property(X,dependence,Y)	CTN-0006
+property(X,urine_sample,alcohol,negative,n12_weeks)	property(X,dependence,Z)	CTN-0006
+property(X,urine_sample,alcohol,negative,n12_weeks)	stimulant(Z)	CTN-0006
+property(X,urine_sample,alcohol,negative,n12_weeks)	opioid(Y)	CTN-0006
+property(X,urine_sample,alcohol,negative,n12_weeks)	receive(X,counseling)	CTN-0006
+property(X,urine_sample,alcohol,negative,n12_weeks)	receive(X,methadone)	CTN-0006
+property(X,urine_sample,alcohol,negative,n12_weeks)	receive(X,abstinence_based_incentive)	CTN-0006
+
+
+property(X,urine_sample,Y,negative,n4_weeks)	property(X,location,outpatient)	CTN-0006
+property(X,urine_sample,Y,negative,n4_weeks)	property(X,dependence,Y)	CTN-0006
+property(X,urine_sample,Y,negative,n4_weeks)	stimulant(Z)	CTN-0006
+property(X,urine_sample,Y,negative,n4_weeks)	opioid(Y)	CTN-0006
+property(X,urine_sample,Y,negative,n4_weeks)	receive(X,counseling)	CTN-0006
+property(X,urine_sample,Y,negative,n4_weeks)	receive(X,methadone)	CTN-0006
+property(X,urine_sample,Y,negative,n4_weeks)	stimulant(Y)	CTN-0006
+property(X,urine_sample,Y,negative,n4_weeks)	opioid(A)	CTN-0006
+property(X,urine_sample,Y,negative,n4_weeks)	receive(X,abstinence_based_incentive)	CTN-0006
+
+property(X,urine_sample,alcohol,negative,n4_weeks)	property(X,location,outpatient)	CTN-0006
+property(X,urine_sample,alcohol,negative,n4_weeks)	property(X,dependence,Y)	CTN-0006
+property(X,urine_sample,alcohol,negative,n4_weeks)	stimulant(Z)	CTN-0006
+property(X,urine_sample,alcohol,negative,n4_weeks)	opioid(Y)	CTN-0006
+property(X,urine_sample,alcohol,negative,n4_weeks)	receive(X,counseling)	CTN-0006
+property(X,urine_sample,alcohol,negative,n4_weeks)	receive(X,methadone)	CTN-0006
+property(X,urine_sample,alcohol,negative,n4_weeks)	stimulant(Y)	CTN-0006
+property(X,urine_sample,alcohol,negative,n4_weeks)	opioid(A)	CTN-0006
+property(X,urine_sample,alcohol,negative,n4_weeks)	receive(X,abstinence_based_incentive)	CTN-0006
+
+property(X,abstinence,A,n4_weeks)	property(X,location,outpatient)	CTN-0006
+property(X,abstinence,A,n4_weeks)	property(X,dependence,Y)	CTN-0006
+property(X,abstinence,A,n4_weeks)	stimulant(Z)	CTN-0006
+property(X,abstinence,A,n4_weeks)	opioid(Y)	CTN-0006
+property(X,abstinence,A,n4_weeks)	receive(X,counseling)	CTN-0006
+property(X,abstinence,A,n4_weeks)	receive(X,methadone)	CTN-0006
+property(X,abstinence,A,n4_weeks)	stimulant(Y)	CTN-0006
+property(X,abstinence,A,n4_weeks)	opioid(A)	CTN-0006
+property(X,abstinence,A,n4_weeks)	receive(X,abstinence_based_incentive)	CTN-0006
+
+property(X,abstinence,Y,n4_weeks)	property(X,location,outpatient) CTN-0006
+property(X,abstinence,Y,n4_weeks)	property(X,dependence,Y)	CTN-0006
+property(X,abstinence,Y,n4_weeks)	stimulant(Z)	CTN-0006
+property(X,abstinence,Y,n4_weeks)	opioid(Y)	CTN-0006
+property(X,abstinence,Y,n4_weeks)	receive(X,counseling)	CTN-0006
+property(X,abstinence,Y,n4_weeks)	receive(X,methadone)	CTN-0006
+property(X,abstinence,Y,n4_weeks)	stimulant(Y)	CTN-0006
+property(X,abstinence,Y,n4_weeks)	opioid(A)	CTN-0006
+property(X,abstinence,Y,n4_weeks)	receive(X,abstinence_based_incentive)	CTN-0006
+
+property(X,urine_sample,Y,negative,n8_weeks)	property(X,location,outpatient)	CTN-0006
+property(X,urine_sample,Y,negative,n8_weeks)	property(X,dependence,Y)	CTN-0006
+property(X,urine_sample,Y,negative,n8_weeks)	property(X,dependence,Z)	CTN-0006
+property(X,urine_sample,Y,negative,n8_weeks)	stimulant(Z)	CTN-0006
+property(X,urine_sample,Y,negative,n8_weeks)	property(X,location,outpatient)	CTN-0006
+property(X,urine_sample,Y,negative,n8_weeks)	opioid(Y)	CTN-0006
+property(X,urine_sample,Y,negative,n8_weeks)	receive(X,counseling)	CTN-0006
+property(X,urine_sample,Y,negative,n8_weeks)	receive(X,methadone)	CTN-0006
+property(X,urine_sample,Y,negative,n8_weeks)	opioid(A)	CTN-0006
+property(X,urine_sample,Y,negative,n8_weeks)	receive(X,abstinence_based_incentive)	CTN-0006
+
+property(X,urine_sample,alcohol,negative,n8_weeks)	property(X,location,outpatient)	CTN-0006
+property(X,urine_sample,alcohol,negative,n8_weeks)	property(X,dependence,Y)	CTN-0006
+property(X,urine_sample,alcohol,negative,n8_weeks)	property(X,dependence,Z)	CTN-0006
+property(X,urine_sample,alcohol,negative,n8_weeks)	stimulant(Z)	CTN-0006
+property(X,urine_sample,alcohol,negative,n8_weeks)	opioid(Y)	CTN-0006
+property(X,urine_sample,alcohol,negative,n8_weeks)	receive(X,counseling)	CTN-0006
+property(X,urine_sample,alcohol,negative,n8_weeks)	receive(X,methadone)	CTN-0006
+property(X,urine_sample,alcohol,negative,n8_weeks)	opioid(A)	CTN-0006
+property(X,urine_sample,alcohol,negative,n8_weeks)	receive(X,abstinence_based_incentive)	CTN-0006
+
+property(X,abstinence,A,n8_weeks)	property(X,location,outpatient)	CTN-0006
+property(X,abstinence,A,n8_weeks)	property(X,dependence,Y)	CTN-0006
+property(X,abstinence,A,n8_weeks)	property(X,dependence,Z)	CTN-0006
+property(X,abstinence,A,n8_weeks)	stimulant(Z)	CTN-0006
+property(X,abstinence,A,n8_weeks)	opioid(Y)	CTN-0006
+property(X,abstinence,A,n8_weeks)	receive(X,counseling)	CTN-0006
+property(X,abstinence,A,n8_weeks)	receive(X,methadone)	CTN-0006
+property(X,abstinence,A,n8_weeks)	opioid(A)	CTN-0006
+property(X,abstinence,A,n8_weeks)	receive(X,abstinence_based_incentive)	CTN-0006
+
+property(X,abstinence,Y,n8_weeks)	property(X,location,outpatient)	CTN-0006
+property(X,abstinence,Y,n8_weeks)	property(X,dependence,Y)	CTN-0006
+property(X,abstinence,Y,n8_weeks)	property(X,dependence,Z)	CTN-0006
+property(X,abstinence,Y,n8_weeks)	stimulant(Z)	CTN-0006
+property(X,abstinence,Y,n8_weeks)	opioid(Y)	CTN-0006
+property(X,abstinence,Y,n8_weeks)	receive(X,counseling)	CTN-0006
+property(X,abstinence,Y,n8_weeks)	receive(X,methadone)	CTN-0006
+property(X,abstinence,Y,n8_weeks)	opioid(A)	CTN-0006
+property(X,abstinence,Y,n8_weeks)	receive(X,abstinence_based_incentive)	CTN-0006
+
+property(X,urine_sample,Y,negative,n12_weeks)	property(X,location,outpatient)	CTN-0006
+property(X,urine_sample,Y,negative,n12_weeks)	property(X,dependence,Y)	CTN-0006
+property(X,urine_sample,Y,negative,n12_weeks)	property(X,dependence,Z)	CTN-0006
+property(X,urine_sample,Y,negative,n12_weeks)	stimulant(Z)	CTN-0006
+property(X,urine_sample,Y,negative,n12_weeks)	property(X,location,outpatient)	CTN-0006
+property(X,urine_sample,Y,negative,n12_weeks)	opioid(Y)	CTN-0006
+property(X,urine_sample,Y,negative,n12_weeks)	receive(X,counseling)	CTN-0006
+property(X,urine_sample,Y,negative,n12_weeks)	receive(X,methadone)	CTN-0006
+property(X,urine_sample,Y,negative,n12_weeks)	opioid(A)	CTN-0006
+property(X,urine_sample,Y,negative,n12_weeks)	receive(X,abstinence_based_incentive)	CTN-0006
+
+property(X,urine_sample,alcohol,negative,n12_weeks)	property(X,location,outpatient)	CTN-0006
+property(X,urine_sample,alcohol,negative,n12_weeks)	property(X,dependence,Y)	CTN-0006
+property(X,urine_sample,alcohol,negative,n12_weeks)	property(X,dependence,Z)	CTN-0006
+property(X,urine_sample,alcohol,negative,n12_weeks)	stimulant(Z)	CTN-0006
+property(X,urine_sample,alcohol,negative,n12_weeks)	opioid(Y)	CTN-0006
+property(X,urine_sample,alcohol,negative,n12_weeks)	receive(X,counseling)	CTN-0006
+property(X,urine_sample,alcohol,negative,n12_weeks)	receive(X,methadone)	CTN-0006
+property(X,urine_sample,alcohol,negative,n12_weeks)	opioid(A)	CTN-0006
+property(X,urine_sample,alcohol,negative,n12_weeks)	receive(X,abstinence_based_incentive)	CTN-0006
+
+property(X,abstinence,A,n12_weeks)	property(X,location,outpatient)	CTN-0006
+property(X,abstinence,A,n12_weeks)	property(X,dependence,Y)	CTN-0006
+property(X,abstinence,A,n12_weeks)	property(X,dependence,Z)	CTN-0006
+property(X,abstinence,A,n12_weeks)	stimulant(Z)	CTN-0006
+property(X,abstinence,A,n12_weeks)	opioid(Y)	CTN-0006
+property(X,abstinence,A,n12_weeks)	receive(X,counseling)	CTN-0006
+property(X,abstinence,A,n12_weeks)	receive(X,methadone)	CTN-0006
+property(X,abstinence,A,n12_weeks)	opioid(A)	CTN-0006
+property(X,abstinence,A,n12_weeks)	receive(X,abstinence_based_incentive)	CTN-0006
+
+property(X,abstinence,Y,n12_weeks)	property(X,location,outpatient)	CTN-0006
+property(X,abstinence,Y,n12_weeks)	property(X,dependence,Y)	CTN-0006
+property(X,abstinence,Y,n12_weeks)	property(X,dependence,Z)	CTN-0006
+property(X,abstinence,Y,n12_weeks)	stimulant(Z)	CTN-0006
+property(X,abstinence,Y,n12_weeks)	opioid(Y)	CTN-0006
+property(X,abstinence,Y,n12_weeks)	receive(X,counseling)	CTN-0006
+property(X,abstinence,Y,n12_weeks)	receive(X,methadone)	CTN-0006
+property(X,abstinence,Y,n12_weeks)	opioid(A)	CTN-0006
+property(X,abstinence,Y,n12_weeks)	receive(X,abstinence_based_incentive)	CTN-0006
+
+property(X,use,nicotine,just_after_treatment)	receive(X, nicotine)	CTN-0009
+property(X,use,nicotine,just_after_treatment)	property(X, use, nicotine)	CTN-0009
+property(X,use,nicotine,just_after_treatment)	property(X,location,outpatient)	CTN-0009
+property(X,use,nicotine,just_after_treatment)	property(X,dependence,alcohol)	CTN-0009
+property(X,use,nicotine,just_after_treatment)	property(X,dependence,Y)	CTN-0009
+property(X,use,nicotine,just_after_treatment)	opioid(Y)	CTN-0009
+
+property(X,use,nicotine,n13_weeks)	receive(X, nicotine)	CTN-0009
+property(X,use,nicotine,n13_weeks)	property(X, use, nicotine)	CTN-0009
+property(X,use,nicotine,n13_weeks)	property(X,location,outpatient)	CTN-0009
+property(X,use,nicotine,n13_weeks)	property(X,dependence,alcohol)	CTN-0009
+property(X,use,nicotine,n13_weeks)	property(X,dependence,Y)	CTN-0009
+property(X,use,nicotine,n13_weeks)	opioid(Y)	CTN-0009
+
+property(X,use,nicotine,n26_weeks)	receive(X, nicotine)	CTN-0009
+property(X,use,nicotine,n26_weeks)	property(X, use, nicotine)	CTN-0009
+property(X,use,nicotine,n26_weeks)	property(X,location,outpatient)	CTN-0009
+property(X,use,nicotine,n26_weeks)	property(X,dependence,alcohol)	CTN-0009
+property(X,use,nicotine,n26_weeks)	property(X,dependence,Y)	CTN-0009
+property(X,use,nicotine,n26_weeks)	opioid(Y)	CTN-0009
+
+property(X,urine_sample,opioids,positive,n4_weeks)	property(X,dependence, opioids)	CTN-0010
+property(X,urine_sample,opioids,positive,n4_weeks)	property(X,location,outpatient)	CTN-0010
+property(X,urine_sample,opioids,positive,n4_weeks)	property(X,age,youth)	CTN-0010
+property(X,urine_sample,opioids,positive,n4_weeks)	receive(X, buprenorphine_naloxone)	CTN-0010
+property(X,urine_sample,opioids,positive,n4_weeks)	receive(X, detoxification)	CTN-0010
+property(X,urine_sample,opioids,positive,n4_weeks)	receive(X, buprenorphine)	CTN-0010
+
+property(X,urine_sample,opioids,positive,n8_weeks)	property(X,dependence, opioids)	CTN-0010
+property(X,urine_sample,opioids,positive,n8_weeks)	property(X,location,outpatient)	CTN-0010
+property(X,urine_sample,opioids,positive,n8_weeks)	property(X,age,youth)	CTN-0010
+property(X,urine_sample,opioids,positive,n8_weeks)	receive(X, buprenorphine_naloxone)	CTN-0010
+property(X,urine_sample,opioids,positive,n8_weeks)	receive(X, detoxification)	CTN-0010
+property(X,urine_sample,opioids,positive,n8_weeks)	receive(X, buprenorphine)	CTN-0010
+
+property(X,urine_sample,opioids,positive,n12_weeks)	property(X,dependence, opioids)	CTN-0010
+property(X,urine_sample,opioids,positive,n12_weeks)	property(X,location,outpatient)	CTN-0010
+property(X,urine_sample,opioids,positive,n12_weeks)	property(X,age,youth)	CTN-0010
+property(X,urine_sample,opioids,positive,n12_weeks)	receive(X, buprenorphine_naloxone)	CTN-0010
+property(X,urine_sample,opioids,positive,n12_weeks)	receive(X, detoxification)	CTN-0010
+property(X,urine_sample,opioids,positive,n12_weeks)	receive(X, buprenorphine)	CTN-0010
+
+remain(X,in_treatment,n12_weeks)	property(X,dependence, opioids)	CTN-0010
+remain(X,in_treatment,n12_weeks)	property(X,location,outpatient)	CTN-0010
+remain(X,in_treatment,n12_weeks)	property(X,age,youth)	CTN-0010
+remain(X,in_treatment,n12_weeks)	receive(X,counseling)	CTN-0010
+remain(X,in_treatment,n12_weeks)	receive(X,detoxification)	CTN-0010
+remain(X,in_treatment,n12_weeks)	receive(X, buprenorphine_naloxone)	CTN-0010
+
+participate(X,in_treatment)	receive(X,phone_call)	CTN-0011
+participate(X, in_treatment)	\+receive(X,phone_call)	CTN-0011
+
+remain(X,in_treatment,n1_month)	property(X,dependence,Y)	CTN-0013
+remain(X,in_treatment,n1_month)	substance(Y)	CTN-0013
+remain(X,in_treatment,n1_month)	property(X,pregnancy, positive)	CTN-0013
+
+
+property(X,urine_sample,opioids,positive,n1_year)	property(X,age,adolescent)	CTN-0014
+property(X,urine_sample,opioids,positive,n1_year)	property(X,ethnicity,hispanic)	CTN-0014
+property(X,urine_sample,opioids,positive,n1_year)	property(X,ethnicity,white)	CTN-0014
+property(X,urine_sample,opioids,positive,n1_year)	property(X,ethnicity,black)		CTN-0014
+property(X,urine_sample,opioids,positive,n1_year)	receive(X,treatment_as_usual)	CTN-0014
+property(X,urine_sample,opioids,positive,n1_year)	receive(X,beavioral_strategic_family_therapy)	CTN-0014	
+
+property(X,substance_use,decrease)	property(X,gender,female)	CTN-0015
+property(X,substance_use,decrease)	property(X,dependence,Y)	CTN-0015
+property(X,substance_use,decrease)	property(X,location,outpatient)	CTN-0015
+property(X,substance_use,decrease)	property(X,diagnosis,ptsd)	CTN-0015
+property(X,substance_use,decrease)	substance(Y)	CTN-0015
+property(X,substance_use,decrease)	receive(X,womens_health_education)	CTN-0015
+property(X,substance_use,decrease)	receive(X,seeking_safety)	CTN-0015
+
+property(X,substance_use,decrease)	property(X,inject,Y)	CTN-0017
+property(X,substance_use,decrease)	substance(Y)	CTN-0017
+property(X,substance_use,decrease)	receive(X,counseling_and_education)	CTN-0017
+property(X,substance_use,decrease)	receive(X,therapeutic_alliance)	CTN-0017
+property(X,substance_use,decrease)	receive(X,treatment_as_usual)	CTN-0017
+
+property(X,risky_behavior,decrease)	property(X,inject,Y)	CTN-0017
+property(X,risky_behavior,decrease)	substance(Y)	CTN-0017
+property(X,risky_behavior,decrease)	receive(X,counseling_and_education)	CTN-0017
+property(X,risky_behavior,decrease)	receive(X,therapeutic_alliance)	CTN-0017
+property(X,risky_behavior,decrease)	receive(X,treatment_as_usual)	CTN-0017
+
+P::property(X,substance_use,decrease);P::property(X,risky_behavior,decrease) ;	property(X,inject,Y);	substance(Y);	receive(X,treatment_as_usual);	P is 0.5;	writenl('Of 632 patient who injected drugs, all patients who received therapy reported decreasing substance use and risky sexual behaviors.(CTN-0017)').
+
+P::property(X,increase_attendance,hiv_testing_appointment) ;	property(X,inject,Y);	substance(Y);	receive(X,counseling_and_education);	P is 0.8;	writenl('Of 632 patient who injected drugs, those who received counseling and education were more likely to remain in treatment than those who received treatment as usual or a one-session therapeutic alliance session.(CTN-0017)').
+
+P::property(X,increase_attendance,hiv_testing_appointment) ;	property(X,inject,Y);	substance(Y);	(receive(X,therapeutic_alliance);receive(X,treatment_as_usual));	P is 0.6;	writenl('Of 632 patient who injected drugs, those who received counseling and education were more likely to remain in treatment than those who received treatment as usual or a one-session therapeutic alliance session.(CTN-0017)').
+
+P::property(X,decrease,unprotected_sexual_encounters);(1-P)::property(X,increase,unprotected_sexual_encounters) ;	property(X,gender,male);	property(X,dependence,Y);	substance(Y);	(receive(X,methadone);receive(X,outpatient_psychosocial_treatment)),	
+	receive(X,remas);	P is 0.8;	writenl('Men who inject drugs in methadone maintenance (n = 288) or outpatient psychosocial treatment (n = 302) who received multi-session safe sexual practice educations engaged in significantly fewer unprotected vaginal and anal sexual intercourse occasions (USO) during the 90 days prior to the 3- and 6-month follow-ups than those who received a single education session.(CTN-0018)').
+
+P::property(X,decrease,unprotected_sexual_encounters);(1-P)::property(X,increase,unprotected_sexual_encounters) ;	property(X,gender,male);	property(X,dependence,Y);	substance(Y);	(receive(X,methadone);receive(X,outpatient_psychosocial_treatment)),	
+	receive(X,hiv_ed);	P is 0.5;	writenl('Men who inject drugs in methadone maintenance (n = 288) or outpatient psychosocial treatment (n = 302) who received multi-session safe sexual practice educations engaged in significantly fewer unprotected vaginal and anal sexual intercourse occasions (USO) during the 90 days prior to the 3- and 6-month follow-ups than those who received a single education session.(CTN-0018)').
+
+2*P::property(X,decrease,unprotected_sexual_encounters,n3_months);P::property(X,increase,unprotected_sexual_encounters,n3_months) ;	property(X,gender,female);	property(X,use,Y);	substance(Y);	(receive(X,methadone);receive(X,outpatient_psychosocial_treatment));	receive(X, safer_skills_building);	P is 0.3;	writenl('Of 515 women who had at least one unprotected anal or vaginal sex encounter within the last six months with a male, those who received five 90 minute skill building sessions or one informational session at six months follow-up were equally less likely to have an unprotected sexual encounter at three month follow-up. (CTN-0019)').
+
+2*P::property(X,decrease,unprotected_sexual_encounters,n3_months);P::property(X,increase,unprotected_sexual_encounters,n3_months) ;	property(X,gender,female);	property(X,use,Y);	substance(Y);	(receive(X,methadone);receive(X,outpatient_psychosocial_treatment));	receive(X, hiv_ed);	P is 0.3;	writenl('Of 515 women who had at least one unprotected anal or vaginal sex encounter within the last six months with a male, those who received five 90 minute skill building sessions or one informational session at six months follow-up were equally less likely to have an unprotected sexual encounter at three month follow-up. (CTN-0019)').
+
+2*P::property(X,decrease,unprotected_sexual_encounters,n6_months);P::property(X,increase,unprotected_sexual_encounters,n6_months) ;	property(X,gender,female);	property(X,use,Y);	substance(Y);	(receive(X,methadone);receive(X,outpatient_psychosocial_treatment));	receive(X, safer_skills_building);	P is 0.3;	writenl('Of 515 women who had at least one unprotected anal or vaginal sex encounter within the last six months with a male, those who received five 90 minute skill building sessions were 30% less likely to have unprotected sexual encounters than those who received one informational session at six months follow-up. (CTN-0019)').
+
+P::property(X,decrease,unprotected_sexual_encounters,n6_months);P::property(X,increase,unprotected_sexual_encounters,n6_months) ;	property(X,gender,female);	property(X,use,Y);	substance(Y);	(receive(X,methadone);receive(X,outpatient_psychosocial_treatment));	receive(X, hiv_ed);	P is 0.2;	writenl('Of 515 women who had at least one unprotected anal or vaginal sex encounter within the last six months with a male, those who received five 90 minute skill building sessions were 30% less likely to have unprotected sexual encounters than those who received one informational session at six months follow-up. (CTN-0019)').
+
+P::property(X,obtain,new_taxed_job);	property(X,use,Y);	substance(Y);	(receive(X,methadone);receive(X,outpatient_psychosocial_treatment));	(receive(X,job_seekers_workshop);receive(X,standard_care));	P is 0.3;	write('Of patients receiving methadone (n=301) or psychological counseling (n=327) those who received a five-session job-training workshop were not more likely to obtain a new taxed job or enroll in a longer job training program. (CTN-0020)').
+
+P::use(X,substance) ;	property(X,ethnicity,hispanic);	property(X,use,Y);	substance(Y);	(receive(X,motivational_enhancement_therapy);receive(X,counseling_as_usual));	P is 0.8;	write('For 405 individuals seeking treatment for any substance use disorder, those who received four sessions of motivational enhancement therapy spaced once weekly for a month were not more likely to decrease substance use than those who received usual counseling. (CTN-0021)').
+
+P::property(X,develop,drug_induced_hepatitis) ;	property(X,dependent,opioids);	(property(X,use,buprenorphine_naloxone);property(X,use,methadone));	P is 0.1;	write('Of 1269 opioid-dependent patients those who received buprenorphine/naloxone were not more likely to develop hepatitis than those who received methadone. (CTN-0027)').
+
+P::property(X,decrease,substance_use) ;	property(X,diagnosis,adhd);	property(X,diagnosis, sud);	property(X,age,adolescent);	(receive(X,cognitive_behavioral_therapy);receive(X,methylphenidate));	P is 0.5, %Is this the correct number? PRobability vs likelihood ratio. 
+	writenl('Of 303 adolescents (13-18) who meet DSM-IV criteria for ADHD and SUD, those who received methylphenidate and cognitive behavioral therapy were not more likely to decrease substance use than those who received only cognitive behavior therapy. Neither group decreased substance use (CTN-0028)').
+
+P::property(X,reduce,nicotine_use) :- %May be able to unpack nicotine use
+	property(X,diagnosis,adhd);	property(X,use,nicotine);	property(X,location,outpatient);	property(X,desire,quit_smoking), %There has to be a better representation
+	(receive(X,methylphenidate);receive(X,individual_smoking_cessation));	P is 0.5;	writenl('Adults meeting DSM-IV criteria for ADHD and interested in quitting smoking who receieve methylphenidate (72 mg/day; n=127) were not significantly more likely to quit smoking than those who received only placebo (n=128).  (CTN-0029)').
+
+(1-P)::property(X,use,prescription_opioids,n2_weeks) ;	property(X,complete, naloxone_stabilization);	property(X,location,outpatient);	property(X,dependence,opioids);	receive(X,counseling);	\+property(X,complete,taper);	\+property(X,complete,post_medication_follow_up);	P is 0.06;	writenl('Of the 653 outpatients dependent on opioids, 6% were able to stop using opioids afte 2-week treatment with suboxone. (CTN-0030)').
+
+(1-P)::property(X,use,prescription_opioids,n8_weeks) ;	property(X,complete, naloxone_stabilization);	receive(X,counseling);	property(X,location,outpatient);	property(X,dependence,opioids);	property(X,complete,taper);	\+property(X,complete,post_medication_follow_up);	P is 0.492;	writenl('Of the 653 outpatients dependent on opioids, 49.2 % were able to stop using opioids after 12-week treatment with suboxone. (CTN-0030)').
+
+(1-P)::property(X,use,prescription_opioids,n20_weeks) ;	property(X,complete, naloxone_stabilization);	receive(X,counseling);	property(X,location,outpatient);	property(X,dependence,opioids);	property(X,complete,taper);	property(X,complete,post_medication_follow_up);	P is 0.086;	writenl('Of the 653 outpatients dependent on opioids, 8.6 % were able to abstain from opioid use at 8 week follow-up. (CTN-0030)').
+
+P::property(X,decrease,unprotected_sexual_encounters);P::receive(X,hiv_test_results) ;	receive(X,off_site_hiv_testing);	receive(X,treatment_as_usual);	P is 0.5;	writenl('Of 1281 patients with negative or unknown hiv status those who receieved onsite testing were more likely to receive their hiv test results than those who received a referral to offsite testing, but not likely to have fewer episodes of unprotected sexual encounters (CTN-0032)').
+
+P::property(X,decrease,unprotected_sexual_encounters);1.5*P::receive(X,hiv_test_results) ;	(receive(X,hiv_risk_reduction_counseling);receive(X,on_site_hiv_testing));	P is 0.5;	writenl('Of 1281 patients with negative or unknown hiv status those who receieved onsite testing were more likely to receive their hiv test results than those who received a referral to offsite testing, but not likely to have fewer episodes of unprotected sexual encounters (CTN-0032)').
+
+P::property(X, diagnosis, chronic_HCV_infection);P::property(X,diagnosis,acute_HCV_infection) ;	(property(X,ethnicity,black);property(X,ethnicity,latinx));	property(X,use,Y);	illicit_drug(Y);	P is 0.8;	writenl('Accessed CTN-0035').
+
+P::property(X,understand_importance_of,HCV_testing) ;	(property(X,ethnicity,black);property(X,ethnicity,latinx));	property(X,use,Y);	illicit_drug(Y);	lack(X,symptoms);	use(X,illicit_drugs);	P is 0.2;	writenl('Accessed CTN-0035'). 
+
+P::receive(X,HCV_testing) ;	(property(X,ethnicity,black);property(X,ethnicity,latinx));	property(X,diagnosis, HCV);	property(X,use,Y);	illicit_drug(Y);	property(X,mistrust,health_care_providers);	P is 0.3;	writenl('Accessed CTN-0035').
+
+P::property(X,use,Y,during_treatment);P::property(X,use,alcohol,during_treatment) ;	property(X,location,outpatient);	substance(Y);	receive(X,computer_modules);	property(X, use, Y);	receive(X,treatment_as_usual);	P is 0.7;	writenl('507 adult men or women in outpatient treatment for substance use disorder who receive 62 computerized instruction modules decreased substance or alcohol use initially more than those who received therapy as usual (CTN-0044).').
+
+
+P::property(X,use,Y,after_treatment);P::property(X,use,alcohol,after_treatment) ;	property(X,location,outpatient);	receive(X,computer_modules);	property(X, use, Y);	receive(X,treatment_as_usual);	P is 0.5;	writenl('507 adult men or women in outpatient treatment for substance use disorder who receive 62 computerized instruction modules were not more likely to decrease substance or alcohol use than those who received therapy as usual at follow-up (CTN-0044).').
+
+P::property(X,urine_sample,Y,negative,just_after_treatment) ;	stimulant(Y);	(property(X,dependence,cocaine);property(X,dependence,methamphetamine));	property(X,desire,quit_smoking);	(receive(X,treatment_as_usual);receive(X,bupropion));	P is 0.77;	writenl('Adults meeting DSM-IV-TR criteria for cocaine or methamphetamine dependence and interested in quitting smoking were randomized to treatment as usual (TAU) (n=271) or TAU with smoking cessation treatment with burpropion and a nicotine inhaler (n=267). Those who received smoking cessation were not more likely to provide opioid-free samples during treatment (CTN-0046)').
+
+P::property(X,urine_sample,Y,negative,n3_weeks)  ;	stimulant(Y);	(property(X,dependence,cocaine);property(X,dependence,methamphetamine));	property(X,desire,quit_smoking);	receive(X,treatment_as_usual);	P is 0.78, %abstract didn't give number jsut said both groups were equal
+	writenl('Adults meeting DSM-IV-TR criteria for cocaine or methamphetamine dependence and interested in quitting smoking were randomized to treatment as usual (TAU) (n=271) or TAU with smoking cessation treatment with burpropion and a nicotine inhaler (n=267). Those who received smoking cessation were not more likely to provide opioid-free samples at follow-up three weeks after the study (CTN-0046)').
+
+P::property(X,urine_sample,Y,negative,n6_weeks)  ;	stimulant(Y);	(property(X,dependence,cocaine);property(X,dependence,methamphetamine));	property(X,desire,quit_smoking);	receive(X,treatment_as_usual);	P is 0.78, %abstract didn't give number jsut said both groups were equal
+	writenl('Adults meeting DSM-IV-TR criteria for cocaine or methamphetamine dependence and interested in quitting smoking were randomized to treatment as usual (TAU) (n=271) or TAU with smoking cessation treatment with burpropion and a nicotine inhaler (n=267). Those who received smoking cessation were not more likely to provide opioid-free samples at follow-up six weeks after the study (CTN-0046)').
+
+P::property(X,hair_sample,Y,negative) ;	substance(Y);	property(X,dependence,Y);	receive(X,minimal_screening);	P is 0.8;	writenl('Of 1285 patient presenting to Emeregncy Department and then followed-up in an addiction medicine clinic, the rates of positive hair samples for the substances implicated in the use disorder were not different no matter whether the patient received a pamphlet, a pamphlet and telephone follow-up, or a full screening, assessment, and referral. (CTN-0047)').
+
+P::property(X,hair_sample,Y,negative) ;	substance(Y);	property(X,dependence,Y);	(receive(X,minimal_screening),receive(X,telephone_boosters));	P is 0.8;	writenl('Of 1285 patient presenting to Emeregncy Department and then followed-up in an addiction medicine clinic, the rates of positive hair samples for the substances implicated in the use disorder were not different no matter whether the patient received a pamphlet, a pamphlet and telephone follow-up, or a full screening, assessment, and referral. (CTN-0047)').
+
+P::sample(X,hair,_,negative,_) ;	moderate_to_severe_problems_related_to_drug_use(X);	(receive(X,screening_assessment),receive(X,referral_to_treatment));	P is 0.8;	writenl('Of 1285 patient presenting to Emeregncy Department and then followed-up in an addiction medicine clinic, the rates of positive hair samples for the substances implicated in the use disorder were not different no matter whether the patient received a pamphlet, a pamphlet and telephone follow-up, or a full screening, assessment, and referral. (CTN-0047)').
+
+P::property(X,urine_sample,cocaine,positive) ;	property(X,dependence,cocaine);	property(X,gender,male);	property(X,location,inpatient);	(receive(X,buspirone);receive(X,placebo));	P is 0.5;	writenl('Of the 39 men hospitalized with cocaine use disorder, buspirone was no more effect than placebo in decreasing the change of opioid-free urine samples during treatment (CTN-0052)').
+
+P::property(X,urine_sample,cocaine,positive) ;	property(X,dependence,cocaine);	property(X,gender,female);	property(X,location,inpatient);	receive(X,buspirone);	P is 0.8;	writenl('Of the 23 women hospitalized with cocaine use disorder, those who received buspiraon were more likely to have opioid-containing urine samples during treatment than those who did not receive buspirone (CTN-0052)').
+
+P::property(X,urine_sample,cocaine,positive) ;	property(X,dependence,cocaine);	property(X,gender,female);	property(X,location,inpatient);	receive(X,placebo);	P is 0.5;	writenl('Of the 23 women hospitalized with cocaine use disorder, those who received buspiraon were more likely to have opioid-containing urine samples during treatment than those who did not receive buspirone (CTN-0052)').
+
+
+(1-P)::property(X,urine_sample,cannabinoids,positive) ;	property(X,dependence,cannabis);	receive(X,contingency_management);	(receive(X,n_acetylcysteine);receive(X,medical_management));	P is 0.25;	writenl('Among 302 adults with cannabis use disorder, those who received 12-weeks of n-acetylcysteine treatment along with contingency management and counseling as usual were not significantly less likely to demonstrate positive urine screens for cannabis (CTN-0053)').
+
+P::property(X,urine_sample,Y,negative) ;	stimulant(Y);	property(X,dependence,Z);	stimulant(Z);	receive(X,naltrexone);	receive(X,bupropion);	receive(X,medical_management);	P is 11/49, %abstract provides no base rate
+	writenl('Of 49 adults with methamphetamine use disorder, 11 submitted 3/4 urine drug screens negative for amphetamines after treatment with bupropion and injectable naltrexone. (CTN-0054)').
+
+P::receive(X,treatment);(0.88*P)::remain(X,in_treatment);P2::property(X,use,opioid);P3::property(X,use,alcohol);P4::property(X,diagnosis,hiv_viral_suppression) ;	property(X,diagnosis,hiv_infection);	property(X,diagnosis,sud);	receive(X, buprenorphine);	P is 34/51;	P2 is 13/30;	P3 is 6/30;	P4 is 0.8;	writenl('Of 51 hiv+ patients seeking treatment for opioid use disorder (OUD, n=16), alcohol use disorder (AUD, n=27), or both (n=8) those who received buprenorphine improved retention in treatment and decreased alcohol use as compared to those who received only counseling (CTN-0055).').
+
+0.5*P::receive(X,treatment);(0.88*P)::remain(X,in_treatment);P2::property(X,use,opioid);P3::property(X,use,alcohol);P4::property(X,diagnosis,hiv_viral_suppression) ;	property(X,diagnosis,hiv_infection);	property(X,diagnosis,sud);	receive(X,treatment_as_usual);	P is 1;	P2 is 10/30;	P3 is 7/30;	P4 is 0.75;	writenl('Of 51 hiv+ patients seeking treatment for opioid use disorder (OUD, n=16), alcohol use disorder (AUD, n=27), or both (n=8) those who received buprenorphine improved retention in treatment and decreased alcohol use as compared to those who received only counseling (CTN-0055).').	
