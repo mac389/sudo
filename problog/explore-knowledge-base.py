@@ -1,9 +1,30 @@
 import os 
 from pprint import pprint 
 
-kb = open(os.path.join('..','knowledge_base.pl'),'r').read()
-axioms = open(os.path.join('.','amalgamated.axiomata'),'r').read()
+import pandas as pd
+import networkx as nx 
+import matplotlib.pyplot as plt
 
-text = kb + '\n' + axioms
+df = pd.read_csv(os.path.join('.','axiomata-for-uml-analysis.csv'), delimiter='\t')
 
-pprint(text.split('\n\n'))
+'''
+targets = df[['target','label']].copy(deep=True)
+targets.drop_duplicates(subset='target',inplace=True)
+targets['group'] = 'CTN'
+targets['coloring'] = 'black'
+targets.rename(columns={'target':'node'}, inplace=True)
+
+sources = df[['source','label']].copy(deep=True)
+sources.drop_duplicates(subset='source', inplace=True)
+sources['group'] = 'KB'
+sources['coloring'] = 'red'
+sources.rename(columns={'sources':'node'}, inplace= True)
+
+nodes = {**targets.to_dict(orient='index'), **sources.to_dict(orient='index')}
+'''
+g = nx.from_pandas_edgelist(df)
+
+
+#nx.set_node_attributes(g,pd.Series(df.target, index=df.group).to_dict(),'group')
+#nx.draw(g, node_color=[nodes[idx]['coloring'] for idx in g])
+#plt.show()
